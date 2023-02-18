@@ -9,10 +9,11 @@ export const Header = styled(motion.div)`
 export const CardContainer = styled(motion.div)`
   display: flex;
   position: relative;
-  gap: 50px;
-  justify-content: space-evenly;
   top: 50%;
   transform: translateY(-70%);
+  height: 70%;
+  align-items: center;
+  
 `;
 
 export const TitleContainer = styled(motion.div)`
@@ -23,6 +24,7 @@ export const TitleContainer = styled(motion.div)`
 export const CardItem = styled(motion.div)`
   display: flex;
   width: 100%;
+  height: fit-content;
   margin-left: 1rem;
   margin-right: 1rem;
   gap: 24px;
@@ -35,8 +37,10 @@ export const Card = styled(motion.div)<{
   c?: string;
   xMove?: any;
 }>`
-  min-width: 330px;
-  height: 460px;
+  min-width: 200px;
+  width: 330px;
+  max-width: 330px;
+  aspect-ratio: 3 / 4;
   border-radius: 20px;
 
   background-color: ${({ c }) => (c ? c : "#fff")};

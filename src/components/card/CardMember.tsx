@@ -1,15 +1,14 @@
-import {
-  animate,
-  useMotionTemplate,
-  useMotionValue,
-  Variant,
-  Variants,
-} from "framer-motion";
 import React, { useState } from "react";
 import { CardAnimation, Member, HeadMember } from "../../data/aboutData";
 import { H1Roboto } from "../../GlobalStyle";
 import HeaderMember from "../HederLine/HeaderMember";
-import { Card, CardContainer, CardItem, Header, TitleContainer } from "./CardStyle";
+import {
+  Card,
+  CardContainer,
+  CardItem,
+  Header,
+  TitleContainer,
+} from "./CardStyle";
 
 const CardMember = () => {
   const [translateX, setTranslateX] = useState(false);
@@ -37,6 +36,7 @@ const CardMember = () => {
   return (
     <>
       <Header
+        initial={{ display: "absolute" }}
         animate={{
           translateY: translateX ? 0 : -200,
         }}
@@ -44,6 +44,7 @@ const CardMember = () => {
           type: "spring",
           stiffness: 50,
           damping: 6,
+
         }}
       >
         <HeaderMember />
@@ -55,24 +56,24 @@ const CardMember = () => {
         }}
       >
         <TitleContainer>
-        <H1Roboto
-          p="absolute"
-          l="0"
-          variants={MemberVariants}
-          animate="animateMem"
-          exit="exit"
-        >
-          {Member.member1}
-        </H1Roboto>
-        <H1Roboto
-          p="absolute"
-          r="0"
-          variants={MemberVariants}
-          animate="animateBers"
-          exit={{ display: "none" }}
-        >
-          {Member.member2}
-        </H1Roboto>
+          <H1Roboto
+            p="absolute"
+            l="0"
+            variants={MemberVariants}
+            animate="animateMem"
+            exit="exit"
+          >
+            {Member.member1}
+          </H1Roboto>
+          <H1Roboto
+            p="absolute"
+            r="0"
+            variants={MemberVariants}
+            animate="animateBers"
+            exit={{ display: "none" }}
+          >
+            {Member.member2}
+          </H1Roboto>
         </TitleContainer>
         <CardItem>
           {CardAnimation.map((animation, index) => (

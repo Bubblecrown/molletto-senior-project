@@ -10,10 +10,13 @@ export const Section = styled.div`
 `;
 
 export const Container = styled.div`
-  margin: 0 120px;
+  margin: 0 10%;
 `;
 
 export const CardTeam = styled.div`
   height: 100vh;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;

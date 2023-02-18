@@ -104,6 +104,9 @@ export const H1Roboto = styled(motion.h1)<{
   right: ${({ r }) => (r ? r : "")};
   top: ${({ t }) => (t ? t : "50%")};
   /* transform: translate(0, ${({ t }) => (t ? t : "-50%")}); */
+  @media screen and (max-width: 1430px) {
+    top: ${({ r }) => (r ? "100%" : "0")};
+  }
 `;
 
 // end Design System
