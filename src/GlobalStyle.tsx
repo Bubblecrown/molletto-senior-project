@@ -73,13 +73,39 @@ export const SlideOut = styled(motion.div)`
 `;
 
 // Design System
-export const H3Roboto = styled.h3<{ c?: string, m?: string, d?: string }>`
+export const H3Roboto = styled.h3<{ c?: string; m?: string; d?: string }>`
   font-family: ${roboto};
   font-size: 1rem;
-  color: ${({c})=> (c? c : '#fff')};
-  margin: ${({m})=>(m? m : '0 0 -26px 0')};
-  display: ${({d})=>(d? d : 'flex')};
-`
+  color: ${({ c }) => (c ? c : "#fff")};
+  margin: ${({ m }) => (m ? m : "0 0 -26px 0")};
+  display: ${({ d }) => (d ? d : "flex")};
+`;
+
+export const H1Roboto = styled(motion.h1)<{
+  c?: string;
+  m?: string;
+  d?: string;
+  p?: string;
+  l?: string;
+  r?: string;
+  t?: string;
+}>`
+  font-family: ${roboto};
+  font-weight: 800;
+  font-size: 8rem;
+  line-height: 150%;
+  letter-spacing: 0.7rem;
+  text-transform: uppercase;
+  color: ${({ c }) => (c ? c : "#fff")};
+  margin: ${({ m }) => (m ? m : "0 0 -26px 0")};
+  display: ${({ d }) => (d ? d : "flex")};
+  position: ${({ p }) => (p ? p : "")};
+  left: ${({ l }) => (l ? l : "")};
+  right: ${({ r }) => (r ? r : "")};
+  top: ${({ t }) => (t ? t : "50%")};
+  /* transform: translate(0, ${({ t }) => (t ? t : "-50%")}); */
+`;
+
 // end Design System
 
 export default GlobalStyles;

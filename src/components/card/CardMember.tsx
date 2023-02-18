@@ -6,59 +6,93 @@ import {
   Variants,
 } from "framer-motion";
 import React, { useState } from "react";
-import { Card, CardContainer } from "./CardStyle";
+import { CardAnimation, Member, HeadMember } from "../../data/aboutData";
+import { H1Roboto } from "../../GlobalStyle";
+import HeaderMember from "../HederLine/HeaderMember";
+import { Card, CardContainer, CardItem, Header, TitleContainer } from "./CardStyle";
 
 const CardMember = () => {
   const [translateX, setTranslateX] = useState(false);
-  const variants: Variants = {
-    animate: (xMove)=> {
-      translateX: translateX ? 0 : 360,
-      translateY: 45,
-      rotate: -2.24,
-      zIndex: 2,
+  const MemberVariants = {
+    animateMem: {
+      translateX: translateX ? "-200%" : 0,
+      translateY: "-50%",
+      transition: {
+        type: "spring",
+        stiffness: 50,
+        damping: 6,
+      },
     },
+    animateBers: {
+      translateX: translateX ? "200%" : 0,
+      translateY: "-50%",
+      transition: {
+        type: "spring",
+        stiffness: 50,
+        damping: 6,
+      },
+    },
+    exit: { display: "none" },
   };
   return (
     <>
+      <Header
+        animate={{
+          translateY: translateX ? 0 : -200,
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 50,
+          damping: 6,
+        }}
+      >
+        <HeaderMember />
+      </Header>
+
       <CardContainer
         onClick={() => {
           setTranslateX(!translateX);
         }}
       >
-        <Card
-          y="20"
-          c="#92E5FF"
-          custom={xMove}
-          variants={variants}
-          animate={{
-            translateX: translateX ? 0 : 360,
-            translateY: 45,
-            rotate: -2.24,
-            zIndex: 2,
-          }}
-          transition={{ type: "spring", stiffness: 400, damping: 17 }}
-        ></Card>
-
-        <Card
-          radius="-0.07"
-          c="#FF92B9"
-          animate={{
-            translateY: translateX ? 20 : 0,
-            rotate: -0.07,
-          }}
-          transition={{ type: "spring", stiffness: 400, damping: 17 }}
-        ></Card>
-        <Card
-          radius="5.48"
-          y="10"
-          c="#92FFCA"
-          animate={{
-            translateX: translateX ? 0 : -360,
-            translateY: 25,
-            rotate: 5.48,
-          }}
-          transition={{ type: "spring", stiffness: 400, damping: 17 }}
-        ></Card>
+        <TitleContainer>
+        <H1Roboto
+          p="absolute"
+          l="0"
+          variants={MemberVariants}
+          animate="animateMem"
+          exit="exit"
+        >
+          {Member.member1}
+        </H1Roboto>
+        <H1Roboto
+          p="absolute"
+          r="0"
+          variants={MemberVariants}
+          animate="animateBers"
+          exit={{ display: "none" }}
+        >
+          {Member.member2}
+        </H1Roboto>
+        </TitleContainer>
+        <CardItem>
+          {CardAnimation.map((animation, index) => (
+            <Card
+              key={index}
+              c={animation.color}
+              animate={{
+                translateX: translateX ? animation.xMove : animation.xOrigin,
+                translateY: translateX ? animation.yMove : animation.yOrigin,
+                rotate: animation.rotate,
+                zIndex: animation.zIndex,
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 50,
+                damping: 6,
+              }}
+            ></Card>
+          ))}
+        </CardItem>
       </CardContainer>
     </>
   );

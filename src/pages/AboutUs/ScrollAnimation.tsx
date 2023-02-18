@@ -1,10 +1,12 @@
 import { Animator, ScrollContainer } from "react-scroll-motion";
 import {
   batch,
+  Fade,
   MoveIn,
   Sticky,
 } from "react-scroll-motion/dist/animations";
 import ScrollPage from "react-scroll-motion/dist/ScrollPage";
+import AboutUs from "./AboutUs";
 
 const ScrollAnimation = () => {
   return (
@@ -26,16 +28,7 @@ const ScrollAnimation = () => {
         </ScrollPage>
         <ScrollPage>
           <Animator animation={batch(Sticky(), MoveIn(0, -2000))}>
-            <h1
-              style={{
-                fontSize: 50,
-                backgroundColor: "green",
-                height: "100vh",
-                width: "100vw",
-              }}
-            >
-              Team
-            </h1>
+            <AboutUs />
           </Animator>
         </ScrollPage>
       </ScrollContainer>

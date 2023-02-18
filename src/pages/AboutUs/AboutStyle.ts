@@ -6,16 +6,14 @@ export const Section = styled.div`
   height: 100vh;
   width: 100vw;
   font-size: ${roboto};
+  overflow: hidden;
 `;
 
 export const Container = styled.div`
   margin: 0 120px;
 `;
 
-export const Header = styled.div`
-  padding-top: 20px;
-`;
-
 export const CardTeam = styled.div`
-  margin-top: 75px;
+  height: 100vh;
+  position: relative;
 `;

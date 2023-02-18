@@ -5,14 +5,14 @@ import { Route, Routes, useLocation } from "react-router";
 import About from "./About";
 import Home from "./Home";
 import AboutUs from "./pages/AboutUs/AboutUs";
-import ScrollAnimation from "./ScrollAnimation";
+import ScrollAnimation from "./pages/AboutUs/ScrollAnimation";
 
 const TransitionRoute = () => {
   const location = useLocation();
   return (
-    <AnimatePresence initial={false} onExitComplete={()=>null}>
+    <AnimatePresence initial={false} onExitComplete={() => null}>
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<AboutUs />} />
+        <Route path="/" element={<ScrollAnimation />} />
         <Route path="/scroll" element={<ScrollAnimation />} />
         <Route path="/about" element={<About />} />
       </Routes>
