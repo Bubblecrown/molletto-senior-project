@@ -1,8 +1,5 @@
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import React, { useEffect, useRef } from "react";
 
-import AboutTransition from "./AboutTransition";
+
 import { Container, Container1, Container2 } from "./GlobalStyle";
 
 const Home = () => {

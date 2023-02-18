@@ -1,4 +1,5 @@
 import React from "react";
+import CardMember from "../../components/card/CardMember";
 import HeaderMember from "../../components/HederLine/HeaderMember";
 import { CardTeam, Container, Header, Section } from "./AboutStyle";
 
@@ -11,7 +12,7 @@ const AboutUs = () => {
             <HeaderMember />
           </Header>
           <CardTeam>
-            
+            <CardMember />
           </CardTeam>
         </Container>
       </Section>

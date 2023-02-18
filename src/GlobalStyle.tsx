@@ -72,6 +72,14 @@ export const SlideOut = styled(motion.div)`
   transform-origin: bottom;
 `;
 
-
+// Design System
+export const H3Roboto = styled.h3<{ c?: string, m?: string, d?: string }>`
+  font-family: ${roboto};
+  font-size: 1rem;
+  color: ${({c})=> (c? c : '#fff')};
+  margin: ${({m})=>(m? m : '0 0 -26px 0')};
+  display: ${({d})=>(d? d : 'flex')};
+`
+// end Design System
 
 export default GlobalStyles;

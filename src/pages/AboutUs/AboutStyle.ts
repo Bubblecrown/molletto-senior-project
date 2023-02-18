@@ -17,5 +17,5 @@ export const Header = styled.div`
 `;
 
 export const CardTeam = styled.div`
-  margin: 0 120px;
+  margin-top: 75px;
 `;
