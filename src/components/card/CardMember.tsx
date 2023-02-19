@@ -1,17 +1,15 @@
-import React, { useState } from "react";
 import { CardAnimation, Member, HeadMember } from "../../data/aboutData";
 import { H1Roboto } from "../../GlobalStyle";
-import HeaderMember from "../HederLine/HeaderMember";
-import {
-  Card,
-  CardContainer,
-  CardItem,
-  Header,
-  TitleContainer,
-} from "./CardStyle";
+import { useSelector, useDispatch } from "react-redux";
+import { Card, CardContainer, CardItem, TitleContainer } from "./CardStyle";
+import { setActiveCard } from "../../slices/CardSlice";
+import { RootState } from "../../app/store";
 
 const CardMember = () => {
-  const [translateX, setTranslateX] = useState(false);
+  const dispatch = useDispatch();
+  const translateX = useSelector(
+    (state: RootState) => state.activeCard.translateX
+  );
   const MemberVariants = {
     animateMem: {
       translateX: translateX ? "-200%" : 0,
@@ -35,26 +33,7 @@ const CardMember = () => {
   };
   return (
     <>
-      <Header
-        initial={{ display: "absolute" }}
-        animate={{
-          translateY: translateX ? 0 : -200,
-        }}
-        transition={{
-          type: "spring",
-          stiffness: 50,
-          damping: 6,
-
-        }}
-      >
-        <HeaderMember />
-      </Header>
-
-      <CardContainer
-        onClick={() => {
-          setTranslateX(!translateX);
-        }}
-      >
+      <CardContainer onClick={() => dispatch(setActiveCard())}>
         <TitleContainer>
           <H1Roboto
             p="absolute"

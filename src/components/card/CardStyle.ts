@@ -1,10 +1,6 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const Header = styled(motion.div)`
-  padding-top: 30px;
-  /* padding-bottom: 75px; */
-`;
 
 export const CardContainer = styled(motion.div)`
   display: flex;
