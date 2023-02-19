@@ -14,8 +14,14 @@ export const Container = styled.div`
   margin: 0 10%;
 `;
 
+export const HeaderBar = styled(motion.div)`
+  position: relative;
+`;
 export const Header = styled(motion.div)`
+  position: absolute;
   padding-top: 30px;
+  left: 0;
+  right: 0;
   /* padding-bottom: 75px; */
 `;
 

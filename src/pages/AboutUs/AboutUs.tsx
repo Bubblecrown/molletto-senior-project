@@ -1,20 +1,22 @@
 import { useSelector } from "react-redux";
 import CardMember from "../../components/card/CardMember";
 import HeaderMember from "../../components/HederLine/HeaderMember";
-import { CardTeam, Container, Header, Section } from "./AboutStyle";
-import {RootState} from '../../app/store'
+import { CardTeam, Container, Header, HeaderBar, Section } from "./AboutStyle";
+import { RootState } from "../../app/store";
 const AboutUs = () => {
-  const translateX = useSelector((state: RootState) => state.activeCard.translateX);
-  
+  const translateX = useSelector(
+    (state: RootState) => state.activeCard.translateX
+  );
+
   return (
     <>
       <Section>
         <Container>
-          <CardTeam>
+          <HeaderBar>
             <Header
-              initial={{ display: "absolute" }}
               animate={{
                 translateY: translateX ? 0 : -200,
+                display:'absolute'
               }}
               transition={{
                 type: "spring",
@@ -24,7 +26,8 @@ const AboutUs = () => {
             >
               <HeaderMember />
             </Header>
-
+          </HeaderBar>
+          <CardTeam>
             <CardMember />
           </CardTeam>
         </Container>
