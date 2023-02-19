@@ -1,15 +1,32 @@
-import { CardAnimation, Member, HeadMember } from "../../data/aboutData";
+import {
+  Member,
+  CardAnimationSmall,
+  CardAnimationLarge,
+  CardAnimationMedium,
+  CardAnimationTablet,
+} from "../../data/aboutData";
 import { H1Roboto } from "../../GlobalStyle";
 import { useSelector, useDispatch } from "react-redux";
 import { Card, CardContainer, CardItem, TitleContainer } from "./CardStyle";
 import { setActiveCard } from "../../slices/CardSlice";
 import { RootState } from "../../app/store";
+import { useIsMedium, useIsSmall, useTablet } from "../../hooks/useMediaQuery";
 
 const CardMember = () => {
   const dispatch = useDispatch();
   const translateX = useSelector(
     (state: RootState) => state.activeCard.translateX
   );
+  const isSmall = useIsSmall();
+  const isTablet = useTablet();
+  const isMedium = useIsMedium();
+
+  const CardAnimation = isSmall
+    ? CardAnimationSmall
+    : isTablet
+    ? CardAnimationTablet
+    : isMedium ? CardAnimationMedium : CardAnimationLarge;
+
   const MemberVariants = {
     animateMem: {
       translateX: translateX ? "-200%" : 0,
@@ -29,8 +46,8 @@ const CardMember = () => {
         damping: 6,
       },
     },
-    exit: { display: "none" },
   };
+
   return (
     <>
       <CardContainer onClick={() => dispatch(setActiveCard())}>

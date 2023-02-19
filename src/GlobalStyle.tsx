@@ -18,7 +18,8 @@ const GlobalStyles = createGlobalStyle`
     }
 
     html, body, #root {
-        height: 100vh;
+      min-height: 100vh;
+        height: auto;
         width: 100vw;
         margin: 0;
         box-sizing: border-box;

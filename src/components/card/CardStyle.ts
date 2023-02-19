@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-
 export const CardContainer = styled(motion.div)`
   display: flex;
   position: relative;
@@ -9,7 +8,7 @@ export const CardContainer = styled(motion.div)`
   transform: translateY(-70%);
   height: 70%;
   align-items: center;
-  
+  justify-content: center;
 `;
 
 export const TitleContainer = styled(motion.div)`
@@ -19,6 +18,7 @@ export const TitleContainer = styled(motion.div)`
 
 export const CardItem = styled(motion.div)`
   display: flex;
+  min-width: auto;
   width: 100%;
   height: fit-content;
   margin-left: 1rem;

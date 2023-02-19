@@ -4,14 +4,16 @@ import { roboto } from "../../GlobalStyle";
 
 export const Section = styled.div`
   background-color: #d9d9d9;
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   font-size: ${roboto};
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
 `;
 
 export const Container = styled.div`
   margin: 0 10%;
+  height: 100%;
 `;
 
 export const HeaderBar = styled(motion.div)`
