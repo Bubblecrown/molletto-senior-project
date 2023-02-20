@@ -1,5 +1,5 @@
 import { Transition } from "framer-motion";
-import molettoLogo from "../assets/moletto.png";
+import LogoTitle from "../assets/LogoTitle.png";
 import { useIsSmall } from "../hooks/useMediaQuery";
 
 export const HeadMember: { imgPath: string; imageAlt: string; title: string } =
@@ -15,12 +15,24 @@ export const Member: { member1: string; member2: string } = {
   member2: "bers",
 };
 
-export const AboutMainData: { aboutDescription: string; aboutTitle: string[] } =
-  {
-    aboutDescription:
-      "We are a triplet team who are interested in website and 3D animation",
-    aboutTitle: ["DEVERLOPER", "DESIGNER", "CONCEPT ART"],
-  };
+export const AboutMainData: {
+  aboutDescription: string;
+  aboutTitle: string[];
+  aboutSubTitle: string;
+  LogoImage: string;
+  LogoImageAlt: string;
+  AboutMainDescription: string;
+} = {
+  aboutDescription:
+    "We are a triplet team who are interested in website and 3D animation",
+  aboutTitle: ["DEVERLOPER", "DESIGNER", "CONCEPT ART"],
+  aboutSubTitle: "ABOUT",
+  LogoImage:
+    "https://gateway.pinata.cloud/ipfs/QmYTou7a1HrVncaqiWxoBBmhVPSsDe6NBfAAB2q8tJehsZ",
+  LogoImageAlt: "Logo",
+  AboutMainDescription:
+    "A senior project for apply computer science - multimedia students of King Mongkut’s University of Technology Thonburi",
+};
 
 export const CardAnimationLarge: {
   color?: string;

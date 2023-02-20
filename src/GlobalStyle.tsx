@@ -20,7 +20,7 @@ const GlobalStyles = createGlobalStyle`
     html, body, #root {
       min-height: 100vh;
         height: auto;
-        width: 100vw;
+        width: 100%;
         margin: 0;
         box-sizing: border-box;
         padding: 0;
@@ -74,20 +74,6 @@ export const SlideOut = styled(motion.div)`
 `;
 
 // Design System
-export const H3Roboto = styled.h3<{ c?: string; m?: string; d?: string }>`
-  font-family: ${roboto};
-  font-size: clamp(0.25rem, 5vw, 1rem);
-  width: 15vw;
-  color: ${({ c }) => (c ? c : "#fff")};
-  margin: ${({ m }) => (m ? m : "0 0 -26px 0")};
-  display: ${({ d }) => (d ? d : "flex")};
-  @media only screen and (max-width:800px) {
-    width: 10vw;
-  }
-  @media only screen and (min-width: 801px) and (max-width: 900px) {
-    width: 20vw;
-  }
-`;
 
 export const H1Roboto = styled(motion.h1)<{
   c?: string;
@@ -106,7 +92,7 @@ export const H1Roboto = styled(motion.h1)<{
   text-transform: uppercase;
   color: ${({ c }) => (c ? c : "#fff")};
   margin: ${({ m }) => (m ? m : "0 0 -26px 0")};
-  display: ${({ d }) => (d ? d : "flex")};
+  display: ${({ d }) => (d ? d : "block")};
   position: ${({ p }) => (p ? p : "")};
   left: ${({ l }) => (l ? l : "")};
   right: ${({ r }) => (r ? r : "")};
@@ -117,15 +103,76 @@ export const H1Roboto = styled(motion.h1)<{
   }
 `;
 
-// English font
-export const H4Eng = styled.h4<{ c?: string; m?: string; d?: string }>`
-  font-family: ${engfont};
-  font-size: 1.25rem;
-  font-weight: 600;
-  line-height: 9.375rem;
+export const H3Roboto = styled.h3<{ c?: string; m?: string; d?: string }>`
+  font-family: ${roboto};
+  font-size: clamp(0.25rem, 5vw, 1rem);
+  width: 15vw;
   color: ${({ c }) => (c ? c : "#fff")};
   margin: ${({ m }) => (m ? m : "0 0 -26px 0")};
   display: ${({ d }) => (d ? d : "flex")};
+  @media only screen and (max-width: 800px) {
+    width: 10vw;
+  }
+  @media only screen and (min-width: 801px) and (max-width: 900px) {
+    width: 20vw;
+  }
+`;
+
+// English font
+export const H2Eng = styled.h2<{ c?: string; m?: string; d?: string }>`
+  font-family: ${engfont};
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: ${({ c }) => (c ? c : "#fff")};
+  margin: ${({ m }) => (m ? m : "0")};
+  display: ${({ d }) => (d ? d : "block")};
+`;
+
+export const H3Eng = styled.h3<{
+  c?: string;
+  m?: string;
+  d?: string;
+  mw?: string;
+  align?: string;
+}>`
+  font-family: ${engfont};
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  line-height: 2rem;
+  color: ${({ c }) => (c ? c : "#fff")};
+  text-align: ${({ align }) => (align ? align : "center")};
+  margin: ${({ m }) => (m ? m : "0")};
+  display: ${({ d }) => (d ? d : "block")};
+  max-width: ${({ mw }) => (mw ? mw : "auto")};
+`;
+
+export const H4Eng = styled.h4<{ c?: string; m?: string; d?: string }>`
+  font-family: ${engfont};
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 9.375rem;
+  color: ${({ c }) => (c ? c : "#fff")};
+  margin: ${({ m }) => (m ? m : "0")};
+  display: ${({ d }) => (d ? d : "block")};
+`;
+
+export const H5Eng = styled.h5<{
+  c?: string;
+  m?: string;
+  d?: string;
+  mw?: string;
+}>`
+  font-family: ${engfont};
+  font-size: 0.78rem;
+  font-weight: 100;
+  line-height: 1.406rem;
+  text-transform: uppercase;
+  letter-spacing: 0.088rem;
+  color: ${({ c }) => (c ? c : "#fff")};
+  margin: ${({ m }) => (m ? m : "0")};
+  display: ${({ d }) => (d ? d : "block")};
+  max-width: ${({ mw }) => (mw ? mw : "auto")};
 `;
 
 // end Design System

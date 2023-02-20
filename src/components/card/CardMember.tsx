@@ -25,7 +25,9 @@ const CardMember = () => {
     ? CardAnimationSmall
     : isTablet
     ? CardAnimationTablet
-    : isMedium ? CardAnimationMedium : CardAnimationLarge;
+    : isMedium
+    ? CardAnimationMedium
+    : CardAnimationLarge;
 
   const MemberVariants = {
     animateMem: {
@@ -64,6 +66,7 @@ const CardMember = () => {
           <H1Roboto
             p="absolute"
             r="0"
+            d="flex"
             variants={MemberVariants}
             animate="animateBers"
             exit={{ display: "none" }}

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { roboto } from "../../GlobalStyle";
 
 // Shared
-export const Section = styled.body<{ c?: string }>`
+export const Section = styled.div<{ c?: string }>`
   background-color: ${({ c }) => (c ? c : "#d9d9d9")};
   height: 100%;
   width: 100vw;
@@ -14,7 +14,7 @@ export const Section = styled.body<{ c?: string }>`
 
 export const Container = styled.div`
   margin: 0 5%;
-  height: 100%;
+  height: 100vh;
   @media only screen and (min-width: 1920px) {
     margin: 0 15%;
   }
@@ -51,14 +51,61 @@ export const CardTeam = styled.div`
 export const AboutMainContainer = styled.div`
   position: relative;
   width: 100%;
+  height: 100%;
+`;
+export const HeaderAboutMain = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 17%;
+`;
+export const AboutLogo = styled.div`
+  display: flex;
+  flex-grow: 1;
+  flex-basis: 0;
+  justify-content: center;
+`;
+export const AboutDescription = styled.div`
+  flex-grow: 1;
+  flex-basis: 0;
+`;
+export const AboutTitle = styled.div`
+  display: flex;
+  flex-grow: 1;
+  flex-basis: 0;
+  justify-content: space-between;
+`;
+export const BodyAboutMain = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
+
+export const BodyAboutContainer = styled.div`
+  width: 100%;
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+`;
+
+export const AboutSubTitle = styled.div``;
+export const AboutMainTitle = styled.div`
+  text-align: center;
+`;
+export const SubLogo = styled.img`
+  width: 500px;
   height: auto;
 `;
-export const HeaderAboutMain = styled.div``;
-export const AboutDescription = styled.div``;
-export const AboutTitle = styled.div``;
-export const BodyAboutMain = styled.div``;
-export const AboutSubTitle = styled.div``;
-export const AboutMainTitle = styled.div``;
-export const AboutMainDescription = styled.div``;
+
+export const AboutMainDescription = styled.div`
+  text-align: center;
+`;
 export const AboutHangingLine = styled.div``;
 // end about main
