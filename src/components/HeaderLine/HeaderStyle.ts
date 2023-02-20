@@ -24,6 +24,7 @@ export const Line = styled.div`
   }
 `;
 
+
 export const Logo = styled.img`
   background-color: #d9d9d9;
   position: sticky;
@@ -31,8 +32,4 @@ export const Logo = styled.img`
   padding: 0 20px;
   max-width: 120px;
 `;
-export const SpanText = styled.div`
-  background-color: #d9d9d9;
-  z-index: 2;
-  height: 100%;
-`;
+export const SpanText = styled.div``;

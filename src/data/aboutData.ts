@@ -15,6 +15,13 @@ export const Member: { member1: string; member2: string } = {
   member2: "bers",
 };
 
+export const AboutMainData: { aboutDescription: string; aboutTitle: string[] } =
+  {
+    aboutDescription:
+      "We are a triplet team who are interested in website and 3D animation",
+    aboutTitle: ["DEVERLOPER", "DESIGNER", "CONCEPT ART"],
+  };
+
 export const CardAnimationLarge: {
   color?: string;
   xOrigin?: string;
@@ -27,7 +34,7 @@ export const CardAnimationLarge: {
 }[] = [
   {
     color: "#92E5FF",
-    xOrigin: "100%",
+    xOrigin: "110%",
     xMove: 0,
     yOrigin: 20,
     yMove: 45,
@@ -42,7 +49,7 @@ export const CardAnimationLarge: {
   },
   {
     color: "#92FFCA",
-    xOrigin: "-100%",
+    xOrigin: "-110%",
     xMove: 0,
     yMove: 25,
     rotate: 5.48,

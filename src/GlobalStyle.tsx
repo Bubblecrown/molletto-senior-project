@@ -76,10 +76,17 @@ export const SlideOut = styled(motion.div)`
 // Design System
 export const H3Roboto = styled.h3<{ c?: string; m?: string; d?: string }>`
   font-family: ${roboto};
-  font-size: 1rem;
+  font-size: clamp(0.25rem, 5vw, 1rem);
+  width: 15vw;
   color: ${({ c }) => (c ? c : "#fff")};
   margin: ${({ m }) => (m ? m : "0 0 -26px 0")};
   display: ${({ d }) => (d ? d : "flex")};
+  @media only screen and (max-width:800px) {
+    width: 10vw;
+  }
+  @media only screen and (min-width: 801px) and (max-width: 900px) {
+    width: 20vw;
+  }
 `;
 
 export const H1Roboto = styled(motion.h1)<{
@@ -108,6 +115,17 @@ export const H1Roboto = styled(motion.h1)<{
   @media screen and (max-width: 1430px) {
     top: ${({ r }) => (r ? "100%" : "0")};
   }
+`;
+
+// English font
+export const H4Eng = styled.h4<{ c?: string; m?: string; d?: string }>`
+  font-family: ${engfont};
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 9.375rem;
+  color: ${({ c }) => (c ? c : "#fff")};
+  margin: ${({ m }) => (m ? m : "0 0 -26px 0")};
+  display: ${({ d }) => (d ? d : "flex")};
 `;
 
 // end Design System

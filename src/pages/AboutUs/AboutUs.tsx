@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import CardMember from "../../components/card/CardMember";
-import HeaderMember from "../../components/HederLine/HeaderMember";
+import HeaderMember from "../../components/HeaderLine/HeaderMember";
 import { CardTeam, Container, Header, HeaderBar, Section } from "./AboutStyle";
 import { RootState } from "../../app/store";
 const AboutUs = () => {

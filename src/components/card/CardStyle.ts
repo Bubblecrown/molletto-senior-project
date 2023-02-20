@@ -25,6 +25,14 @@ export const CardItem = styled(motion.div)`
   margin-right: 1rem;
   gap: 24px;
   justify-content: space-evenly;
+
+  @media only screen and (max-width: 480px) {
+    padding-top: 5rem;
+    z-index: 4;
+  }
+  @media only screen and (max-width: 900px) {
+    z-index: 4;
+  }
 `;
 
 export const Card = styled(motion.div)<{

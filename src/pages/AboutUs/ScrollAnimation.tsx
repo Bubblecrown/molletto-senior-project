@@ -6,6 +6,7 @@ import {
   Sticky,
 } from "react-scroll-motion/dist/animations";
 import ScrollPage from "react-scroll-motion/dist/ScrollPage";
+import AboutMain from "./AboutMain";
 import AboutUs from "./AboutUs";
 
 const ScrollAnimation = () => {
@@ -14,16 +15,7 @@ const ScrollAnimation = () => {
       <ScrollContainer>
         <ScrollPage>
           <Animator animation={batch(Sticky())}>
-            <h1
-              style={{
-                fontSize: 50,
-                backgroundColor: "red",
-                height: "100vh",
-                width: "100vw",
-              }}
-            >
-              About
-            </h1>
+            <AboutMain/>
           </Animator>
         </ScrollPage>
         <ScrollPage>
