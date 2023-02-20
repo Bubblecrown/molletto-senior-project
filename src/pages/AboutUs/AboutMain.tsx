@@ -17,6 +17,7 @@ import {
   AboutLogo,
   SubLogo,
   BodyAboutContainer,
+  AboutTitleContainer,
 } from "./AboutStyle";
 
 const AboutMain = () => {
@@ -37,9 +38,10 @@ const AboutMain = () => {
               ></Logo>
             </AboutLogo>
             <AboutTitle>
+              <AboutTitleContainer>
               {AboutMainData.aboutTitle.map((title) => (
                 <H4Eng key={title}>{title}</H4Eng>
-              ))}
+              ))}</AboutTitleContainer>
             </AboutTitle>
           </HeaderAboutMain>
           {/* end Header */}

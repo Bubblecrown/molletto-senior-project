@@ -74,7 +74,12 @@ export const AboutTitle = styled.div`
   display: flex;
   flex-grow: 1;
   flex-basis: 0;
-  justify-content: space-between;
+  justify-content: flex-end;
+`;
+
+export const AboutTitleContainer = styled.div`
+  display: flex;
+  gap: 50px;
 `;
 export const BodyAboutMain = styled.div`
   display: flex;
