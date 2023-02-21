@@ -1,6 +1,5 @@
 import { Transition } from "framer-motion";
 import LogoTitle from "../assets/LogoTitle.png";
-import { useIsSmall } from "../hooks/useMediaQuery";
 
 export const HeadMember: { imgPath: string; imageAlt: string; title: string } =
   {
@@ -9,6 +8,10 @@ export const HeadMember: { imgPath: string; imageAlt: string; title: string } =
     imageAlt: "moletto-logo",
     title: "Moletto’s Members",
   };
+
+export const Prompt: { scrolltitle: string } = {
+  scrolltitle: "scrolling for see members",
+};
 
 export const Member: { member1: string; member2: string } = {
   member1: "'mem",
@@ -22,6 +25,9 @@ export const AboutMainData: {
   LogoImage: string;
   LogoImageAlt: string;
   AboutMainDescription: string;
+  MobileDescription: string;
+  Line:string;
+  LineAlt:string
 } = {
   aboutDescription:
     "We are a triplet team who are interested in website and 3D animation",
@@ -32,6 +38,10 @@ export const AboutMainData: {
   LogoImageAlt: "Logo",
   AboutMainDescription:
     "A senior project for apply computer science - multimedia students of King Mongkut’s University of Technology Thonburi",
+  MobileDescription:
+    "https://gateway.pinata.cloud/ipfs/QmNS5q87TEB9YMbfDne7ZPkPMdM1BKyiTffxtHMUz6Bj1u",
+  Line:"https://gateway.pinata.cloud/ipfs/QmbjbdqSLsgzCS4pDa7QVsYnpFf28t4c527WbNcRcGkSEf",
+  LineAlt: "Line taped to see members"
 };
 
 export const CardAnimationLarge: {

@@ -59,12 +59,21 @@ export const HeaderAboutMain = styled.div`
   justify-content: space-between;
   align-items: center;
   max-height: 17%;
+  padding-top: 2%;
+  @media only screen and (max-width: 1100px) {
+    padding-top: 5%;
+  }
 `;
 export const AboutLogo = styled.div`
   display: flex;
   flex-grow: 1;
   flex-basis: 0;
   justify-content: center;
+  @media only screen and (max-width: 1100px) {
+    justify-content: flex-start;
+    flex-grow: 0;
+    padding-right: 5%;
+  }
 `;
 export const AboutDescription = styled.div`
   flex-grow: 1;
@@ -74,13 +83,10 @@ export const AboutTitle = styled.div`
   display: flex;
   flex-grow: 1;
   flex-basis: 0;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: space-between;
 `;
 
-export const AboutTitleContainer = styled.div`
-  display: flex;
-  gap: 50px;
-`;
 export const BodyAboutMain = styled.div`
   display: flex;
   justify-content: center;
@@ -89,7 +95,10 @@ export const BodyAboutMain = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
+
   transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 100%;
 `;
 
 export const BodyAboutContainer = styled.div`
@@ -100,17 +109,39 @@ export const BodyAboutContainer = styled.div`
   gap: 24px;
 `;
 
-export const AboutSubTitle = styled.div``;
+export const AboutSubTitle = styled.div`
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+`;
 export const AboutMainTitle = styled.div`
   text-align: center;
 `;
 export const SubLogo = styled.img`
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
   height: auto;
+`;
+export const AboutMobileDescription = styled.img`
+  text-align: center;
+  max-width: 107.64px;
+  max-height: 71.61px;
 `;
 
 export const AboutMainDescription = styled.div`
   text-align: center;
 `;
-export const AboutHangingLine = styled.div``;
+export const AboutHangingLine = styled.div`
+  position: absolute;
+  top: 0;
+  right: 20%;
+  @media only screen and (max-width: 900px) {
+    display: none;
+  }
+`;
+export const AboutLine = styled.img`
+  max-height: 90vh;
+  width: auto;
+`;
+
 // end about main

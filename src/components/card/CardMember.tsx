@@ -11,6 +11,7 @@ import { Card, CardContainer, CardItem, TitleContainer } from "./CardStyle";
 import { setActiveCard } from "../../slices/CardSlice";
 import { RootState } from "../../app/store";
 import { useIsMedium, useIsSmall, useTablet } from "../../hooks/useMediaQuery";
+import ScrollPrompt from "../Prompt/ScrollPrompt";
 
 const CardMember = () => {
   const dispatch = useDispatch();
@@ -31,8 +32,8 @@ const CardMember = () => {
 
   const MemberVariants = {
     animateMem: {
-      translateX: translateX ? "-200%" : 0,
-      translateY: "-50%",
+      x: translateX ? "-200%" : 0,
+      y: "-50%",
       transition: {
         type: "spring",
         stiffness: 50,
@@ -40,8 +41,8 @@ const CardMember = () => {
       },
     },
     animateBers: {
-      translateX: translateX ? "200%" : 0,
-      translateY: "-50%",
+      x: translateX ? "200%" : 0,
+      y: "-50%",
       transition: {
         type: "spring",
         stiffness: 50,
@@ -80,8 +81,8 @@ const CardMember = () => {
               key={index}
               c={animation.color}
               animate={{
-                translateX: translateX ? animation.xMove : animation.xOrigin,
-                translateY: translateX ? animation.yMove : animation.yOrigin,
+                x: translateX ? animation.xMove : animation.xOrigin,
+                y: translateX ? animation.yMove : animation.yOrigin,
                 rotate: animation.rotate,
                 zIndex: animation.zIndex,
               }}
@@ -93,6 +94,7 @@ const CardMember = () => {
             ></Card>
           ))}
         </CardItem>
+
       </CardContainer>
     </>
   );

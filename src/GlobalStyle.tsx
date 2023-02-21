@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 export const santhai = "'Noto Sans Thai', sans-serif";
 export const roboto = "'Roboto', sans-serif";
 export const engfont = "'Noto Sans', sans-serif";
+export const guildaFont = "'Gilda Display', serif";
 // end Font
 
 const GlobalStyles = createGlobalStyle`
@@ -121,11 +122,11 @@ export const H3Roboto = styled.h3<{ c?: string; m?: string; d?: string }>`
 // English font
 export const H2Eng = styled.h2<{ c?: string; m?: string; d?: string }>`
   font-family: ${engfont};
-  font-size: 1.75rem;
+  font-size: clamp(0.75rem, 5vw, 1.75rem);
   font-weight: 700;
   color: ${({ c }) => (c ? c : "#fff")};
   margin: ${({ m }) => (m ? m : "0")};
-  display: ${({ d }) => (d ? d : "block")};
+  display: ${({ d }) => (d ? d : "inline")};
 `;
 
 export const H3Eng = styled.h3<{
@@ -136,10 +137,10 @@ export const H3Eng = styled.h3<{
   align?: string;
 }>`
   font-family: ${engfont};
-  font-size: 1.3rem;
+  font-size: clamp(0.75rem, 3vw, 1.1rem);
   font-weight: 400;
   letter-spacing: -0.022em;
-  line-height: 2rem;
+  line-height: clamp(1.2rem, 3vw, 2rem);
   color: ${({ c }) => (c ? c : "#fff")};
   text-align: ${({ align }) => (align ? align : "center")};
   margin: ${({ m }) => (m ? m : "0")};
@@ -149,9 +150,8 @@ export const H3Eng = styled.h3<{
 
 export const H4Eng = styled.h4<{ c?: string; m?: string; d?: string }>`
   font-family: ${engfont};
-  font-size: 1rem;
+  font-size: clamp(0.25rem, 1vw, 1rem);
   font-weight: 600;
-  line-height: 9.375rem;
   color: ${({ c }) => (c ? c : "#fff")};
   margin: ${({ m }) => (m ? m : "0")};
   display: ${({ d }) => (d ? d : "block")};
@@ -164,7 +164,7 @@ export const H5Eng = styled.h5<{
   mw?: string;
 }>`
   font-family: ${engfont};
-  font-size: 0.78rem;
+  font-size: clamp(0.75rem, 2vw, 0.78rem);
   font-weight: 100;
   line-height: 1.406rem;
   text-transform: uppercase;
@@ -174,6 +174,19 @@ export const H5Eng = styled.h5<{
   display: ${({ d }) => (d ? d : "block")};
   max-width: ${({ mw }) => (mw ? mw : "auto")};
 `;
+
+// Guilda
+
+export const GuildaFont = styled.p<{ c?: string; m?: string; d?: string }>`
+  font-family: ${guildaFont};
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: ${({ c }) => (c ? c : "#fff")};
+  margin: ${({ m }) => (m ? m : "0")};
+  display: ${({ d }) => (d ? d : "block")};
+`;
+
+// end Gilda
 
 // end Design System
 

@@ -24,15 +24,18 @@ export const Line = styled.div`
   }
 `;
 
-
 export const Logo = styled.img<{
   c?: string;
 }>`
-  background-color:${({ c }) => (c ? c : "#d9d9d9")} ;
+  background-color: ${({ c }) => (c ? c : "#d9d9d9")};
   position: sticky;
   z-index: 1;
   padding: 0 20px;
   max-width: 120px;
   height: auto;
+  @media only screen and (max-width: 1100px) {
+    padding: 0;
+    max-width: 80px;
+  }
 `;
 export const SpanText = styled.div``;
