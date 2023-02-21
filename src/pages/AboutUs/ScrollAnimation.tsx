@@ -1,11 +1,11 @@
 import { Animator, ScrollContainer } from "react-scroll-motion";
 import {
   batch,
-  Fade,
   MoveIn,
   Sticky,
 } from "react-scroll-motion/dist/animations";
 import ScrollPage from "react-scroll-motion/dist/ScrollPage";
+import { MoveInPage } from "../../animations/MoveIn";
 import AboutMain from "./AboutMain";
 import AboutUs from "./AboutUs";
 
@@ -15,11 +15,11 @@ const ScrollAnimation = () => {
       <ScrollContainer>
         <ScrollPage>
           <Animator animation={batch(Sticky())}>
-            <AboutMain/>
+            <AboutMain />
           </Animator>
         </ScrollPage>
         <ScrollPage>
-          <Animator animation={batch(Sticky(), MoveIn(0, -2000))}>
+          <Animator animation={batch(Sticky(), MoveInPage(100))}>
             <AboutUs />
           </Animator>
         </ScrollPage>

@@ -1,4 +1,6 @@
 import React from "react";
+import { Animator, batch, Sticky } from "react-scroll-motion";
+import { MoveInPage } from "../../animations/MoveIn";
 import { Logo } from "../../components/HeaderLine/HeaderStyle";
 import ScrollPrompt from "../../components/Prompt/ScrollPrompt";
 import { AboutMainData, HeadMember } from "../../data/aboutData";
@@ -76,13 +78,15 @@ const AboutMain = () => {
           )}
 
           <ScrollPrompt />
-          <AboutHangingLine>
+        </AboutMainContainer>
+        <AboutHangingLine>
+          <Animator animation={MoveInPage(100)}>
             <AboutLine
               src={AboutMainData.Line}
               alt={AboutMainData.LineAlt}
             ></AboutLine>
-          </AboutHangingLine>
-        </AboutMainContainer>
+          </Animator>
+        </AboutHangingLine>
       </Container>
     </Section>
   );

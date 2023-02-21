@@ -15,6 +15,7 @@ export const Section = styled.div<{ c?: string }>`
 export const Container = styled.div`
   margin: 0 5%;
   height: 100vh;
+
   @media only screen and (min-width: 1920px) {
     margin: 0 15%;
   }
@@ -135,6 +136,7 @@ export const AboutHangingLine = styled.div`
   position: absolute;
   top: 0;
   right: 20%;
+
   @media only screen and (max-width: 900px) {
     display: none;
   }
