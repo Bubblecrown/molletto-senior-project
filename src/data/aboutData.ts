@@ -9,8 +9,17 @@ export const HeadMember: { imgPath: string; imageAlt: string; title: string } =
     title: "Moletto’s Members",
   };
 
-export const Prompt: { scrolltitle: string } = {
-  scrolltitle: "scrolling for see members",
+export const Prompt: {
+  scrolltitle: string;
+  handPrompt: string;
+  handTitle: string;
+  handPromptAlt: string;
+} = {
+  scrolltitle: "Scrolling for see members",
+  handPrompt:
+    "https://gateway.pinata.cloud/ipfs/QmR5wxWso5X4jovhvCqPpqPJVW6JKA3iF8DzVdpNzdK1hY",
+  handPromptAlt: "Dragging hand",
+  handTitle: "Dragging to see members",
 };
 
 export const Member: { member1: string; member2: string } = {
@@ -26,8 +35,8 @@ export const AboutMainData: {
   LogoImageAlt: string;
   AboutMainDescription: string;
   MobileDescription: string;
-  Line:string;
-  LineAlt:string
+  Line: string;
+  LineAlt: string;
 } = {
   aboutDescription:
     "We are a triplet team who are interested in website and 3D animation",
@@ -40,9 +49,47 @@ export const AboutMainData: {
     "A senior project for apply computer science - multimedia students of King Mongkut’s University of Technology Thonburi",
   MobileDescription:
     "https://gateway.pinata.cloud/ipfs/QmNS5q87TEB9YMbfDne7ZPkPMdM1BKyiTffxtHMUz6Bj1u",
-  Line:"https://gateway.pinata.cloud/ipfs/QmbjbdqSLsgzCS4pDa7QVsYnpFf28t4c527WbNcRcGkSEf",
-  LineAlt: "Line taped to see members"
+  Line: "https://gateway.pinata.cloud/ipfs/QmbjbdqSLsgzCS4pDa7QVsYnpFf28t4c527WbNcRcGkSEf",
+  LineAlt: "Line taped to see members",
 };
+
+export const EachMember: {
+  memberName: string;
+  responsibility: string[];
+  desciption: string;
+  social: string[];
+}[] = [
+  {
+    memberName: "Pimchawisa SapaRram",
+    responsibility: [
+      "Ux/Ui Designer",
+      "Art Director",
+      "3D Modeller",
+      "Animator",
+    ],
+    desciption:
+      "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s ",
+    social: ["1", "2", "3"],
+  },
+  {
+    memberName: "Suchanya Namwong",
+    responsibility: [
+      "Front-end Developer",
+    ],
+    desciption:
+      "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s ",
+    social: ["1", "2", "3"],
+  },
+  {
+    memberName: "Saowarod Kimbud",
+    responsibility: [
+      "Concept Art",
+    ],
+    desciption:
+      "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s ",
+    social: ["1", "2", "3"],
+  },
+];
 
 export const CardAnimationLarge: {
   color?: string;

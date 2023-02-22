@@ -35,12 +35,7 @@ export const CardItem = styled(motion.div)`
   }
 `;
 
-export const Card = styled(motion.div)<{
-  radius?: string;
-  y?: string;
-  c?: string;
-  xMove?: any;
-}>`
+export const Card = styled(motion.div)<{ c?: string }>`
   min-width: 200px;
   width: 330px;
   max-width: 330px;

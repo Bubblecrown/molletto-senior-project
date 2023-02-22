@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 // Font
 export const santhai = "'Noto Sans Thai', sans-serif";
 export const roboto = "'Roboto', sans-serif";
-export const engfont = "'Noto Sans', sans-serif";
+export const notosans = "'Noto Sans', sans-serif";
 export const guildaFont = "'Gilda Display', serif";
 // end Font
 
@@ -76,6 +76,7 @@ export const SlideOut = styled(motion.div)`
 
 // Design System
 
+// Roboto
 export const H1Roboto = styled(motion.h1)<{
   c?: string;
   m?: string;
@@ -104,24 +105,44 @@ export const H1Roboto = styled(motion.h1)<{
   }
 `;
 
-export const H3Roboto = styled.h3<{ c?: string; m?: string; d?: string }>`
+export const H3Roboto = styled.h3<{
+  c?: string;
+  m?: string;
+  d?: string;
+  w?: string;
+}>`
   font-family: ${roboto};
   font-size: clamp(0.25rem, 5vw, 1rem);
-  width: 15vw;
+  width: ${({ w }) => (w ? w : "100%")};
   color: ${({ c }) => (c ? c : "#fff")};
-  margin: ${({ m }) => (m ? m : "0 0 -26px 0")};
+  margin: ${({ m }) => (m ? m : "0")};
   display: ${({ d }) => (d ? d : "flex")};
-  @media only screen and (max-width: 800px) {
-    width: 10vw;
-  }
-  @media only screen and (min-width: 801px) and (max-width: 900px) {
-    width: 20vw;
-  }
-`;
+  z-index: 1;
+  position: relative;
 
-// English font
+`;
+// end Roboto
+
+// Noto san thai
+export const H1Noto = styled.h1<{
+  c?: string;
+  m?: string;
+  d?: string;
+  u?: string;
+}>`
+  font-family: ${santhai};
+  font-size: clamp(0.75rem, 5vw, 2.75rem);
+  font-weight: 700;
+  color: ${({ c }) => (c ? c : "#fff")};
+  margin: ${({ m }) => (m ? m : "0")};
+  display: ${({ d }) => (d ? d : "inline")};
+  text-transform: ${({ u }) => (u ? u : "uppercase")};
+`;
+// end Noto san thai
+
+// Notosan font
 export const H2Eng = styled.h2<{ c?: string; m?: string; d?: string }>`
-  font-family: ${engfont};
+  font-family: ${notosans};
   font-size: clamp(0.75rem, 5vw, 1.75rem);
   font-weight: 700;
   color: ${({ c }) => (c ? c : "#fff")};
@@ -136,7 +157,7 @@ export const H3Eng = styled.h3<{
   mw?: string;
   align?: string;
 }>`
-  font-family: ${engfont};
+  font-family: ${notosans};
   font-size: clamp(0.75rem, 3vw, 1.1rem);
   font-weight: 400;
   letter-spacing: -0.022em;
@@ -144,12 +165,12 @@ export const H3Eng = styled.h3<{
   color: ${({ c }) => (c ? c : "#fff")};
   text-align: ${({ align }) => (align ? align : "center")};
   margin: ${({ m }) => (m ? m : "0")};
-  display: ${({ d }) => (d ? d : "block")};
+  display: ${({ d }) => (d ? d : "inline")};
   max-width: ${({ mw }) => (mw ? mw : "auto")};
 `;
 
 export const H4Eng = styled.h4<{ c?: string; m?: string; d?: string }>`
-  font-family: ${engfont};
+  font-family: ${notosans};
   font-size: clamp(0.25rem, 1vw, 1rem);
   font-weight: 600;
   color: ${({ c }) => (c ? c : "#fff")};
@@ -163,7 +184,7 @@ export const H5Eng = styled.h5<{
   d?: string;
   mw?: string;
 }>`
-  font-family: ${engfont};
+  font-family: ${notosans};
   font-size: clamp(0.75rem, 2vw, 0.78rem);
   font-weight: 100;
   line-height: 1.406rem;
@@ -174,9 +195,24 @@ export const H5Eng = styled.h5<{
   display: ${({ d }) => (d ? d : "block")};
   max-width: ${({ mw }) => (mw ? mw : "auto")};
 `;
+export const BodyEng = styled.p<{
+  c?: string;
+  m?: string;
+  d?: string;
+  indent?: string;
+}>`
+  font-family: ${notosans};
+  font-size: clamp(0.25rem, 1vw, 1rem);
+  font-weight: 200;
+  color: ${({ c }) => (c ? c : "#fff")};
+  margin: ${({ m }) => (m ? m : "0")};
+  display: ${({ d }) => (d ? d : "block")};
+  text-indent: ${({ indent }) => (indent ? indent : "0")}; ;
+`;
+
+// endNotosan
 
 // Guilda
-
 export const GuildaFont = styled.p<{ c?: string; m?: string; d?: string }>`
   font-family: ${guildaFont};
   font-size: 0.8rem;

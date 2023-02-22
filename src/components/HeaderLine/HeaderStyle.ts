@@ -3,7 +3,33 @@ import styled from "styled-components";
 export const Line = styled.div`
   position: relative;
   text-align: center;
-  margin: 0 10px;
+  max-width: 100%;
+`;
+
+export const Logo = styled.img<{
+  c?: string;
+  o?: number;
+}>`
+  position: sticky;
+
+  padding: 0 20px;
+  max-width: 120px;
+  height: auto;
+  background-color: ${({ c }) => (c ? c : "#d9d9d9")};
+  z-index: 0;
+  @media only screen and (max-width: 1100px) {
+    padding: 0;
+    max-width: 80px;
+  }
+`;
+export const SpanText = styled.div<{
+  c?: string;
+  o?: number;
+}>`
+  height: auto;
+
+  position: relative;
+  text-align: center;
   max-width: 100%;
   &::after,
   &::before {
@@ -14,6 +40,7 @@ export const Line = styled.div`
     background-color: #ffffff;
     width: 45%;
     top: 45%;
+  z-index: -1;
     color: #ffffff;
   }
   &::after {
@@ -23,19 +50,3 @@ export const Line = styled.div`
     left: 0;
   }
 `;
-
-export const Logo = styled.img<{
-  c?: string;
-}>`
-  background-color: ${({ c }) => (c ? c : "#d9d9d9")};
-  position: sticky;
-  z-index: 1;
-  padding: 0 20px;
-  max-width: 120px;
-  height: auto;
-  @media only screen and (max-width: 1100px) {
-    padding: 0;
-    max-width: 80px;
-  }
-`;
-export const SpanText = styled.div``;

@@ -16,7 +16,21 @@ export const PromptContainer = styled.div`
   text-align: center;
 `;
 
-export const Svg = styled.svg``;
+export const HandPrompt = styled.img`
+  @keyframes handScroll {
+    0% {
+      transform: translateY(0);
+    }
+    30% {
+      transform: translateY(10px);
+    }
+  }
+  animation: handScroll ease 1.5s infinite;
+  max-width: 7%;
+  @media only screen and (max-width: 1100px) {
+    max-width: 10%;
+  }
+`;
 
 export const PathWheel = styled.path`
   @keyframes scroll {
