@@ -2,10 +2,16 @@ import { motion, VariantLabels, Variants } from "framer-motion";
 import React from "react";
 import { Prompt } from "../../data/aboutData";
 import { GuildaFont } from "../../GlobalStyle";
-import { PathWheel, PromptContainer, ScrollPromptContainer, Svg } from "./PromptStyle";
+import { useTablet } from "../../hooks/useMediaQuery";
+import {
+  PathWheel,
+  PromptContainer,
+  ScrollPromptContainer,
+  Svg,
+} from "./PromptStyle";
 
 const ScrollPrompt = () => {
-
+  const isTablet = useTablet();
   return (
     <ScrollPromptContainer>
       <PromptContainer>
@@ -22,7 +28,8 @@ const ScrollPrompt = () => {
             strokeLinecap: "round",
             strokeLinejoin: "round",
             strokeMiterlimit: 1.5,
-          }}>
+          }}
+        >
           <PathWheel
             id="wheel"
             d="M123.359,79.775l0,72.843"
