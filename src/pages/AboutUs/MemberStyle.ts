@@ -36,6 +36,9 @@ export const CardSection = styled.div`
   flex-basis: 0;
   align-items: center;
   display: flex;
+  @media only screen and (min-width: 550px) and (max-width: 735px) {
+    flex-basis: 100%;
+  }
 `;
 export const CardMember = styled(Card)`
   max-width: 100%;
@@ -51,6 +54,9 @@ export const CardDetail = styled.div`
   gap: 1rem;
   word-break: break-word;
   position: relative;
+  @media only screen and (min-width: 550px) and (max-width: 735px) {
+    flex-basis: 100%;
+  }
 `;
 
 export const MemberDetailHeader = styled.div``;
@@ -61,11 +67,12 @@ export const Responsibilities = styled.div`
 `;
 
 export const SocialLogoContainer = styled.div`
-width: 100%;
+  text-align: center;
+  margin: 20px 0 0 0;
 `;
 export const SocialImg = styled.img`
-
+  max-width: 25px;
+  height: auto;
+  margin: 0 10px;
 `;
-export const LinkLogo = styled.a`
-
-`;
+export const LinkLogo = styled.a``;

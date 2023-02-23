@@ -56,6 +56,7 @@ export const AboutMainData: {
 // Member
 export const EachMember: {
   id?: string;
+  color: string,
   memberName?: string;
   responsibility?: string[];
   desciption?: string;
@@ -67,7 +68,8 @@ export const EachMember: {
 }[] = [
   {
     id: "ux-ui-designer",
-    memberName: "Pimchawisa SapaRram",
+    color: "#92E5FF",
+    memberName: "Pimchawisa Saparram",
     responsibility: [
       "Ux/Ui Designer",
       "Art Director",
@@ -94,6 +96,7 @@ export const EachMember: {
   },
   {
     id: "developer",
+    color: "#FF92B9",
     memberName: "Suchanya Namwong",
     responsibility: ["Front-end Developer"],
     desciption:
@@ -116,6 +119,7 @@ export const EachMember: {
   },
   {
     id: "concept-art",
+    color: "#92FFCA",
     memberName: "Saowarod Kimbud",
     responsibility: ["Concept Art"],
     desciption:
@@ -134,6 +138,7 @@ export const EachMember: {
         platform: "twitter",
         link: "https://www.youtube.com/watch?v=oVE6cx3UEpM&t=122s",
       },
+
     ],
   },
 ];
@@ -165,6 +170,7 @@ export const SocialLogo: {
   },
 ];
 export const CardAnimationLarge: {
+  id:string,
   color?: string;
   xOrigin?: string;
   xMove?: number;
@@ -175,6 +181,7 @@ export const CardAnimationLarge: {
   transition?: Transition;
 }[] = [
   {
+    id:"ux-ui-designer",
     color: "#92E5FF",
     xOrigin: "110%",
     xMove: 0,
@@ -184,12 +191,14 @@ export const CardAnimationLarge: {
     zIndex: 2,
   },
   {
+    id:"developer",
     color: "#FF92B9",
     yOrigin: -30,
     yMove: 20,
     rotate: -0.07,
   },
   {
+    id:"concept-art",
     color: "#92FFCA",
     xOrigin: "-110%",
     xMove: 0,
@@ -199,6 +208,7 @@ export const CardAnimationLarge: {
 ];
 
 export const CardAnimationMedium: {
+  id:string,
   color?: string;
   xOrigin?: number;
   xMove?: number;
@@ -209,6 +219,7 @@ export const CardAnimationMedium: {
   transition?: Transition;
 }[] = [
   {
+    id:"ux-ui-designer",
     color: "#92E5FF",
     xOrigin: 250,
     xMove: 0,
@@ -218,12 +229,14 @@ export const CardAnimationMedium: {
     zIndex: 2,
   },
   {
+    id:"developer",
     color: "#FF92B9",
     yOrigin: -30,
     yMove: 20,
     rotate: -0.07,
   },
   {
+    id:"concept-art",
     color: "#92FFCA",
     xOrigin: -250,
     xMove: 0,
@@ -233,6 +246,7 @@ export const CardAnimationMedium: {
 ];
 
 export const CardAnimationTablet: {
+  id:string,
   color?: string;
   xOrigin?: number;
   xMove?: number;
@@ -243,6 +257,7 @@ export const CardAnimationTablet: {
   transition?: Transition;
 }[] = [
   {
+    id:"ux-ui-designer",
     color: "#92E5FF",
     xOrigin: 190,
     xMove: 0,
@@ -252,12 +267,14 @@ export const CardAnimationTablet: {
     zIndex: 2,
   },
   {
+    id:"developer",
     color: "#FF92B9",
     yOrigin: -30,
     yMove: 20,
     rotate: -0.07,
   },
   {
+    id:"concept-art",
     color: "#92FFCA",
     xOrigin: -190,
     xMove: 0,
@@ -267,6 +284,7 @@ export const CardAnimationTablet: {
 ];
 
 export const CardAnimationSmall: {
+  id:string,
   color?: string;
   xOrigin?: number;
   xMove?: number;
@@ -277,6 +295,7 @@ export const CardAnimationSmall: {
   transition?: Transition;
 }[] = [
   {
+    id:"ux-ui-designer",
     color: "#92E5FF",
     xOrigin: 190,
     xMove: 180,
@@ -286,12 +305,14 @@ export const CardAnimationSmall: {
     zIndex: 2,
   },
   {
+    id:"developer",
     color: "#FF92B9",
     yOrigin: -30,
     yMove: 150,
     rotate: -0.07,
   },
   {
+    id:"concept-art",
     color: "#92FFCA",
     xOrigin: -190,
     xMove: -180,

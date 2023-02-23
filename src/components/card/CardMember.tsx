@@ -7,11 +7,18 @@ import {
 } from "../../data/aboutData";
 import { H1Roboto } from "../../GlobalStyle";
 import { useSelector, useDispatch } from "react-redux";
-import { Card, CardContainer, CardItem, TitleContainer } from "./CardStyle";
+import {
+  Card,
+  CardContainer,
+  CardItem,
+  LinkCard,
+  TitleContainer,
+} from "./CardStyle";
 import { setActiveCard } from "../../slices/CardSlice";
 import { RootState } from "../../app/store";
 import { useIsMedium, useIsSmall, useTablet } from "../../hooks/useMediaQuery";
 import ScrollPrompt from "../Prompt/ScrollPrompt";
+import { Link } from "react-router-dom";
 
 const CardMember = () => {
   const dispatch = useDispatch();
@@ -77,28 +84,33 @@ const CardMember = () => {
         </TitleContainer>
         <CardItem>
           {CardAnimation.map((animation, index) => (
+            <LinkCard to={`/about/${animation.id}`}>
             <Card
               key={index}
               c={animation.color}
+              
               animate={{
                 x: translateX ? animation.xMove : animation.xOrigin,
                 y: translateX ? animation.yMove : animation.yOrigin,
                 rotate: animation.rotate,
                 zIndex: animation.zIndex,
-              
               }}
               whileHover={{
-                scale:1.1
+                scale: 1.1,
               }}
               transition={{
                 type: "spring",
                 stiffness: 50,
                 damping: 6,
               }}
-            ></Card>
+              // onClick={() => {
+              //   if (translateX) {
+              //     window.location.href = `/about/${animation.id}`;
+              //   }
+              // }}
+            ></Card></LinkCard>
           ))}
         </CardItem>
-
       </CardContainer>
     </>
   );

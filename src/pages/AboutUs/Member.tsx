@@ -34,13 +34,12 @@ const Member = () => {
             <HeaderMember logoColor="#000000" />
           </Header>
         </HeaderBar>
-
         <CardMemberContainer>
           <CardMemberBlock>
             <CardMemberBody>
               <CardSection>
                 <CardMember
-                  c="#fff"
+                  c={member?.color}
                   animate={{}}
                   transition={{
                     type: "spring",
@@ -55,7 +54,9 @@ const Member = () => {
                   <H1Noto d="block">{member?.memberName}</H1Noto>
                   <Responsibilities>
                     {member?.responsibility?.map((responsibility) => (
-                      <H3Eng key={responsibility}>{responsibility}</H3Eng>
+                      <H3Eng c="#92E5FF" key={responsibility}>
+                        {responsibility}
+                      </H3Eng>
                     ))}
                   </Responsibilities>
                 </MemberDetailHeader>
