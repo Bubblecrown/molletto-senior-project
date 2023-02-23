@@ -11,7 +11,7 @@ import ScrollAnimation from "./pages/AboutUs/ScrollAnimation";
 const TransitionRoute = () => {
   const location = useLocation();
   return (
-    <AnimatePresence initial={false} onExitComplete={() => null}>
+    <AnimatePresence>
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<ScrollAnimation />} />
         <Route path="/scroll" element={<ScrollAnimation />} />

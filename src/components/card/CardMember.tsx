@@ -56,6 +56,7 @@ const CardMember = () => {
         damping: 6,
       },
     },
+    exit: { opacity: 0 },
   };
 
   return (
@@ -67,7 +68,7 @@ const CardMember = () => {
             l="0"
             variants={MemberVariants}
             animate="animateMem"
-            exit="exit"
+            // exit="exit"
           >
             {Member.member1}
           </H1Roboto>
@@ -77,18 +78,17 @@ const CardMember = () => {
             d="flex"
             variants={MemberVariants}
             animate="animateBers"
-            exit={{ display: "none" }}
+            // exit="exit"
           >
             {Member.member2}
           </H1Roboto>
         </TitleContainer>
         <CardItem>
           {CardAnimation.map((animation, index) => (
-            <LinkCard to={`/about/${animation.id}`}>
-            <Card
+            <LinkCard
+              to={translateX ? `/about/${animation.id}` : ``}
               key={index}
               c={animation.color}
-              
               animate={{
                 x: translateX ? animation.xMove : animation.xOrigin,
                 y: translateX ? animation.yMove : animation.yOrigin,
@@ -103,12 +103,11 @@ const CardMember = () => {
                 stiffness: 50,
                 damping: 6,
               }}
-              // onClick={() => {
-              //   if (translateX) {
-              //     window.location.href = `/about/${animation.id}`;
-              //   }
-              // }}
-            ></Card></LinkCard>
+              exit={{
+                x: animation.xMove,
+                y: animation.yMove,
+              }}
+            ></LinkCard>
           ))}
         </CardItem>
       </CardContainer>

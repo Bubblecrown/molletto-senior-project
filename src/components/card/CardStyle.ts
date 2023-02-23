@@ -47,7 +47,7 @@ export const Card = styled(motion.div)<{ c?: string }>`
   filter: drop-shadow(0px 24px 8px rgba(0, 0, 0, 0.06));
 `;
 
-export const LinkCard = styled(Link)<{ c?: string }>`
+export const LinkCard = styled(motion(Link))<{ c?: string }>`
   min-width: 200px;
   width: 330px;
   max-width: 330px;
