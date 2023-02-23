@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { roboto } from "../../GlobalStyle";
 
 // Shared
-export const Section = styled.div<{ c?: string, o?: number }>`
+export const Section = styled.div<{ c?: string; o?: number }>`
   background-color: ${({ c }) => (c ? c : "#d9d9d9")};
   height: 100%;
   width: 100vw;
@@ -11,7 +11,6 @@ export const Section = styled.div<{ c?: string, o?: number }>`
   overflow-y: auto;
   overflow-x: hidden;
   opacity: ${({ o }) => (o ? o : 1)};
-
 `;
 
 export const Container = styled.div`

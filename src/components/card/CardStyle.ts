@@ -41,7 +41,7 @@ export const Card = styled(motion.div)<{ c?: string }>`
   max-width: 330px;
   aspect-ratio: 3 / 4;
   border-radius: 20px;
-
+cursor: pointer;
   background-color: ${({ c }) => (c ? c : "#fff")};
   filter: drop-shadow(0px 24px 8px rgba(0, 0, 0, 0.06));
 `;

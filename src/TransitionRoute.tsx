@@ -13,9 +13,10 @@ const TransitionRoute = () => {
   return (
     <AnimatePresence initial={false} onExitComplete={() => null}>
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Member />} />
+        <Route path="/" element={<ScrollAnimation />} />
         <Route path="/scroll" element={<ScrollAnimation />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/about" element={<Member />} />
+        <Route path="/about/:id" element={<Member />} />
       </Routes>
     </AnimatePresence>
   );

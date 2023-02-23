@@ -1,7 +1,9 @@
 import React from "react";
+import { useParams } from "react-router";
+
 import { Card } from "../../components/card/CardStyle";
 import HeaderMember from "../../components/HeaderLine/HeaderMember";
-import { EachMember } from "../../data/aboutData";
+import { EachMember, SocialLogo } from "../../data/aboutData";
 import { BodyEng, H1Noto, H3Eng, H3Roboto } from "../../GlobalStyle";
 import { Container, Header, HeaderBar, Section } from "./AboutStyle";
 import {
@@ -11,11 +13,19 @@ import {
   CardMemberBody,
   CardMemberContainer,
   CardSection,
+  LinkLogo,
   MemberDetailHeader,
   Responsibilities,
+  SocialImg,
+  SocialLogoContainer,
 } from "./MemberStyle";
 
 const Member = () => {
+  const { id } = useParams();
+  const member = EachMember.find((m) => m.id === id);
+  const socialLogos = SocialLogo.filter((logo) =>
+    member?.social?.some((s) => s.platform === logo.socialAlt)
+  );
   return (
     <Section c="#000000" o={0.8}>
       <Container>
@@ -42,23 +52,26 @@ const Member = () => {
               <CardDetail>
                 <MemberDetailHeader>
                   <H3Roboto d="block">Responsibility</H3Roboto>
-                  <H1Noto d="block">Pimchawisa SapaRram</H1Noto>
+                  <H1Noto d="block">{member?.memberName}</H1Noto>
                   <Responsibilities>
-                    <H3Eng>Ux/Ui Designer</H3Eng>
-                    <H3Eng>Art Director</H3Eng>
-                    <H3Eng>3D Modeller</H3Eng>
-                    <H3Eng>Animator</H3Eng>
+                    {member?.responsibility?.map((responsibility) => (
+                      <H3Eng key={responsibility}>{responsibility}</H3Eng>
+                    ))}
                   </Responsibilities>
                 </MemberDetailHeader>
-                <BodyEng indent="2rem">
-                  is simply dummy text of the printing and typesetting industry.
-                  Lorem Ipsum has been the industry's standard dummy text ever
-                  since the 1500s, when an unknown printer took a galley of type
-                  and scrambled it to make a type specimen book. It has survived
-                  not only five centuries, but also the leap into electronic
-                  typesetting, remaining essentially unchanged. It was
-                  popularised in the 1960s
-                </BodyEng>
+                <BodyEng indent="2rem">{member?.desciption}</BodyEng>
+                <SocialLogoContainer>
+                  {socialLogos.map((logo) => {
+                    const socialMedia = member?.social?.find(
+                      (s) => s.platform === logo.socialAlt
+                    );
+                    return (
+                      <LinkLogo key={logo.socialAlt} href={socialMedia?.link}>
+                        <SocialImg src={logo.socialImg} alt={logo.socialAlt} />
+                      </LinkLogo>
+                    );
+                  })}
+                </SocialLogoContainer>
               </CardDetail>
             </CardMemberBody>
           </CardMemberBlock>

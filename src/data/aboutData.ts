@@ -53,13 +53,20 @@ export const AboutMainData: {
   LineAlt: "Line taped to see members",
 };
 
+// Member
 export const EachMember: {
-  memberName: string;
-  responsibility: string[];
-  desciption: string;
-  social: string[];
+  id?: string;
+  memberName?: string;
+  responsibility?: string[];
+  desciption?: string;
+  social?: { platform: string; link: string }[];
+  linkedin?: string;
+  instagram?: string;
+  behance?: string;
+  twitter?: string;
 }[] = [
   {
+    id: "ux-ui-designer",
     memberName: "Pimchawisa SapaRram",
     responsibility: [
       "Ux/Ui Designer",
@@ -69,28 +76,94 @@ export const EachMember: {
     ],
     desciption:
       "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s ",
-    social: ["1", "2", "3"],
+    social: [
+      {
+        platform: "linkedin",
+        link: "https://translate.google.co.th/?hl=th&sl=en&tl=th&text=%0Aaqua&op=translate",
+      },
+      { platform: "instagram", link: "https://www.facebook.com" },
+      {
+        platform: "behance",
+        link: "https://discord.com/channels/593073213412474880/803634758490914826",
+      },
+      {
+        platform: "twitter",
+        link: "https://www.youtube.com/watch?v=oVE6cx3UEpM&t=122s",
+      },
+    ],
   },
   {
+    id: "developer",
     memberName: "Suchanya Namwong",
-    responsibility: [
-      "Front-end Developer",
-    ],
+    responsibility: ["Front-end Developer"],
     desciption:
       "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s ",
-    social: ["1", "2", "3"],
+    social: [
+      {
+        platform: "linkedin",
+        link: "https://www.youtube.com/watch?v=oVE6cx3UEpM&t=122s",
+      },
+      {
+        platform: "instagram",
+        link: "https://translate.google.co.th/?hl=th&sl=en&tl=th&text=%0Aaqua&op=translate",
+      },
+      {
+        platform: "behance",
+        link: "https://discord.com/channels/593073213412474880/803634758490914826",
+      },
+      { platform: "twitter", link: "https://www.facebook.com" },
+    ],
   },
   {
+    id: "concept-art",
     memberName: "Saowarod Kimbud",
-    responsibility: [
-      "Concept Art",
-    ],
+    responsibility: ["Concept Art"],
     desciption:
       "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s ",
-    social: ["1", "2", "3"],
+    social: [
+      { platform: "linkedin", link: "https://www.facebook.com" },
+      {
+        platform: "instagram",
+        link: "https://translate.google.co.th/?hl=th&sl=en&tl=th&text=%0Aaqua&op=translate",
+      },
+      {
+        platform: "behance",
+        link: "https://discord.com/channels/593073213412474880/803634758490914826",
+      },
+      {
+        platform: "twitter",
+        link: "https://www.youtube.com/watch?v=oVE6cx3UEpM&t=122s",
+      },
+    ],
   },
 ];
+// end Member
 
+export const SocialLogo: {
+  socialImg: string;
+  socialAlt: string;
+}[] = [
+  {
+    socialImg:
+      "https://gateway.pinata.cloud/ipfs/QmNPcncL3NYiyGTTy6UTE1wGaZ1sTTnWHR5SQHSDoaF5iw",
+    socialAlt: "linkedin",
+  },
+  {
+    socialImg:
+      "https://gateway.pinata.cloud/ipfs/QmWANqDhdiVgDNHiW4juCahcR1EHCfsDJXxFCsmZfDVM8V",
+    socialAlt: "instagram",
+  },
+  {
+    socialImg:
+      "https://gateway.pinata.cloud/ipfs/QmW2Tu6LVWpJHmvxkTMTLq4KZ6T1yo8JXgFDafZk8dwNxS",
+    socialAlt: "behance",
+  },
+  {
+    socialImg:
+      "https://gateway.pinata.cloud/ipfs/QmWm5Xs9oaoFaG6VpyeidTj2pcCB2bHybmdf5gGxLG6Aeq",
+    socialAlt: "twitter",
+  },
+];
 export const CardAnimationLarge: {
   color?: string;
   xOrigin?: string;

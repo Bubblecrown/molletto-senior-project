@@ -3,7 +3,8 @@ import { Card } from "../../components/card/CardStyle";
 
 export const CardMemberContainer = styled.div`
   width: 100%;
-  height: 100%;
+  height: 46em;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,5 +56,16 @@ export const CardDetail = styled.div`
 export const MemberDetailHeader = styled.div``;
 export const Responsibilities = styled.div`
   display: flex;
-  justify-content: space-between;
+  gap: 2rem;
+  max-width: 100%;
+`;
+
+export const SocialLogoContainer = styled.div`
+width: 100%;
+`;
+export const SocialImg = styled.img`
+
+`;
+export const LinkLogo = styled.a`
+
 `;

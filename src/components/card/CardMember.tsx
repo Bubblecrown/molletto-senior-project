@@ -85,6 +85,10 @@ const CardMember = () => {
                 y: translateX ? animation.yMove : animation.yOrigin,
                 rotate: animation.rotate,
                 zIndex: animation.zIndex,
+              
+              }}
+              whileHover={{
+                scale:1.1
               }}
               transition={{
                 type: "spring",
