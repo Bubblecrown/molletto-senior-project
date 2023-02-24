@@ -151,13 +151,8 @@ const CardMember = () => {
                 ...(selectedCardId === animation.id && {
                   rotateY: 180,
                   rotate: 0,
-                  scale: 5,
-
                   zIndex: 5,
-                  x: translateX ? animation.xMove : animation.xOrigin,
-                  y: translateX ? animation.yMove : animation.yOrigin,
-                  backgroundColor: "rgba(0, 0, 0, 0)",
-                  opacity: 0.8,
+                  translateY: "-100vh",
                   transition: {
                     type: "spring",
                     stiffness: 10,

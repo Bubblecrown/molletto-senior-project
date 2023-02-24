@@ -39,7 +39,7 @@ const Member = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 1 }}
-      exit={{ opacity: 0, transition: { delay: 0 } }}
+      exit={{ opacity: 0, transition: { delay: 1 } }}
     >
       <Container>
         <HeaderBar h="20%">
@@ -51,13 +51,23 @@ const Member = () => {
               <CardSection>
                 <CardMember
                   c={member?.color}
-                  initial={{ scale: 3 }}
-                  animate={{ scale: 1, rotateY: 180 }}
+                  initial={{ translateY: "-100vh" }}
+                  animate={{ translateY: "0", rotateY: 180 }}
                   transition={{
                     type: "spring",
                     stiffness: 10,
                     damping: 5,
                     delay: 1,
+                  }}
+                  exit={{
+                    translateY: "-100vh",
+                    rotateY: 180,
+                    transition: {
+                      type: "spring",
+                      stiffness: 10,
+                      damping: 5,
+                      delay: 0,
+                    },
                   }}
                 ></CardMember>
               </CardSection>
