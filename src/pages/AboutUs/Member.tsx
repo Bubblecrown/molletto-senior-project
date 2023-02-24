@@ -42,7 +42,10 @@ const Member = () => {
       exit={{ opacity: 0, transition: { delay: 1 } }}
     >
       <Container>
-        <HeaderBar h="20%">
+        <HeaderBar
+          h="20%"
+          
+        >
           <HeaderMember logoColor="rgba(0, 0, 0, 0)" />
         </HeaderBar>
         <CardMemberContainer>
@@ -62,6 +65,7 @@ const Member = () => {
                   exit={{
                     translateY: "-100vh",
                     rotateY: 180,
+                    zIndex: 6,
                     transition: {
                       type: "spring",
                       stiffness: 10,

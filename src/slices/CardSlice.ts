@@ -13,7 +13,12 @@ const cardSlice = createSlice({
     // The reducers of the slice
     reducers : {
         setActiveCard : (state)=>{
-          state.translateX = !state.translateX;
+          if (state.translateX == false) {
+            state.translateX = !state.translateX;
+          } else{
+            state.translateX = state.translateX;
+          }
+          
         }
     }
 });

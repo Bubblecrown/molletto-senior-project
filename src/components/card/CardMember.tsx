@@ -121,6 +121,7 @@ const CardMember = () => {
               to={translateX ? `/about/${animation.id}` : ``}
               key={index}
               c={animation.color}
+              
               animate={{
                 x: translateX ? animation.xMove : animation.xOrigin,
                 y: translateX ? animation.yMove : animation.yOrigin,
@@ -151,7 +152,7 @@ const CardMember = () => {
                 ...(selectedCardId === animation.id && {
                   rotateY: 180,
                   rotate: 0,
-                  zIndex: 5,
+                  zIndex: 6,
                   translateY: "-100vh",
                   transition: {
                     type: "spring",
