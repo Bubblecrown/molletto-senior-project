@@ -1,5 +1,5 @@
 import {
-  Member,
+  MemberText,
   CardAnimationSmall,
   CardAnimationLarge,
   CardAnimationMedium,
@@ -19,12 +19,28 @@ import { RootState } from "../../app/store";
 import { useIsMedium, useIsSmall, useTablet } from "../../hooks/useMediaQuery";
 import ScrollPrompt from "../Prompt/ScrollPrompt";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import Member from "../../pages/AboutUs/Member";
 
 const CardMember = () => {
   const dispatch = useDispatch();
   const translateX = useSelector(
     (state: RootState) => state.activeCard.translateX
   );
+  const [selectedCardId, setSelectedCardId] = useState("");
+  const handleCardClick = (id: string) => {
+    setSelectedCardId(id);
+  };
+
+  const [showModal, setShowModal] = useState(false);
+
+  function openModal() {
+    setShowModal(true);
+  }
+
+  function closeModal() {
+    setShowModal(false);
+  }
   const isSmall = useIsSmall();
   const isTablet = useTablet();
   const isMedium = useIsMedium();
@@ -37,6 +53,7 @@ const CardMember = () => {
     ? CardAnimationMedium
     : CardAnimationLarge;
 
+  const Cardvariants = {};
   const MemberVariants = {
     animateMem: {
       x: translateX ? "-200%" : 0,
@@ -70,7 +87,7 @@ const CardMember = () => {
             animate="animateMem"
             // exit="exit"
           >
-            {Member.member1}
+            {MemberText.member1}
           </H1Roboto>
           <H1Roboto
             p="absolute"
@@ -80,13 +97,14 @@ const CardMember = () => {
             animate="animateBers"
             // exit="exit"
           >
-            {Member.member2}
+            {MemberText.member2}
           </H1Roboto>
         </TitleContainer>
         <CardItem>
           {CardAnimation.map((animation, index) => (
             <LinkCard
               to={translateX ? `/about/${animation.id}` : ``}
+              
               key={index}
               c={animation.color}
               animate={{
@@ -106,11 +124,29 @@ const CardMember = () => {
               exit={{
                 x: animation.xMove,
                 y: animation.yMove,
+                opacity:1,
+                ...(selectedCardId === animation.id && {
+                  rotateY: 360,
+                  rotate: 0,
+                }),
+                transition: {
+                  type: "spring",
+                  stiffness: 10,
+                  damping: 5,
+                  repeat: Infinity
+                },
               }}
+              // {...(selectedCardId === animation.id && {
+              //   onClick: { openModal },
+              // })}
+              onClick={() => handleCardClick(animation.id)}
             ></LinkCard>
           ))}
         </CardItem>
       </CardContainer>
+      {/* {showModal && (
+        <Member />
+      )} */}
     </>
   );
 };

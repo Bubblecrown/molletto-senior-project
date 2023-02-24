@@ -7,7 +7,7 @@ const AboutUs = () => {
   const translateX = useSelector(
     (state: RootState) => state.activeCard.translateX
   );
-
+  
   return (
     <>
       <Section>

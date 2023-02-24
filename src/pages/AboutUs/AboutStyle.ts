@@ -7,7 +7,6 @@ export const Section = styled.div<{ c?: string; o?: number }>`
   background-color: ${({ c }) => (c ? c : "#d9d9d9")};
   height: 100%;
   width: 100vw;
-  font-size: ${roboto};
   overflow-y: auto;
   overflow-x: hidden;
   opacity: ${({ o }) => (o ? o : 1)};
@@ -28,15 +27,19 @@ export const Container = styled.div`
 // end shared
 
 // About Us
-export const HeaderBar = styled(motion.div)`
+export const HeaderBar = styled(motion.div)<{ h?: string }>`
   position: relative;
+  display: block;
+  /* height: 20%; */
+  height: ${({ h }) => (h ? h : 'auto')};
+
 `;
 export const Header = styled(motion.div)`
   position: absolute;
   padding-top: 30px;
   left: 0;
   right: 0;
-  /* padding-bottom: 75px; */
+  padding-bottom: 75px;
 `;
 
 export const CardTeam = styled.div`

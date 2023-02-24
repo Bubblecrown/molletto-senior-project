@@ -22,7 +22,7 @@ export const Prompt: {
   handTitle: "Dragging to see members",
 };
 
-export const Member: { member1: string; member2: string } = {
+export const MemberText: { member1: string; member2: string } = {
   member1: "'mem",
   member2: "bers",
 };

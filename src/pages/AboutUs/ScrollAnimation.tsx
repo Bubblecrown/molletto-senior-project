@@ -6,6 +6,7 @@ import { StickyPage } from "../../animations/StickyPage";
 import AboutMain from "./AboutMain";
 import { Section } from "./AboutStyle";
 import AboutUs from "./AboutUs";
+import Member from "./Member";
 
 const ScrollAnimation = () => {
   return (
@@ -22,6 +23,7 @@ const ScrollAnimation = () => {
             <AboutUs />
           </Animator>
         </ScrollPage>
+
       </ScrollContainer>
     </>
   );
