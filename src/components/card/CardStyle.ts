@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import ReactCardFlip from "react-card-flip";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -56,4 +57,23 @@ export const LinkCard = styled(motion(Link))<{ c?: string }>`
   cursor: pointer;
   background-color: ${({ c }) => (c ? c : "#fff")};
   filter: drop-shadow(0px 24px 8px rgba(0, 0, 0, 0.06));
+`;
+
+export const FlipCardContainer = styled(ReactCardFlip)<{ c?: string }>`
+  display: flex;
+  min-width: auto;
+  width: 100%;
+  height: fit-content;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  gap: 24px;
+  justify-content: space-evenly;
+
+  @media only screen and (max-width: 480px) {
+    padding-top: 5rem;
+    z-index: 4;
+  }
+  @media only screen and (max-width: 900px) {
+    z-index: 4;
+  }
 `;

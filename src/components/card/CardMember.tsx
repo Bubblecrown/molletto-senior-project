@@ -34,7 +34,7 @@ const CardMember = () => {
     setSelectedCardId(id);
   };
 
-  const [isFlipped, setIsFlipped] = useState(false)
+  const [isFlipped, setIsFlipped] = useState(false);
   function flipCard() {
     setIsFlipped(!isFlipped);
   }
@@ -117,54 +117,66 @@ const CardMember = () => {
         </TitleContainer>
         <CardItem>
           {CardAnimation.map((animation, index) => (
-            <ReactCardFlip
-              isFlipped={isFlipped}
-              flipDirection="vertical"
-            >
-              <LinkCard
-                to={translateX ? `/about/${animation.id}` : ``}
-                key={index}
-                c={animation.color}
-                animate={{
-                  x: translateX ? animation.xMove : animation.xOrigin,
-                  y: translateX ? animation.yMove : animation.yOrigin,
-                  rotate: animation.rotate,
-                  zIndex: animation.zIndex,
-                }}
-                whileHover={{
-                  scale: 1.1,
-                }}
-                transition={{
+            <LinkCard
+              to={translateX ? `/about/${animation.id}` : ``}
+              key={index}
+              c={animation.color}
+              animate={{
+                x: translateX ? animation.xMove : animation.xOrigin,
+                y: translateX ? animation.yMove : animation.yOrigin,
+                rotate: animation.rotate,
+                zIndex: animation.zIndex,
+              }}
+              whileHover={{
+                scale: 1.1,
+              }}
+              {...(selectedCardId != animation.id && {
+                transition: {
                   type: "spring",
                   stiffness: 50,
                   damping: 6,
-                }}
-                exit={{
-                  x: animation.xMove,
-                  y: animation.yMove,
-                  opacity: 1,
-                  ...(selectedCardId === animation.id && {
-                    rotateY: 180,
-                    rotate: 0,
-                    translateY: "-100vh",
-                  }),
+                },
+              })}
+              {...(selectedCardId === animation.id && {
+                transition: {
+                  type: "spring",
+                  stiffness: 60,
+                  damping: 20,
+                },
+              })}
+              exit={{
+                x: animation.xMove,
+                y: animation.yMove,
+                opacity: 1,
+                ...(selectedCardId === animation.id && {
+                  rotateY: 180,
+                  rotate: 0,
+                  scale: 5,
 
+                  zIndex: 5,
+                  x: translateX ? animation.xMove : animation.xOrigin,
+                  y: translateX ? animation.yMove : animation.yOrigin,
+                  backgroundColor: "rgba(0, 0, 0, 0)",
+                  opacity: 0.8,
+                  transition: {
+                    type: "spring",
+                    stiffness: 10,
+                    damping: 5,
+                  },
+                }),
+                ...(selectedCardId != animation.id && {
                   transition: {
                     type: "spring",
                     stiffness: 10,
                     damping: 5,
                     repeat: Infinity,
+                    delay: 100,
                   },
-                }}
-                // {...(selectedCardId === animation.id && {
-                //   onClick: { openModal },
-                // })}
-                onTap={() => sequence(animation.id)}
-                onClick={() => handleCardClick(animation.id)}
-              >
-                {/* {showModal && <Member />} */}
-              </LinkCard>
-            </ReactCardFlip>
+                }),
+              }}
+              onTap={() => sequence(animation.id)}
+              onClick={() => handleCardClick(animation.id)}
+            ></LinkCard>
           ))}
         </CardItem>
       </CardContainer>
