@@ -38,10 +38,11 @@ const Member = () => {
       c="rgba(0, 0, 0, 0.801)"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
+      transition={{ delay: 1 }}
     >
       <Container>
         <HeaderBar h="20%">
-            <HeaderMember logoColor="rgba(0, 0, 0, 0)" />
+          <HeaderMember logoColor="rgba(0, 0, 0, 0)" />
         </HeaderBar>
         <CardMemberContainer>
           <CardMemberBlock>
@@ -49,11 +50,13 @@ const Member = () => {
               <CardSection>
                 <CardMember
                   c={member?.color}
-                  animate={{}}
+                  initial={{ translateY: "-100vh" }}
+                  animate={{ translateY: "0", rotateY: 180 }}
                   transition={{
                     type: "spring",
-                    stiffness: 50,
-                    damping: 6,
+                    stiffness: 10,
+                    damping: 5,
+                    delay: 1,
                   }}
                 ></CardMember>
               </CardSection>
@@ -87,7 +90,18 @@ const Member = () => {
           </CardMemberBlock>
         </CardMemberContainer>
         <CloseBoxContainer>
-          <CloseBox c={member?.color}>
+          <CloseBox
+            c={member?.color}
+            to={`/`}
+            initial={{ translateX: "100vh" }}
+            animate={{ translateX: "0" }}
+            transition={{
+              type: "spring",
+              stiffness: 8,
+              damping: 5,
+              delay: 1,
+            }}
+          >
             <CloseContainer>
               <SVGClose
                 initial={{ translateX: "-50%", translateY: "-50%" }}

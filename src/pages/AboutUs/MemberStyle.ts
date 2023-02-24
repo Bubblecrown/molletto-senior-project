@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Card } from "../../components/card/CardStyle";
 
@@ -29,7 +30,6 @@ export const CardMemberBlock = styled.div`
 `;
 export const CardMemberBody = styled.div`
   width: 70%;
-  border: 2px #fff solid;
   display: flex;
   gap: 3rem;
   height: 100%;
@@ -40,7 +40,6 @@ export const CardMemberBody = styled.div`
   }
 `;
 export const CardSection = styled.div`
-  border: 2px red solid;
   flex-grow: 0.1;
   max-width: 100%;
   flex-basis: 0;
@@ -50,7 +49,7 @@ export const CardSection = styled.div`
     flex-basis: 100%;
   }
 `;
-export const CardMember = styled(Card)`
+export const CardMember = styled(motion(Card))`
   max-width: 100%;
   min-width: 50px;
 `;
@@ -92,10 +91,11 @@ export const CloseBoxContainer = styled.div`
   height: 10%;
   align-items: center;
   @media only screen and (max-width: 735px) {
+    height: 20%;
   }
 `;
 
-export const CloseBox = styled.div<{ c?: string; o?: number }>`
+export const CloseBox = styled(motion(Link))<{ c?: string; o?: number }>`
   position: absolute;
   width: 232px;
   max-width: 100%;
@@ -127,4 +127,8 @@ export const SVGClose = styled(motion.svg)`
   top: 50%;
   left: 30%;
   transform: translate(-50%, -50%);
+  :focus {
+    border: none;
+    outline: none;
+  }
 `;

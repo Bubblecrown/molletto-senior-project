@@ -18,9 +18,11 @@ import { setActiveCard } from "../../slices/CardSlice";
 import { RootState } from "../../app/store";
 import { useIsMedium, useIsSmall, useTablet } from "../../hooks/useMediaQuery";
 import ScrollPrompt from "../Prompt/ScrollPrompt";
-import { Link } from "react-router-dom";
+import { Await, Link } from "react-router-dom";
 import { useState } from "react";
 import Member from "../../pages/AboutUs/Member";
+import { useAnimationControls } from "framer-motion";
+import ReactCardFlip from "react-card-flip";
 
 const CardMember = () => {
   const dispatch = useDispatch();
@@ -32,6 +34,19 @@ const CardMember = () => {
     setSelectedCardId(id);
   };
 
+  const [isFlipped, setIsFlipped] = useState(false)
+  function flipCard() {
+    setIsFlipped(!isFlipped);
+  }
+
+  const animated = useAnimationControls();
+
+  async function sequence(id: any) {
+    await animated.start({ rotate: -90 });
+    await animated.start({ scale: 1.5 });
+    await animated.start({ rotate: 0 });
+    animated.start({ scale: 1 });
+  }
   const [showModal, setShowModal] = useState(false);
 
   function openModal() {
@@ -102,51 +117,57 @@ const CardMember = () => {
         </TitleContainer>
         <CardItem>
           {CardAnimation.map((animation, index) => (
-            <LinkCard
-              to={translateX ? `/about/${animation.id}` : ``}
-              
-              key={index}
-              c={animation.color}
-              animate={{
-                x: translateX ? animation.xMove : animation.xOrigin,
-                y: translateX ? animation.yMove : animation.yOrigin,
-                rotate: animation.rotate,
-                zIndex: animation.zIndex,
-              }}
-              whileHover={{
-                scale: 1.1,
-              }}
-              transition={{
-                type: "spring",
-                stiffness: 50,
-                damping: 6,
-              }}
-              exit={{
-                x: animation.xMove,
-                y: animation.yMove,
-                opacity:1,
-                ...(selectedCardId === animation.id && {
-                  rotateY: 360,
-                  rotate: 0,
-                }),
-                transition: {
+            <ReactCardFlip
+              isFlipped={isFlipped}
+              flipDirection="vertical"
+            >
+              <LinkCard
+                to={translateX ? `/about/${animation.id}` : ``}
+                key={index}
+                c={animation.color}
+                animate={{
+                  x: translateX ? animation.xMove : animation.xOrigin,
+                  y: translateX ? animation.yMove : animation.yOrigin,
+                  rotate: animation.rotate,
+                  zIndex: animation.zIndex,
+                }}
+                whileHover={{
+                  scale: 1.1,
+                }}
+                transition={{
                   type: "spring",
-                  stiffness: 10,
-                  damping: 5,
-                  repeat: Infinity
-                },
-              }}
-              // {...(selectedCardId === animation.id && {
-              //   onClick: { openModal },
-              // })}
-              onClick={() => handleCardClick(animation.id)}
-            ></LinkCard>
+                  stiffness: 50,
+                  damping: 6,
+                }}
+                exit={{
+                  x: animation.xMove,
+                  y: animation.yMove,
+                  opacity: 1,
+                  ...(selectedCardId === animation.id && {
+                    rotateY: 180,
+                    rotate: 0,
+                    translateY: "-100vh",
+                  }),
+
+                  transition: {
+                    type: "spring",
+                    stiffness: 10,
+                    damping: 5,
+                    repeat: Infinity,
+                  },
+                }}
+                // {...(selectedCardId === animation.id && {
+                //   onClick: { openModal },
+                // })}
+                onTap={() => sequence(animation.id)}
+                onClick={() => handleCardClick(animation.id)}
+              >
+                {/* {showModal && <Member />} */}
+              </LinkCard>
+            </ReactCardFlip>
           ))}
         </CardItem>
       </CardContainer>
-      {/* {showModal && (
-        <Member />
-      )} */}
     </>
   );
 };
