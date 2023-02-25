@@ -145,7 +145,7 @@ export const AboutHangingLine = styled.div`
     display: none;
   }
 `;
-export const AboutLine = styled.img`
+export const AboutLine = styled(motion.img)`
   max-height: 90vh;
   width: auto;
 `;

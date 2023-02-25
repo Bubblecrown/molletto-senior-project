@@ -4,6 +4,7 @@ import HeaderMember from "../../components/HeaderLine/HeaderMember";
 import { CardTeam, Container, Header, HeaderBar, Section } from "./AboutStyle";
 import { RootState } from "../../app/store";
 import { CircleContainer } from "../../components/PulsingCircle/PulsingStyle";
+import PulsingCircle from "../../components/PulsingCircle/PulsingCircle";
 const AboutUs = () => {
   const translateX = useSelector(
     (state: RootState) => state.activeCard.translateX
@@ -34,7 +35,7 @@ const AboutUs = () => {
           <CardTeam>
             
             <CardMember />
-            <CircleContainer />
+            <PulsingCircle />
           </CardTeam>
         </Container>
       </Section>

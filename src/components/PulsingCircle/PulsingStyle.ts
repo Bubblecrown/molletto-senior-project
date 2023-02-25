@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const PulsingContainer = styled.div`
   cursor: pointer;
 `;
-export const CircleContainer = styled.div<{ d?: boolean }>`
+export const CircleContainer = styled.div<{ d?: any }>`
   position: absolute;
   left: 50%;
   top: 50%;
@@ -28,18 +28,6 @@ export const CircleContainer = styled.div<{ d?: boolean }>`
     display: ${({ d }) => (d ? "none" : "block")};
   }
 
-  &:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
-    animation: pulse-dot 1.25s cubic-bezier(0.455, 0.03, 0.515, 0.955) -0.4s infinite;
-
-    display: ${({ d }) => (d ? "none" : "block")};
-  }
   @keyframes pulse-ring {
     0% {
       transform: scale(0.33);
@@ -47,18 +35,6 @@ export const CircleContainer = styled.div<{ d?: boolean }>`
     80%,
     100% {
       opacity: 0;
-    }
-  }
-
-  @keyframes pulse-dot {
-    0% {
-      transform: scale(0.8);
-    }
-    50% {
-      transform: scale(1);
-    }
-    100% {
-      transform: scale(0.8);
     }
   }
 `;

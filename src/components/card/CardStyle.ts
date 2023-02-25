@@ -53,7 +53,7 @@ export const LinkCard = styled(motion(Link))<{ c?: string }>`
   width: 330px;
   max-width: 330px;
   aspect-ratio: 3 / 4;
-  border-radius: 20px;
+  border-radius: 17px;
   cursor: pointer;
   background-color: ${({ c }) => (c ? c : "#fff")};
   filter: drop-shadow(0px 24px 8px rgba(0, 0, 0, 0.06));

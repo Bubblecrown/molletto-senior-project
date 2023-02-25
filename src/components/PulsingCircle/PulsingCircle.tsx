@@ -12,7 +12,7 @@ const PulsingCircle = () => {
   
   return (
     <PulsingContainer onClick={() => dispatch(setActiveCard())}>
-      <CircleContainer d={translateX}></CircleContainer>
+      <CircleContainer  d={translateX ? 1 : 0}></CircleContainer>
     </PulsingContainer>
   );
 };

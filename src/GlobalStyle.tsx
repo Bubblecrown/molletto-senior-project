@@ -119,7 +119,9 @@ export const H3Roboto = styled.h3<{
   display: ${({ d }) => (d ? d : "flex")};
   z-index: 1;
   position: relative;
-
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
 `;
 // end Roboto
 
@@ -172,7 +174,7 @@ export const H3Eng = styled.h3<{
 export const H4Eng = styled.h4<{ c?: string; m?: string; d?: string }>`
   font-family: ${notosans};
   font-size: clamp(0.25rem, 1vw, 1rem);
-  font-weight: 600;
+  font-weight: 100;
   color: ${({ c }) => (c ? c : "#fff")};
   margin: ${({ m }) => (m ? m : "0")};
   display: ${({ d }) => (d ? d : "block")};
