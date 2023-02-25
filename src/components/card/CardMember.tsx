@@ -9,8 +9,11 @@ import { H1Roboto } from "../../GlobalStyle";
 import { useSelector, useDispatch } from "react-redux";
 import {
   Card,
+  CardBack,
   CardContainer,
+  CardFront,
   CardItem,
+  FlipCardContainer,
   LinkCard,
   TitleContainer,
 } from "./CardStyle";
@@ -32,11 +35,13 @@ const CardMember = () => {
   const [selectedCardId, setSelectedCardId] = useState("");
   const handleCardClick = (id: string) => {
     setSelectedCardId(id);
+    console.log(id);
   };
 
   const [isFlipped, setIsFlipped] = useState(false);
-  function flipCard() {
+  function handleFlipCard() {
     setIsFlipped(!isFlipped);
+    console.log(isFlipped)
   }
 
   const animated = useAnimationControls();
@@ -68,7 +73,6 @@ const CardMember = () => {
     ? CardAnimationMedium
     : CardAnimationLarge;
 
-  const Cardvariants = {};
   const MemberVariants = {
     animateMem: {
       x: translateX ? "-200%" : 0,
@@ -118,10 +122,11 @@ const CardMember = () => {
         <CardItem>
           {CardAnimation.map((animation, index) => (
             <LinkCard
+            
               to={translateX ? `/about/${animation.id}` : ``}
               key={index}
               c={animation.color}
-              
+              variants={MemberVariants}
               animate={{
                 x: translateX ? animation.xMove : animation.xOrigin,
                 y: translateX ? animation.yMove : animation.yOrigin,
@@ -154,6 +159,7 @@ const CardMember = () => {
                   rotate: 0,
                   zIndex: 6,
                   translateY: "-100vh",
+
                   transition: {
                     type: "spring",
                     stiffness: 10,
@@ -170,9 +176,29 @@ const CardMember = () => {
                   },
                 }),
               }}
-              onTap={() => sequence(animation.id)}
-              onClick={() => handleCardClick(animation.id)}
-            ></LinkCard>
+              onTap={() => {
+                handleCardClick(animation.id);
+                handleFlipCard();
+              }}
+            >
+              <FlipCardContainer isFlipped={isFlipped} flipDirection="horizontal">
+                <CardFront
+                  onTap={() => {
+                    handleFlipCard;
+                  }}
+                >
+                  This is the front of the card. This is the front of the card.
+                  This is the front of the card. This is the front of the card.
+                  This is the front of the card. This is the front of the card.
+                </CardFront>
+                <CardBack
+                  onTap={() => {
+                    handleFlipCard;
+                  }}
+                  src="https://gateway.pinata.cloud/ipfs/QmdSTRZPsSYSkgD2AcFdGkScUy1xRdsGn4bjmrBcsf94nm"
+                ></CardBack>
+              </FlipCardContainer>
+            </LinkCard>
           ))}
         </CardItem>
       </CardContainer>
