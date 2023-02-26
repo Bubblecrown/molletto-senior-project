@@ -2,6 +2,7 @@ import { Animator, ScrollContainer } from "react-scroll-motion";
 import { batch, MoveIn, Sticky } from "react-scroll-motion/dist/animations";
 import ScrollPage from "react-scroll-motion/dist/ScrollPage";
 import { MoveInPage } from "../../animations/MoveIn";
+import { StickyMove } from "../../animations/StickyMove";
 import { StickyPage } from "../../animations/StickyPage";
 import AboutMain from "./AboutMain";
 import { Section } from "./AboutStyle";
@@ -19,11 +20,10 @@ const ScrollAnimation = () => {
         </ScrollPage>
 
         <ScrollPage>
-          <Animator animation={batch(Sticky(), MoveInPage(100))}>
+          <Animator animation={batch(StickyMove(), MoveInPage(100, 100))}>
             <AboutUs />
           </Animator>
         </ScrollPage>
-
       </ScrollContainer>
     </>
   );

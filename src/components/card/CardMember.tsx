@@ -178,26 +178,9 @@ const CardMember = () => {
               }}
               onTap={() => {
                 handleCardClick(animation.id);
-                handleFlipCard();
               }}
             >
-              <FlipCardContainer isFlipped={isFlipped} flipDirection="horizontal">
-                <CardFront
-                  onTap={() => {
-                    handleFlipCard;
-                  }}
-                >
-                  This is the front of the card. This is the front of the card.
-                  This is the front of the card. This is the front of the card.
-                  This is the front of the card. This is the front of the card.
-                </CardFront>
-                <CardBack
-                  onTap={() => {
-                    handleFlipCard;
-                  }}
-                  src="https://gateway.pinata.cloud/ipfs/QmdSTRZPsSYSkgD2AcFdGkScUy1xRdsGn4bjmrBcsf94nm"
-                ></CardBack>
-              </FlipCardContainer>
+              
             </LinkCard>
           ))}
         </CardItem>

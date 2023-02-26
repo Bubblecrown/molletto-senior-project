@@ -80,7 +80,7 @@ const AboutMain = () => {
           <ScrollPrompt />
         </AboutMainContainer>
         <AboutHangingLine>
-          <Animator animation={MoveInPage(100)}>
+          <Animator animation={MoveInPage(100, 0)}>
             <AboutLine
               src={AboutMainData.Line}
               alt={AboutMainData.LineAlt}
