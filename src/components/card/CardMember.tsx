@@ -41,7 +41,7 @@ const CardMember = () => {
   const [isFlipped, setIsFlipped] = useState(false);
   function handleFlipCard() {
     setIsFlipped(!isFlipped);
-    console.log(isFlipped)
+    console.log(isFlipped);
   }
 
   const animated = useAnimationControls();
@@ -122,7 +122,6 @@ const CardMember = () => {
         <CardItem>
           {CardAnimation.map((animation, index) => (
             <LinkCard
-            
               to={translateX ? `/about/${animation.id}` : ``}
               key={index}
               c={animation.color}
@@ -179,9 +178,7 @@ const CardMember = () => {
               onTap={() => {
                 handleCardClick(animation.id);
               }}
-            >
-              
-            </LinkCard>
+            ></LinkCard>
           ))}
         </CardItem>
       </CardContainer>

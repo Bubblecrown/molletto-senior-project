@@ -6,9 +6,7 @@ import styled from "styled-components";
 export const CardContainer = styled(motion.div)`
   display: flex;
   position: relative;
-  top: 50%;
-  transform: translateY(-70%);
-  height: 70%;
+  height: 100%;
   align-items: center;
   justify-content: center;
 `;

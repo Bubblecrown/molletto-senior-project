@@ -1,15 +1,21 @@
 import React from "react";
 import { Animator, batch, Sticky } from "react-scroll-motion";
 import { MoveInPage } from "../../animations/MoveIn";
+import Footer from "../../components/Footer/Footer";
 import { Logo } from "../../components/HeaderLine/HeaderStyle";
 import ScrollPrompt from "../../components/Prompt/ScrollPrompt";
 import { AboutMainData, HeadMember } from "../../data/aboutData";
-import { H2Eng, H3Eng, H4Eng, H5Eng } from "../../GlobalStyle";
+import {
+  Container,
+  H2Eng,
+  H3Eng,
+  H4Eng,
+  H5Eng,
+  Section,
+} from "../../GlobalStyle";
 import { useTablet } from "../../hooks/useMediaQuery";
 import AboutMainMobile from "./AboutMainMobile";
 import {
-  Container,
-  Section,
   AboutMainContainer,
   HeaderAboutMain,
   AboutDescription,
@@ -56,6 +62,7 @@ const AboutMain = () => {
                 </AboutTitle>
               </HeaderAboutMain>
               {/* end Header */}
+
               {/* Body */}
               <BodyAboutMain>
                 <BodyAboutContainer>
@@ -73,10 +80,11 @@ const AboutMain = () => {
                   </AboutMainDescription>
                 </BodyAboutContainer>
               </BodyAboutMain>
+
               {/* end body */}
             </>
           )}
-
+          <Footer />
           <ScrollPrompt />
         </AboutMainContainer>
         <AboutHangingLine>

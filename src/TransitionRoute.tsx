@@ -16,7 +16,6 @@ const TransitionRoute = () => {
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<ScrollAnimation />} />
-        <Route path="/scroll" element={<ScrollAnimation />} />
         <Route path="/about" element={<PulsingCircle />} />
         <Route path="/about/:id" element={<Member />} />
       </Routes>

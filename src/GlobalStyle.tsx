@@ -32,29 +32,29 @@ const GlobalStyles = createGlobalStyle`
     }
     
 `;
-export const Container = styled(motion.div)`
-  background-color: beige;
-  height: 100vh;
+
+export const Section = styled.div<{ c?: string; o?: number }>`
+  background-color: ${({ c }) => (c ? c : "#d9d9d9")};
+  height: 100%;
   width: 100vw;
+  overflow-y: auto;
+  overflow-x: hidden;
+  opacity: ${({ o }) => (o ? o : 1)};
 `;
-export const Container1 = styled(motion.div)`
-  background-color: aqua;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  /* position: relative; */
+
+export const Container = styled.div<{
+  p?: string;
+}>`
+  height: 100vh;
+  padding: ${({ p }) => (p ? p : "2% 5%")};
+  @media only screen and (min-width: 1920px) {
+    padding: ${({ p }) => (p ? p : "2% 15%")};
+  }
+  @media only screen and (max-width: 1440px) {
+    padding: ${({ p }) => (p ? p : "2% 10%;")};
+  }
 `;
-export const Container2 = styled(motion.div)`
-  background-color: green;
-  /* height: 100px;
-  width: 100px; */
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  /* position: absolute; */
-  /* top: 0;
-  left: 0; */
-`;
+
 export const SlideIn = styled(motion.div)`
   background: green;
   position: fixed;

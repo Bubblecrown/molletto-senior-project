@@ -5,8 +5,8 @@ import { useParams } from "react-router";
 import { Card } from "../../components/card/CardStyle";
 import HeaderMember from "../../components/HeaderLine/HeaderMember";
 import { EachMember, SocialLogo } from "../../data/aboutData";
-import { BodyEng, H1Noto, H3Eng, H3Roboto } from "../../GlobalStyle";
-import { Container, Header, HeaderBar, Section } from "./AboutStyle";
+import { BodyEng, Container, H1Noto, H3Eng, H3Roboto } from "../../GlobalStyle";
+import { Header, HeaderBar } from "./AboutStyle";
 import {
   CardDetail,
   CardMember,
@@ -41,11 +41,8 @@ const Member = () => {
       transition={{ delay: 1 }}
       exit={{ opacity: 0, transition: { delay: 1 } }}
     >
-      <Container>
-        <HeaderBar
-          h="20%"
-          
-        >
+      <Container p="0 5%">
+        <HeaderBar h="20%">
           <HeaderMember logoColor="rgba(0, 0, 0, 0)" />
         </HeaderBar>
         <CardMemberContainer>

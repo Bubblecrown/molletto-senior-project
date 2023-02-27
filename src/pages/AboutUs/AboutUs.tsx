@@ -1,10 +1,12 @@
 import { useSelector } from "react-redux";
 import CardMember from "../../components/card/CardMember";
 import HeaderMember from "../../components/HeaderLine/HeaderMember";
-import { CardTeam, Container, Header, HeaderBar, Section } from "./AboutStyle";
+import { CardTeam, Header, HeaderBar } from "./AboutStyle";
 import { RootState } from "../../app/store";
 import { CircleContainer } from "../../components/PulsingCircle/PulsingStyle";
 import PulsingCircle from "../../components/PulsingCircle/PulsingCircle";
+import { Container, Section } from "../../GlobalStyle";
+import Footer from "../../components/Footer/Footer";
 const AboutUs = () => {
   const translateX = useSelector(
     (state: RootState) => state.activeCard.translateX
@@ -13,11 +15,11 @@ const AboutUs = () => {
   return (
     <>
       <Section>
-        <Container>
+        <Container p="0 5%">
           <HeaderBar>
             <Header
               animate={{
-                translateY: translateX ? 0 : -200,
+                translateY: translateX ? 0 : '-100vh',
                 display: "absolute",
               }}
               transition={{
@@ -33,10 +35,10 @@ const AboutUs = () => {
             </Header>
           </HeaderBar>
           <CardTeam>
-            
             <CardMember />
             <PulsingCircle />
           </CardTeam>
+          <Footer />
         </Container>
       </Section>
     </>

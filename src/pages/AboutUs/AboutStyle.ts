@@ -2,37 +2,12 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 import { roboto } from "../../GlobalStyle";
 
-// Shared
-export const Section = styled.div<{ c?: string; o?: number }>`
-  background-color: ${({ c }) => (c ? c : "#d9d9d9")};
-  height: 100%;
-  width: 100vw;
-  overflow-y: auto;
-  overflow-x: hidden;
-  opacity: ${({ o }) => (o ? o : 1)};
-`;
-
-export const Container = styled.div`
-  margin: 0 5%;
-  height: 100vh;
-
-  @media only screen and (min-width: 1920px) {
-    margin: 0 15%;
-  }
-  @media only screen and (max-width: 1440px) {
-    margin: 0 10%;
-  }
-`;
-
-// end shared
-
 // About Us
 export const HeaderBar = styled(motion.div)<{ h?: string }>`
   position: relative;
   display: block;
   /* height: 20%; */
-  height: ${({ h }) => (h ? h : 'auto')};
-
+  height: ${({ h }) => (h ? h : "auto")};
 `;
 export const Header = styled(motion.div)`
   position: absolute;
@@ -44,7 +19,6 @@ export const Header = styled(motion.div)`
 
 export const CardTeam = styled.div`
   height: 100vh;
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -54,7 +28,7 @@ export const CardTeam = styled.div`
 // About main
 
 export const AboutMainContainer = styled.div`
-  position: relative;
+
   width: 100%;
   height: 100%;
 `;
@@ -64,9 +38,8 @@ export const HeaderAboutMain = styled.div`
   justify-content: space-between;
   align-items: center;
   max-height: 17%;
-  padding-top: 2%;
+
   @media only screen and (max-width: 1100px) {
-    padding-top: 5%;
   }
 `;
 export const AboutLogo = styled.div`
@@ -96,14 +69,10 @@ export const BodyAboutMain = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-grow: 1;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-
-  transform: translate(-50%, -50%);
+  transform: translate(0, -15%);
   width: 100%;
   max-width: 100%;
+  height: 100%;
 `;
 
 export const BodyAboutContainer = styled.div`
