@@ -7,10 +7,10 @@ const HeaderMember = ({ logoColor }: { logoColor?: string }) => {
   return (
     <>
       <Line>
-        <H3Roboto m="0 0 -26px 0" w="15vw">
+        <H3Roboto m="0 0 -26px 0">
           {HeadMember.title}
         </H3Roboto>
-        <SpanText c={logoColor} z="0">
+        <SpanText z="0">
           <Logo
             src={HeadMember.imgPath}
             alt={HeadMember.imageAlt}

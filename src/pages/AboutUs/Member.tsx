@@ -43,7 +43,7 @@ const Member = () => {
     >
       <Container p="0 5%">
         <HeaderBar h="20%">
-          <HeaderMember logoColor="rgba(0, 0, 0, 0)" />
+          <HeaderMember />
         </HeaderBar>
         <CardMemberContainer>
           <CardMemberBlock>

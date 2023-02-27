@@ -90,20 +90,21 @@ export const CloseBoxContainer = styled.div`
   width: 100%;
   height: 10%;
   align-items: center;
+  justify-content: flex-end;
+  transform: translate(10%, 10%);
   @media only screen and (max-width: 735px) {
     height: 20%;
+  }
+  @media only screen and (max-width: 360px) {
+    height: 30%;
   }
 `;
 
 export const CloseBox = styled(motion(Link))<{ c?: string; o?: number }>`
-  position: absolute;
   width: 232px;
   max-width: 100%;
   height: 97px;
   border-radius: 53px 0 0 53px;
-  /* bottom: 10%; */
-  right: 0;
-
   background-color: ${({ c }) => (c ? c : "#000")};
 
   @media only screen and (max-width: 800px) {

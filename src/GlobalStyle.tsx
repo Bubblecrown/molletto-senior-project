@@ -88,7 +88,7 @@ export const H1Roboto = styled(motion.h1)<{
 }>`
   font-family: ${roboto};
   font-weight: 800;
-  font-size: 8rem;
+  font-size: clamp(5rem, 10vw, 8rem);
   line-height: 150%;
   letter-spacing: 0.7rem;
   text-transform: uppercase;
@@ -112,7 +112,7 @@ export const H3Roboto = styled.h3<{
   w?: string;
 }>`
   font-family: ${roboto};
-  font-size: clamp(0.25rem, 5vw, 1rem);
+  font-size: clamp(0.25rem, 2.5vw, 1rem);
   width: ${({ w }) => (w ? w : "100%")};
   color: ${({ c }) => (c ? c : "#fff")};
   margin: ${({ m }) => (m ? m : "0")};
@@ -122,6 +122,10 @@ export const H3Roboto = styled.h3<{
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-weight: 500;
+  text-align: left;
+  @media screen and (max-width: 600px) {
+    width: ${({ w }) => (w ? w : "15vw")};
+  }
 `;
 // end Roboto
 
