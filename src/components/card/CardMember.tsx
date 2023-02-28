@@ -193,7 +193,7 @@ const CardMember = () => {
               />
               <RoleCard>{
                   EachMember.find((member) => member.id === animation.id)
-                    ?.id
+                    ?.role
                 }</RoleCard>
             </LinkCard>
           ))}

@@ -55,7 +55,6 @@ export const CardMember = styled(motion(Card))`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
 `;
 
 export const CardDetail = styled.div`

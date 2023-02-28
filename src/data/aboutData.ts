@@ -57,6 +57,7 @@ export const AboutMainData: {
 export const EachMember: {
   id?: string;
   color: string;
+  role?:string;
   profile?: string;
   memberName?: string;
   responsibility?: string[];
@@ -69,6 +70,7 @@ export const EachMember: {
 }[] = [
   {
     id: "ux-ui-designer",
+    role: "ux/ui designer",
     profile:
       "https://gateway.pinata.cloud/ipfs/QmWzceKpUpsbT86QWsm3dTQLVPoE5qjBqd5iWwSM5MbqDW",
     color: "#678BDF",
@@ -99,6 +101,7 @@ export const EachMember: {
   },
   {
     id: "developer",
+    role: "front-end developer",
     profile:
       "https://gateway.pinata.cloud/ipfs/QmWiG5s6z6qvLhQtvYnW3a3xNYoGJT8WJ6FtzKHa96GSiC",
     color: "#c47cd4",
@@ -124,6 +127,7 @@ export const EachMember: {
   },
   {
     id: "concept-art",
+    role: "concept art",
     profile:
       "https://gateway.pinata.cloud/ipfs/Qmez5BEwj3fAB7s2sWtf6KRpjz1hJ27R8ohiBZy7E3PfX2",
     color: "#0D0F1E",

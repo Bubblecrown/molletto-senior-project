@@ -65,13 +65,13 @@ export const LinkCard = styled(motion(Link))<{ c?: string }>`
   z-index: auto;
 `;
 
-export const CardVideo = styled.video<{ c?: string }>`
+export const CardVideo = styled.video`
   border-radius: 17px;
   width: 100%;
   height: auto;
 `;
 
-export const RoleCard = styled.div<{ c?: string }>`
+export const RoleCard = styled.div`
   position: absolute;
   width: 80%;
   height: 12%;
