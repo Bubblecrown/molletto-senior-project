@@ -16,6 +16,7 @@ const GlobalStyles = createGlobalStyle`
         font-size: inherit;
         margin: 0;
         padding: 0;
+        
     }
 
     html, body, #root {

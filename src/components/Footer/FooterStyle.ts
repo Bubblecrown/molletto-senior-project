@@ -20,9 +20,10 @@ export const SvgNav = styled(motion.div)`
   justify-content: flex-end;
   gap: 1rem;
   cursor: pointer;
-  g:hover {
-    circle {
-      fill: #d9d9d9;
-    }
+
+  g:hover circle {
+    fill: #d9d9d9;
+    position: relative;
+    transition: fill 3s ease;
   }
 `;

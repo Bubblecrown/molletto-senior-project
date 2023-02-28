@@ -52,6 +52,10 @@ export const CardSection = styled.div`
 export const CardMember = styled(motion(Card))`
   max-width: 100%;
   min-width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
 `;
 
 export const CardDetail = styled.div`

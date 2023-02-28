@@ -57,6 +57,7 @@ export const AboutMainData: {
 export const EachMember: {
   id?: string;
   color: string;
+  profile?: string;
   memberName?: string;
   responsibility?: string[];
   desciption?: string;
@@ -68,7 +69,9 @@ export const EachMember: {
 }[] = [
   {
     id: "ux-ui-designer",
-    color: "#92E5FF",
+    profile:
+      "https://gateway.pinata.cloud/ipfs/QmWzceKpUpsbT86QWsm3dTQLVPoE5qjBqd5iWwSM5MbqDW",
+    color: "#678BDF",
     memberName: "Pimchawisa Saparram",
     responsibility: [
       "Ux/Ui Designer",
@@ -96,7 +99,9 @@ export const EachMember: {
   },
   {
     id: "developer",
-    color: "#FF92B9",
+    profile:
+      "https://gateway.pinata.cloud/ipfs/QmWiG5s6z6qvLhQtvYnW3a3xNYoGJT8WJ6FtzKHa96GSiC",
+    color: "#c47cd4",
     memberName: "Suchanya Namwong",
     responsibility: ["Front-end Developer"],
     desciption:
@@ -119,7 +124,9 @@ export const EachMember: {
   },
   {
     id: "concept-art",
-    color: "#92FFCA",
+    profile:
+      "https://gateway.pinata.cloud/ipfs/Qmez5BEwj3fAB7s2sWtf6KRpjz1hJ27R8ohiBZy7E3PfX2",
+    color: "#0D0F1E",
     memberName: "Saowarod Kimbut",
     responsibility: ["Concept Art"],
     desciption:
@@ -181,7 +188,7 @@ export const CardAnimationLarge: {
 }[] = [
   {
     id: "ux-ui-designer",
-    color: "#92E5FF",
+    color: "#678BDF",
     xOrigin: "110%",
     xMove: 0,
     yOrigin: 20,
@@ -191,14 +198,14 @@ export const CardAnimationLarge: {
   },
   {
     id: "developer",
-    color: "#FF92B9",
+    color: "#c47cd4",
     yOrigin: -30,
     yMove: 20,
     rotate: -0.07,
   },
   {
     id: "concept-art",
-    color: "#92FFCA",
+    color: "#0D0F1E",
     xOrigin: "-110%",
     xMove: 0,
     yMove: 25,
@@ -219,7 +226,7 @@ export const CardAnimationMedium: {
 }[] = [
   {
     id: "ux-ui-designer",
-    color: "#92E5FF",
+    color: "#678BDF",
     xOrigin: 250,
     xMove: 0,
     yOrigin: 20,
@@ -229,14 +236,14 @@ export const CardAnimationMedium: {
   },
   {
     id: "developer",
-    color: "#FF92B9",
+    color: "#c47cd4",
     yOrigin: -30,
     yMove: 20,
     rotate: -0.07,
   },
   {
     id: "concept-art",
-    color: "#92FFCA",
+    color: "#0D0F1E",
     xOrigin: -250,
     xMove: 0,
     yMove: 25,
@@ -257,7 +264,7 @@ export const CardAnimationTablet: {
 }[] = [
   {
     id: "ux-ui-designer",
-    color: "#92E5FF",
+    color: "#678BDF",
     xOrigin: 190,
     xMove: 0,
     yOrigin: 20,
@@ -267,7 +274,7 @@ export const CardAnimationTablet: {
   },
   {
     id: "developer",
-    color: "#FF92B9",
+    color: "#c47cd4",
     xOrigin: 0,
     xMove: 0,
     yOrigin: -30,
@@ -276,7 +283,7 @@ export const CardAnimationTablet: {
   },
   {
     id: "concept-art",
-    color: "#92FFCA",
+    color: "#0D0F1E",
     xOrigin: -190,
     xMove: 0,
     yOrigin: 0,
@@ -298,7 +305,7 @@ export const CardAnimationSmall: {
 }[] = [
   {
     id: "ux-ui-designer",
-    color: "#92E5FF",
+    color: "#678BDF",
     xOrigin: 190,
     xMove: 180,
     yOrigin: 20,
@@ -308,14 +315,14 @@ export const CardAnimationSmall: {
   },
   {
     id: "developer",
-    color: "#FF92B9",
+    color: "#c47cd4",
     yOrigin: -30,
     yMove: 150,
     rotate: -0.07,
   },
   {
     id: "concept-art",
-    color: "#92FFCA",
+    color: "#0D0F1E",
     xOrigin: -190,
     xMove: -180,
     yMove: 460,

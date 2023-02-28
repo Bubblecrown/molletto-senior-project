@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import React from "react";
 import { useParams } from "react-router";
 
-import { Card } from "../../components/card/CardStyle";
+import { Card, CardVideo } from "../../components/card/CardStyle";
 import HeaderMember from "../../components/HeaderLine/HeaderMember";
 import { EachMember, SocialLogo } from "../../data/aboutData";
 import { BodyEng, Container, H1Noto, H3Eng, H3Roboto } from "../../GlobalStyle";
@@ -70,7 +70,9 @@ const Member = () => {
                       delay: 0,
                     },
                   }}
-                ></CardMember>
+                >
+                  <CardVideo src={member?.profile} muted loop autoPlay />
+                </CardMember>
               </CardSection>
               <CardDetail>
                 <MemberDetailHeader>

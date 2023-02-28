@@ -4,6 +4,7 @@ import {
   CardAnimationLarge,
   CardAnimationMedium,
   CardAnimationTablet,
+  EachMember,
 } from "../../data/aboutData";
 import { H1Roboto } from "../../GlobalStyle";
 import { useSelector, useDispatch } from "react-redux";
@@ -13,8 +14,10 @@ import {
   CardContainer,
   CardFront,
   CardItem,
+  CardVideo,
   FlipCardContainer,
   LinkCard,
+  RoleCard,
   TitleContainer,
 } from "./CardStyle";
 import { setActiveCard } from "../../slices/CardSlice";
@@ -178,7 +181,21 @@ const CardMember = () => {
               onTap={() => {
                 handleCardClick(animation.id);
               }}
-            ></LinkCard>
+            >
+              <CardVideo
+                src={
+                  EachMember.find((member) => member.id === animation.id)
+                    ?.profile
+                }
+                muted
+                loop
+                autoPlay
+              />
+              <RoleCard>{
+                  EachMember.find((member) => member.id === animation.id)
+                    ?.id
+                }</RoleCard>
+            </LinkCard>
           ))}
         </CardItem>
       </CardContainer>
