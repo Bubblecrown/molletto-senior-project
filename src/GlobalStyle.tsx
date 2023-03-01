@@ -8,6 +8,14 @@ export const notosans = "'Noto Sans', sans-serif";
 export const guildaFont = "'Gilda Display', serif";
 // end Font
 
+export const LayerImage = styled.div`
+  background-image: url("https://preview.redd.it/2wnfdtan9dw41.png?width=640&crop=smart&auto=webp&s=e332bb8a9935e2ec753447ff913bb83880fb5638");
+  width: auto;
+  height: 100%;
+  background-position: center;
+  background-repeat: repeat-x;
+  background-size: cover;
+`;
 const GlobalStyles = createGlobalStyle`
     * {
         border: 0;
@@ -34,12 +42,29 @@ const GlobalStyles = createGlobalStyle`
     
 `;
 
-export const Section = styled.div<{ c?: string; o?: number }>`
+export const TaleSection = styled.div<{
+  c?: string;
+  o?: number;
+  xOverflow?: string;
+}>`
+  background-color: ${({ c }) => (c ? c : "#d9d9d9")};
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: auto;
+  opacity: ${({ o }) => (o ? o : 1)};
+`;
+
+export const Section = styled.div<{
+  c?: string;
+  o?: number;
+  xOverflow?: string;
+}>`
   background-color: ${({ c }) => (c ? c : "#d9d9d9")};
   height: 100%;
   width: 100vw;
   overflow-y: auto;
-  overflow-x: hidden;
+  overflow-x: ${({ xOverflow }) => (xOverflow ? xOverflow : "hidden")};
   opacity: ${({ o }) => (o ? o : 1)};
 `;
 

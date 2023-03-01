@@ -1,13 +1,11 @@
 import { Animator, ScrollContainer } from "react-scroll-motion";
-import { batch, MoveIn, Sticky } from "react-scroll-motion/dist/animations";
+import { batch } from "react-scroll-motion/dist/animations";
 import ScrollPage from "react-scroll-motion/dist/ScrollPage";
 import { MoveInPage } from "../../animations/MoveIn";
 import { StickyMove } from "../../animations/StickyMove";
 import { StickyPage } from "../../animations/StickyPage";
-import Footer from "../../components/Footer/Footer";
 import AboutMain from "./AboutMain";
 import AboutUs from "./AboutUs";
-import Member from "./Member";
 
 const ScrollAnimation = () => {
   return (
