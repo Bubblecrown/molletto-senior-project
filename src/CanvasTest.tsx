@@ -23,7 +23,7 @@ function CanvasTest() {
 
   return (
     <TaleSection ref={scrollRef}>
-      <div style={{ whiteSpace: "nowrap" }}>
+      <div style={{ whiteSpace: "nowrap"}}>
         <canvas ref={canvasRef} />
       </div>
     </TaleSection>

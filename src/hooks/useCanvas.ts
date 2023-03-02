@@ -19,7 +19,7 @@ export const useCanvas = ({
     const canvasWidth = window.innerWidth;
     const canvasHeight = window.innerHeight;
 
-    canvas.width = canvasWidth * (imageSources.length + overlapSources.length);
+    canvas.width = canvasWidth * imageSources.length;
     canvas.height = canvasHeight;
 
     imageSources.forEach((src, i) => {

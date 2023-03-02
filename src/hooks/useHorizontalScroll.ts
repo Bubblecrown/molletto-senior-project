@@ -6,18 +6,17 @@ export function useHorizontalScroll(): RefObject<HTMLDivElement> {
   useEffect(() => {
     const el = elRef.current;
     if (el) {
-      const onWheel = (e: WheelEvent) => {
-        if (e.deltaY === 0) return;
-        e.preventDefault();
-        const delta = e.deltaY * 3;
-        const left = Math.max(
-          0,
-          Math.min(el.scrollWidth - el.clientWidth, el.scrollLeft + delta)
-        );
-        el.scrollTo({ left, behavior: "smooth" });
+      const onScroll = (e: Event) => {
+        if ((e as WheelEvent).deltaY !== 0) {
+          e.preventDefault();
+          el.scrollTo({
+            left: el.scrollLeft + (e as WheelEvent).deltaY * 5,
+            behavior: "smooth",
+          });
+        }
       };
-      el.addEventListener("wheel", onWheel);
-      return () => el.removeEventListener("wheel", onWheel);
+      el.addEventListener("wheel", onScroll, { passive: false });
+      return () => el.removeEventListener("wheel", onScroll);
     }
   }, []);
 
