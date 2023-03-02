@@ -34,6 +34,7 @@ const GlobalStyles = createGlobalStyle`
         margin: 0;
         box-sizing: border-box;
         padding: 0;
+        scroll-behavior: smooth;
     }
     a {
         font-weight: 500;

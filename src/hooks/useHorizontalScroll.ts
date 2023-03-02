@@ -9,10 +9,12 @@ export function useHorizontalScroll(): RefObject<HTMLDivElement> {
       const onWheel = (e: WheelEvent) => {
         if (e.deltaY === 0) return;
         e.preventDefault();
-        el.scrollTo({
-          left: el.scrollLeft + e.deltaY,
-          behavior: "smooth",
-        });
+        const delta = e.deltaY * 3;
+        const left = Math.max(
+          0,
+          Math.min(el.scrollWidth - el.clientWidth, el.scrollLeft + delta)
+        );
+        el.scrollTo({ left, behavior: "smooth" });
       };
       el.addEventListener("wheel", onWheel);
       return () => el.removeEventListener("wheel", onWheel);
