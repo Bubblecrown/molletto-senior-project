@@ -9,11 +9,9 @@ export const guildaFont = "'Gilda Display', serif";
 // end Font
 
 export const LayerImage = styled.div`
-  background-image: url("https://preview.redd.it/2wnfdtan9dw41.png?width=640&crop=smart&auto=webp&s=e332bb8a9935e2ec753447ff913bb83880fb5638");
   width: auto;
   height: 100%;
   background-position: center;
-  background-repeat: repeat-x;
   background-size: cover;
 `;
 const GlobalStyles = createGlobalStyle`
@@ -34,13 +32,63 @@ const GlobalStyles = createGlobalStyle`
         margin: 0;
         box-sizing: border-box;
         padding: 0;
-        scroll-behavior: smooth;
+        scroll-behavior: smooth; 
+        
+    }
+    body{
+   
     }
     a {
         font-weight: 500;
         text-decoration: none;
     }
     
+`;
+
+export const ContainerScroll = styled.div<{
+  c?: string;
+  o?: number;
+  xOverflow?: string;
+}>`
+  width: 300%;
+  height: 100vh;
+  display: flex;
+  flex-wrap: nowrap;
+
+  section {
+    width: 100%;
+  }
+`;
+
+export const ContainerTest = styled.div`
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  top: 0;
+  right: 0;
+  left: -10%;
+  bottom: 0;
+  width: 150%;
+`;
+
+export const Layer1 = styled.div`
+  background: url("https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_1.png")
+    no-repeat;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+`;
+
+export const Layer2 = styled.div<{
+  c?: string;
+  o?: number;
+  xOverflow?: string;
+}>`
+  background: url("https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_2.png")
+    no-repeat;
+  width: 100%;
+  position: absolute;
+  height: 100%;
 `;
 
 export const TaleSection = styled.div<{
