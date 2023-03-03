@@ -7,13 +7,14 @@ import FairyTale from "./FairyTale";
 import CanvasTest from "./CanvasTest";
 import GsapScrollTest from "./GsapScrollTest";
 import TestCanvas from "./TestCanvas";
+import LocoTest from "./LocoTest";
 
 const TransitionRoute = () => {
   const location = useLocation();
   return (
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<FairyTale />} />
+        <Route path="/" element={<LocoTest />} />
         <Route path="/about" element={<PulsingCircle />} />
         <Route path="/about/:id" element={<Member />} />
       </Routes>
