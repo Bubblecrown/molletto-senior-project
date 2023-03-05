@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 
 import "./locomotive-scroll.css";
+import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 
 const SectionWrapper = styled.div`
   width: 100vw;
@@ -44,8 +45,8 @@ const Image3 = styled.img`
   width: auto;
   height: auto;
   position: absolute;
-  top: 50%;
-  left: 0;
+  top: 45%;
+  left: 45%;
   z-index: 11;
 `;
 
@@ -68,9 +69,11 @@ const LocoTest = () => {
         smooth: true,
         direction: "horizontal",
         tablet: {
+          smooth: true,
           direction: "horizontal",
         },
         smartphone: {
+          smooth: true,
           direction: "horizontal",
         },
       }}
@@ -80,26 +83,40 @@ const LocoTest = () => {
         data-scroll-container
         ref={containerRef}
         style={{ position: "relative" }}
+        id="pin"
       >
         <SectionWrapper data-scroll-section>
           <H1 data-scroll data-scroll-speed="10">
             Hey
           </H1>
-          <Image3
-            data-scroll
-            data-scroll-sticky
-            src="https://media0.giphy.com/media/mDGqpNBhFIZZnkdKb1/200w.gif?cid=82a1493b3wwqng3b5c9983dgnk23nyhpef0g1z8rnw38bcoo&rid=200w.gif&ct=s"
-          />
+          <div style={{ zIndex: 12 }}>
+            <Image3
+              data-scroll
+              data-scroll-sticky
+              data-scroll-speed="3"
+              data-scroll-target="#pin"
+              src="https://media0.giphy.com/media/mDGqpNBhFIZZnkdKb1/200w.gif?cid=82a1493b3wwqng3b5c9983dgnk23nyhpef0g1z8rnw38bcoo&rid=200w.gif&ct=s"
+            />
+          </div>
           <Image
             data-scroll
             src="https://t3.ftcdn.net/jpg/01/14/47/12/360_F_114471291_nbYCT471AB0Ck6Wingz7YVCRFlUhdUvG.jpg"
           />
         </SectionWrapper>
 
-        <SectionWrapper data-scroll-section>
+        <SectionWrapper data-scroll-section id="pin5">
           <H1 data-scroll data-scroll-speed="10">
             Hey
           </H1>
+          <div style={{ zIndex: 12 }}>
+            <Image3
+              data-scroll
+              data-scroll-sticky
+              data-scroll-speed="3"
+              data-scroll-target="#pin5"
+              src="https://media0.giphy.com/media/mDGqpNBhFIZZnkdKb1/200w.gif?cid=82a1493b3wwqng3b5c9983dgnk23nyhpef0g1z8rnw38bcoo&rid=200w.gif&ct=s"
+            />
+          </div>
           <Image
             data-scroll
             src="https://miro.medium.com/max/1400/0*-pOySD-Yf6yiyInP.jpg"
