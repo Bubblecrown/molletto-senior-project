@@ -46,7 +46,7 @@ const Image3 = styled.img`
   height: auto;
   position: absolute;
   top: 45%;
-  left: 45%;
+  /* left: 45%; */
   z-index: 11;
 `;
 
@@ -82,10 +82,10 @@ const LocoTest = () => {
       <main
         data-scroll-container
         ref={containerRef}
-        style={{ position: "relative" }}
+        style={{ position: "relative", whiteSpace: "nowrap" }}
         id="pin"
       >
-        <SectionWrapper data-scroll-section>
+        <SectionWrapper data-scroll-section data-scroll-class="sticky-element">
           <H1 data-scroll data-scroll-speed="10">
             Hey
           </H1>
@@ -93,7 +93,7 @@ const LocoTest = () => {
             <Image3
               data-scroll
               data-scroll-sticky
-              data-scroll-speed="3"
+              data-scroll-speed="20"
               data-scroll-target="#pin"
               src="https://media0.giphy.com/media/mDGqpNBhFIZZnkdKb1/200w.gif?cid=82a1493b3wwqng3b5c9983dgnk23nyhpef0g1z8rnw38bcoo&rid=200w.gif&ct=s"
             />
