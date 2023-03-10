@@ -100,7 +100,7 @@ const LocoTest = () => {
           </div>
           <Image
             data-scroll
-            src="https://t3.ftcdn.net/jpg/01/14/47/12/360_F_114471291_nbYCT471AB0Ck6Wingz7YVCRFlUhdUvG.jpg"
+            src="https://img.freepik.com/premium-vector/nature-forest-landscape-background-illustration-happy-earth-day-with-environment-lake-scenery_513217-146.jpg?w=360"
           />
         </SectionWrapper>
 
@@ -119,7 +119,7 @@ const LocoTest = () => {
           </div>
           <Image
             data-scroll
-            src="https://miro.medium.com/max/1400/0*-pOySD-Yf6yiyInP.jpg"
+            src="https://img.freepik.com/premium-vector/nature-forest-landscape-background-illustration-happy-earth-day-with-environment-lake-scenery_513217-146.jpg?w=360"
           />
           <Image2
             data-scroll
@@ -139,11 +139,24 @@ const LocoTest = () => {
             data-scroll
             src="https://pxpx.imgix.net/2021/10/parallax-1.jpg?auto=compress%2Cformat&fit=crop&h=1080&q=90&w=1920&s=1b27afe5d267cee4c23c37e4c2cd1067"
           />
+          <Image2
+            data-scroll
+            data-scroll-direction="horizontal"
+            data-scroll-speed="3"
+            src="http://www.clker.com/cliparts/9/2/8/f/1296845123264859256tree1-hi.png"
+          />
         </SectionWrapper>
         <SectionWrapper data-scroll-section>
           <Image
             data-scroll
+            data-scroll-speed="3"
             src="https://images.pond5.com/animated-parallax-background-mountains-and-footage-170788646_iconl.jpeg"
+          />
+          <Image2
+            data-scroll
+            data-scroll-direction="horizontal"
+            data-scroll-speed="3"
+            src="http://www.clker.com/cliparts/9/2/8/f/1296845123264859256tree1-hi.png"
           />
         </SectionWrapper>
       </main>
