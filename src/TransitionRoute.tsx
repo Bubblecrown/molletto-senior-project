@@ -9,13 +9,14 @@ import GsapScrollTest from "./GsapScrollTest";
 import TestCanvas from "./TestCanvas";
 import LocoTest from "./LocoTest";
 import ReactSpring from "./ReactSpring";
+import TestThree from "./TestThree";
 
 const TransitionRoute = () => {
   const location = useLocation();
   return (
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<FairyTale />} />
+        <Route path="/" element={<TestThree />} />
 
         <Route path="/about" element={<PulsingCircle />} />
         <Route path="/about/:id" element={<Member />} />
