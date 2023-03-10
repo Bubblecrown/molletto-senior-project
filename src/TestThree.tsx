@@ -1,39 +1,45 @@
-import React from "react";
-import * as THREE from "three";
+import React, { useRef } from "react";
+import { Canvas, extend, useFrame, useThree } from "@react-three/fiber";
+import { Mesh } from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import "./interfaces/OrbitControls";
+extend({ OrbitControls });
+
+const Orbit = () => {
+  const { camera, gl } = useThree();
+  // x - red
+  // y - green
+  // z - blue
+  return <orbitControls args={[camera, gl.domElement]} />;
+};
+
+const Box = () => {
+  const ref = useRef<Mesh>(null);
+  useFrame((state) => {
+    if (ref.current) {
+      ref.current.rotation.x += 0.01;
+      ref.current.rotation.y += 0.01;
+    }
+  });
+  return (
+    <mesh ref={ref}>
+      <boxBufferGeometry />
+      <meshStandardMaterial color="hotpink" />
+    </mesh>
+  );
+};
 
 const TestThree = () => {
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(
-    75,
-    window.innerWidth / window.innerHeight,
-    0.1,
-    1000
+  return (
+    <div style={{ width: "100vw", height: "100vh" }}>
+      <Canvas style={{ background: "#fff2f4" }}>
+        <pointLight position={[10, 10, 10]} />
+        <Orbit />
+        <Box />
+        <axesHelper args={[5]} />
+      </Canvas>
+    </div>
   );
-
-  const renderer = new THREE.WebGLRenderer();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  document.body.innerHTML = "";
-  document.body.appendChild(renderer.domElement);
-  const geometry = new THREE.BoxGeometry(1, 1, 1);
-  const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-  const cube = new THREE.Mesh(geometry, material);
-  scene.add(cube);
-
-  camera.position.z = 5;
-
-  function animate() {
-    requestAnimationFrame(animate);
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
-    renderer.render(scene, camera);
-  }
-  animate();
-  window.addEventListener("resize", () => {
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix()
-  });
-  return null;
 };
 
 export default TestThree;
