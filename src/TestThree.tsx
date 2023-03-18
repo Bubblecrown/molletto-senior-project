@@ -1,6 +1,13 @@
-import React, { useRef } from "react";
-import { Canvas, extend, useFrame, useThree } from "@react-three/fiber";
+import React, { Suspense, useRef } from "react";
+import {
+  Canvas,
+  extend,
+  useFrame,
+  useLoader,
+  useThree,
+} from "@react-three/fiber";
 import { Mesh, Vector3 } from "three";
+import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import "./interfaces/OrbitControls";
 extend({ OrbitControls });
@@ -15,6 +22,7 @@ const Orbit = () => {
 
 const Box = () => {
   const ref = useRef<Mesh>(null);
+  const textureBox = useLoader(THREE.TextureLoader, "./assets/wood.png");
   useFrame((state) => {
     if (ref.current) {
       ref.current.rotation.x += 0.01;
@@ -22,9 +30,21 @@ const Box = () => {
     }
   });
   return (
-    <mesh ref={ref} castShadow receiveShadow>
+    <mesh ref={ref} castShadow>
       <boxBufferGeometry />
-      <meshPhysicalMaterial color="hotpink" />
+      <meshPhysicalMaterial
+        color="white"
+        opacity={0.7}
+        transparent
+        // metalness={1}
+        roughness={1}
+        clearcoat={1}
+        fog={false}
+        transmission={1}
+        reflectivity={1}
+        side={THREE.DoubleSide}
+        map={textureBox}
+      />
     </mesh>
   );
 };
@@ -58,9 +78,12 @@ const TestThree = () => {
       >
         {/* <pointLight position={[10, 10, 10]} /> */}
         <Orbit />
-        <ambientLight intensity={0.2}/>
-        <fog attach='fog' args={['white', 1, 8]}/>
-        <Box />
+        <ambientLight intensity={0.2} />
+        <fog attach="fog" args={["white", 1, 8]} />
+        <Suspense fallback={null}>
+          <Box />
+        </Suspense>
+
         <Bulb position={[0, 2, 0]} />
         <axesHelper args={[5]} />
         <Floor position={[0, -1.5, 0]} />
