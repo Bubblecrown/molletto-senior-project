@@ -1,4 +1,4 @@
-import React, { Suspense, useRef, useState } from "react";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 import {
   Canvas,
   extend,
@@ -10,13 +10,12 @@ import { Mesh, Vector3 } from "three";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import "./interfaces/OrbitControls";
+import { DragControls } from "three/examples/jsm/controls/DragControls";
 extend({ OrbitControls });
+extend({ DragControls });
 
 const Orbit = () => {
   const { camera, gl } = useThree();
-  // x - red
-  // y - green
-  // z - blue
   return <orbitControls args={[camera, gl.domElement]} />;
 };
 
@@ -70,12 +69,7 @@ const Box = (props: any) => {
       onPointerLeave={handlePointerLeave}
     >
       <boxGeometry />
-      <meshPhysicalMaterial
-        color="white"
-        // metalness={1}
-
-        map={textureBox}
-      />
+      <meshPhysicalMaterial color={props.bgColor} map={textureBox} />
     </mesh>
   );
 };
@@ -100,43 +94,44 @@ const Bulb = (props: any) => {
 };
 
 const TestThree = () => {
-  const [active, setActive] = useState(false)
-  const handleClick = (e: any) => {
-    if (!window.activeMesh) return;
-    window.activeMesh.material.color = new THREE.Color(
-      e.target.style.background
-    );
-    console.log("fff");
+  const [bgColor, setBgColor] = useState("#fff2f4");
+  const handleClick = (color: any) => {
+    setBgColor(color);
   };
   return (
     <div style={{ width: "100vw", height: "100vh" }}>
       <div style={{ position: "absolute", zIndex: 1 }}>
         <div
-          onClick={handleClick}
+          onClick={() => handleClick("blue")}
           style={{ backgroundColor: "blue", width: 50, height: 50 }}
         ></div>
-        <div style={{ backgroundColor: "yellow", width: 50, height: 50 }}></div>
-        <div style={{ backgroundColor: "white", width: 50, height: 50 }}></div>
+        <div
+          onClick={() => handleClick("yellow")}
+          style={{ backgroundColor: "yellow", width: 50, height: 50 }}
+        ></div>
+        <div
+          onClick={() => handleClick("white")}
+          style={{ backgroundColor: "white", width: 50, height: 50 }}
+        ></div>
       </div>
       <Canvas
-        style={{ background: "#fff2f4" }}
+        style={{ background: bgColor }}
         camera={{ position: [3, 3, 3] }}
         shadows
       >
-        {/* <pointLight position={[10, 10, 10]} /> */}
         <Orbit />
         <ambientLight intensity={0.2} />
-        {/* <fog attach="fog" args={["white", 1, 8]} /> */}
+
         <Suspense fallback={null}>
-          <Box position={[2, 0, 0]} />
+          <Box position={[2, 0, 0]} bgColor={bgColor} />
         </Suspense>
         <Suspense fallback={null}>
-          <Box position={[-2, 0, 0]} />
+          <Box position={[-2, 0, 0]} bgColor={bgColor} />
         </Suspense>
+
         <Suspense fallback={null}>
           <Background />
         </Suspense>
-
         <Bulb position={[0, 5, 0]} />
         <axesHelper args={[5]} />
         <Floor position={[0, -1.5, 0]} />
@@ -144,5 +139,4 @@ const TestThree = () => {
     </div>
   );
 };
-
 export default TestThree;
