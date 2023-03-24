@@ -4,7 +4,7 @@ import { Html, OrbitControls } from "@react-three/drei";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { motion } from "framer-motion";
 import * as THREE from "three";
-
+import Room from "../Room";
 function Scene() {
   const gltf = useLoader(GLTFLoader, "/room.gltf");
   return <primitive object={gltf.scene} />;
@@ -42,11 +42,11 @@ const TestPopupThree = () => {
   };
 
   return (
-    <div style={{ width: "100vw", height: "100vh" }} >
+    <div style={{ width: "100vw", height: "100vh" }}>
       <Canvas camera={{ position: [-20, 0, 20] }}>
         <ambientLight />
         <pointLight position={[10, 10, 10]} />
-        <Scene />
+        <Room />
         <axesHelper args={[10]} />
         <CameraController target={target} duration={2} />
       </Canvas>

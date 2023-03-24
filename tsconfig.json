@@ -17,9 +17,7 @@
     "jsx": "react-jsx",
     "types": ["node"]
   },
-  "include": ["src"],
+  "include": ["src", "Room.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
