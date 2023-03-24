@@ -1,66 +1,61 @@
-import React, { useRef, useState } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Html } from "@react-three/drei";
+import React, { useState } from "react";
+import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
+import { Html, OrbitControls } from "@react-three/drei";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { motion } from "framer-motion";
+import * as THREE from "three";
 
-function Popup({ position }: any) {
-  return (
-    <Html
-      position={position}
-      style={{
-        background: "white",
-        padding: "8px",
-        boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
-        fontSize: "24px",
-        textAlign: "center",
-      }}
-    >
-      <div>Hello, world!</div>
-    </Html>
-  );
+function Scene() {
+  const gltf = useLoader(GLTFLoader, "/room.gltf");
+  return <primitive object={gltf.scene} />;
 }
 
-function InteractiveObject({ position }: any) {
-  const ref = useRef<any>(null);
-  const [hovered, setHover] = useState(false);
-  const [clicked, setClicked] = useState(false);
-  const [popupPosition, setPopupPosition] = useState({ x: 0, y: 0 });
+const CameraController = ({ target, duration }: any) => {
+  const { camera } = useThree();
+  const [position, setPosition] = useState(new THREE.Vector3(-20, 0, 20));
+  const [isAnimating, setIsAnimating] = useState(true);
 
-  useFrame(() => {
-    if (ref.current) {
-      ref.current.rotation.y += 0.01;
+  useFrame((state, delta) => {
+    if (target && isAnimating) {
+      // Smoothly move camera to target
+      const newPosition = position.clone().lerp(target, delta * duration);
+      setPosition(newPosition);
+      camera.position.set(newPosition.x, newPosition.y, newPosition.z);
+      camera.lookAt(0, 0, 0);
+
+      // Update camera position state variable
+      if (newPosition.distanceTo(target) < 0.1) {
+        setPosition(target);
+        setIsAnimating(false);
+      }
     }
   });
 
-  function handleMouseDown(event: any) {
-    setClicked(true);
-    setPopupPosition({ x: event.clientX, y: event.clientY });
-  }
-
-  return (
-    <>
-      <mesh
-        ref={ref}
-        position={position}
-        onPointerOver={() => setHover(true)}
-        onPointerOut={() => setHover(false)}
-        onPointerDown={handleMouseDown}
-      >
-        <boxBufferGeometry args={[1, 1, 1]} />
-        <meshStandardMaterial color={hovered ? "hotpink" : "orange"} />
-      </mesh>
-      {clicked && <Popup position={popupPosition} />}
-    </>
-  );
-}
+  return <OrbitControls />;
+};
 
 const TestPopupThree = () => {
+  const [target, setTarget] = useState<THREE.Vector3 | null>(null);
+
+  const handleClick = () => {
+    setTarget(new THREE.Vector3(10, 8, 5));
+  };
+
   return (
-    <Canvas camera={{ position: [0, 0, 5] }}>
-      <ambientLight />
-      <pointLight position={[10, 10, 10]} />
-      <InteractiveObject position={[-2, 0, 0]} />
-      <InteractiveObject position={[2, 0, 0]} />
-    </Canvas>
+    <div style={{ width: "100vw", height: "100vh" }} >
+      <Canvas camera={{ position: [-20, 0, 20] }}>
+        <ambientLight />
+        <pointLight position={[10, 10, 10]} />
+        <Scene />
+        <axesHelper args={[10]} />
+        <CameraController target={target} duration={2} />
+      </Canvas>
+      <div style={{ position: "relative" }}>
+        <div style={{ position: "absolute", bottom: "10%", left: "50%" }}>
+          <button onClick={handleClick}>Move Camera</button>
+        </div>
+      </div>
+    </div>
   );
 };
 
