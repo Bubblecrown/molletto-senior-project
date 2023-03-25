@@ -48,6 +48,7 @@ const TestPopupThree = () => {
         <pointLight position={[10, 10, 10]} />
         <Room />
         <axesHelper args={[10]} />
+        {/* <perspectiveCamera position={[10, 10, 10]}/> */}
         <CameraController target={target} duration={2} />
       </Canvas>
       <div style={{ position: "relative" }}>
@@ -60,3 +61,4 @@ const TestPopupThree = () => {
 };
 
 export default TestPopupThree;
+
