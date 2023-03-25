@@ -12,41 +12,29 @@ import gsap from "gsap";
 
 const Room = (props: any) => {
   const { nodes, materials }: any = useGLTF("/room.glb");
-  const refMesh = useRef<any>(null);
   const { camera } = useThree();
 
-  const handleClick = () => {
-    if (refMesh.current) {
-      const distance = 3;
-      const targetPosition = refMesh.current.position.clone();
-      const targetRotation = refMesh.current.rotation.clone();
-      targetRotation.x = 0;
+  const handleClick = (x: number, y: number, z: number) => {
+    console.log(x, y, z);
 
-      // calculate the position of the camera based on the rotation of the mesh
-      const positionOffset = new THREE.Vector3(0, 0, 1);
-      positionOffset.applyEuler(targetRotation);
-      positionOffset.multiplyScalar(distance);
-      const cameraTarget = targetPosition.clone().add(positionOffset);
-
-      gsap.to(camera.position, {
-        duration: 1,
-        x: cameraTarget.x + 3,
-        y: cameraTarget.y + 1,
-        z: cameraTarget.z,
-        onUpdate: () => {
-          camera.lookAt(targetPosition);
-        },
-        onComplete: () => {
-          camera.lookAt(targetPosition);
-        },
-      });
-      gsap.to(camera.rotation, {
-        duration: 1,
-        x: targetRotation.x,
-        y: targetRotation.y,
-        z: targetRotation.z,
-      });
-    }
+    gsap.to(camera.position, {
+      duration: 1,
+      x,
+      y,
+      z,
+      onUpdate: () => {
+        camera.lookAt(1, 10, 0);
+      },
+      onComplete: () => {
+        camera.lookAt(1, 10, 0);
+      },
+    });
+    gsap.to(camera.rotation, {
+      duration: 1,
+      x: -10,
+      y: 0,
+      z: 0,
+    });
   };
   return (
     <group {...props} dispose={null}>
@@ -59,8 +47,6 @@ const Room = (props: any) => {
         geometry={nodes.Floor.geometry}
         material={materials.floor}
         position={[0, 0.15, 0]}
-        onPointerDown={handleClick}
-        ref={refMesh}
       />
       <mesh
         geometry={nodes.Walls001.geometry}
@@ -122,6 +108,7 @@ const Room = (props: any) => {
         <mesh
           geometry={nodes.Cube010_1.geometry}
           material={materials.Computer_screen}
+          onPointerDown={() => handleClick(1, 0, 1)}
         />
         <mesh
           geometry={nodes.Cube010_2.geometry}
@@ -301,8 +288,6 @@ const Room = (props: any) => {
         position={[-0.64, 0.9, 0.72]}
         rotation={[-0.7, 0, 0]}
         scale={[1.09, 1, 0.99]}
-        onPointerDown={handleClick}
-        ref={refMesh}
       />
       <mesh
         geometry={nodes.matress.geometry}
@@ -354,11 +339,7 @@ const Room = (props: any) => {
           material={materials.Window_emission}
         />
       </group>
-      <group
-        position={[-1.88, 2.16, 0.74]}
-        onPointerDown={handleClick}
-        ref={refMesh}
-      >
+      <group position={[-1.88, 2.16, 0.74]}>
         <mesh
           geometry={nodes.Cube023.geometry}
           material={materials.window_frame}
@@ -376,8 +357,6 @@ const Room = (props: any) => {
         <mesh
           geometry={nodes.Plane004.geometry}
           material={materials.puffy_chair}
-          onPointerDown={handleClick}
-          ref={refMesh}
         />
         <mesh
           geometry={nodes.Plane004_1.geometry}

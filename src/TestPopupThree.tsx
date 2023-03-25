@@ -21,7 +21,7 @@ const CameraController = ({ target, duration }: any) => {
       const newPosition = position.clone().lerp(target, delta * duration);
       setPosition(newPosition);
       camera.position.set(newPosition.x, newPosition.y, newPosition.z);
-      camera.lookAt(0, 0, 0);
+      // camera.lookAt(0, 0, 0);
 
       // Update camera position state variable
       if (newPosition.distanceTo(target) < 0.1) {
@@ -46,7 +46,7 @@ const TestPopupThree = () => {
       <Canvas camera={{ position: [-20, 0, 20] }}>
         <ambientLight />
         <pointLight position={[10, 10, 10]} />
-        <Room />
+        <Room position={[0, -1, 0]} />
         <axesHelper args={[10]} />
         {/* <perspectiveCamera position={[10, 10, 10]}/> */}
         <CameraController target={target} duration={2} />
