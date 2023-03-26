@@ -11,13 +11,15 @@ import LocoTest from "./LocoTest";
 import ReactSpring from "./ReactSpring";
 import TestThree from "./TestThree";
 import TestPopupThree from "./TestPopupThree";
+import { Canvas } from "react-three-fiber";
+import TestMeshClicked from "./TestMeshClicked";
 
 const TransitionRoute = () => {
   const location = useLocation();
   return (
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<TestPopupThree />} />
+        <Route path="/" element={<TestMeshClicked />} />
 
         <Route path="/about" element={<PulsingCircle />} />
         <Route path="/about/:id" element={<Member />} />

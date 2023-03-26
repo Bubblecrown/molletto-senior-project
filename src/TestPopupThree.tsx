@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
-import { Html, OrbitControls } from "@react-three/drei";
+import { Html, OrbitControls, TrackballControls } from "@react-three/drei";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { motion } from "framer-motion";
 import * as THREE from "three";
@@ -10,7 +10,7 @@ function Scene() {
   return <primitive object={gltf.scene} />;
 }
 
-const CameraController = ({ target, duration }: any) => {
+export const CameraController = ({ target, duration }: any) => {
   const { camera } = useThree();
   const [position, setPosition] = useState(new THREE.Vector3(-20, 0, 20));
   const [isAnimating, setIsAnimating] = useState(true);
@@ -21,7 +21,7 @@ const CameraController = ({ target, duration }: any) => {
       const newPosition = position.clone().lerp(target, delta * duration);
       setPosition(newPosition);
       camera.position.set(newPosition.x, newPosition.y, newPosition.z);
-      // camera.lookAt(0, 0, 0);
+      // camera.lookAt(0, 10, 10);
 
       // Update camera position state variable
       if (newPosition.distanceTo(target) < 0.1) {
@@ -31,14 +31,14 @@ const CameraController = ({ target, duration }: any) => {
     }
   });
 
-  return <OrbitControls />;
+  return <TrackballControls />;
 };
 
 const TestPopupThree = () => {
   const [target, setTarget] = useState<THREE.Vector3 | null>(null);
 
-  const handleClick = () => {
-    setTarget(new THREE.Vector3(10, 8, 5));
+  const handleClick = (x: number, y: number, z: number) => {
+    setTarget(new THREE.Vector3(x, y, z));
   };
 
   return (
@@ -53,7 +53,8 @@ const TestPopupThree = () => {
       </Canvas>
       <div style={{ position: "relative" }}>
         <div style={{ position: "absolute", bottom: "10%", left: "50%" }}>
-          <button onClick={handleClick}>Move Camera</button>
+          <button onClick={() => handleClick(10, 8, 5)}>Move Camera</button>
+          
         </div>
       </div>
     </div>
@@ -61,4 +62,3 @@ const TestPopupThree = () => {
 };
 
 export default TestPopupThree;
-
