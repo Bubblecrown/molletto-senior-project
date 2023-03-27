@@ -1,19 +1,23 @@
-import React, { useRef, useState } from 'react';
-import { Canvas, useFrame, useThree } from 'react-three-fiber';
-import { Html, OrbitControls } from '@react-three/drei';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import gsap from 'gsap';
-import './styles.css';
+import React, { useRef, useState } from "react";
+import { Canvas, useFrame, useThree } from "react-three-fiber";
+import { Html, OrbitControls, useGLTF } from "@react-three/drei";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import gsap from "gsap";
+import "./styles.css";
 
 type MeshProps = {
   onClick: (event: any) => void;
 };
 const Mesh = ({ onClick }: MeshProps) => {
+  const { nodes, materials }: any = useGLTF("/room.glb");
+
   return (
-    <mesh onClick={onClick}>
-      <boxBufferGeometry />
-      <meshStandardMaterial color="hotpink" />
-    </mesh>
+    <mesh
+      geometry={nodes.Cube010_1.geometry}
+      material={materials.Computer_screen}
+      onClick={onClick}
+    />
+
   );
 };
 
@@ -23,7 +27,7 @@ type ModelProps = {
 
 const Model = ({ url }: ModelProps) => {
   const groupRef = useRef<any>();
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const { camera } = useThree();
 
   const handleClick = (event: any) => {
@@ -48,9 +52,9 @@ const Model = ({ url }: ModelProps) => {
   const gltfLoader = new GLTFLoader();
   gltfLoader.load(url, (gltf) => {
     const { scene } = gltf;
-    const children = scene.children.filter((child) => child.type === 'Mesh');
+    const children = scene.children.filter((child) => child.type === "Mesh");
     children.forEach((child) => {
-      child.name = 'Mesh';
+      child.name = "Mesh";
       child.userData = { onClick: handleClick };
     });
     groupRef.current.add(scene);
@@ -61,9 +65,10 @@ const Model = ({ url }: ModelProps) => {
       <Mesh onClick={handleClick} />
       {message && (
         <Html>
-        <div className="message-box">
-          <span>{message}</span>
-        </div></Html>
+          <div className="message-box">
+            <span>{message}</span>
+          </div>
+        </Html>
       )}
     </group>
   );
