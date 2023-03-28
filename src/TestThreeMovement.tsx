@@ -4,7 +4,7 @@ import { useRef, useState, useMemo } from "react";
 import { Vector2, Vector3 } from "three";
 import { useEffect } from "react";
 
-export default function Teleport() {
+const Teleport =()=> {
   const ref = useRef<any>(null);
   const circleRef = useRef<any>(null);
   const circleEffectRef = useRef<any>(null);
@@ -63,7 +63,7 @@ export default function Teleport() {
           circleEffectRef.current.material.opacity = 1;
         }}
       >
-        <planeGeometry args={[19.4, 19.4]} />
+        <planeGeometry args={[50, 50]} />
       </mesh>
       {/* Main Ring */}
       <mesh ref={circleRef} rotation-x={-Math.PI / 2} position-y={0.01}>
@@ -80,3 +80,5 @@ export default function Teleport() {
     </>
   );
 }
+
+export default Teleport

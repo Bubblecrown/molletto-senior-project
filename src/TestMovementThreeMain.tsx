@@ -3,7 +3,7 @@ import { Stats, Environment } from "@react-three/drei";
 import Model from "./Scene";
 import Teleport from "./TestThreeMovement";
 
-export default function TestMovementThreeMain() {
+const TestMovementThreeMain = () => {
   return (
     <div style={{ width: "100vw", height: "100vh" }}>
       <Canvas>
@@ -18,4 +18,6 @@ export default function TestMovementThreeMain() {
       <div id="instructions">Doubleclick to slide to the circle</div>
     </div>
   );
-}
+};
+
+export default TestMovementThreeMain;

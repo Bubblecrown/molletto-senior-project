@@ -13,42 +13,6 @@ const Room = (props: any) => {
   const { nodes, materials }: any = useGLTF("/room.glb");
   const { camera, gl } = useThree();
   const [isHover, setIsHover] = useState(false);
-
-  // const handleClick = (x: number, y: number, z: number) => {
-  //   console.log(x, y, z);
-  //   // const controls = new OrbitControls(camera, gl.domElement);
-
-  //   gsap.to(camera.position, {
-  //     duration: 1,
-  //     x,
-  //     y,
-  //     z,
-  //     onUpdate: () => {
-  //       camera.lookAt(new THREE.Vector3(1, 2, 5));
-  //     },
-  //     onComplete: () => {
-  //       camera.lookAt(new THREE.Vector3(1, 2, 5));
-  //     },
-  //   });
-  //   // gsap.to(controls.target, {
-  //   //   duration: 1,
-  //   //   x: x,
-  //   //   y: y,
-  //   //   z: z + 1,
-  //   //   onUpdate: () => {
-  //   //     camera.lookAt(new THREE.Vector3(x, y, z));
-  //   //   },
-  //   //   onComplete: () => {
-  //   //     camera.lookAt(new THREE.Vector3(x, y, z));
-  //   //   },
-  //   // });
-  //   gsap.to(camera.rotation, {
-  //     duration: 1,
-  //     x: 0,
-  //     y: 0,
-  //     z: 0,
-  //   });
-  // };
   return (
     <group {...props} dispose={null}>
       <mesh
