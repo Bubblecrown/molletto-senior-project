@@ -3,8 +3,9 @@ import { PerspectiveCamera, TrackballControls } from "@react-three/drei";
 import { useRef, useState, useMemo } from "react";
 import { Vector2, Vector3 } from "three";
 import { useEffect } from "react";
+import Plane from "./Plane";
 
-const Teleport =()=> {
+const Teleport = () => {
   const ref = useRef<any>(null);
   const circleRef = useRef<any>(null);
   const circleEffectRef = useRef<any>(null);
@@ -48,8 +49,8 @@ const Teleport =()=> {
       <group ref={ref} position={[0, 1, 10]}>
         <PerspectiveCamera makeDefault />
       </group>
-      <mesh
-        visible={false}
+      {/* <mesh
+        visible={true}
         rotation-x={-Math.PI / 2}
         position={[0, 0, 0]}
         onPointerMove={({ point }) => {
@@ -62,9 +63,21 @@ const Teleport =()=> {
           circleEffectRef.current.scale.set(1, 1, 1);
           circleEffectRef.current.material.opacity = 1;
         }}
-      >
-        <planeGeometry args={[50, 50]} />
-      </mesh>
+      > */}
+        {/* <planeGeometry args={[19, 19]} /> */}
+        <Plane
+          onPointerMove={({ point }) => {
+            circleRef.current.position.z = point.z;
+            circleRef.current.position.x = point.x;
+          }}
+          onDoubleClick={({ point }) => {
+            to.set(point.x, 1, point.z);
+            circleEffectRef.current.position.copy(circleRef.current.position);
+            circleEffectRef.current.scale.set(1, 1, 1);
+            circleEffectRef.current.material.opacity = 1;
+          }}
+        />
+      {/* </mesh> */}
       {/* Main Ring */}
       <mesh ref={circleRef} rotation-x={-Math.PI / 2} position-y={0.01}>
         {/* args={[inner, outer, segmment]} */}
@@ -76,9 +89,8 @@ const Teleport =()=> {
         <ringGeometry args={[0.39, 1, 32]} />
         <meshBasicMaterial color={"pink"} transparent />
       </mesh>
-
     </>
   );
-}
+};
 
-export default Teleport
+export default Teleport;

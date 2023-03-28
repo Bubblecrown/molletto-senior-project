@@ -1,6 +1,7 @@
 import { Html, useGLTF } from "@react-three/drei";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import Plane from "./Plane";
 import "./styles.css";
 
 export default function Model() {
@@ -51,12 +52,12 @@ export default function Model() {
           </motion.div>
         </Html>
       )}
-      <mesh
+      {/* <mesh
         geometry={nodes.Plane.geometry}
         material={nodes.Plane.material}
         scale={[10, 1, 10]}
-      />
-
+      /> */}
+      {/* <Plane /> */}
       <mesh
         geometry={nodes.Cube.geometry}
         material={materials.Material}
