@@ -12,43 +12,43 @@ import { useEffect, useState } from "react";
 const Room = (props: any) => {
   const { nodes, materials }: any = useGLTF("/room.glb");
   const { camera, gl } = useThree();
-  const [isClicked, setIsClicked] = useState(true);
+  const [isHover, setIsHover] = useState(false);
 
-  const handleClick = (x: number, y: number, z: number) => {
-    console.log(x, y, z);
-    // const controls = new OrbitControls(camera, gl.domElement);
+  // const handleClick = (x: number, y: number, z: number) => {
+  //   console.log(x, y, z);
+  //   // const controls = new OrbitControls(camera, gl.domElement);
 
-    gsap.to(camera.position, {
-      duration: 1,
-      x,
-      y,
-      z,
-      onUpdate: () => {
-        camera.lookAt(new THREE.Vector3(1, 2, 5));
-      },
-      onComplete: () => {
-        camera.lookAt(new THREE.Vector3(1, 2, 5));
-      },
-    });
-    // gsap.to(controls.target, {
-    //   duration: 1,
-    //   x: x,
-    //   y: y,
-    //   z: z + 1,
-    //   onUpdate: () => {
-    //     camera.lookAt(new THREE.Vector3(x, y, z));
-    //   },
-    //   onComplete: () => {
-    //     camera.lookAt(new THREE.Vector3(x, y, z));
-    //   },
-    // });
-    gsap.to(camera.rotation, {
-      duration: 1,
-      x: 0,
-      y: 0,
-      z: 0,
-    });
-  };
+  //   gsap.to(camera.position, {
+  //     duration: 1,
+  //     x,
+  //     y,
+  //     z,
+  //     onUpdate: () => {
+  //       camera.lookAt(new THREE.Vector3(1, 2, 5));
+  //     },
+  //     onComplete: () => {
+  //       camera.lookAt(new THREE.Vector3(1, 2, 5));
+  //     },
+  //   });
+  //   // gsap.to(controls.target, {
+  //   //   duration: 1,
+  //   //   x: x,
+  //   //   y: y,
+  //   //   z: z + 1,
+  //   //   onUpdate: () => {
+  //   //     camera.lookAt(new THREE.Vector3(x, y, z));
+  //   //   },
+  //   //   onComplete: () => {
+  //   //     camera.lookAt(new THREE.Vector3(x, y, z));
+  //   //   },
+  //   // });
+  //   gsap.to(camera.rotation, {
+  //     duration: 1,
+  //     x: 0,
+  //     y: 0,
+  //     z: 0,
+  //   });
+  // };
   return (
     <group {...props} dispose={null}>
       <mesh
@@ -121,7 +121,6 @@ const Room = (props: any) => {
         <mesh
           geometry={nodes.Cube010_1.geometry}
           material={materials.Computer_screen}
-          onPointerDown={() => handleClick(1.1, 1.59, -1.21)}
         />
         <mesh
           geometry={nodes.Cube010_2.geometry}
@@ -228,7 +227,6 @@ const Room = (props: any) => {
         material={materials.curtain_railings}
         position={[0.99, 3.77, -1.63]}
         scale={[1.12, 1, 1]}
-        onPointerDown={() => handleClick(0.99, 3.77, -1.63)}
       />
       <mesh
         geometry={nodes.curtain_loops_1.geometry}
@@ -282,7 +280,6 @@ const Room = (props: any) => {
         geometry={nodes.bed.geometry}
         material={materials.bed}
         position={[-0.69, 0.96, 1.4]}
-        onPointerDown={() => handleClick(-0.69, 0.96, 1.4)}
       />
       <mesh
         geometry={nodes.pillows.geometry}
@@ -368,7 +365,6 @@ const Room = (props: any) => {
         position={[1.37, 0.5, 1.24]}
         rotation={[-0.08, -0.33, -0.03]}
         scale={0.41}
-        onPointerDown={() => handleClick(1.37, 0.5, 1.24)}
       >
         <mesh
           geometry={nodes.Plane004.geometry}

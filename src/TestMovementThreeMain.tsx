@@ -1,8 +1,7 @@
-import { Canvas } from '@react-three/fiber'
-import { Stats, Environment } from '@react-three/drei'
-import Model from './Scene'
-import Teleport from './TestThreeMovement'
-
+import { Canvas } from "@react-three/fiber";
+import { Stats, Environment } from "@react-three/drei";
+import Model from "./Scene";
+import Teleport from "./TestThreeMovement";
 
 export default function TestMovementThreeMain() {
   return (
@@ -18,5 +17,5 @@ export default function TestMovementThreeMain() {
       </Canvas>
       <div id="instructions">Doubleclick to slide to the circle</div>
     </div>
-  )
+  );
 }
