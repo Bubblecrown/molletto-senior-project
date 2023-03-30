@@ -15,13 +15,14 @@ import { Canvas } from "react-three-fiber";
 import TestMeshClicked from "./TestMeshClicked";
 import Player from "./TestThreeMovement";
 import TestMovementThreeMain from "./TestMovementThreeMain";
+import TestCanvasPosition from "./TestCanvasPosition";
 
 const TransitionRoute = () => {
   const location = useLocation();
   return (
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<TestMovementThreeMain />} />
+        <Route path="/" element={<TestCanvasPosition />} />
 
         <Route path="/about" element={<PulsingCircle />} />
         <Route path="/about/:id" element={<Member />} />
