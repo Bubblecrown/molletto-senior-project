@@ -15,36 +15,60 @@ const BackgroundTile: React.FC<BackgroundTileProps> = ({
   position,
 }) => {
   const [width, height] = useAspect(window.innerWidth, window.innerHeight);
-  return (
-    <group position={position}>
-      <sprite scale={[width, height, 0]}>
-        <spriteMaterial map={texture}></spriteMaterial>
-      </sprite>
-    </group>
-  );
+  if(width < 1024){
+    const xw = 16
+    return (
+      <group position={position}>
+        <sprite scale={[xw, height, 0]}>
+          <spriteMaterial map={texture}></spriteMaterial>
+        </sprite>
+      </group>
+    );
+  } else{
+    const xw = width
+    return (
+      <group position={position}>
+        <sprite scale={[xw, height, 0]}>
+          <spriteMaterial map={texture}></spriteMaterial>
+        </sprite>
+      </group>
+    );
+  }
+  // const viewport = useThree((state) => state.viewport);
+
+  
 };
 
 interface BackgroundProps {
   images: string[];
 }
-
 const Background: React.FC<BackgroundProps> = ({ images }) => {
   const textures = useLoader(TextureLoader, images) as Texture[];
   const [width, height] = useAspect(window.innerWidth, window.innerHeight);
+  const viewport = useThree((state) => state.viewport);
 
-  const xW = 16;
-  const tiles = [];
-  const tileCount = images.length;
+  function pushBackground(xw: number, count: number): JSX.Element[] {
+    if (count === 0) {
+      return [];
+    }
 
-  for (let i = 0; i < tileCount; i++) {
-    tiles.push(
-      <BackgroundTile
-        key={`tile-${i}`}
-        texture={textures[i]}
-        position={[width * i, 0, 0]}
-      />
-    );
+    const tiles = [];
+    const tileCount = images.length;
+
+    for (let i = 0; i < tileCount; i++) {
+      tiles.push(
+        <BackgroundTile
+          key={`tile-${count}-${i}`}
+          texture={textures[i]}
+          position={[xw * (count - 1) + xw * i, 0, 0]}
+        />
+      );
+    }
+
+    return [...tiles, ...pushBackground(xw, count - 1)];
   }
+
+  const tiles = pushBackground(width < 1024 ? 1024 : width, 2);
 
   return (
     <ScrollControls horizontal pages={2}>
@@ -52,7 +76,6 @@ const Background: React.FC<BackgroundProps> = ({ images }) => {
     </ScrollControls>
   );
 };
-
 const TestCanvasPosition: React.FC = () => {
   const images = [bg1, bg2]; // Add more images here as needed
 

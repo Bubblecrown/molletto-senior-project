@@ -8,7 +8,6 @@ import CanvasTest from "./CanvasTest";
 import GsapScrollTest from "./GsapScrollTest";
 import TestCanvas from "./TestCanvas";
 import LocoTest from "./LocoTest";
-import ReactSpring from "./ReactSpring";
 import TestThree from "./TestThree";
 import TestPopupThree from "./TestPopupThree";
 import { Canvas } from "react-three-fiber";
