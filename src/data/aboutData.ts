@@ -1,5 +1,10 @@
 import { Transition } from "framer-motion";
 import LogoTitle from "../assets/LogoTitle.png";
+import { CardAnimation } from "../types/CardAnimation";
+
+const skyblue = '#678BDF'
+const pink = '#c47cd4'
+const black = "#0D0F1E"
 
 export const HeadMember: { imgPath: string; imageAlt: string; title: string } =
   {
@@ -42,8 +47,7 @@ export const AboutMainData: {
     "We are a triplet team who are interested in website and 3D animation",
   aboutTitle: ["DEVERLOPER", "DESIGNER", "CONCEPT ART"],
   aboutSubTitle: "ABOUT",
-  LogoImage:
-    "https://gateway.pinata.cloud/ipfs/QmYTou7a1HrVncaqiWxoBBmhVPSsDe6NBfAAB2q8tJehsZ",
+  LogoImage: LogoTitle,
   LogoImageAlt: "Logo",
   AboutMainDescription:
     "A senior project for apply computer science - multimedia students of King Mongkut’s University of Technology Thonburi",
@@ -57,7 +61,7 @@ export const AboutMainData: {
 export const EachMember: {
   id?: string;
   color: string;
-  role?:string;
+  role?: string;
   profile?: string;
   memberName?: string;
   responsibility?: string[];
@@ -73,7 +77,7 @@ export const EachMember: {
     role: "ux/ui designer",
     profile:
       "https://gateway.pinata.cloud/ipfs/QmWzceKpUpsbT86QWsm3dTQLVPoE5qjBqd5iWwSM5MbqDW",
-    color: "#678BDF",
+    color: skyblue,
     memberName: "Pimchawisa Saparram",
     responsibility: [
       "Ux/Ui Designer",
@@ -104,7 +108,7 @@ export const EachMember: {
     role: "front-end developer",
     profile:
       "https://gateway.pinata.cloud/ipfs/QmWiG5s6z6qvLhQtvYnW3a3xNYoGJT8WJ6FtzKHa96GSiC",
-    color: "#c47cd4",
+    color: pink,
     memberName: "Suchanya Namwong",
     responsibility: ["Front-end Developer"],
     desciption:
@@ -130,7 +134,7 @@ export const EachMember: {
     role: "concept art",
     profile:
       "https://gateway.pinata.cloud/ipfs/Qmez5BEwj3fAB7s2sWtf6KRpjz1hJ27R8ohiBZy7E3PfX2",
-    color: "#0D0F1E",
+    color: black,
     memberName: "Saowarod Kimbut",
     responsibility: ["Concept Art"],
     desciption:
@@ -179,21 +183,12 @@ export const SocialLogo: {
     socialAlt: "twitter",
   },
 ];
-export const CardAnimationLarge: {
-  id: string;
-  color?: string;
-  xOrigin?: string;
-  xMove?: number;
-  yOrigin?: number;
-  yMove?: number;
-  rotate?: number;
-  zIndex?: number;
-  transition?: Transition;
-}[] = [
+
+export const CardAnimationLarge: CardAnimation[] = [
   {
     id: "ux-ui-designer",
-    color: "#678BDF",
-    xOrigin: "110%",
+    color: skyblue,
+    xOrigin: "120%",
     xMove: 0,
     yOrigin: 20,
     yMove: 45,
@@ -202,35 +197,25 @@ export const CardAnimationLarge: {
   },
   {
     id: "developer",
-    color: "#c47cd4",
+    color: pink,
     yOrigin: -30,
     yMove: 20,
     rotate: -0.07,
   },
   {
     id: "concept-art",
-    color: "#0D0F1E",
-    xOrigin: "-110%",
+    color: black,
+    xOrigin: "-120%",
     xMove: 0,
     yMove: 25,
     rotate: 5.48,
   },
 ];
 
-export const CardAnimationMedium: {
-  id: string;
-  color?: string;
-  xOrigin?: number;
-  xMove?: number;
-  yOrigin?: number;
-  yMove?: number;
-  rotate?: number;
-  zIndex?: number;
-  transition?: Transition;
-}[] = [
+export const CardAnimationMedium: CardAnimation[] = [
   {
     id: "ux-ui-designer",
-    color: "#678BDF",
+    color: skyblue,
     xOrigin: 250,
     xMove: 0,
     yOrigin: 20,
@@ -240,14 +225,14 @@ export const CardAnimationMedium: {
   },
   {
     id: "developer",
-    color: "#c47cd4",
+    color: pink,
     yOrigin: -30,
     yMove: 20,
     rotate: -0.07,
   },
   {
     id: "concept-art",
-    color: "#0D0F1E",
+    color: black,
     xOrigin: -250,
     xMove: 0,
     yMove: 25,
@@ -255,20 +240,10 @@ export const CardAnimationMedium: {
   },
 ];
 
-export const CardAnimationTablet: {
-  id: string;
-  color?: string;
-  xOrigin?: number;
-  xMove?: number;
-  yOrigin?: number;
-  yMove?: number;
-  rotate?: number;
-  zIndex?: number;
-  transition?: Transition;
-}[] = [
+export const CardAnimationTablet: CardAnimation[] = [
   {
     id: "ux-ui-designer",
-    color: "#678BDF",
+    color: skyblue,
     xOrigin: 190,
     xMove: 0,
     yOrigin: 20,
@@ -278,7 +253,7 @@ export const CardAnimationTablet: {
   },
   {
     id: "developer",
-    color: "#c47cd4",
+    color: pink,
     xOrigin: 0,
     xMove: 0,
     yOrigin: -30,
@@ -287,7 +262,7 @@ export const CardAnimationTablet: {
   },
   {
     id: "concept-art",
-    color: "#0D0F1E",
+    color: black,
     xOrigin: -190,
     xMove: 0,
     yOrigin: 0,
@@ -296,20 +271,10 @@ export const CardAnimationTablet: {
   },
 ];
 
-export const CardAnimationSmall: {
-  id: string;
-  color?: string;
-  xOrigin?: number;
-  xMove?: number;
-  yOrigin?: number;
-  yMove?: number;
-  rotate?: number;
-  zIndex?: number;
-  transition?: Transition;
-}[] = [
+export const CardAnimationSmall: CardAnimation[] = [
   {
     id: "ux-ui-designer",
-    color: "#678BDF",
+    color: skyblue,
     xOrigin: 190,
     xMove: 180,
     yOrigin: 20,
@@ -319,14 +284,14 @@ export const CardAnimationSmall: {
   },
   {
     id: "developer",
-    color: "#c47cd4",
+    color: pink,
     yOrigin: -30,
     yMove: 150,
     rotate: -0.07,
   },
   {
     id: "concept-art",
-    color: "#0D0F1E",
+    color: black,
     xOrigin: -190,
     xMove: -180,
     yMove: 460,

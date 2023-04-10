@@ -79,13 +79,15 @@ export const RoleCard = styled.div`
   margin: 0 auto;
   left: 0;
   right: 0;
-  font-family: ${notosans};
-  font-weight: 600;
   text-align: center;
   color: #fff;
   border-top: 1px solid #fff;
-  padding-top: 15px;
+  padding-top: clamp(2px, 1vw, 15px);
   text-transform: uppercase;
+  @media only screen and (max-width: 900px) {
+    width: 100%;
+  }
+
 `;
 
 export const CardFront = styled(motion.div)<{ c?: string }>`

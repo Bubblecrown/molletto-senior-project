@@ -2,16 +2,23 @@ import { motion } from "framer-motion";
 import React, { createRef, useRef, useState } from "react";
 import { IconContainer, SvgNav } from "./FooterStyle";
 import audioFile from "../../assets/modern.mp3";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../app/store";
+import { setIsMuted } from "../../slices/soundSlice";
 
-const Footer = () => {
-  const [isMuted, setIsMuted] = useState(true);
-
+const Footer = ({ audio }: any) => {
+  
+  const isMuted = useSelector(
+    (state: RootState) => state.audio.isMuted
+  );
+  const dispatch = useDispatch();
   const audioRef = useRef<HTMLAudioElement>(null);
-
+  const volume = 0.4;
   const toggleAudio = () => {
-    setIsMuted(!isMuted);
+    dispatch(setIsMuted());
     if (audioRef?.current?.paused) {
       audioRef.current.play();
+      audioRef.current.volume = volume;
     } else {
       audioRef?.current?.pause();
     }
@@ -22,7 +29,7 @@ const Footer = () => {
       <SvgNav initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
         {/* audio */}
         <audio ref={audioRef} muted={isMuted} loop>
-          <source src={audioFile} type="audio/mpeg" />
+          <source src={audio} type="audio/mpeg" />
         </audio>
         {/* end audio */}
 

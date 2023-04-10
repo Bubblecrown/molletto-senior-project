@@ -12,18 +12,23 @@ import TestThree from "./TestThree";
 import TestPopupThree from "./TestPopupThree";
 import { Canvas } from "react-three-fiber";
 import TestMeshClicked from "./TestMeshClicked";
-import Player from "./TestThreeMovement";
-import TestMovementThreeMain from "./TestMovementThreeMain";
+import Player from "./pages/homeModel/Teleport";
+import TestMovementThreeMain from "./pages/homeModel/HomeMain";
 import TestCanvasPosition from "./TestCanvasPosition";
+import AboutMain from "./pages/AboutUs/AboutMain";
+import ScrollAnimation from "./pages/AboutUs/ScrollAnimation";
+import TestLongSceneScroll from "./TestLongSceneScroll";
+import TestHomeModel from "./TestHomeModel";
+import HomeMain from "./pages/homeModel/HomeMain";
 
 const TransitionRoute = () => {
   const location = useLocation();
   return (
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<TestCanvasPosition />} />
+        <Route path="/" element={<HomeMain />} />
 
-        <Route path="/about" element={<PulsingCircle />} />
+        <Route path="/about" element={<ScrollAnimation />} />
         <Route path="/about/:id" element={<Member />} />
       </Routes>
     </AnimatePresence>

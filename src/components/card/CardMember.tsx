@@ -6,7 +6,7 @@ import {
   CardAnimationTablet,
   EachMember,
 } from "../../data/aboutData";
-import { H1Roboto } from "../../GlobalStyle";
+import { H1Roboto, H3Eng, H4Eng } from "../../GlobalStyle";
 import { useSelector, useDispatch } from "react-redux";
 import {
   Card,
@@ -55,15 +55,7 @@ const CardMember = () => {
     await animated.start({ rotate: 0 });
     animated.start({ scale: 1 });
   }
-  const [showModal, setShowModal] = useState(false);
 
-  function openModal() {
-    setShowModal(true);
-  }
-
-  function closeModal() {
-    setShowModal(false);
-  }
   const isSmall = useIsSmall();
   const isTablet = useTablet();
   const isMedium = useIsMedium();
@@ -191,10 +183,14 @@ const CardMember = () => {
                 loop
                 autoPlay
               />
-              <RoleCard>{
-                  EachMember.find((member) => member.id === animation.id)
-                    ?.role
-                }</RoleCard>
+              <RoleCard>
+                <H3Eng fw={600}>
+                  {
+                    EachMember.find((member) => member.id === animation.id)
+                      ?.role
+                  }
+                </H3Eng>
+              </RoleCard>
             </LinkCard>
           ))}
         </CardItem>

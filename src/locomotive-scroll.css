@@ -22,6 +22,7 @@ html.has-scroll-dragging {
   height: 100vh;
   display: inline-block;
   white-space: nowrap;
+
 }
 
 [data-scroll-direction="horizontal"] [data-scroll-section] {

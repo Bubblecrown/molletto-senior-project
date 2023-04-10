@@ -35,9 +35,7 @@ const GlobalStyles = createGlobalStyle`
         scroll-behavior: smooth; 
         
     }
-    body{
-   
-    }
+
     a {
         font-weight: 500;
         text-decoration: none;
@@ -237,10 +235,11 @@ export const H3Eng = styled.h3<{
   d?: string;
   mw?: string;
   align?: string;
+  fw?: number;
 }>`
   font-family: ${notosans};
-  font-size: clamp(0.75rem, 3vw, 1.1rem);
-  font-weight: 400;
+  font-size: clamp(0.75rem, 2vw, 1.1rem);
+  font-weight: ${({ fw }) => (fw ? fw : 400)};
   letter-spacing: -0.022em;
   line-height: clamp(1.2rem, 3vw, 2rem);
   color: ${({ c }) => (c ? c : "#fff")};

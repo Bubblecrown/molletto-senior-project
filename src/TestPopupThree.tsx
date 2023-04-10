@@ -9,7 +9,7 @@ import {
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { motion } from "framer-motion";
 import * as THREE from "three";
-import Room from "../Room";
+import Room from "./Room";
 function Scene() {
   const gltf = useLoader(GLTFLoader, "/room.gltf");
   return <primitive object={gltf.scene} />;

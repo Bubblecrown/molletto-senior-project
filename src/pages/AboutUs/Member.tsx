@@ -106,7 +106,7 @@ const Member = () => {
         <CloseBoxContainer>
           <CloseBox
             c={member?.color}
-            to={`/`}
+            to={`/about`}
             initial={{ translateX: "100vh" }}
             animate={{ translateX: "0" }}
             transition={{

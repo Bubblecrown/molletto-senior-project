@@ -1,7 +1,7 @@
 import { Html, useGLTF } from "@react-three/drei";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import Plane from "./Plane";
+import Plane from "./pages/homeModel/Plane";
 import "./styles.css";
 
 export default function Model() {
@@ -58,6 +58,7 @@ export default function Model() {
         scale={[10, 1, 10]}
       /> */}
       {/* <Plane /> */}
+
       <mesh
         geometry={nodes.Cube.geometry}
         material={materials.Material}
@@ -72,6 +73,7 @@ export default function Model() {
         onPointerEnter={(e) => handlePointerEvents(e, true, "Cylinder")}
         onPointerLeave={(e) => handlePointerEvents(e, false, "")}
       />
+
       <mesh
         geometry={nodes.Icosphere.geometry}
         material={nodes.Icosphere.material}

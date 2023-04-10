@@ -31,6 +31,7 @@ import {
   AboutMobileDescription,
   AboutLine,
 } from "./AboutStyle";
+import audioFile from "../../assets/sounds/aboutus.mp3";
 
 const AboutMain = () => {
   const isTablet = useTablet();
@@ -84,7 +85,7 @@ const AboutMain = () => {
               {/* end body */}
             </>
           )}
-          <Footer />
+          <Footer audio={audioFile} />
           <ScrollPrompt />
         </AboutMainContainer>
         <AboutHangingLine>

@@ -3,6 +3,8 @@ import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import { LayerImage, TaleSection } from "./GlobalStyle";
 import { useHorizontalScroll } from "./hooks/useHorizontalScroll";
 import "./locomotive-scroll.css";
+import { Canvas } from "react-three-fiber";
+import { FirstPersonControls, Html } from "@react-three/drei";
 
 const FairyTale = () => {
   const scrollRef = useHorizontalScroll();
@@ -25,349 +27,75 @@ const FairyTale = () => {
       watch={[]}
     >
       <TaleSection ref={containerRef} data-scroll-container>
+        {/* test */}
+        {/* 
+        <Canvas data-scroll-section style={{ position: "relative" }}>
+          <FirstPersonControls />
+          <Html fullscreen>
+            <div style={{ position: "relative" }}>
+              <img
+                data-scroll
+                src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_1.png"
+                alt=""
+              />
+              <img
+                data-scroll
+                src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_2.png"
+                alt=""
+                style={{
+                  position: "absolute",
+                  width: "100%",
+                  height: "100%",
+                  top: 0,
+                  left: 0,
+                }}
+              />
+            </div>
+          </Html>
+        </Canvas> */}
+        {/* test */}
         <span data-scroll-section style={{ position: "relative" }}>
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_1.png"
-            alt=""
-          />
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_2.png"
-            alt=""
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              top: 0,
-              left: 0,
-            }}
-          />
+          <div style={{ position: "relative" }}>
+            <img
+              data-scroll
+              src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_1.png"
+              alt=""
+            />
+            <img
+              data-scroll
+              src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_2.png"
+              alt=""
+              style={{
+                position: "absolute",
+                width: "100%",
+                height: "100%",
+                top: 0,
+                left: 0,
+              }}
+            />
+          </div>
+          <div>
+            <img
+              data-scroll
+              src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_1.png"
+              alt=""
+            />
+            <img
+              data-scroll
+              src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_2.png"
+              alt=""
+              style={{
+                position: "absolute",
+                width: "100%",
+                height: "100%",
+                top: 0,
+                left: "1080px",
+              }}
+            />
+          </div>
         </span>
         {/* tree */}
-        <span data-scroll-section>
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_1.png"
-            alt=""
-          />
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_2.png"
-            alt=""
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              top: 0,
-              left: 0,
-            }}
-          />
-        </span>
-        <span data-scroll-section>
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_1.png"
-            alt=""
-          />
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_2.png"
-            alt=""
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              top: 0,
-              left: 0,
-            }}
-          />
-        </span>
-        <span data-scroll-section>
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_1.png"
-            alt=""
-          />
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_2.png"
-            alt=""
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              top: 0,
-              left: 0,
-            }}
-          />
-        </span>
-        <span data-scroll-section>
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_1.png"
-            alt=""
-          />
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_2.png"
-            alt=""
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              top: 0,
-              left: 0,
-            }}
-          />
-        </span>
-        <span data-scroll-section>
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_1.png"
-            alt=""
-          />
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_2.png"
-            alt=""
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              top: 0,
-              left: 0,
-            }}
-          />
-        </span>
-        <span data-scroll-section>
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_1.png"
-            alt=""
-          />
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_2.png"
-            alt=""
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              top: 0,
-              left: 0,
-            }}
-          />
-        </span>
-        <span data-scroll-section>
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_1.png"
-            alt=""
-          />
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_2.png"
-            alt=""
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              top: 0,
-              left: 0,
-            }}
-          />
-        </span>
-        <span data-scroll-section>
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_1.png"
-            alt=""
-          />
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_2.png"
-            alt=""
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              top: 0,
-              left: 0,
-            }}
-          />
-        </span>
-        <span data-scroll-section>
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_1.png"
-            alt=""
-          />
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_2.png"
-            alt=""
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              top: 0,
-              left: 0,
-            }}
-          />
-        </span>
-        <span data-scroll-section>
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_1.png"
-            alt=""
-          />
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_2.png"
-            alt=""
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              top: 0,
-              left: 0,
-            }}
-          />
-        </span>
-        <span data-scroll-section>
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_1.png"
-            alt=""
-          />
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_2.png"
-            alt=""
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              top: 0,
-              left: 0,
-            }}
-          />
-        </span>
-        <span data-scroll-section>
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_1.png"
-            alt=""
-          />
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_2.png"
-            alt=""
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              top: 0,
-              left: 0,
-            }}
-          />
-        </span>
-        <span data-scroll-section>
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_1.png"
-            alt=""
-          />
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_2.png"
-            alt=""
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              top: 0,
-              left: 0,
-            }}
-          />
-        </span>
-        <span data-scroll-section>
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_1.png"
-            alt=""
-          />
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_2.png"
-            alt=""
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              top: 0,
-              left: 0,
-            }}
-          />
-        </span>
-        <span data-scroll-section>
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_1.png"
-            alt=""
-          />
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_2.png"
-            alt=""
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              top: 0,
-              left: 0,
-            }}
-          />
-        </span>
-        <span data-scroll-section>
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_1.png"
-            alt=""
-          />
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_2.png"
-            alt=""
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              top: 0,
-              left: 0,
-            }}
-          />
-        </span>
-        <span data-scroll-section>
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_1.png"
-            alt=""
-          />
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_2.png"
-            alt=""
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              top: 0,
-              left: 0,
-            }}
-          />
-        </span>
+
         {/* end tree */}
         {/* <span>
           <img
