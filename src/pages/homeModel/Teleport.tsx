@@ -19,7 +19,7 @@ const Teleport = () => {
   );
   const circleRef = useRef<any>(null);
   const circleEffectRef = useRef<any>(null);
-  const to = useMemo(() => new Vector3(0, positionY, 32), []);
+  const to = useMemo(() => new Vector3(0, -1, 32), []);
   const [dragging, setDragging] = useState(false);
   const dragVector = useMemo(() => new Vector2(), []);
 
@@ -56,7 +56,7 @@ const Teleport = () => {
 
   return (
     <>
-      <group ref={ref} position={[0, 1, 0]}>
+      <group ref={ref} position={[0, 100, -100]}>
         <PerspectiveCamera makeDefault />
       </group>
       {/* <mesh

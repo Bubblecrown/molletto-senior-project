@@ -20,13 +20,30 @@ import ScrollAnimation from "./pages/AboutUs/ScrollAnimation";
 import TestLongSceneScroll from "./TestLongSceneScroll";
 import TestHomeModel from "./TestHomeModel";
 import HomeMain from "./pages/homeModel/HomeMain";
-
+import React, { Suspense, useEffect, useState } from "react";
+import Loading from "./pages/Loading";
+const HomeLazy = React.lazy(() => import("./pages/homeModel/HomeMain"));
 const TransitionRoute = () => {
   const location = useLocation();
+  const [showHome, setShowHome] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowHome(true);
+    }, 11000);
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<HomeMain />} />
+        <Route
+          path="/"
+          element={
+            <Suspense fallback={<Loading />}>
+              {showHome ? <HomeLazy /> : <Loading />}
+            </Suspense>
+          }
+        />
 
         <Route path="/about" element={<ScrollAnimation />} />
         <Route path="/about/:id" element={<Member />} />

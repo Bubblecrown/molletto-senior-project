@@ -42,6 +42,7 @@ type GLTFActions = Record<ActionName, THREE.AnimationAction>;
 
 export default function Home(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<any>();
+
   const { nodes, materials, animations } = useGLTF("/home.gltf") as GLTFResult;
   const { actions } = useAnimations<GLTFActions | any>(animations, group);
 
@@ -51,6 +52,14 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
         action.play();
       }
     });
+
+    return () => {
+      Object.values(actions).forEach((action) => {
+        if (action) {
+          action.stop();
+        }
+      });
+    };
   }, []);
 
   return (
@@ -727,8 +736,6 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
                 material={materials["Yaku_area.002"]}
                 skeleton={nodes.coconutmilk_t.skeleton}
                 frustumCulled={false}
-                castShadow
-                receiveShadow
               />
             </group>
             <mesh
@@ -736,24 +743,18 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
               geometry={nodes.yakupCylinder3.geometry}
               material={materials["Yaku_area.002"]}
               position={[16.42, 68.68, -20.29]}
-              castShadow
-              receiveShadow
             />
             <mesh
               name="coconutmilk_b"
               geometry={nodes.coconutmilk_b.geometry}
               material={materials["Yaku_area.002"]}
               position={[17.06, 70.23, -1.52]}
-              castShadow
-              receiveShadow
             />
             <mesh
               name="spoon"
               geometry={nodes.spoon.geometry}
               material={materials["Yaku_area.002"]}
               position={[22.88, 70.25, -4.24]}
-              castShadow
-              receiveShadow
             />
             <mesh
               name="yakupCube5"
@@ -1017,12 +1018,19 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
           rotation={[Math.PI / 2, 0, 0]}
           scale={0.39}
         >
-          <group name="about_us_home" position={[0, 0, -0.21]}>
+          <group
+            name="about_us_home"
+            position={[0, 0, -0.21]}
+            castShadow
+            receiveShadow
+          >
             <group
               name="Armature"
               position={[-24.13, -26.09, -18.65]}
               rotation={[-Math.PI / 2, -0.36, 0]}
               scale={2.55}
+              castShadow
+              receiveShadow
             >
               <primitive object={nodes.Bone014_1} />
               <primitive object={nodes.Bone019} />
@@ -1034,6 +1042,7 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
                 position={[0.07, 6.12, 0.03]}
                 rotation={[Math.PI / 2, 0, -0.37]}
                 scale={0.39}
+                receiveShadow
               />
               <skinnedMesh
                 name="polySurface1"
@@ -1041,6 +1050,7 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
                 material={materials["about_us.002"]}
                 skeleton={nodes.polySurface1.skeleton}
                 frustumCulled={false}
+                receiveShadow
               />
               <skinnedMesh
                 name="polySurface13"
@@ -1048,6 +1058,7 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
                 material={materials["about_us.002"]}
                 skeleton={nodes.polySurface13.skeleton}
                 frustumCulled={false}
+                receiveShadow
               />
               <skinnedMesh
                 name="polySurface2"
@@ -1055,6 +1066,7 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
                 material={materials["about_us.002"]}
                 skeleton={nodes.polySurface2.skeleton}
                 frustumCulled={false}
+                receiveShadow
               />
               <skinnedMesh
                 name="polySurface5"
@@ -1062,6 +1074,7 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
                 material={materials["about_us.002"]}
                 skeleton={nodes.polySurface5.skeleton}
                 frustumCulled={false}
+                receiveShadow
               />
               <skinnedMesh
                 name="polySurface9"
@@ -1069,6 +1082,7 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
                 material={materials["about_us.002"]}
                 skeleton={nodes.polySurface9.skeleton}
                 frustumCulled={false}
+                receiveShadow
               />
             </group>
             <mesh
@@ -1513,72 +1527,7 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
             />
           </group>
         </group>
-        <group
-          name="path_click"
-          position={[0.05, -4.74, 0.26]}
-          rotation={[Math.PI / 2, 0, 0]}
-          scale={0.39}
-        >
-          <group name="banana_path_1">
-            <mesh
-              name="banana_path_1001"
-              geometry={nodes.banana_path_1001.geometry}
-              material={materials["nana_area1.002"]}
-              position={[-20.42, 51.13, -0.67]}
-            />
-            <mesh
-              name="banana_path_2001"
-              geometry={nodes.banana_path_2001.geometry}
-              material={materials["nana_area1.002"]}
-              position={[-18.79, 55.33, -0.67]}
-            />
-            <mesh
-              name="banana_path_3"
-              geometry={nodes.banana_path_3.geometry}
-              material={materials["nana_area1.002"]}
-              position={[-15.62, 58.58, -0.6]}
-            />
-            <mesh
-              name="banana_path_4"
-              geometry={nodes.banana_path_4.geometry}
-              material={materials["nana_area1.002"]}
-              position={[-10.95, 60.06, -0.53]}
-            />
-          </group>
-          <group name="banana_path_2">
-            <mesh
-              name="banana_path_10"
-              geometry={nodes.banana_path_10.geometry}
-              material={materials["nana_area1.002"]}
-              position={[0.29, -32.77, -10.68]}
-            />
-            <mesh
-              name="banana_path_6"
-              geometry={nodes.banana_path_6.geometry}
-              material={materials["nana_area1.002"]}
-              position={[17.08, -41.53, -10.4]}
-            />
-            <mesh
-              name="banana_path_7"
-              geometry={nodes.banana_path_7.geometry}
-              material={materials["nana_area1.002"]}
-              position={[12.16, -39.57, -10.46]}
-            />
-            <mesh
-              name="banana_path_8"
-              geometry={nodes.banana_path_8.geometry}
-              material={materials["nana_area1.002"]}
-              position={[6.89, -39.61, -10.56]}
-            />
-            <mesh
-              name="banana_path_9"
-              geometry={nodes.banana_path_9.geometry}
-              material={materials["nana_area1.002"]}
-              position={[2.35, -37.45, -10.53]}
-            />
-          </group>
-          {/* Path */}
-        </group>
+        
         <group
           name="hover"
           position={[0.05, -4.74, 0.26]}
