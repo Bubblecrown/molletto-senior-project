@@ -63,7 +63,7 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
     setIsHover(hoverState);
     setMessage(message);
     if (position) {
-      setHoverPosition([position[0], position[1] + 12, position[2] - 5]);
+      setHoverPosition([position[0], position[1], position[2] - 10]);
     }
   };
 

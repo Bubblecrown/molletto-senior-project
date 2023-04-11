@@ -168,7 +168,7 @@ export const SlideOut = styled(motion.div)`
 `;
 
 // Design System
-// Mali 
+// Mali
 
 export const H4Mali = styled.h4<{
   c?: string;
@@ -177,7 +177,7 @@ export const H4Mali = styled.h4<{
   u?: string;
 }>`
   font-family: ${maliFont};
-  font-size: clamp(0.5rem, 3vw, 1rem);
+  font-size: clamp(0.1rem, 0.5vw, 1rem);
   font-weight: 400;
   color: ${({ c }) => (c ? c : "#fff")};
   margin: ${({ m }) => (m ? m : "0")};
@@ -248,7 +248,7 @@ export const H1Noto = styled.h1<{
 }>`
   font-family: ${santhai};
   font-size: ${({ fs }) =>
-    fs ? `clamp(0.75rem, 5vw, ${fs}rem)` : "clamp(0.75rem, 5vw, 2.75rem)"};
+    fs ? `clamp(0.2rem, 1vw, ${fs}rem)` : "clamp(0.75rem, 5vw, 2.75rem)"};
   font-weight: 700;
   color: ${({ c }) => (c ? c : "#fff")};
   margin: ${({ m }) => (m ? m : "0")};
@@ -263,7 +263,7 @@ export const H4Noto = styled.h4<{
   u?: string;
 }>`
   font-family: ${santhai};
-  font-size: clamp(0.5rem, 3vw, 1.2rem);
+  font-size: clamp(0.15rem, 1vw, 1.2rem);
   font-weight: 400;
   color: ${({ c }) => (c ? c : "#fff")};
   margin: ${({ m }) => (m ? m : "0")};

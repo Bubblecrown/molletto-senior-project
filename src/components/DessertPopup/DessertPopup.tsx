@@ -1,18 +1,25 @@
 import React from "react";
 import seat from "../../assets/images/HoverPopup.png";
+import seat_image from "../../assets/images/seat_image.png";
 import {
   DessertContainer,
   DessertDescription,
   DessertHandwriting,
   DessertHeader,
   DessertImage,
+  DessertText,
   DessertTitle,
 } from "./DessertStyle";
 import { H1Noto, H4Mali, H4Noto } from "../../GlobalStyle";
 const DessertPopup = () => {
   return (
     <DessertContainer>
-      <DessertImage>
+      <DessertImage
+        src={seat_image}
+        initial={{ translateX: 150 }}
+        animate={{ translateX: 20 }}
+      ></DessertImage>
+      <DessertText>
         <DessertTitle>
           <DessertHeader>
             <H4Noto c="#000">แหล่งกำเนิด ........................</H4Noto>
@@ -36,7 +43,7 @@ const DessertPopup = () => {
             </H4Noto>
           </DessertDescription>
         </DessertTitle>
-      </DessertImage>
+      </DessertText>
     </DessertContainer>
   );
 };
