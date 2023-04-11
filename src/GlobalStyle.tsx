@@ -6,6 +6,7 @@ export const santhai = "'Noto Sans Thai', sans-serif";
 export const roboto = "'Roboto', sans-serif";
 export const notosans = "'Noto Sans', sans-serif";
 export const guildaFont = "'Gilda Display', serif";
+export const maliFont = "'Mali', cursive";
 // end Font
 
 export const LayerImage = styled.div`
@@ -42,16 +43,23 @@ const GlobalStyles = createGlobalStyle`
     }
     
 `;
+export const CanvasContainer = styled.div`
+  height: 100%;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+`;
 
 export const VideoBackground = styled.video<{
   c?: string;
   o?: number;
   xOverflow?: string;
 }>`
- position: fixed;
+  position: fixed;
   right: 0;
   bottom: 0;
-  min-width: 100%; 
+  min-width: 100%;
   min-height: 100%;
 `;
 
@@ -160,7 +168,23 @@ export const SlideOut = styled(motion.div)`
 `;
 
 // Design System
+// Mali 
 
+export const H4Mali = styled.h4<{
+  c?: string;
+  m?: string;
+  d?: string;
+  u?: string;
+}>`
+  font-family: ${maliFont};
+  font-size: clamp(0.5rem, 3vw, 1rem);
+  font-weight: 400;
+  color: ${({ c }) => (c ? c : "#fff")};
+  margin: ${({ m }) => (m ? m : "0")};
+  display: ${({ d }) => (d ? d : "block")};
+  text-transform: ${({ u }) => (u ? u : "uppercase")};
+`;
+// end mali
 // Roboto
 export const H1Roboto = styled(motion.h1)<{
   c?: string;
@@ -220,13 +244,30 @@ export const H1Noto = styled.h1<{
   m?: string;
   d?: string;
   u?: string;
+  fs?: number;
 }>`
   font-family: ${santhai};
-  font-size: clamp(0.75rem, 5vw, 2.75rem);
+  font-size: ${({ fs }) =>
+    fs ? `clamp(0.75rem, 5vw, ${fs}rem)` : "clamp(0.75rem, 5vw, 2.75rem)"};
   font-weight: 700;
   color: ${({ c }) => (c ? c : "#fff")};
   margin: ${({ m }) => (m ? m : "0")};
   display: ${({ d }) => (d ? d : "inline")};
+  text-transform: ${({ u }) => (u ? u : "uppercase")};
+`;
+
+export const H4Noto = styled.h4<{
+  c?: string;
+  m?: string;
+  d?: string;
+  u?: string;
+}>`
+  font-family: ${santhai};
+  font-size: clamp(0.5rem, 3vw, 1.2rem);
+  font-weight: 400;
+  color: ${({ c }) => (c ? c : "#fff")};
+  margin: ${({ m }) => (m ? m : "0")};
+  display: ${({ d }) => (d ? d : "block")};
   text-transform: ${({ u }) => (u ? u : "uppercase")};
 `;
 // end Noto san thai

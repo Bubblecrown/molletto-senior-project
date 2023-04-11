@@ -1,5 +1,5 @@
 import { useFrame } from "@react-three/fiber";
-import { PerspectiveCamera, TrackballControls } from "@react-three/drei";
+import { Image, PerspectiveCamera, TrackballControls } from "@react-three/drei";
 import { useRef, useState, useMemo } from "react";
 import { Vector2, Vector3 } from "three";
 import { useEffect } from "react";
@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 import Plane from "./Plane";
-
+import rabbit from "../../assets/rabbit.png";
 const Teleport = () => {
   const ref = useRef<any>(null);
   const positionY = useSelector(
@@ -19,7 +19,7 @@ const Teleport = () => {
   );
   const circleRef = useRef<any>(null);
   const circleEffectRef = useRef<any>(null);
-  const to = useMemo(() => new Vector3(0, -1, 32), []);
+  const to = useMemo(() => new Vector3(0, -1, 35), []);
   const [dragging, setDragging] = useState(false);
   const dragVector = useMemo(() => new Vector2(), []);
 
@@ -56,25 +56,9 @@ const Teleport = () => {
 
   return (
     <>
-      <group ref={ref} position={[0, 100, -100]}>
+      <group ref={ref} position={[0, 100, -120]}>
         <PerspectiveCamera makeDefault />
       </group>
-      {/* <mesh
-        visible={true}
-        rotation-x={-Math.PI / 2}
-        position={[0, 0, 0]}
-        onPointerMove={({ point }) => {
-          circleRef.current.position.z = point.z;
-          circleRef.current.position.x = point.x;
-        }}
-        onDoubleClick={({ point }) => {
-          to.set(point.x, 1, point.z);
-          circleEffectRef.current.position.copy(circleRef.current.position);
-          circleEffectRef.current.scale.set(1, 1, 1);
-          circleEffectRef.current.material.opacity = 1;
-        }}
-      > */}
-      {/* <planeGeometry args={[19, 19]} /> */}
       <Plane
         onPointerMove={({ point }) => {
           circleRef.current.position.z = point.z;
@@ -89,6 +73,14 @@ const Teleport = () => {
       />
       {/* </mesh> */}
       {/* Main Ring */}
+      {/* <group
+        ref={circleRef}
+        rotation-x={-Math.PI / 2}
+        position-y={positionY_circle}
+      >
+        <Image url={rabbit} />
+      </group> */}
+      
       <mesh
         ref={circleRef}
         rotation-x={-Math.PI / 2}

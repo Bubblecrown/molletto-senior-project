@@ -13,7 +13,7 @@ const Footer = ({ audio }: any) => {
   );
   const dispatch = useDispatch();
   const audioRef = useRef<HTMLAudioElement>(null);
-  const volume = 0.4;
+  const volume = 0.3;
   const toggleAudio = () => {
     dispatch(setIsMuted());
     if (audioRef?.current?.paused) {

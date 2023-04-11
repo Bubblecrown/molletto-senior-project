@@ -100,7 +100,7 @@ const Plane = ({ onPointerMove, onDoubleClick }: PlaneProps) => {
         onPointerMove={onPointerMove}
         onDoubleClick={onDoubleClick}
         onPointerEnter={() => {
-          setView(-2), setCircle(-4);
+          setView(-2), setCircle(-4.74);
         }}
       />
       <mesh

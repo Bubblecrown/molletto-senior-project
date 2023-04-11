@@ -22,6 +22,7 @@ import TestHomeModel from "./TestHomeModel";
 import HomeMain from "./pages/homeModel/HomeMain";
 import React, { Suspense, useEffect, useState } from "react";
 import Loading from "./pages/Loading";
+import DessertPopup from "./components/DessertPopup/DessertPopup";
 const HomeLazy = React.lazy(() => import("./pages/homeModel/HomeMain"));
 const TransitionRoute = () => {
   const location = useLocation();
@@ -40,7 +41,7 @@ const TransitionRoute = () => {
           path="/"
           element={
             <Suspense fallback={<Loading />}>
-              {showHome ? <HomeLazy /> : <Loading />}
+              <DessertPopup />
             </Suspense>
           }
         />

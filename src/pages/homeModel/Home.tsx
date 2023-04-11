@@ -4,41 +4,15 @@ Command: npx gltfjsx@6.1.4 public\\home.glb --t
 */
 
 import * as THREE from "three";
-import React, { useEffect, useRef } from "react";
-import { useGLTF, useAnimations } from "@react-three/drei";
+import React, { useEffect, useRef, useState } from "react";
+import { useGLTF, useAnimations, Html } from "@react-three/drei";
 import { GLTFResult } from "../../types/HomeMesh";
-
-type ActionName =
-  | "flower_1.001Action"
-  | "flower_2.001Action.001"
-  | "leaf_38Action"
-  | "leaf_39Action"
-  | "leaf_40Action"
-  | "leaf_41Action"
-  | "pPlane6Action"
-  | "pPlane5Action.001"
-  | "pPlane4Action.001"
-  | "pPlane3Action"
-  | "pPlane9Action"
-  | "pPlane7Action"
-  | "pPlane2Action.001"
-  | "pPlane8Action.001"
-  | "Armature.001Action.001"
-  | "yaku:pCylinder3Action"
-  | "leaf_34Action"
-  | "leaf_35Action.001"
-  | "leaf_36Action"
-  | "leaf_37Action"
-  | "about_us_homeAction"
-  | "ArmatureAction.002"
-  | "prop1:set3rabbitpCylinder6Action"
-  | "ball_12Action"
-  | "ball_2Action"
-  | "prop_3rerere:penie:pCube36Action"
-  | "bean_topAction"
-  | "prop_3rerere:polySurface1Action"
-  | "Armature.002Action";
-type GLTFActions = Record<ActionName, THREE.AnimationAction>;
+import { GLTFActions } from "../../types/AnimationModel";
+import { useNavigate } from "react-router";
+import PulsingCanvas from "../../components/PulsingCircle/PulsingCanvas";
+import soundEffect from "../../assets/sounds/effects/knock_door.mp3";
+import { motion } from "framer-motion";
+import DessertPopup from "../../components/DessertPopup/DessertPopup";
 
 export default function Home(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<any>();
@@ -62,6 +36,46 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
     };
   }, []);
 
+  // sound and navigate
+  const navigate = useNavigate();
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const volume = 0.3;
+  const playClickSound = () => {
+    if (audioRef?.current?.paused) {
+      audioRef.current.play();
+      audioRef.current.volume = volume;
+      setTimeout(() => {
+        navigate("/about");
+      }, 1000);
+    }
+  };
+
+  const [isHover, setIsHover] = useState(false);
+  const [message, setMessage] = useState("");
+  const [hoverPosition, setHoverPosition] = useState<[number, number, number]>([
+    0, 0, 0,
+  ]);
+  const handleHover = (
+    hoverState: boolean,
+    message: string = "",
+    position?: [number, number, number]
+  ) => {
+    setIsHover(hoverState);
+    setMessage(message);
+    if (position) {
+      setHoverPosition([position[0], position[1] + 12, position[2] - 5]);
+    }
+  };
+
+  const handlePointerEvents = (
+    e: object | any,
+    hoverState: boolean,
+    message: string
+  ) => {
+    e.stopPropagation();
+    const position = e.object.position.toArray();
+    handleHover(hoverState, message, position);
+  };
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
@@ -236,14 +250,7 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
               position={[22.14, 10.62, -10.54]}
             />
           </group>
-          <group name="pennie_home_door">
-            <mesh
-              name="peniepCube43"
-              geometry={nodes.peniepCube43.geometry}
-              material={materials["Penny_area.002"]}
-              position={[14.19, 10.15, -11.94]}
-            />
-          </group>
+          {/* pennie door */}
           <group name="tree_2">
             <mesh
               name="leaf_38"
@@ -817,20 +824,7 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
               position={[18.67, 64.35, -18.51]}
             />
           </group>
-          <group name="yaku_home_door">
-            <mesh
-              name="yakupCube6"
-              geometry={nodes.yakupCube6.geometry}
-              material={materials["Yaku_area.002"]}
-              position={[10.02, 72.8, -5.55]}
-            />
-            <mesh
-              name="yakupolySurface2pCylinder1"
-              geometry={nodes.yakupolySurface2pCylinder1.geometry}
-              material={materials["Yaku_area.002"]}
-              position={[10.95, 74.16, -5.86]}
-            />
-          </group>
+          {/* yaku home */}
         </group>
         <group
           name="nana_area"
@@ -925,14 +919,7 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
               position={[-29.62, 40.01, -15.09]}
             />
           </group>
-          <group name="home_nana_door">
-            <mesh
-              name="thongpCube3"
-              geometry={nodes.thongpCube3.geometry}
-              material={materials["nana_area1.002"]}
-              position={[-21.7, 47.26, -3.23]}
-            />
-          </group>
+          {/* nana door */}
           <group name="tree_1">
             <mesh
               name="leaf_34"
@@ -1012,18 +999,14 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
             />
           </group>
         </group>
+        {/* about us */}
         <group
           name="aboutus"
           position={[0.05, -4.74, 0.26]}
           rotation={[Math.PI / 2, 0, 0]}
           scale={0.39}
         >
-          <group
-            name="about_us_home"
-            position={[0, 0, -0.21]}
-            castShadow
-            receiveShadow
-          >
+          <group name="about_us_home" position={[0, 0, -0.21]}>
             <group
               name="Armature"
               position={[-24.13, -26.09, -18.65]}
@@ -1109,12 +1092,7 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
               material={materials["about_us.002"]}
               position={[-21.54, -25, -17.37]}
             />
-            <mesh
-              name="polySurface4"
-              geometry={nodes.polySurface4.geometry}
-              material={materials["about_us.002"]}
-              position={[-23.06, -30.18, -12.27]}
-            />
+
             <mesh
               name="polySurface6"
               geometry={nodes.polySurface6.geometry}
@@ -1127,12 +1105,31 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
               material={materials["about_us.002"]}
               position={[-23.78, -19.05, -17.11]}
             />
-            <mesh
-              name="polySurface8"
-              geometry={nodes.polySurface8.geometry}
-              material={materials["about_us.002"]}
-              position={[-23.57, -29.23, -13.41]}
-            />
+            {/* about us door */}
+            <group onClick={playClickSound}>
+              {/* door knob */}
+              <mesh
+                name="polySurface4"
+                geometry={nodes.polySurface4.geometry}
+                material={materials["about_us.002"]}
+                position={[-23.06, -30.18, -12.27]}
+              />
+              {/* about us door */}
+              <mesh
+                name="polySurface8"
+                geometry={nodes.polySurface8.geometry}
+                material={materials["about_us.002"]}
+                position={[-23.57, -29.23, -13.41]}
+              />
+              <group position={[-23.06, -30.18, -12.27]}>
+                <Html>
+                  <PulsingCanvas />
+                  <audio ref={audioRef}>
+                    <source src={soundEffect} type="audio/mpeg" />
+                  </audio>
+                </Html>
+              </group>
+            </group>
             <mesh
               name="sign"
               geometry={nodes.sign.geometry}
@@ -1527,13 +1524,25 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
             />
           </group>
         </group>
-        
+        {/* dessert */}
         <group
           name="hover"
           position={[0.05, -4.74, 0.26]}
           rotation={[Math.PI / 2, 0, 0]}
           scale={0.39}
         >
+          {isHover && (
+            <Html position={hoverPosition}>
+              <motion.div
+                className="message-box"
+                initial={{ translateY: -20 }}
+                animate={{ translateY: 0 }}
+                exit={{ translateY: 20 }}
+              >
+                <DessertPopup />
+              </motion.div>
+            </Html>
+          )}
           <group name="aunchan">
             <group name="piece_1">
               <group name="group11">
@@ -1783,6 +1792,8 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
                 geometry={nodes.prop1set3seatpCube1.geometry}
                 material={materials["nana_area1.002"]}
                 position={[-16.1, 68.54, -1.81]}
+                onPointerEnter={(e) => handlePointerEvents(e, true, "Cube")}
+                onPointerLeave={(e) => handlePointerEvents(e, false, "")}
               />
               <mesh
                 name="set3seatpCube1"
