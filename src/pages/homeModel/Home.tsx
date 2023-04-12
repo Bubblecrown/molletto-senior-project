@@ -11,8 +11,9 @@ import { GLTFActions } from "../../types/AnimationModel";
 import { useNavigate } from "react-router";
 import PulsingCanvas from "../../components/PulsingCircle/PulsingCanvas";
 import soundEffect from "../../assets/sounds/effects/knock_door.mp3";
-import { motion } from "framer-motion";
+import { motion } from "framer-motion-3d";
 import DessertPopup from "../../components/DessertPopup/DessertPopup";
+import { DessertData } from "../../data/homeData";
 
 export default function Home(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<any>();
@@ -51,13 +52,13 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
   };
 
   const [isHover, setIsHover] = useState(false);
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState<string[]>([]);
   const [hoverPosition, setHoverPosition] = useState<[number, number, number]>([
     0, 0, 0,
   ]);
   const handleHover = (
     hoverState: boolean,
-    message: string = "",
+    message: string[],
     position?: [number, number, number]
   ) => {
     setIsHover(hoverState);
@@ -70,7 +71,7 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
   const handlePointerEvents = (
     e: object | any,
     hoverState: boolean,
-    message: string
+    message: string[]
   ) => {
     e.stopPropagation();
     const position = e.object.position.toArray();
@@ -1534,12 +1535,11 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
           {isHover && (
             <Html position={hoverPosition}>
               <motion.div
-                className="message-box"
                 initial={{ translateY: -20 }}
                 animate={{ translateY: 0 }}
                 exit={{ translateY: 20 }}
               >
-                <DessertPopup />
+                <DessertPopup data={message} />
               </motion.div>
             </Html>
           )}
@@ -1786,14 +1786,27 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
             />
           </group>
           <group name="seat_chan">
-            <group name="seat_1">
+            <motion.group
+              name="seat_1"
+              position={[0, 0, 0]}
+              onPointerDown={(e) =>
+                handlePointerEvents(e, true, [
+                  DessertData.seat_chan.origin,
+                  DessertData.seat_chan.ingredient,
+                  DessertData.seat_chan.dessertName,
+                  DessertData.seat_chan.description,
+                  DessertData.seat_chan.image,
+                  DessertData.seat_chan.imageAlt,
+                ])
+              }
+              onPointerOut={(e) => handlePointerEvents(e, false, [""])}
+              whileTap={{ z: -5 }}
+            >
               <mesh
                 name="prop1set3seatpCube1"
                 geometry={nodes.prop1set3seatpCube1.geometry}
                 material={materials["nana_area1.002"]}
                 position={[-16.1, 68.54, -1.81]}
-                onPointerEnter={(e) => handlePointerEvents(e, true, "Cube")}
-                onPointerLeave={(e) => handlePointerEvents(e, false, "")}
               />
               <mesh
                 name="set3seatpCube1"
@@ -1807,8 +1820,14 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
                 material={materials["nana_area1.002"]}
                 position={[-12.25, 70.9, -1.1]}
               />
-            </group>
-            <group name="seat_2">
+            </motion.group>
+            <motion.group
+              name="seat_2"
+              position={[0, 0, 0]}
+              onPointerDown={(e) => handlePointerEvents(e, true, ["Cube"])}
+              onPointerOut={(e) => handlePointerEvents(e, false, [""])}
+              whileTap={{ z: -5 }}
+            >
               <mesh
                 name="set3seatpCube10"
                 geometry={nodes.set3seatpCube10.geometry}
@@ -1833,8 +1852,14 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
                 material={materials["nana_area1.002"]}
                 position={[-38.25, 62.78, -1.32]}
               />
-            </group>
-            <group name="seat_3">
+            </motion.group>
+            <motion.group
+              name="seat_3"
+              position={[0, 0, 0]}
+              onPointerDown={(e) => handlePointerEvents(e, true, ["Cube"])}
+              onPointerOut={(e) => handlePointerEvents(e, false, [""])}
+              whileTap={{ z: -5 }}
+            >
               <mesh
                 name="set3seatpCube5"
                 geometry={nodes.set3seatpCube5.geometry}
@@ -1853,7 +1878,7 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
                 material={materials["nana_area1.002"]}
                 position={[-24.52, 81.94, -0.84]}
               />
-            </group>
+            </motion.group>
           </group>
           <group name="seat_tang">
             <group name="seat_1001">

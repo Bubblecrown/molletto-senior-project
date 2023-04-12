@@ -390,3 +390,4 @@ export type GLTFResult = GLTF & {
     ["Leaf_set.001"]: THREE.MeshStandardMaterial;
   };
 };
+

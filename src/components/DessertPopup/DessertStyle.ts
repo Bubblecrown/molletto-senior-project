@@ -10,25 +10,34 @@ export const DessertContainer = styled(motion.div)`
   align-items: flex-end;
 `;
 
-export const DessertImage = styled(motion.img)`
-  max-width: 100%;
+export const DessertContainerImage = styled(motion.div)`
   width: auto;
-  height: 250px;
+  height: 230px;
   z-index: 1;
   position: relative;
+  border-radius: 12px;
+  filter: drop-shadow(3px 4px 6px #000 5);
 `;
 
+export const DessertImage = styled(motion.img)`
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+`;
 export const DessertText = styled.div`
   background-image: url(${seat});
   max-width: 100%;
   max-height: 80vw;
-  width: 320px;
-  height: 267px;
+  width: 309.06px;
+  height: 248px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
   align-items: center;
+  filter: drop-shadow(3px 4px 6px #000 5);
 `;
 export const DessertTitle = styled.div`
   margin-left: 10%;
