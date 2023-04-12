@@ -1608,7 +1608,29 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
                 />
               </group>
             </group>
-            <group name="piece_2">
+            <motion.group
+              name="piece_2"
+              position={[0, 0, 0]}
+              onPointerEnter={(e) =>
+                handlePointerEvents(e, true, [
+                  DessertData.aunchan.origin,
+                  DessertData.aunchan.ingredient,
+                  DessertData.aunchan.dessertName,
+                  DessertData.aunchan.description,
+                  DessertData.aunchan.image,
+                  DessertData.aunchan.imageAlt,
+                ])
+              }
+              onPointerOut={(e) => handlePointerEvents(e, false, [""])}
+              whileHover={{
+                z: -2,
+                transition: {
+                  type: "spring",
+                  stiffness: 10,
+                  damping: 5,
+                },
+              }}
+            >
               <group name="group11001">
                 <mesh
                   name="prop_3rererepeniepCube36"
@@ -1679,9 +1701,31 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
                   position={[-43.25, -2.78, -12.07]}
                 />
               </group>
-            </group>
+            </motion.group>
           </group>
-          <group name="bean">
+          <motion.group
+            name="bean"
+            position={[0, 0, 0]}
+            onPointerEnter={(e) =>
+              handlePointerEvents(e, true, [
+                DessertData.bean.origin,
+                DessertData.bean.ingredient,
+                DessertData.bean.dessertName,
+                DessertData.bean.description,
+                DessertData.bean.image,
+                DessertData.bean.imageAlt,
+              ])
+            }
+            onPointerOut={(e) => handlePointerEvents(e, false, [""])}
+            whileHover={{
+              z: -5,
+              transition: {
+                type: "spring",
+                stiffness: 10,
+                damping: 5,
+              },
+            }}
+          >
             <mesh
               name="pSphere1"
               geometry={nodes.pSphere1.geometry}
@@ -1700,7 +1744,7 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
               material={materials["Penny_area.002"]}
               position={[30.24, -41.67, -19.28]}
             />
-          </group>
+          </motion.group>
           <group name="budda">
             <mesh
               name="set3layercake"
@@ -1714,12 +1758,43 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
               material={materials["other1.002"]}
               position={[36.48, 76.19, -2.88]}
             />
-            <mesh
-              name="set3layercake4"
-              geometry={nodes.set3layercake4.geometry}
-              material={materials["other1.002"]}
-              position={[31.28, 87.58, -3.57]}
-            />
+
+            <motion.group
+              name="flowerpot_2"
+              position={[0, 0, 0]}
+              onPointerEnter={(e) =>
+                handlePointerEvents(e, true, [
+                  DessertData.budda.origin,
+                  DessertData.budda.ingredient,
+                  DessertData.budda.dessertName,
+                  DessertData.budda.description,
+                  DessertData.budda.image,
+                  DessertData.budda.imageAlt,
+                ])
+              }
+              onPointerOut={(e) => handlePointerEvents(e, false, [""])}
+              whileHover={{
+                z: -2,
+                transition: {
+                  type: "spring",
+                  stiffness: 10,
+                  damping: 5,
+                },
+              }}
+            >
+              <mesh
+                name="set3layercake4"
+                geometry={nodes.set3layercake4.geometry}
+                material={materials["other1.002"]}
+                position={[31.28, 87.58, -3.57]}
+              />
+              <mesh
+                name="set3potpPlane10"
+                geometry={nodes.set3potpPlane10.geometry}
+                material={materials["Penny_area.002"]}
+                position={[32.24, 86.77, -9.69]}
+              />
+            </motion.group>
           </group>
           <group name="budda1">
             <group name="group15">
@@ -1731,17 +1806,58 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
                 rotation={[0, 0, 0.62]}
                 scale={1.18}
               />
-              <mesh
+              <motion.mesh
                 name="set3layercake3"
                 geometry={nodes.set3layercake3.geometry}
                 material={materials["other1.002"]}
                 position={[20.11, -30.99, -14.13]}
                 rotation={[0, 0, 0.12]}
                 scale={1.25}
+                onPointerEnter={(e) =>
+                  handlePointerEvents(e, true, [
+                    DessertData.budda.origin,
+                    DessertData.budda.ingredient,
+                    DessertData.budda.dessertName,
+                    DessertData.budda.description,
+                    DessertData.budda.image,
+                    DessertData.budda.imageAlt,
+                  ])
+                }
+                onPointerOut={(e) => handlePointerEvents(e, false, [""])}
+                whileHover={{
+                  z: -18,
+                  transition: {
+                    type: "spring",
+                    stiffness: 10,
+                    damping: 5,
+                  },
+                }}
               />
             </group>
           </group>
-          <group name="morgang">
+          <motion.group
+            name="morgang"
+            position={[0, 0, 0]}
+            onPointerEnter={(e) =>
+              handlePointerEvents(e, true, [
+                DessertData.morgang.origin,
+                DessertData.morgang.ingredient,
+                DessertData.morgang.dessertName,
+                DessertData.morgang.description,
+                DessertData.morgang.image,
+                DessertData.morgang.imageAlt,
+              ])
+            }
+            onPointerOut={(e) => handlePointerEvents(e, false, [""])}
+            whileHover={{
+              x: 2,
+              transition: {
+                type: "spring",
+                stiffness: 10,
+                damping: 5,
+              },
+            }}
+          >
             <mesh
               name="thongpCube4"
               geometry={nodes.thongpCube4.geometry}
@@ -1784,12 +1900,12 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
               material={materials["nana_area1.002"]}
               position={[-6.22, 23.26, -4.75]}
             />
-          </group>
+          </motion.group>
           <group name="seat_chan">
             <motion.group
               name="seat_1"
               position={[0, 0, 0]}
-              onPointerDown={(e) =>
+              onPointerEnter={(e) =>
                 handlePointerEvents(e, true, [
                   DessertData.seat_chan.origin,
                   DessertData.seat_chan.ingredient,
@@ -1800,7 +1916,14 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
                 ])
               }
               onPointerOut={(e) => handlePointerEvents(e, false, [""])}
-              whileTap={{ z: -5 }}
+              whileHover={{
+                z: -2,
+                transition: {
+                  type: "spring",
+                  stiffness: 10,
+                  damping: 5,
+                },
+              }}
             >
               <mesh
                 name="prop1set3seatpCube1"
@@ -1824,9 +1947,25 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
             <motion.group
               name="seat_2"
               position={[0, 0, 0]}
-              onPointerDown={(e) => handlePointerEvents(e, true, ["Cube"])}
+              onPointerEnter={(e) =>
+                handlePointerEvents(e, true, [
+                  DessertData.seat_chan.origin,
+                  DessertData.seat_chan.ingredient,
+                  DessertData.seat_chan.dessertName,
+                  DessertData.seat_chan.description,
+                  DessertData.seat_chan.image,
+                  DessertData.seat_chan.imageAlt,
+                ])
+              }
               onPointerOut={(e) => handlePointerEvents(e, false, [""])}
-              whileTap={{ z: -5 }}
+              whileHover={{
+                z: -2,
+                transition: {
+                  type: "spring",
+                  stiffness: 10,
+                  damping: 5,
+                },
+              }}
             >
               <mesh
                 name="set3seatpCube10"
@@ -1856,9 +1995,25 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
             <motion.group
               name="seat_3"
               position={[0, 0, 0]}
-              onPointerDown={(e) => handlePointerEvents(e, true, ["Cube"])}
+              onPointerEnter={(e) =>
+                handlePointerEvents(e, true, [
+                  DessertData.seat_chan.origin,
+                  DessertData.seat_chan.ingredient,
+                  DessertData.seat_chan.dessertName,
+                  DessertData.seat_chan.description,
+                  DessertData.seat_chan.image,
+                  DessertData.seat_chan.imageAlt,
+                ])
+              }
               onPointerOut={(e) => handlePointerEvents(e, false, [""])}
-              whileTap={{ z: -5 }}
+              whileHover={{
+                z: -2,
+                transition: {
+                  type: "spring",
+                  stiffness: 10,
+                  damping: 5,
+                },
+              }}
             >
               <mesh
                 name="set3seatpCube5"
@@ -1880,7 +2035,29 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
               />
             </motion.group>
           </group>
-          <group name="seat_tang">
+          <motion.group
+            name="seat_tang"
+            position={[0, 0, 0]}
+            onPointerEnter={(e) =>
+              handlePointerEvents(e, true, [
+                DessertData.seat_tang.origin,
+                DessertData.seat_tang.ingredient,
+                DessertData.seat_tang.dessertName,
+                DessertData.seat_tang.description,
+                DessertData.seat_tang.image,
+                DessertData.seat_tang.imageAlt,
+              ])
+            }
+            onPointerOut={(e) => handlePointerEvents(e, false, [""])}
+            whileHover={{
+              z: 2,
+              transition: {
+                type: "spring",
+                stiffness: 10,
+                damping: 5,
+              },
+            }}
+          >
             <group name="seat_1001">
               <mesh
                 name="prop1set3seatpCylinder1"
@@ -1911,8 +2088,22 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
                 position={[-31.07, 79.56, -4.39]}
               />
             </group>
-          </group>
-          <group name="tent">
+          </motion.group>
+          <group
+            name="tent"
+            position={[0, 0, 0]}
+            onPointerEnter={(e) =>
+              handlePointerEvents(e, true, [
+                DessertData.tent.origin,
+                DessertData.tent.ingredient,
+                DessertData.tent.dessertName,
+                DessertData.tent.description,
+                DessertData.tent.image,
+                DessertData.tent.imageAlt,
+              ])
+            }
+            onPointerOut={(e) => handlePointerEvents(e, false, [""])}
+          >
             <group name="body">
               <mesh
                 name="prop_3rererepolySurface1"
@@ -1954,7 +2145,29 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
               />
             </group>
           </group>
-          <group name="thongm">
+          <motion.group
+            name="thongm"
+            position={[0, 0, 0]}
+            onPointerEnter={(e) =>
+              handlePointerEvents(e, true, [
+                DessertData.thongm.origin,
+                DessertData.thongm.ingredient,
+                DessertData.thongm.dessertName,
+                DessertData.thongm.description,
+                DessertData.thongm.image,
+                DessertData.thongm.imageAlt,
+              ])
+            }
+            onPointerOut={(e) => handlePointerEvents(e, false, [""])}
+            whileHover={{
+              z: -2,
+              transition: {
+                type: "spring",
+                stiffness: 10,
+                damping: 5,
+              },
+            }}
+          >
             <mesh
               name="pDisc4"
               geometry={nodes.pDisc4.geometry}
@@ -1967,7 +2180,7 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
               material={materials["other1.002"]}
               position={[-45.66, -56.95, -16.24]}
             />
-          </group>
+          </motion.group>
           <group name="thongms">
             <mesh
               name="pPlane12"
@@ -1975,15 +2188,56 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
               material={materials["other1.002"]}
               position={[-40.23, 16.21, -8.05]}
             />
-            <mesh
+            <motion.mesh
               name="prop_3rererepPlane5"
               geometry={nodes.prop_3rererepPlane5.geometry}
               material={materials["other1.002"]}
               position={[-10.1, 30.87, -7.31]}
+              onPointerEnter={(e) =>
+                handlePointerEvents(e, true, [
+                  DessertData.thongms.origin,
+                  DessertData.thongms.ingredient,
+                  DessertData.thongms.dessertName,
+                  DessertData.thongms.description,
+                  DessertData.thongms.image,
+                  DessertData.thongms.imageAlt,
+                ])
+              }
+              onPointerOut={(e) => handlePointerEvents(e, false, [""])}
+              whileHover={{
+                z: -10,
+                transition: {
+                  type: "spring",
+                  stiffness: 10,
+                  damping: 5,
+                },
+              }}
             />
           </group>
           <group name="thongyib_1">
-            <group name="flowerpot_1">
+            <motion.group
+              name="flowerpot_1"
+              position={[0, 0, 0]}
+              onPointerEnter={(e) =>
+                handlePointerEvents(e, true, [
+                  DessertData.thongyib_1.origin,
+                  DessertData.thongyib_1.ingredient,
+                  DessertData.thongyib_1.dessertName,
+                  DessertData.thongyib_1.description,
+                  DessertData.thongyib_1.image,
+                  DessertData.thongyib_1.imageAlt,
+                ])
+              }
+              onPointerOut={(e) => handlePointerEvents(e, false, [""])}
+              whileHover={{
+                z: -1,
+                transition: {
+                  type: "spring",
+                  stiffness: 10,
+                  damping: 5,
+                },
+              }}
+            >
               <mesh
                 name="set3potpCylinder2001"
                 geometry={nodes.set3potpCylinder2001.geometry}
@@ -2080,17 +2334,31 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
                 material={materials["Penny_area.002"]}
                 position={[15.1, 54.09, -3.72]}
               />
-            </group>
-            <group name="flowerpot_2">
-              <mesh
-                name="set3potpPlane10"
-                geometry={nodes.set3potpPlane10.geometry}
-                material={materials["Penny_area.002"]}
-                position={[32.24, 86.77, -9.69]}
-              />
-            </group>
+            </motion.group>
           </group>
-          <group name="thongyib_2">
+          <motion.group
+            name="thongyib_2"
+            position={[0, 0, 0]}
+            onPointerEnter={(e) =>
+              handlePointerEvents(e, true, [
+                DessertData.thongyib_1.origin,
+                DessertData.thongyib_1.ingredient,
+                DessertData.thongyib_1.dessertName,
+                DessertData.thongyib_1.description,
+                DessertData.thongyib_1.image,
+                DessertData.thongyib_1.imageAlt,
+              ])
+            }
+            onPointerOut={(e) => handlePointerEvents(e, false, [""])}
+            whileHover={{
+              z: -1,
+              transition: {
+                type: "spring",
+                stiffness: 10,
+                damping: 5,
+              },
+            }}
+          >
             <group name="flowerpot_5">
               <mesh
                 name="set3potpPlane11002"
@@ -2369,14 +2637,33 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
                 position={[2.14, -9.95, -9.65]}
               />
             </group>
-          </group>
+          </motion.group>
           <group name="yoksod">
-            <mesh
+            <motion.mesh
               name="yoksod_1"
               geometry={nodes.yoksod_1.geometry}
               material={materials["Leaf_set.002"]}
               position={[28.03, -59.53, -15.89]}
               rotation={[0, 0, 2.05]}
+              onPointerEnter={(e) =>
+                handlePointerEvents(e, true, [
+                  DessertData.yoksod.origin,
+                  DessertData.yoksod.ingredient,
+                  DessertData.yoksod.dessertName,
+                  DessertData.yoksod.description,
+                  DessertData.yoksod.image,
+                  DessertData.yoksod.imageAlt,
+                ])
+              }
+              onPointerOut={(e) => handlePointerEvents(e, false, [""])}
+              whileHover={{
+                z: -20,
+                transition: {
+                  type: "spring",
+                  stiffness: 10,
+                  damping: 5,
+                },
+              }}
             />
             <mesh
               name="yoksod_5"
@@ -2400,7 +2687,28 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
               rotation={[0, 0, 2.22]}
             />
           </group>
-          <group name="yoksod1">
+          <motion.group
+            name="yoksod1"
+            onPointerEnter={(e) =>
+              handlePointerEvents(e, true, [
+                DessertData.yoksod.origin,
+                DessertData.yoksod.ingredient,
+                DessertData.yoksod.dessertName,
+                DessertData.yoksod.description,
+                DessertData.yoksod.image,
+                DessertData.yoksod.imageAlt,
+              ])
+            }
+            onPointerOut={(e) => handlePointerEvents(e, false, [""])}
+            whileHover={{
+              z: -2,
+              transition: {
+                type: "spring",
+                stiffness: 10,
+                damping: 5,
+              },
+            }}
+          >
             <mesh
               name="yoksod_2"
               geometry={nodes.yoksod_2.geometry}
@@ -2440,12 +2748,13 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
               rotation={[0, 0, 1.3]}
               scale={0.56}
             />
-          </group>
+          </motion.group>
           <mesh
             name="bean_top"
             geometry={nodes.bean_top.geometry}
             material={materials["Penny_area.002"]}
             position={[19.68, -0.01, -32.26]}
+            
           />
           {/* stair */}
         </group>

@@ -55,6 +55,6 @@ export const DessertHeader = styled.div`
 
 export const DessertHandwriting = styled.div`
   position: absolute;
-  top: -10%;
+  top: 0%;
   left: 30%;
 `;

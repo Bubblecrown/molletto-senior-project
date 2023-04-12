@@ -20,7 +20,12 @@ const DessertPopup = ({ data }: dessert) => {
     <DessertContainer>
       <DessertContainerImage
         initial={{ translateX: 150 }}
-        animate={{ translateX: 5 }}
+        animate={{
+          translateX: 5,
+          transition: {
+            duration: 0.2
+          },
+        }}
       >
         <DessertImage src={image} alt={imageAlt} />
       </DessertContainerImage>
