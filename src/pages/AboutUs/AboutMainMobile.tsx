@@ -5,8 +5,7 @@ import { AboutMainData, HeadMember } from "../../data/aboutData";
 import { H2Eng, H3Eng, H4Eng, H5Eng } from "../../GlobalStyle";
 import { useTablet } from "../../hooks/useMediaQuery";
 import {
-  Container,
-  Section,
+
   AboutMainContainer,
   HeaderAboutMain,
   AboutDescription,

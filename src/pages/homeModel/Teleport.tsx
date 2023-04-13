@@ -11,7 +11,7 @@ import rabbit from "../../assets/rabbit.png";
 import { useIsMedium } from "../../hooks/useMediaQuery";
 const Teleport = () => {
   const ref = useRef<any>(null);
-  const isMedium = useIsMedium()
+  const isMedium = useIsMedium();
   const positionY = useSelector(
     (state: RootState) => state.positionModel.positionY
   );
@@ -32,29 +32,48 @@ const Teleport = () => {
     const onPointerUp = () => {
       setDragging(false);
     };
-    const onPointerMove = (e: any) => {
+    const onTouchStart = (e:any) => {
+      setDragging(true);
+      const touch = e.touches[0];
+      dragVector.set(touch.pageX - touch.clientX, touch.pageY - touch.clientY);
+    };
+    const onTouchEnd = () => {
+      setDragging(false);
+    };
+    const onPointerMove = (e:any) => {
+      if (e.pointerType === "touch") return; // skip if it's a touch event
       dragVector.set(e.movementX, e.movementY);
-      if (isMedium) {
-        dragging &&
-          (ref.current.rotation.y += ((dragVector.x / 10) * Math.PI) / 180) &&
-          (ref.current.children[0].rotation.x +=
-            ((dragVector.y / 10) * Math.PI) / 10);
-      } else {
-        dragging &&
-          (ref.current.rotation.y += ((dragVector.x / 10) * Math.PI) / 180) &&
-          (ref.current.children[0].rotation.x +=
-            ((dragVector.y / 10) * Math.PI) / 180);
-      }
+      dragging &&
+        (ref.current.rotation.y += ((dragVector.x / 10) * Math.PI) / 180) &&
+        (ref.current.children[0].rotation.x +=
+          ((dragVector.y / 10) * Math.PI) / 180);
+    };
+    const onTouchMove = (e: any) => {
+      const touch = e.touches[0];
+      const movementX = touch.clientX - dragVector.x;
+      const movementY = touch.clientY - dragVector.y;
+      dragVector.set(touch.clientX, touch.clientY);
+      dragging &&
+        (ref.current.rotation.y += ((movementX / 10) * Math.PI) / 180) &&
+        (ref.current.children[0].rotation.x +=
+          ((movementY / 10) * Math.PI) / 180);
     };
     document.addEventListener("pointerdown", onPointerDown);
     document.addEventListener("pointerup", onPointerUp);
     document.addEventListener("pointermove", onPointerMove);
+    document.addEventListener("touchstart", onTouchStart);
+    document.addEventListener("touchend", onTouchEnd);
+    document.addEventListener("touchmove", onTouchMove);
     return () => {
       document.removeEventListener("pointerdown", onPointerDown);
       document.removeEventListener("pointerup", onPointerUp);
       document.removeEventListener("pointermove", onPointerMove);
+      document.removeEventListener("touchstart", onTouchStart);
+      document.removeEventListener("touchend", onTouchEnd);
+      document.removeEventListener("touchmove", onTouchMove);
     };
   });
+  
   useFrame((_, delta) => {
     ref.current.position.lerp(to, delta * 2);
 
@@ -82,14 +101,6 @@ const Teleport = () => {
       />
       {/* </mesh> */}
       {/* Main Ring */}
-      {/* <group
-        ref={circleRef}
-        rotation-x={-Math.PI / 2}
-        position-y={positionY_circle}
-      >
-        <Image url={rabbit} />
-      </group> */}
-      
       <mesh
         ref={circleRef}
         rotation-x={-Math.PI / 2}
