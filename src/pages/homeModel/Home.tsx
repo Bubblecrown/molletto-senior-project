@@ -114,7 +114,31 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
               position={[9.88, -22.03, -17.9]}
             />
           </group>
-          <group name="pennie_home">
+          <group
+            name="pennie_home"
+            position={[0, 0, 0]}
+            onPointerEnter={(e) =>
+              handlePointerEvents(e, true, [
+                DessertData.pennie_home.origin,
+                DessertData.pennie_home.ingredient,
+                DessertData.pennie_home.dessertName,
+                DessertData.pennie_home.description,
+                DessertData.pennie_home.image,
+                DessertData.pennie_home.imageAlt,
+              ])
+            }
+            onPointerDown={(e) =>
+              handlePointerEvents(e, true, [
+                DessertData.pennie_home.origin,
+                DessertData.pennie_home.ingredient,
+                DessertData.pennie_home.dessertName,
+                DessertData.pennie_home.description,
+                DessertData.pennie_home.image,
+                DessertData.pennie_home.imageAlt,
+              ])
+            }
+            onPointerOut={(e) => handlePointerEvents(e, false, [""])}
+          >
             <group name="group14" />
             <group name="pCube10" />
             <group name="peniepolySurface15polySurface21" />
@@ -725,7 +749,21 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
               position={[22.94, 42.3, -21.5]}
             />
           </group>
-          <group name="yaku_home">
+          <group
+            name="yaku_home"
+            position={[0, 0, 0]}
+            onPointerEnter={(e) =>
+              handlePointerEvents(e, true, [
+                DessertData.yaku_home.origin,
+                DessertData.yaku_home.ingredient,
+                DessertData.yaku_home.dessertName,
+                DessertData.yaku_home.description,
+                DessertData.yaku_home.image,
+                DessertData.yaku_home.imageAlt,
+              ])
+            }
+            onPointerOut={(e) => handlePointerEvents(e, false, [""])}
+          >
             <group
               name="Armature001"
               position={[8.94, 65.26, -17.19]}
@@ -833,7 +871,21 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
           rotation={[Math.PI / 2, 0, 0]}
           scale={0.39}
         >
-          <group name="home_nana">
+          <group
+            name="home_nana"
+            position={[0, 0, 0]}
+            onPointerEnter={(e) =>
+              handlePointerEvents(e, true, [
+                DessertData.home_nana.origin,
+                DessertData.home_nana.ingredient,
+                DessertData.home_nana.dessertName,
+                DessertData.home_nana.description,
+                DessertData.home_nana.image,
+                DessertData.home_nana.imageAlt,
+              ])
+            }
+            onPointerOut={(e) => handlePointerEvents(e, false, [""])}
+          >
             <mesh
               name="pCylinder10001"
               geometry={nodes.pCylinder10001.geometry}
@@ -2754,7 +2806,6 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
             geometry={nodes.bean_top.geometry}
             material={materials["Penny_area.002"]}
             position={[19.68, -0.01, -32.26]}
-            
           />
           {/* stair */}
         </group>

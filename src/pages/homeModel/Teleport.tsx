@@ -8,8 +8,10 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 import Plane from "./Plane";
 import rabbit from "../../assets/rabbit.png";
+import { useIsMedium } from "../../hooks/useMediaQuery";
 const Teleport = () => {
   const ref = useRef<any>(null);
+  const isMedium = useIsMedium()
   const positionY = useSelector(
     (state: RootState) => state.positionModel.positionY
   );
@@ -32,10 +34,17 @@ const Teleport = () => {
     };
     const onPointerMove = (e: any) => {
       dragVector.set(e.movementX, e.movementY);
-      dragging &&
-        (ref.current.rotation.y += ((dragVector.x / 10) * Math.PI) / 180) &&
-        (ref.current.children[0].rotation.x +=
-          ((dragVector.y / 10) * Math.PI) / 180);
+      if (isMedium) {
+        dragging &&
+          (ref.current.rotation.y += ((dragVector.x / 10) * Math.PI) / 180) &&
+          (ref.current.children[0].rotation.x +=
+            ((dragVector.y / 10) * Math.PI) / 10);
+      } else {
+        dragging &&
+          (ref.current.rotation.y += ((dragVector.x / 10) * Math.PI) / 180) &&
+          (ref.current.children[0].rotation.x +=
+            ((dragVector.y / 10) * Math.PI) / 180);
+      }
     };
     document.addEventListener("pointerdown", onPointerDown);
     document.addEventListener("pointerup", onPointerUp);

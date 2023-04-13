@@ -51,7 +51,7 @@ export const DessertData: Record<string, DessertDataType> = {
     image: tent,
     imageAlt: "Steamed flour with coconut filling",
   },
-  penie_area: {
+  pennie_home: {
     origin: "ภาคใต้",
     ingredient: "แป้งมัน",
     dessertName: "ขนมสัมปันนี",
@@ -65,7 +65,7 @@ export const DessertData: Record<string, DessertDataType> = {
     ingredient: "แป้งสาลี",
     dessertName: "ขนมทองโปร่ง",
     description:
-      "เลดี้มักจะโมโหเสมอเมื่อมีคนมาแตะต้องชุดสีทองอันโอ่อ่าของเธอ เพราะมันจะทำให้ชุดของเธอมีรอย",
+      "เลดี้มักจะโมโหเสมอเมื่อมีคนมาแตะต้องชุดสีทองอันโอ่อ่าของเธอ เพราะมันจะทำให้ชุดของเธอมีรอยขีดข่วนได้",
     image: home_nana,
     imageAlt: "Golden Egg Yolk Threads",
   },

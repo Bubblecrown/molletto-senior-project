@@ -57,4 +57,8 @@ export const DessertHandwriting = styled.div`
   position: absolute;
   top: 0%;
   left: 30%;
+  @media only screen and (max-width: 900px) {
+    top: -10%;
+    left: 20%;
+  }
 `;
