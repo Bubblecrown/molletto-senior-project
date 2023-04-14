@@ -59,6 +59,6 @@ export const DessertHandwriting = styled.div`
   left: 30%;
   @media only screen and (max-width: 900px) {
     top: -10%;
-    left: 30%;
+    left: 25%;
   }
 `;

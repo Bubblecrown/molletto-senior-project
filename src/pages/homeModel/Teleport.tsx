@@ -1,5 +1,10 @@
 import { useFrame } from "@react-three/fiber";
-import { Image, PerspectiveCamera, TrackballControls } from "@react-three/drei";
+import {
+  Html,
+  Image,
+  PerspectiveCamera,
+  TrackballControls,
+} from "@react-three/drei";
 import { useRef, useState, useMemo } from "react";
 import { Vector2, Vector3 } from "three";
 import { useEffect } from "react";
@@ -9,6 +14,7 @@ import { RootState } from "../../app/store";
 import Plane from "./Plane";
 import rabbit from "../../assets/rabbit.png";
 import { useIsMedium } from "../../hooks/useMediaQuery";
+import nipplejs from "nipplejs";
 const Teleport = () => {
   const ref = useRef<any>(null);
   const isMedium = useIsMedium();
@@ -26,6 +32,40 @@ const Teleport = () => {
   const dragVector = useMemo(() => new Vector2(), []);
 
   useEffect(() => {
+    const createJoystick = () => {
+      const joystickContainer = document.getElementById("joystick-container");
+      if (!joystickContainer) return;
+    
+      const options: nipplejs.JoystickManagerOptions = {
+        zone: joystickContainer,
+        mode: "dynamic",
+        position: { left: "50%", top: "50%" },
+        size: 150,
+        color: "blue",
+      };
+    
+      const manager = nipplejs.create(options);
+    
+      manager.on("move", (evt, nipple) => {
+        const { angle, distance } = nipple;
+        const movementX = distance * Math.cos(angle.radian) / 1000;
+        const movementY = distance * Math.sin(angle.radian) / 1000;
+    
+        ref.current.rotation.y += ((movementX / 10) * Math.PI) / 360;
+        ref.current.children[0].rotation.x += ((movementY / 10) * Math.PI) / 360;
+      });
+    
+      manager.on("end", () => {
+        manager.destroy();
+        createJoystick();
+      });
+    };
+    
+
+    if (isMedium) {
+      createJoystick();
+    }
+    
     const onPointerDown = () => {
       setDragging(true);
     };
@@ -34,6 +74,8 @@ const Teleport = () => {
     };
     const onTouchStart = (e: any) => {
       setDragging(true);
+      const touch = e.touches[0];
+      dragVector.set(touch.clientX, touch.clientY);
     };
     const onTouchEnd = () => {
       setDragging(false);
@@ -53,9 +95,9 @@ const Teleport = () => {
       const movementY = touch.clientY - dragVector.y;
       dragVector.set(touch.clientX, touch.clientY);
       dragging &&
-        (ref.current.rotation.y += ((movementX / 5) * Math.PI) / 180) &&
+        (ref.current.rotation.y += ((movementX / 10) * Math.PI) / 360) &&
         (ref.current.children[0].rotation.x +=
-          ((movementY / 5) * Math.PI) / 180);
+          ((movementY / 10) * Math.PI) / 360);
     };
     document.addEventListener("pointerdown", onPointerDown);
     document.addEventListener("pointerup", onPointerUp);
@@ -83,6 +125,26 @@ const Teleport = () => {
 
   return (
     <>
+      <Html>
+        <div
+          style={{
+            position: "relative",
+            width: "100vw",
+            height: "50vh",
+          }}
+        >
+          <div
+            id="joystick-container"
+            style={{
+              position: "absolute",
+              bottom: "20%",
+              left: "20%",
+              width: "300px",
+              height: "300px",
+            }}
+          ></div>
+        </div>
+      </Html>
       <group ref={ref} position={[0, 100, -120]}>
         <PerspectiveCamera makeDefault />
       </group>
@@ -91,10 +153,6 @@ const Teleport = () => {
           circleRef.current.position.z = point.z;
           circleRef.current.position.x = point.x;
         }}
-        // onTouchMove={({ point }) => {
-        //   circleRef.current.position.z = point.z;
-        //   circleRef.current.position.x = point.x;
-        // }}
         onDoubleClick={({ point }) => {
           to.set(point.x, positionY, point.z);
           circleEffectRef.current.position.copy(circleRef.current.position);
