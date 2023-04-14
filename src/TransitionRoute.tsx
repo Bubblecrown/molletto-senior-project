@@ -23,7 +23,7 @@ import HomeMain from "./pages/homeModel/HomeMain";
 import React, { Suspense, useEffect, useState } from "react";
 import Loading from "./pages/Loading";
 import DessertPopup from "./components/DessertPopup/DessertPopup";
-const HomeLazy = React.lazy(() => import("./pages/homeModel/HomeMain"));
+// const HomeLazy = React.lazy(() => import("./pages/homeModel/HomeMain"));
 const TransitionRoute = () => {
   const location = useLocation();
   const [showHome, setShowHome] = useState(false);
@@ -37,15 +37,18 @@ const TransitionRoute = () => {
   return (
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
-        <Route
+        {/* <Route
           path="/"
           element={
             <Suspense fallback={<Loading />}>
               <HomeMain />
             </Suspense>
           }
+        /> */}
+        <Route
+          path="/"
+          element={<HomeMain />}
         />
-
         <Route path="/about" element={<ScrollAnimation />} />
         <Route path="/about/:id" element={<Member />} />
       </Routes>

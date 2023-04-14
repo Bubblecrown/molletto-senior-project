@@ -1,5 +1,5 @@
 import { Canvas, useThree } from "@react-three/fiber";
-import { Stats, Environment, Html } from "@react-three/drei";
+import { Stats, Environment, Html, Loader } from "@react-three/drei";
 import * as THREE from "three";
 
 import Teleport from "./Teleport";
@@ -17,28 +17,45 @@ import LogoOpened from "../../components/Logo/LogoOpened";
 import { CanvasContainer } from "../../GlobalStyle";
 import NanaHome from "./NanaHome";
 import PennyHome from "./PennyHome";
-
+// @ts-ignore
+import { FPSControls } from "react-three-fpscontrols";
+import MainStage from "./MainStage";
 
 const HomeMain = () => {
   return (
     <CanvasContainer>
-      <Canvas shadows>
-        <Teleport />
-        {/* <Environment
+      <Canvas shadows dpr={[1, 2]}>
+        <Suspense fallback={null}>
+          {/* <Teleport /> */}
+          {/* <Environment
           files="https://cdn.jsdelivr.net/gh/Sean-Bradley/React-Three-Fiber-Boilerplate@teleport/public/img/rustig_koppie_puresky_1k.hdr"
           background
         /> */}
+          <MainStage />
+          <FPSControls
+            camProps={{
+              makeDefault: true,
+              fov: 80,
+              position: [0, 2.537, 0.7],
+            }}
+            orbitProps={{
+              target: [0, 2.537, 0],
+            }}
+            enableJoystick
+            enableKeyboard
+          />
 
-        <Home />
-
-        <YakuHome />
-        <NanaHome />
-        <PennyHome />
-        <LightModel />
-        <Stats />
+          {/* <Home /> */}
+          {/* <YakuHome />
+          <NanaHome />
+          <PennyHome /> */}
+          {/* <LightModel /> */}
+          {/* <Stats /> */}
+        </Suspense>
       </Canvas>
+      <Loader />
 
-      <Footer audio={homeSound} />
+      {/* <Footer audio={homeSound} /> */}
     </CanvasContainer>
   );
 };
