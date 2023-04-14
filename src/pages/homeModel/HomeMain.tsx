@@ -23,6 +23,7 @@ import { Environment, Loader, OrbitControls } from "@react-three/drei";
 const HomeMain = () => {
   return (
     <CanvasContainer>
+      
       <Canvas shadows dpr={[1, 2]}>
         <Suspense fallback={null}>
           <Teleport />

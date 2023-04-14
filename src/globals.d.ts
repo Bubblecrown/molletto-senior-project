@@ -1,4 +1,4 @@
-
+declare module 'react-nipple'
 declare module 'react-three-fpscontrols' {
   import { ReactThreeFiber } from 'react-three-fiber';
 

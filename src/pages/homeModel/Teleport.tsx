@@ -14,7 +14,8 @@ import { RootState } from "../../app/store";
 import Plane from "./Plane";
 import rabbit from "../../assets/rabbit.png";
 import { useIsMedium } from "../../hooks/useMediaQuery";
-import nipplejs from "nipplejs";
+import Joystick from "react-nipple";
+
 const Teleport = () => {
   const ref = useRef<any>(null);
   const isMedium = useIsMedium();
@@ -30,42 +31,15 @@ const Teleport = () => {
   const to = useMemo(() => new Vector3(0, -1, 35), []);
   const [dragging, setDragging] = useState(false);
   const dragVector = useMemo(() => new Vector2(), []);
+  const handleJoystickMove = (evt: any, data: any) => {
+    const { angle, distance } = data;
+    const movementX = distance * Math.cos(angle.radian);
+    const movementY = distance * Math.sin(angle.radian);
 
+    ref.current.rotation.y += ((movementX / 10) * Math.PI) / 360;
+    ref.current.children[0].rotation.x += ((movementY / 10) * Math.PI) / 360;
+  };
   useEffect(() => {
-    const createJoystick = () => {
-      const joystickContainer = document.getElementById("joystick-container");
-      if (!joystickContainer) return;
-    
-      const options: nipplejs.JoystickManagerOptions = {
-        zone: joystickContainer,
-        mode: "dynamic",
-        position: { left: "50%", top: "50%" },
-        size: 150,
-        color: "blue",
-      };
-    
-      const manager = nipplejs.create(options);
-    
-      manager.on("move", (evt, nipple) => {
-        const { angle, distance } = nipple;
-        const movementX = distance * Math.cos(angle.radian) / 1000;
-        const movementY = distance * Math.sin(angle.radian) / 1000;
-    
-        ref.current.rotation.y += ((movementX / 10) * Math.PI) / 360;
-        ref.current.children[0].rotation.x += ((movementY / 10) * Math.PI) / 360;
-      });
-    
-      manager.on("end", () => {
-        manager.destroy();
-        createJoystick();
-      });
-    };
-    
-
-    if (isMedium) {
-      createJoystick();
-    }
-    
     const onPointerDown = () => {
       setDragging(true);
     };
@@ -99,6 +73,7 @@ const Teleport = () => {
         (ref.current.children[0].rotation.x +=
           ((movementY / 10) * Math.PI) / 360);
     };
+
     document.addEventListener("pointerdown", onPointerDown);
     document.addEventListener("pointerup", onPointerUp);
     document.addEventListener("pointermove", onPointerMove);
@@ -125,26 +100,7 @@ const Teleport = () => {
 
   return (
     <>
-      <Html>
-        <div
-          style={{
-            position: "relative",
-            width: "100vw",
-            height: "50vh",
-          }}
-        >
-          <div
-            id="joystick-container"
-            style={{
-              position: "absolute",
-              bottom: "20%",
-              left: "20%",
-              width: "300px",
-              height: "300px",
-            }}
-          ></div>
-        </div>
-      </Html>
+     
       <group ref={ref} position={[0, 100, -120]}>
         <PerspectiveCamera makeDefault />
       </group>

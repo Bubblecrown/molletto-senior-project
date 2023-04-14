@@ -25,6 +25,7 @@
     "react-dom": "^18.2.0",
     "react-gsap": "^3.2.1",
     "react-locomotive-scroll": "^0.2.2",
+    "react-nipple": "^1.0.2",
     "react-redux": "^8.0.5",
     "react-router": "^6.8.1",
     "react-router-dom": "^6.8.1",
