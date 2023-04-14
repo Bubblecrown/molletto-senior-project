@@ -7,7 +7,7 @@ import { useNavigate } from "react-router";
 
 const PennyHome = () => {
   const navigate = useNavigate();
-  const { nodes, materials, animations } = useGLTF("/home.gltf") as GLTFResult;
+  const { nodes, materials, animations } = useGLTF("/home.gltf") as unknown as GLTFResult;
   const audioRef = useRef<HTMLAudioElement>(null);
   const volume = 0.3;
   const playClickSound = () => {

@@ -108,7 +108,7 @@ type GLTFResult = GLTF & {
 }
 
 export default function Model(props: JSX.IntrinsicElements['group']) {
-  const { nodes, materials } = useGLTF('/room.glb') as GLTFResult
+  const { nodes, materials } = useGLTF('/room.glb') as unknown as GLTFResult
   return (
     <group {...props} dispose={null}>
       <mesh geometry={nodes.Walls.geometry} material={materials.walls} position={[-0.63, 2.11, -0.86]} />

@@ -18,7 +18,7 @@ import { DessertData } from "../../data/homeData";
 export default function Home(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<any>();
 
-  const { nodes, materials, animations } = useGLTF("/home.gltf") as GLTFResult;
+  const { nodes, materials, animations } = useGLTF("/home.gltf") as unknown as GLTFResult;
   const { actions } = useAnimations<GLTFActions | any>(animations, group);
 
   useEffect(() => {

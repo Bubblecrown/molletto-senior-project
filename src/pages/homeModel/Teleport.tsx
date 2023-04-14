@@ -32,31 +32,30 @@ const Teleport = () => {
     const onPointerUp = () => {
       setDragging(false);
     };
-    const onTouchStart = (e:any) => {
+    const onTouchStart = (e: any) => {
       setDragging(true);
-      const touch = e.touches[0];
-      dragVector.set(touch.pageX - touch.clientX, touch.pageY - touch.clientY);
     };
     const onTouchEnd = () => {
       setDragging(false);
     };
-    const onPointerMove = (e:any) => {
-      if (e.pointerType === "touch") return; // skip if it's a touch event
+    const onPointerMove = (e: any) => {
+      if (e.pointerType === "touch") return;
       dragVector.set(e.movementX, e.movementY);
       dragging &&
         (ref.current.rotation.y += ((dragVector.x / 10) * Math.PI) / 180) &&
         (ref.current.children[0].rotation.x +=
           ((dragVector.y / 10) * Math.PI) / 180);
     };
+
     const onTouchMove = (e: any) => {
       const touch = e.touches[0];
       const movementX = touch.clientX - dragVector.x;
       const movementY = touch.clientY - dragVector.y;
       dragVector.set(touch.clientX, touch.clientY);
       dragging &&
-        (ref.current.rotation.y += ((movementX / 10) * Math.PI) / 180) &&
+        (ref.current.rotation.y += ((movementX / 5) * Math.PI) / 180) &&
         (ref.current.children[0].rotation.x +=
-          ((movementY / 10) * Math.PI) / 180);
+          ((movementY / 5) * Math.PI) / 180);
     };
     document.addEventListener("pointerdown", onPointerDown);
     document.addEventListener("pointerup", onPointerUp);
@@ -73,7 +72,7 @@ const Teleport = () => {
       document.removeEventListener("touchmove", onTouchMove);
     };
   });
-  
+
   useFrame((_, delta) => {
     ref.current.position.lerp(to, delta * 2);
 
@@ -92,6 +91,10 @@ const Teleport = () => {
           circleRef.current.position.z = point.z;
           circleRef.current.position.x = point.x;
         }}
+        // onTouchMove={({ point }) => {
+        //   circleRef.current.position.z = point.z;
+        //   circleRef.current.position.x = point.x;
+        // }}
         onDoubleClick={({ point }) => {
           to.set(point.x, positionY, point.z);
           circleEffectRef.current.position.copy(circleRef.current.position);

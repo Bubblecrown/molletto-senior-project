@@ -2,13 +2,14 @@ import { Html, useGLTF } from "@react-three/drei";
 import { GLTFResult } from "../../types/HomeMesh";
 import { useDispatch } from "react-redux";
 import { setCircleClicked, setPosition } from "../../slices/HomeModel";
-// interface PlaneProps {
-//   onPointerMove?: (event: any) => void;
-//   onDoubleClick?: (event: any) => void;
-// }
+interface PlaneProps {
+  onPointerMove?: (event: any) => void;
+  onDoubleClick?: (event: any) => void;
+  onTouchMove?: (event: any) => void;
+}
 // { onPointerMove, onDoubleClick }: PlaneProps
-const Plane = () => {
-  const { nodes, materials, animations } = useGLTF("/home.gltf") as GLTFResult;
+const Plane = ({ onPointerMove, onDoubleClick, onTouchMove }: PlaneProps) => {
+  const { nodes, materials, animations } = useGLTF("/home.gltf") as unknown as GLTFResult;
   const dispatch = useDispatch();
   const setView = (position_plane: Number) =>
     dispatch(setPosition({ position_plane }));
@@ -23,8 +24,8 @@ const Plane = () => {
     >
       <group
         name="banana_path_1"
-        // onPointerMove={onPointerMove}
-        // onDoubleClick={onDoubleClick}
+        onPointerMove={onPointerMove}
+        onDoubleClick={onDoubleClick}
         onPointerEnter={() => {
           setView(-2), setCircle(-4);
         }}
@@ -56,8 +57,8 @@ const Plane = () => {
       </group>
       <group
         name="banana_path_2"
-        // onPointerMove={onPointerMove}
-        // onDoubleClick={onDoubleClick}
+        onPointerMove={onPointerMove}
+        onDoubleClick={onDoubleClick}
         onPointerEnter={() => {
           setView(2), setCircle(-0.5);
         }}
@@ -98,8 +99,8 @@ const Plane = () => {
         geometry={nodes.path_1.geometry}
         material={materials["ground1.002"]}
         position={[0.08, 52.75, 0.23]}
-        // onPointerMove={onPointerMove}
-        // onDoubleClick={onDoubleClick}
+        onPointerMove={onPointerMove}
+        onDoubleClick={onDoubleClick}
         onPointerEnter={() => {
           setView(-2), setCircle(-4.74);
         }}
@@ -109,8 +110,8 @@ const Plane = () => {
         geometry={nodes.path_2.geometry}
         material={materials["ground1.002"]}
         position={[-3.58, -0.52, -7.65]}
-        // onPointerMove={onPointerMove}
-        // onDoubleClick={onDoubleClick}
+        onPointerMove={onPointerMove}
+        onDoubleClick={onDoubleClick}
         onPointerEnter={() => {
           setView(2), setCircle(-1.5);
         }}
@@ -120,8 +121,8 @@ const Plane = () => {
         geometry={nodes.path_3.geometry}
         material={materials["ground1.002"]}
         position={[-5.44, -68.9, -9.91]}
-        // onPointerMove={onPointerMove}
-        // onDoubleClick={onDoubleClick}
+        onPointerMove={onPointerMove}
+        onDoubleClick={onDoubleClick}
         onPointerEnter={() => {
           setView(2), setCircle(-0.5);
         }}
@@ -131,8 +132,8 @@ const Plane = () => {
         geometry={nodes.stair_1.geometry}
         material={materials["other1.002"]}
         position={[2.27, 21.07, -3.81]}
-        // onPointerMove={onPointerMove}
-        // onDoubleClick={onDoubleClick}
+        onPointerMove={onPointerMove}
+        onDoubleClick={onDoubleClick}
         onPointerEnter={() => {
           setView(1), setCircle(2);
         }}
@@ -142,8 +143,8 @@ const Plane = () => {
         geometry={nodes.stair_2.geometry}
         material={materials["other1.002"]}
         position={[-9.96, -15.08, -9.33]}
-        // onPointerMove={onPointerMove}
-        // onDoubleClick={onDoubleClick}
+        onPointerMove={onPointerMove}
+        onDoubleClick={onDoubleClick}
         onPointerEnter={() => {
           setView(1), setCircle(2);
         }}

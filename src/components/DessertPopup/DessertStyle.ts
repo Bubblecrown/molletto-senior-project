@@ -3,14 +3,15 @@ import styled from "styled-components";
 import seat from "../../assets/images/HoverPopup.png";
 
 export const DessertContainer = styled(motion.div)`
-  width: 1000px;
-  height: 100%;
+  width: 500px;
+  height: auto;
   /* border: 2px solid black; */
   display: flex;
   align-items: flex-end;
 `;
 
 export const DessertContainerImage = styled(motion.div)`
+  max-width: 300px;
   width: auto;
   height: 230px;
   z-index: 1;
@@ -22,8 +23,7 @@ export const DessertContainerImage = styled(motion.div)`
 export const DessertImage = styled(motion.img)`
   max-width: 100%;
   max-height: 100%;
-  width: 100%;
-  height: auto;
+
   border-radius: 12px;
 `;
 export const DessertText = styled.div`
@@ -59,6 +59,6 @@ export const DessertHandwriting = styled.div`
   left: 30%;
   @media only screen and (max-width: 900px) {
     top: -10%;
-    left: 20%;
+    left: 30%;
   }
 `;

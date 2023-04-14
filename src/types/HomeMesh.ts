@@ -383,7 +383,7 @@ export type GLTFResult = GLTF & {
     ["castle_area.002"]: THREE.MeshStandardMaterial;
     ["ground1.002"]: THREE.MeshStandardMaterial;
     ["Leaf_set.002"]: THREE.MeshStandardMaterial;
-    castle_area: THREE.MeshStandardMaterial;
+    ["castle_area"]: THREE.MeshStandardMaterial;
     ["castle_area.001"]: THREE.MeshStandardMaterial;
     ["Leaf_set.001"]: THREE.MeshStandardMaterial;
     ["Leaf_set.002"]: THREE.MeshStandardMaterial;
