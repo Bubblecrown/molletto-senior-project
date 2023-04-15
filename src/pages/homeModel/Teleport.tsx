@@ -69,7 +69,7 @@ const Teleport = () => {
       const movementY = touch.clientY - dragVector.y;
       dragVector.set(touch.clientX, touch.clientY);
       dragging &&
-        (ref.current.rotation.y += ((movementX / 10) * Math.PI) / 360) &&
+        (ref.current.rotation.y += ((movementX / 10) * Math.PI) / 120) &&
         (ref.current.children[0].rotation.x +=
           ((movementY / 10) * Math.PI) / 360);
     };

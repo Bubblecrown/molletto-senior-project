@@ -26,6 +26,13 @@ html.has-scroll-dragging {
 .data-scroll-long {
   min-width: 200% !important;
 }
+@media only screen and (max-width: 1200px) {
+  /* For mobile phones: */
+  .data-scroll-long {
+    width: 400% !important;
+    min-width: 200% !important;
+  }
+}
 [data-scroll-direction="horizontal"] [data-scroll-section] {
   display: inline-block;
   vertical-align: top;

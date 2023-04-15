@@ -47,7 +47,7 @@ const TransitionRoute = () => {
         /> */}
         <Route
           path="/"
-          element={<HomeMain />}
+          element={<FairyTale />}
         />
         <Route path="/about" element={<ScrollAnimation />} />
         <Route path="/about/:id" element={<Member />} />

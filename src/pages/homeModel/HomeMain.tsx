@@ -24,13 +24,13 @@ const HomeMain = () => {
   return (
     <CanvasContainer>
       
-      <Canvas shadows dpr={[1, 2]}>
+      <Canvas shadows style={{ background: '#000' }}>
         <Suspense fallback={null}>
           <Teleport />
-          <Environment
+          {/* <Environment
             files="https://cdn.jsdelivr.net/gh/Sean-Bradley/React-Three-Fiber-Boilerplate@teleport/public/img/rustig_koppie_puresky_1k.hdr"
             background
-          />
+          /> */}
           
           {/* <MainStage /> */}
           {/* <FPSControls
@@ -50,7 +50,7 @@ const HomeMain = () => {
           <YakuHome />
           <NanaHome />
           <PennyHome />
-          {/* <LightModel /> */}
+          <LightModel />
         </Suspense>
       </Canvas>
       <Loader />

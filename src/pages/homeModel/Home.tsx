@@ -18,7 +18,9 @@ import { DessertData } from "../../data/homeData";
 export default function Home(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<any>();
 
-  const { nodes, materials, animations } = useGLTF("/home.gltf") as unknown as GLTFResult;
+  const { nodes, materials, animations } = useGLTF(
+    "/home.gltf"
+  ) as unknown as GLTFResult;
   const { actions } = useAnimations<GLTFActions | any>(animations, group);
 
   useEffect(() => {
@@ -361,6 +363,20 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
         >
           <group name="picnic">
             <group name="car">
+              {/* <pointLight
+                intensity={0.5}
+                position={[18.29, 45.23, -3.18]}
+                color={"#E6CCFE"}
+                decay={1.6}
+                castShadow
+              />
+              <pointLight
+                intensity={0.3}
+                position={[18.48, 45.38, -3.18]}
+                color={"#FEF1B8"}
+                decay={1}
+                castShadow
+              /> */}
               <mesh
                 name="car001"
                 geometry={nodes.car001.geometry}
@@ -749,7 +765,8 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
               position={[22.94, 42.3, -21.5]}
             />
           </group>
-          <group
+          <group castShadow
+              receiveShadow
             name="yaku_home"
             position={[0, 0, 0]}
             onPointerEnter={(e) =>
@@ -866,6 +883,8 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
           {/* yaku home */}
         </group>
         <group
+          castShadow
+          receiveShadow
           name="nana_area"
           position={[0.05, -4.74, 0.26]}
           rotation={[Math.PI / 2, 0, 0]}
@@ -875,6 +894,16 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
             name="home_nana"
             position={[0, 0, 0]}
             onPointerEnter={(e) =>
+              handlePointerEvents(e, true, [
+                DessertData.home_nana.origin,
+                DessertData.home_nana.ingredient,
+                DessertData.home_nana.dessertName,
+                DessertData.home_nana.description,
+                DessertData.home_nana.image,
+                DessertData.home_nana.imageAlt,
+              ])
+            }
+            onPointerDown={(e) =>
               handlePointerEvents(e, true, [
                 DessertData.home_nana.origin,
                 DessertData.home_nana.ingredient,
@@ -1673,6 +1702,16 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
                   DessertData.aunchan.imageAlt,
                 ])
               }
+              onPointerDown={(e) =>
+                handlePointerEvents(e, true, [
+                  DessertData.aunchan.origin,
+                  DessertData.aunchan.ingredient,
+                  DessertData.aunchan.dessertName,
+                  DessertData.aunchan.description,
+                  DessertData.aunchan.image,
+                  DessertData.aunchan.imageAlt,
+                ])
+              }
               onPointerOut={(e) => handlePointerEvents(e, false, [""])}
               whileHover={{
                 z: -2,
@@ -1768,6 +1807,16 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
                 DessertData.bean.imageAlt,
               ])
             }
+            onPointerDown={(e) =>
+              handlePointerEvents(e, true, [
+                DessertData.bean.origin,
+                DessertData.bean.ingredient,
+                DessertData.bean.dessertName,
+                DessertData.bean.description,
+                DessertData.bean.image,
+                DessertData.bean.imageAlt,
+              ])
+            }
             onPointerOut={(e) => handlePointerEvents(e, false, [""])}
             whileHover={{
               z: -5,
@@ -1815,6 +1864,16 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
               name="flowerpot_2"
               position={[0, 0, 0]}
               onPointerEnter={(e) =>
+                handlePointerEvents(e, true, [
+                  DessertData.budda.origin,
+                  DessertData.budda.ingredient,
+                  DessertData.budda.dessertName,
+                  DessertData.budda.description,
+                  DessertData.budda.image,
+                  DessertData.budda.imageAlt,
+                ])
+              }
+              onPointerDown={(e) =>
                 handlePointerEvents(e, true, [
                   DessertData.budda.origin,
                   DessertData.budda.ingredient,
@@ -1875,6 +1934,16 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
                     DessertData.budda.imageAlt,
                   ])
                 }
+                onPointerDown={(e) =>
+                  handlePointerEvents(e, true, [
+                    DessertData.budda.origin,
+                    DessertData.budda.ingredient,
+                    DessertData.budda.dessertName,
+                    DessertData.budda.description,
+                    DessertData.budda.image,
+                    DessertData.budda.imageAlt,
+                  ])
+                }
                 onPointerOut={(e) => handlePointerEvents(e, false, [""])}
                 whileHover={{
                   z: -18,
@@ -1891,6 +1960,16 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
             name="morgang"
             position={[0, 0, 0]}
             onPointerEnter={(e) =>
+              handlePointerEvents(e, true, [
+                DessertData.morgang.origin,
+                DessertData.morgang.ingredient,
+                DessertData.morgang.dessertName,
+                DessertData.morgang.description,
+                DessertData.morgang.image,
+                DessertData.morgang.imageAlt,
+              ])
+            }
+            onPointerDown={(e) =>
               handlePointerEvents(e, true, [
                 DessertData.morgang.origin,
                 DessertData.morgang.ingredient,
@@ -1967,6 +2046,16 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
                   DessertData.seat_chan.imageAlt,
                 ])
               }
+              onPointerDown={(e) =>
+                handlePointerEvents(e, true, [
+                  DessertData.seat_chan.origin,
+                  DessertData.seat_chan.ingredient,
+                  DessertData.seat_chan.dessertName,
+                  DessertData.seat_chan.description,
+                  DessertData.seat_chan.image,
+                  DessertData.seat_chan.imageAlt,
+                ])
+              }
               onPointerOut={(e) => handlePointerEvents(e, false, [""])}
               whileHover={{
                 z: -2,
@@ -2000,6 +2089,16 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
               name="seat_2"
               position={[0, 0, 0]}
               onPointerEnter={(e) =>
+                handlePointerEvents(e, true, [
+                  DessertData.seat_chan.origin,
+                  DessertData.seat_chan.ingredient,
+                  DessertData.seat_chan.dessertName,
+                  DessertData.seat_chan.description,
+                  DessertData.seat_chan.image,
+                  DessertData.seat_chan.imageAlt,
+                ])
+              }
+              onPointerDown={(e) =>
                 handlePointerEvents(e, true, [
                   DessertData.seat_chan.origin,
                   DessertData.seat_chan.ingredient,
@@ -2057,6 +2156,16 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
                   DessertData.seat_chan.imageAlt,
                 ])
               }
+              onPointerDown={(e) =>
+                handlePointerEvents(e, true, [
+                  DessertData.seat_chan.origin,
+                  DessertData.seat_chan.ingredient,
+                  DessertData.seat_chan.dessertName,
+                  DessertData.seat_chan.description,
+                  DessertData.seat_chan.image,
+                  DessertData.seat_chan.imageAlt,
+                ])
+              }
               onPointerOut={(e) => handlePointerEvents(e, false, [""])}
               whileHover={{
                 z: -2,
@@ -2091,6 +2200,16 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
             name="seat_tang"
             position={[0, 0, 0]}
             onPointerEnter={(e) =>
+              handlePointerEvents(e, true, [
+                DessertData.seat_tang.origin,
+                DessertData.seat_tang.ingredient,
+                DessertData.seat_tang.dessertName,
+                DessertData.seat_tang.description,
+                DessertData.seat_tang.image,
+                DessertData.seat_tang.imageAlt,
+              ])
+            }
+            onPointerDown={(e) =>
               handlePointerEvents(e, true, [
                 DessertData.seat_tang.origin,
                 DessertData.seat_tang.ingredient,
@@ -2145,6 +2264,16 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
             name="tent"
             position={[0, 0, 0]}
             onPointerEnter={(e) =>
+              handlePointerEvents(e, true, [
+                DessertData.tent.origin,
+                DessertData.tent.ingredient,
+                DessertData.tent.dessertName,
+                DessertData.tent.description,
+                DessertData.tent.image,
+                DessertData.tent.imageAlt,
+              ])
+            }
+            onPointerDown={(e) =>
               handlePointerEvents(e, true, [
                 DessertData.tent.origin,
                 DessertData.tent.ingredient,
@@ -2210,6 +2339,16 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
                 DessertData.thongm.imageAlt,
               ])
             }
+            onPointerDown={(e) =>
+              handlePointerEvents(e, true, [
+                DessertData.thongm.origin,
+                DessertData.thongm.ingredient,
+                DessertData.thongm.dessertName,
+                DessertData.thongm.description,
+                DessertData.thongm.image,
+                DessertData.thongm.imageAlt,
+              ])
+            }
             onPointerOut={(e) => handlePointerEvents(e, false, [""])}
             whileHover={{
               z: -2,
@@ -2255,6 +2394,16 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
                   DessertData.thongms.imageAlt,
                 ])
               }
+              onPointerDown={(e) =>
+                handlePointerEvents(e, true, [
+                  DessertData.thongms.origin,
+                  DessertData.thongms.ingredient,
+                  DessertData.thongms.dessertName,
+                  DessertData.thongms.description,
+                  DessertData.thongms.image,
+                  DessertData.thongms.imageAlt,
+                ])
+              }
               onPointerOut={(e) => handlePointerEvents(e, false, [""])}
               whileHover={{
                 z: -10,
@@ -2271,6 +2420,16 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
               name="flowerpot_1"
               position={[0, 0, 0]}
               onPointerEnter={(e) =>
+                handlePointerEvents(e, true, [
+                  DessertData.thongyib_1.origin,
+                  DessertData.thongyib_1.ingredient,
+                  DessertData.thongyib_1.dessertName,
+                  DessertData.thongyib_1.description,
+                  DessertData.thongyib_1.image,
+                  DessertData.thongyib_1.imageAlt,
+                ])
+              }
+              onPointerDown={(e) =>
                 handlePointerEvents(e, true, [
                   DessertData.thongyib_1.origin,
                   DessertData.thongyib_1.ingredient,
@@ -2392,6 +2551,16 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
             name="thongyib_2"
             position={[0, 0, 0]}
             onPointerEnter={(e) =>
+              handlePointerEvents(e, true, [
+                DessertData.thongyib_1.origin,
+                DessertData.thongyib_1.ingredient,
+                DessertData.thongyib_1.dessertName,
+                DessertData.thongyib_1.description,
+                DessertData.thongyib_1.image,
+                DessertData.thongyib_1.imageAlt,
+              ])
+            }
+            onPointerDown={(e) =>
               handlePointerEvents(e, true, [
                 DessertData.thongyib_1.origin,
                 DessertData.thongyib_1.ingredient,
@@ -2707,6 +2876,16 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
                   DessertData.yoksod.imageAlt,
                 ])
               }
+              onPointerDown={(e) =>
+                handlePointerEvents(e, true, [
+                  DessertData.yoksod.origin,
+                  DessertData.yoksod.ingredient,
+                  DessertData.yoksod.dessertName,
+                  DessertData.yoksod.description,
+                  DessertData.yoksod.image,
+                  DessertData.yoksod.imageAlt,
+                ])
+              }
               onPointerOut={(e) => handlePointerEvents(e, false, [""])}
               whileHover={{
                 z: -20,
@@ -2742,6 +2921,16 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
           <motion.group
             name="yoksod1"
             onPointerEnter={(e) =>
+              handlePointerEvents(e, true, [
+                DessertData.yoksod.origin,
+                DessertData.yoksod.ingredient,
+                DessertData.yoksod.dessertName,
+                DessertData.yoksod.description,
+                DessertData.yoksod.image,
+                DessertData.yoksod.imageAlt,
+              ])
+            }
+            onPointerDown={(e) =>
               handlePointerEvents(e, true, [
                 DessertData.yoksod.origin,
                 DessertData.yoksod.ingredient,

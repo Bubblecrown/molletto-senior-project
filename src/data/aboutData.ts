@@ -1,15 +1,24 @@
-import { Transition } from "framer-motion";
-import LogoTitle from "../assets/LogoTitle.png";
+
+import LogoTitle from "../assets/images/logo/LogoTitle.png";
+import dev from "../assets/videos/members/dev.mp4";
+import uxui from "../assets/videos/members/uxui.mp4";
+import art from "../assets/videos/members/art.mp4";
+import logoImage from "../assets/images/logo/molletto.png";
+import mobile_des from "../assets/images/prompt/mobile_des.png";
+import hand from "../assets//images/prompt/handPrompt.png";
+import linkedin from "../assets/images/social/linkedin.png";
+import twitter from "../assets/images/social/twit.png";
+import instagram from "../assets/images/social/instag.png";
+import behance from "../assets/images/social/behance.png";
 import { CardAnimation } from "../types/CardAnimation";
 
-const skyblue = '#678BDF'
-const pink = '#c47cd4'
-const black = "#0D0F1E"
+const skyblue = "#678BDF";
+const pink = "#c47cd4";
+const black = "#0D0F1E";
 
 export const HeadMember: { imgPath: string; imageAlt: string; title: string } =
   {
-    imgPath:
-      "https://gateway.pinata.cloud/ipfs/QmQoxJQp5ePJDDHiLbK14UoF6a2bSyzJx9ymUhna3PQz3C",
+    imgPath: logoImage,
     imageAlt: "moletto-logo",
     title: "Moletto’s Members",
   };
@@ -21,8 +30,7 @@ export const Prompt: {
   handPromptAlt: string;
 } = {
   scrolltitle: "Scrolling for see members",
-  handPrompt:
-    "https://gateway.pinata.cloud/ipfs/QmR5wxWso5X4jovhvCqPpqPJVW6JKA3iF8DzVdpNzdK1hY",
+  handPrompt: hand,
   handPromptAlt: "Dragging hand",
   handTitle: "Dragging to see members",
 };
@@ -51,8 +59,7 @@ export const AboutMainData: {
   LogoImageAlt: "Logo",
   AboutMainDescription:
     "A senior project for apply computer science - multimedia students of King Mongkut’s University of Technology Thonburi",
-  MobileDescription:
-    "https://gateway.pinata.cloud/ipfs/QmNS5q87TEB9YMbfDne7ZPkPMdM1BKyiTffxtHMUz6Bj1u",
+  MobileDescription: mobile_des,
   Line: "https://gateway.pinata.cloud/ipfs/QmbjbdqSLsgzCS4pDa7QVsYnpFf28t4c527WbNcRcGkSEf",
   LineAlt: "Line taped to see members",
 };
@@ -75,8 +82,7 @@ export const EachMember: {
   {
     id: "ux-ui-designer",
     role: "ux/ui designer",
-    profile:
-      "https://gateway.pinata.cloud/ipfs/QmWzceKpUpsbT86QWsm3dTQLVPoE5qjBqd5iWwSM5MbqDW",
+    profile: uxui,
     color: skyblue,
     memberName: "Pimchawisa Saparram",
     responsibility: [
@@ -106,8 +112,7 @@ export const EachMember: {
   {
     id: "developer",
     role: "front-end developer",
-    profile:
-      "https://gateway.pinata.cloud/ipfs/QmWiG5s6z6qvLhQtvYnW3a3xNYoGJT8WJ6FtzKHa96GSiC",
+    profile: dev,
     color: pink,
     memberName: "Suchanya Namwong",
     responsibility: ["Front-end Developer"],
@@ -132,8 +137,7 @@ export const EachMember: {
   {
     id: "concept-art",
     role: "concept art",
-    profile:
-      "https://gateway.pinata.cloud/ipfs/Qmez5BEwj3fAB7s2sWtf6KRpjz1hJ27R8ohiBZy7E3PfX2",
+    profile: art,
     color: black,
     memberName: "Saowarod Kimbut",
     responsibility: ["Concept Art"],
@@ -163,23 +167,19 @@ export const SocialLogo: {
   socialAlt: string;
 }[] = [
   {
-    socialImg:
-      "https://gateway.pinata.cloud/ipfs/QmNPcncL3NYiyGTTy6UTE1wGaZ1sTTnWHR5SQHSDoaF5iw",
+    socialImg: linkedin,
     socialAlt: "linkedin",
   },
   {
-    socialImg:
-      "https://gateway.pinata.cloud/ipfs/QmWANqDhdiVgDNHiW4juCahcR1EHCfsDJXxFCsmZfDVM8V",
+    socialImg: instagram,
     socialAlt: "instagram",
   },
   {
-    socialImg:
-      "https://gateway.pinata.cloud/ipfs/QmW2Tu6LVWpJHmvxkTMTLq4KZ6T1yo8JXgFDafZk8dwNxS",
+    socialImg: behance,
     socialAlt: "behance",
   },
   {
-    socialImg:
-      "https://gateway.pinata.cloud/ipfs/QmWm5Xs9oaoFaG6VpyeidTj2pcCB2bHybmdf5gGxLG6Aeq",
+    socialImg: twitter,
     socialAlt: "twitter",
   },
 ];
