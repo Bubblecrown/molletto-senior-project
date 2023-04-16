@@ -6,6 +6,8 @@ import { StickyMove } from "../../animations/StickyMove";
 import { StickyPage } from "../../animations/StickyPage";
 import AboutMain from "./AboutMain";
 import AboutUs from "./AboutUs";
+import Footer from "../../components/Footer/Footer";
+import audioFile from "../../assets/sounds/aboutus.mp3";
 
 const ScrollAnimation = () => {
   return (
@@ -14,6 +16,7 @@ const ScrollAnimation = () => {
         <ScrollPage>
           <Animator animation={batch(StickyPage())}>
             <AboutMain />
+            <Footer audio={audioFile} />
           </Animator>
         </ScrollPage>
 
@@ -22,7 +25,6 @@ const ScrollAnimation = () => {
             <AboutUs />
           </Animator>
         </ScrollPage>
-        
       </ScrollContainer>
     </>
   );

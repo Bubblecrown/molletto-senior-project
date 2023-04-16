@@ -9,11 +9,11 @@ import { useGLTF, useAnimations, Html } from "@react-three/drei";
 import { GLTFResult } from "../../types/HomeMesh";
 import { GLTFActions } from "../../types/AnimationModel";
 import { useNavigate } from "react-router";
-import PulsingCanvas from "../../components/PulsingCircle/PulsingCanvas";
 import soundEffect from "../../assets/sounds/effects/knock_door.mp3";
 import { motion } from "framer-motion-3d";
 import DessertPopup from "../../components/DessertPopup/DessertPopup";
 import { DessertData } from "../../data/homeData";
+import PulsingModel from "../../components/PulsingCircle/PulsingModel";
 
 export default function Home(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<any>();
@@ -119,27 +119,27 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
           <group
             name="pennie_home"
             position={[0, 0, 0]}
-            onPointerEnter={(e) =>
-              handlePointerEvents(e, true, [
-                DessertData.pennie_home.origin,
-                DessertData.pennie_home.ingredient,
-                DessertData.pennie_home.dessertName,
-                DessertData.pennie_home.description,
-                DessertData.pennie_home.image,
-                DessertData.pennie_home.imageAlt,
-              ])
-            }
-            onPointerDown={(e) =>
-              handlePointerEvents(e, true, [
-                DessertData.pennie_home.origin,
-                DessertData.pennie_home.ingredient,
-                DessertData.pennie_home.dessertName,
-                DessertData.pennie_home.description,
-                DessertData.pennie_home.image,
-                DessertData.pennie_home.imageAlt,
-              ])
-            }
-            onPointerOut={(e) => handlePointerEvents(e, false, [""])}
+            // onPointerEnter={(e) =>
+            //   handlePointerEvents(e, true, [
+            //     DessertData.pennie_home.origin,
+            //     DessertData.pennie_home.ingredient,
+            //     DessertData.pennie_home.dessertName,
+            //     DessertData.pennie_home.description,
+            //     DessertData.pennie_home.image,
+            //     DessertData.pennie_home.imageAlt,
+            //   ])
+            // }
+            // onPointerDown={(e) =>
+            //   handlePointerEvents(e, true, [
+            //     DessertData.pennie_home.origin,
+            //     DessertData.pennie_home.ingredient,
+            //     DessertData.pennie_home.dessertName,
+            //     DessertData.pennie_home.description,
+            //     DessertData.pennie_home.image,
+            //     DessertData.pennie_home.imageAlt,
+            //   ])
+            // }
+            // onPointerOut={(e) => handlePointerEvents(e, false, [""])}
           >
             <group name="group14" />
             <group name="pCube10" />
@@ -765,21 +765,20 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
               position={[22.94, 42.3, -21.5]}
             />
           </group>
-          <group castShadow
-              receiveShadow
+          <group
             name="yaku_home"
-            position={[0, 0, 0]}
-            onPointerEnter={(e) =>
-              handlePointerEvents(e, true, [
-                DessertData.yaku_home.origin,
-                DessertData.yaku_home.ingredient,
-                DessertData.yaku_home.dessertName,
-                DessertData.yaku_home.description,
-                DessertData.yaku_home.image,
-                DessertData.yaku_home.imageAlt,
-              ])
-            }
-            onPointerOut={(e) => handlePointerEvents(e, false, [""])}
+            // position={[0, 0, 0]}
+            // onPointerEnter={(e) =>
+            //   handlePointerEvents(e, true, [
+            //     DessertData.yaku_home.origin,
+            //     DessertData.yaku_home.ingredient,
+            //     DessertData.yaku_home.dessertName,
+            //     DessertData.yaku_home.description,
+            //     DessertData.yaku_home.image,
+            //     DessertData.yaku_home.imageAlt,
+            //   ])
+            // }
+            // onPointerOut={(e) => handlePointerEvents(e, false, [""])}
           >
             <group
               name="Armature001"
@@ -893,27 +892,27 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
           <group
             name="home_nana"
             position={[0, 0, 0]}
-            onPointerEnter={(e) =>
-              handlePointerEvents(e, true, [
-                DessertData.home_nana.origin,
-                DessertData.home_nana.ingredient,
-                DessertData.home_nana.dessertName,
-                DessertData.home_nana.description,
-                DessertData.home_nana.image,
-                DessertData.home_nana.imageAlt,
-              ])
-            }
-            onPointerDown={(e) =>
-              handlePointerEvents(e, true, [
-                DessertData.home_nana.origin,
-                DessertData.home_nana.ingredient,
-                DessertData.home_nana.dessertName,
-                DessertData.home_nana.description,
-                DessertData.home_nana.image,
-                DessertData.home_nana.imageAlt,
-              ])
-            }
-            onPointerOut={(e) => handlePointerEvents(e, false, [""])}
+            // onPointerEnter={(e) =>
+            //   handlePointerEvents(e, true, [
+            //     DessertData.home_nana.origin,
+            //     DessertData.home_nana.ingredient,
+            //     DessertData.home_nana.dessertName,
+            //     DessertData.home_nana.description,
+            //     DessertData.home_nana.image,
+            //     DessertData.home_nana.imageAlt,
+            //   ])
+            // }
+            // onPointerDown={(e) =>
+            //   handlePointerEvents(e, true, [
+            //     DessertData.home_nana.origin,
+            //     DessertData.home_nana.ingredient,
+            //     DessertData.home_nana.dessertName,
+            //     DessertData.home_nana.description,
+            //     DessertData.home_nana.image,
+            //     DessertData.home_nana.imageAlt,
+            //   ])
+            // }
+            // onPointerOut={(e) => handlePointerEvents(e, false, [""])}
           >
             <mesh
               name="pCylinder10001"
@@ -1205,7 +1204,7 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
               />
               <group position={[-23.06, -30.18, -12.27]}>
                 <Html>
-                  <PulsingCanvas />
+                  <PulsingModel  />
                   <audio ref={audioRef}>
                     <source src={soundEffect} type="audio/mpeg" />
                   </audio>

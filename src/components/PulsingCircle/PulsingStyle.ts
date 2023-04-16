@@ -38,3 +38,34 @@ export const CircleContainer = styled.div<{ d?: any }>`
     }
   }
 `;
+
+export const PulsingBox = styled.div`
+  background: #fff;
+  border-radius: 50%;
+  margin: 10px;
+  height: 20px;
+  width: 20px;
+  pointer-events: none;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
+  transform: scale(1);
+  animation: pulse 2s infinite;
+
+  @keyframes pulse {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
+    }
+
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+      display: none;
+    }
+  }
+`;

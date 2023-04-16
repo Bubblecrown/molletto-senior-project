@@ -23,6 +23,7 @@ import HomeMain from "./pages/homeModel/HomeMain";
 import React, { Suspense, useEffect, useState } from "react";
 import Loading from "./pages/Loading";
 import DessertPopup from "./components/DessertPopup/DessertPopup";
+import YakuMain from "./pages/yakuModel/YakuMain";
 // const HomeLazy = React.lazy(() => import("./pages/homeModel/HomeMain"));
 const TransitionRoute = () => {
   const location = useLocation();
@@ -45,10 +46,7 @@ const TransitionRoute = () => {
             </Suspense>
           }
         /> */}
-        <Route
-          path="/"
-          element={<FairyTale />}
-        />
+        <Route path="/" element={<HomeMain />} />
         <Route path="/about" element={<ScrollAnimation />} />
         <Route path="/about/:id" element={<Member />} />
       </Routes>

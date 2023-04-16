@@ -38,7 +38,7 @@ const AboutUs = () => {
             <CardMember />
             <PulsingCircle />
           </CardTeam>
-          <Footer />
+
         </Container>
       </Section>
     </>

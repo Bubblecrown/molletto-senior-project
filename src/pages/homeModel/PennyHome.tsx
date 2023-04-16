@@ -1,13 +1,15 @@
 import { Html, useAnimations, useGLTF } from "@react-three/drei";
 import React, { useRef } from "react";
 import { GLTFResult } from "../../types/HomeMesh";
-import PulsingCanvas from "../../components/PulsingCircle/PulsingCanvas";
 import soundEffect from "../../assets/sounds/effects/knock_door.mp3";
 import { useNavigate } from "react-router";
+import PulsingModel from "../../components/PulsingCircle/PulsingModel";
 
 const PennyHome = () => {
   const navigate = useNavigate();
-  const { nodes, materials, animations } = useGLTF("/home.gltf") as unknown as GLTFResult;
+  const { nodes, materials, animations } = useGLTF(
+    "/home.gltf"
+  ) as unknown as GLTFResult;
   const audioRef = useRef<HTMLAudioElement>(null);
   const volume = 0.3;
   const playClickSound = () => {
@@ -26,15 +28,15 @@ const PennyHome = () => {
         rotation={[Math.PI / 2, 0, 0]}
         scale={0.39}
       >
-        <group position={[14.19, 10.15, -11.94]}>
-          <Html>
-            <PulsingCanvas />
-            <audio ref={audioRef}>
-              <source src={soundEffect} type="audio/mpeg" />
-            </audio>
-          </Html>
-        </group>
         <group name="pennie_home_door" onClick={playClickSound}>
+          <group position={[14.19, 10.15, -11.94]}>
+            <Html>
+              <PulsingModel  />
+              <audio ref={audioRef}>
+                <source src={soundEffect} type="audio/mpeg" />
+              </audio>
+            </Html>
+          </group>
           <mesh
             name="peniepCube43"
             geometry={nodes.peniepCube43.geometry}

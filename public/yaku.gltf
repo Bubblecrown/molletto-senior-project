@@ -1,0 +1,333 @@
+{
+  "asset": {
+    "generator": "Khronos glTF Blender I/O v3.2.40",
+    "version": "2.0"
+  },
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [
+        3
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "face"
+    },
+    {
+      "mesh": 1,
+      "name": "face2"
+    },
+    {
+      "mesh": 2,
+      "name": "fullbody_yaku"
+    },
+    {
+      "children": [
+        0,
+        1,
+        2
+      ],
+      "name": "character",
+      "rotation": [
+        0.7071068286895752,
+        0,
+        0,
+        0.7071067094802856
+      ],
+      "scale": [
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "alphaCutoff": 0.5,
+      "alphaMode": "MASK",
+      "doubleSided": true,
+      "name": "YAku_mouth.001",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicFactor": 0,
+        "roughnessFactor": 0.5527864098548889
+      }
+    },
+    {
+      "alphaCutoff": 0.5,
+      "alphaMode": "MASK",
+      "doubleSided": true,
+      "name": "Yaku_eye.001",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 1
+        },
+        "metallicFactor": 0,
+        "roughnessFactor": 0.5527864098548889
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "Yaku_body.001",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 2
+        },
+        "metallicFactor": 0,
+        "roughnessFactor": 0.5527864098548889
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Mesh.004",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3,
+          "material": 0
+        }
+      ]
+    },
+    {
+      "name": "Mesh.005",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 4,
+            "NORMAL": 5,
+            "TEXCOORD_0": 6
+          },
+          "indices": 7,
+          "material": 1
+        }
+      ]
+    },
+    {
+      "name": "Mesh.003",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 8,
+            "NORMAL": 9,
+            "TEXCOORD_0": 10
+          },
+          "indices": 11,
+          "material": 2
+        }
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    }
+  ],
+  "images": [
+    {
+      "name": "Image",
+      "uri": "yaku_img0.png"
+    },
+    {
+      "name": "Image",
+      "uri": "yaku_img1.png"
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 10,
+      "max": [
+        2.8602283000946045,
+        2.653669595718384,
+        -4.834794521331787
+      ],
+      "min": [
+        -2.8602283000946045,
+        2.1125831604003906,
+        -6.792448997497559
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 10,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 10,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5123,
+      "count": 24,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5126,
+      "count": 15,
+      "max": [
+        2.95011830329895,
+        3.2086832523345947,
+        -6.363394737243652
+      ],
+      "min": [
+        -2.95011830329895,
+        1.70719575881958,
+        -10.116811752319336
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 5,
+      "componentType": 5126,
+      "count": 15,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 6,
+      "componentType": 5126,
+      "count": 15,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 7,
+      "componentType": 5123,
+      "count": 48,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 8,
+      "componentType": 5126,
+      "count": 1836,
+      "max": [
+        4.436524868011475,
+        3.1759033203125,
+        0.01226138137280941
+      ],
+      "min": [
+        -4.436524868011475,
+        -4.263299942016602,
+        -14.042064666748047
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 9,
+      "componentType": 5126,
+      "count": 1836,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 10,
+      "componentType": 5126,
+      "count": 1836,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 11,
+      "componentType": 5123,
+      "count": 4692,
+      "type": "SCALAR"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 120,
+      "byteOffset": 0
+    },
+    {
+      "buffer": 0,
+      "byteLength": 120,
+      "byteOffset": 120
+    },
+    {
+      "buffer": 0,
+      "byteLength": 80,
+      "byteOffset": 240
+    },
+    {
+      "buffer": 0,
+      "byteLength": 48,
+      "byteOffset": 320
+    },
+    {
+      "buffer": 0,
+      "byteLength": 180,
+      "byteOffset": 368
+    },
+    {
+      "buffer": 0,
+      "byteLength": 180,
+      "byteOffset": 548
+    },
+    {
+      "buffer": 0,
+      "byteLength": 120,
+      "byteOffset": 728
+    },
+    {
+      "buffer": 0,
+      "byteLength": 96,
+      "byteOffset": 848
+    },
+    {
+      "buffer": 0,
+      "byteLength": 22032,
+      "byteOffset": 944
+    },
+    {
+      "buffer": 0,
+      "byteLength": 22032,
+      "byteOffset": 22976
+    },
+    {
+      "buffer": 0,
+      "byteLength": 14688,
+      "byteOffset": 45008
+    },
+    {
+      "buffer": 0,
+      "byteLength": 9384,
+      "byteOffset": 59696
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "yaku_data.bin",
+      "byteLength": 69080
+    }
+  ]
+}

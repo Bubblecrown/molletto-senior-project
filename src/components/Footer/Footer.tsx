@@ -5,12 +5,10 @@ import audioFile from "../../assets/modern.mp3";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 import { setIsMuted } from "../../slices/soundSlice";
+import { useNavigate } from "react-router";
 
 const Footer = ({ audio }: any) => {
-  
-  const isMuted = useSelector(
-    (state: RootState) => state.audio.isMuted
-  );
+  const isMuted = useSelector((state: RootState) => state.audio.isMuted);
   const dispatch = useDispatch();
   const audioRef = useRef<HTMLAudioElement>(null);
   const volume = 0.3;
@@ -23,6 +21,7 @@ const Footer = ({ audio }: any) => {
       audioRef?.current?.pause();
     }
   };
+  const navigate = useNavigate();
 
   return (
     <IconContainer>
@@ -96,6 +95,7 @@ const Footer = ({ audio }: any) => {
           id="Layer_2"
           data-name="Layer 2"
           viewBox="0 0 43.5 43.5"
+          onClick={() => navigate("/")}
         >
           <defs>
             <style>

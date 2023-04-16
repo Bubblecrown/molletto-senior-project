@@ -32,19 +32,19 @@ const LightModel = () => {
 
       {/* Yaku Area */}
       <pointLight
-        intensity={0.5}
+        intensity={0.2}
         position={[4.011, -1.75, 29.387]}
         color={"#E6CCFE"}
         decay={1.6}
         castShadow
       />
-      {/* <pointLight
+      <pointLight
         intensity={0.3}
         position={[6.268, -0.075, 15.256]}
         color={"#FEF1B8"}
         decay={1}
         castShadow
-      /> */}
+      />
       {/* <pointLight
         intensity={0.2}
         position={[8.298, -0.922, 18.27]}
@@ -75,7 +75,7 @@ const LightModel = () => {
         castShadow
       /> */}
       <pointLight
-        intensity={0.5}
+        intensity={0.2}
         position={[-12.141, -2.101, 31.396]}
         color={"#C285FE"}
         decay={1.5}

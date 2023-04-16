@@ -85,7 +85,7 @@ const AboutMain = () => {
               {/* end body */}
             </>
           )}
-          <Footer audio={audioFile} />
+          
           <ScrollPrompt />
         </AboutMainContainer>
         <AboutHangingLine>
