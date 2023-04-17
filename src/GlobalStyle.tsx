@@ -44,7 +44,6 @@ const GlobalStyles = createGlobalStyle`
     
 `;
 
-
 export const VideoBackground = styled.video<{
   c?: string;
   o?: number;
@@ -102,7 +101,6 @@ export const Layer2 = styled.div<{
   position: absolute;
   height: 100%;
 `;
-
 
 export const Section = styled.div<{
   c?: string;
@@ -252,6 +250,22 @@ export const H4Noto = styled.h4<{
   display: ${({ d }) => (d ? d : "block")};
   text-transform: ${({ u }) => (u ? u : "uppercase")};
 `;
+
+export const PNoto = styled.p<{
+  c?: string;
+  m?: string;
+  d?: string;
+  u?: string;
+}>`
+  font-family: ${santhai};
+  font-size: clamp(0.4rem, 1vw, 1rem);
+  font-weight: 400;
+  color: ${({ c }) => (c ? c : "#fff")};
+  margin: ${({ m }) => (m ? m : "0")};
+  display: ${({ d }) => (d ? d : "block")};
+  text-transform: ${({ u }) => (u ? u : "uppercase")};
+`;
+
 // end Noto san thai
 
 // Notosan font
@@ -341,7 +355,6 @@ export const GuildaFont = styled.p<{ c?: string; m?: string; d?: string }>`
 
 // end Design System
 
-
 // fairy tale
 export const TaleSection = styled.div<{
   c?: string;
@@ -354,6 +367,7 @@ export const TaleSection = styled.div<{
   overflow-y: hidden;
   overflow-x: hidden;
   opacity: ${({ o }) => (o ? o : 1)};
+  position: relative;
 `;
 // end fairy tale
 

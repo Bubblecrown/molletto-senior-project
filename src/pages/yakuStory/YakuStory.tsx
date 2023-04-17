@@ -1,13 +1,22 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import "../locomotive-scroll.css";
-import { TaleSection } from "../../GlobalStyle";
-import { BackImage, BgVideo, FrontImage, MidImage } from "./YakuStyle";
+import { PNoto, TaleSection } from "../../GlobalStyle";
+import {
+  BackImage,
+  BgImage,
+  BgVideo,
+  FrontImage,
+  MidImage,
+  TextContainer,
+} from "./YakuStyle";
 import { YakuSceneData } from "../../data/yakuStory";
 
 const YakuStory = () => {
   const containerRef = useRef(null);
-
+  useEffect(() => {
+    localStorage.clear();
+  }, []);
   return (
     <LocomotiveScrollProvider
       options={{
@@ -55,26 +64,109 @@ const YakuStory = () => {
           </h1>
         </span> */}
 
-        {/* scene 2 */}
+        {/* scene 1 */}
         <span data-scroll-section>
+          <TextContainer data-scroll>
+            <PNoto>{YakuSceneData.scene_1.text}</PNoto>
+          </TextContainer>
+
+          <FrontImage
+            data-scroll
+            src={YakuSceneData.scene_1.f}
+            alt={YakuSceneData.scene_1.alt}
+          />
+          <BackImage
+            data-scroll
+            src={YakuSceneData.scene_1.b}
+            alt={YakuSceneData.scene_1.alt}
+          />
+          <BgImage
+            data-scroll
+            src={YakuSceneData.scene_1.bg}
+            alt={YakuSceneData.scene_1.bgAlt}
+          />
+        </span>
+        {/* end scene 1 */}
+
+        {/* scene 1_2 */}
+        <span data-scroll-section>
+          <FrontImage
+            data-scroll
+            src={YakuSceneData.scene_1_2.f}
+            alt={YakuSceneData.scene_1_2.alt}
+          />
+          <BackImage
+            data-scroll
+            src={YakuSceneData.scene_1_2.b}
+            alt={YakuSceneData.scene_1_2.alt}
+          />
+          <BgImage
+            data-scroll
+            src={YakuSceneData.scene_1_2.bg}
+            alt={YakuSceneData.scene_1_2.bgAlt}
+          />
+          <FrontImage
+            data-scroll
+            src={YakuSceneData.scene_1_2.cl}
+            alt={YakuSceneData.scene_1_2.alt}
+          />
+        </span>
+        {/* end scene 1 */}
+
+        {/* scene 2 */}
+        <span data-scroll-section style={{ position: "relative" }}>
           <BackImage
             data-scroll
             src={YakuSceneData.scene_2.b}
-            alt={YakuSceneData.scene_2.bAlt}
+            alt={YakuSceneData.scene_2.alt}
           />
-          <video data-scroll muted loop autoPlay>
+          <BgVideo data-scroll muted loop autoPlay>
             <source src={YakuSceneData.scene_2.bg} type="video/mp4" />
-          </video>
+          </BgVideo>
         </span>
         {/* end scene 2 */}
 
         {/* scene 3.1 */}
-        <span data-scroll-section>
-          <video data-scroll muted loop autoPlay>
+        <span data-scroll-section style={{ position: "relative" }}>
+          <FrontImage
+            data-scroll
+            src={YakuSceneData.scene_3.cl}
+            alt={YakuSceneData.scene_3.alt}
+          />
+
+          <BgVideo data-scroll muted loop autoPlay>
             <source src={YakuSceneData.scene_3.bg} type="video/mp4" />
-          </video>
+          </BgVideo>
         </span>
         {/* end scene 3.1 */}
+
+        {/* scene 4 */}
+        <span data-scroll-section style={{ position: "relative" }}>
+          <FrontImage
+            data-scroll
+            src={YakuSceneData.scene_4.f}
+            alt={YakuSceneData.scene_4.alt}
+          />
+          <FrontImage
+            data-scroll
+            src={YakuSceneData.scene_4.cr}
+            alt={YakuSceneData.scene_4.alt}
+          />
+          <FrontImage
+            data-scroll
+            src={YakuSceneData.scene_4.cl}
+            alt={YakuSceneData.scene_4.alt}
+          />
+          <BackImage
+            data-scroll
+            src={YakuSceneData.scene_4.b}
+            alt={YakuSceneData.scene_4.alt}
+          />
+          <BgVideo data-scroll muted loop autoPlay>
+            <source src={YakuSceneData.scene_4.bg} type="video/mp4" />
+          </BgVideo>
+        </span>
+        {/* end scene 4 */}
 
         {/* scene 3_2 */}
         <span data-scroll-section>
@@ -82,59 +174,61 @@ const YakuStory = () => {
             data-scroll
             data-scroll-speed="3"
             src={YakuSceneData.scene_3_2.f}
-            alt={YakuSceneData.scene_3_2.fAlt}
-            l="600px"
+            alt={YakuSceneData.scene_3_2.alt}
+            l="400px"
             t="-100px"
+          />
+          <FrontImage
+            data-scroll
+            src={YakuSceneData.scene_3_2.cr}
+            alt={YakuSceneData.scene_3_2.alt}
+          />
+          <FrontImage
+            data-scroll
+            src={YakuSceneData.scene_3_2.cl}
+            alt={YakuSceneData.scene_3_2.alt}
           />
           <BackImage
             data-scroll
             src={YakuSceneData.scene_3_2.b}
-            alt={YakuSceneData.scene_3_2.bAlt}
+            alt={YakuSceneData.scene_3_2.alt}
           />
           <MidImage
             data-scroll
             src={YakuSceneData.scene_3_2.m}
-            alt={YakuSceneData.scene_3_2.mAlt}
+            alt={YakuSceneData.scene_3_2.alt}
           />
-          <video data-scroll muted loop autoPlay>
+          <BgVideo data-scroll muted loop autoPlay>
             <source src={YakuSceneData.scene_3_2.bg} type="video/mp4" />
-          </video>
+          </BgVideo>
         </span>
         {/* end scene 3_2 */}
-
-        {/* scene 4 */}
-        <span data-scroll-section>
-          <FrontImage
-            data-scroll
-            src={YakuSceneData.scene_4.f}
-            alt={YakuSceneData.scene_4.fAlt}
-          />
-          <BackImage
-            data-scroll
-            src={YakuSceneData.scene_4.b}
-            alt={YakuSceneData.scene_4.bAlt}
-          />
-          <video data-scroll muted loop autoPlay>
-            <source src={YakuSceneData.scene_4.bg} type="video/mp4" />
-          </video>
-        </span>
-        {/* end scene 4 */}
 
         {/* scene 5 */}
         <span data-scroll-section>
           <FrontImage
             data-scroll
             src={YakuSceneData.scene_5.f}
-            alt={YakuSceneData.scene_5.fAlt}
+            alt={YakuSceneData.scene_5.alt}
+          />
+          <FrontImage
+            data-scroll
+            src={YakuSceneData.scene_5.cr}
+            alt={YakuSceneData.scene_5.alt}
+          />
+          <FrontImage
+            data-scroll
+            src={YakuSceneData.scene_5.cl}
+            alt={YakuSceneData.scene_5.alt}
           />
           <BackImage
             data-scroll
             src={YakuSceneData.scene_5.b}
-            alt={YakuSceneData.scene_5.bAlt}
+            alt={YakuSceneData.scene_5.alt}
           />
-          <video data-scroll muted loop autoPlay>
+          <BgVideo data-scroll muted loop autoPlay>
             <source src={YakuSceneData.scene_5.bg} type="video/mp4" />
-          </video>
+          </BgVideo>
         </span>
         {/* end scene 5 */}
 
@@ -143,40 +237,91 @@ const YakuStory = () => {
           <FrontImage
             data-scroll
             src={YakuSceneData.scene_6.f}
-            alt={YakuSceneData.scene_6.fAlt}
+            alt={YakuSceneData.scene_6.alt}
+          />
+          <FrontImage
+            data-scroll
+            src={YakuSceneData.scene_6.cr}
+            alt={YakuSceneData.scene_6.alt}
+          />
+          <FrontImage
+            data-scroll
+            src={YakuSceneData.scene_6.cl}
+            alt={YakuSceneData.scene_6.alt}
           />
           <MidImage
             data-scroll
             src={YakuSceneData.scene_6.m}
-            alt={YakuSceneData.scene_6.mAlt}
+            alt={YakuSceneData.scene_6.alt}
           />
-          <video data-scroll muted loop autoPlay>
+          <BackImage
+            data-scroll
+            src={YakuSceneData.scene_6.b}
+            alt={YakuSceneData.scene_6.alt}
+          />
+          <BgVideo data-scroll muted loop autoPlay>
             <source src={YakuSceneData.scene_6.bg} type="video/mp4" />
-          </video>
+          </BgVideo>
         </span>
         {/* end scene 6 */}
 
         {/* scene 7 */}
         <span data-scroll-section>
-          <video data-scroll muted loop autoPlay>
+          <FrontImage
+            data-scroll
+            src={YakuSceneData.scene_7.cl}
+            alt={YakuSceneData.scene_7.alt}
+          />
+          <BgVideo data-scroll muted loop autoPlay>
             <source src={YakuSceneData.scene_7.bg} type="video/mp4" />
-          </video>
+          </BgVideo>
         </span>
         {/* end scene 7 */}
 
         {/* scene 8 */}
         <span data-scroll-section>
-          <video data-scroll muted loop autoPlay>
+          <FrontImage
+            data-scroll
+            src={YakuSceneData.scene_8.f}
+            alt={YakuSceneData.scene_8.alt}
+            t="100px"
+          />
+          <BackImage
+            data-scroll
+            src={YakuSceneData.scene_8.cr}
+            alt={YakuSceneData.scene_8.alt}
+          />
+          <FrontImage
+            data-scroll
+            src={YakuSceneData.scene_8.cl}
+            alt={YakuSceneData.scene_8.alt}
+          />
+          <BgVideo data-scroll muted loop autoPlay>
             <source src={YakuSceneData.scene_8.bg} type="video/mp4" />
-          </video>
+          </BgVideo>
         </span>
         {/* end scene 8 */}
 
         {/* scene 9 */}
         <span data-scroll-section>
-          <video data-scroll muted loop autoPlay>
+          <FrontImage
+            data-scroll
+            src={YakuSceneData.scene_9.f}
+            alt={YakuSceneData.scene_9.alt}
+          />
+          <FrontImage
+            data-scroll
+            src={YakuSceneData.scene_9.cr}
+            alt={YakuSceneData.scene_9.alt}
+          />
+          <FrontImage
+            data-scroll
+            src={YakuSceneData.scene_9.cl}
+            alt={YakuSceneData.scene_9.alt}
+          />
+          <BgVideo data-scroll muted loop autoPlay>
             <source src={YakuSceneData.scene_9.bg} type="video/mp4" />
-          </video>
+          </BgVideo>
         </span>
         {/* end scene 9 */}
 
@@ -185,98 +330,22 @@ const YakuStory = () => {
           <FrontImage
             data-scroll
             src={YakuSceneData.scene_10.f}
-            alt={YakuSceneData.scene_10.fAlt}
+            alt={YakuSceneData.scene_10.alt}
+            t="300px"
           />
-          <video data-scroll muted loop autoPlay>
+          <BgVideo data-scroll muted loop autoPlay>
             <source src={YakuSceneData.scene_10.bg} type="video/mp4" />
-          </video>
+          </BgVideo>
         </span>
         {/* end scene 10 */}
 
         {/* scene 12 */}
         <span data-scroll-section>
-          <video data-scroll muted loop autoPlay>
+          <BgVideo data-scroll muted loop autoPlay>
             <source src={YakuSceneData.scene_12.bg} type="video/mp4" />
-          </video>
+          </BgVideo>
         </span>
         {/* end scene 12 */}
-
-        <span data-scroll-section>
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_1.png"
-            alt=""
-          />
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_2.png"
-            alt=""
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              top: 0,
-              left: 0,
-            }}
-          />
-        </span>
-        <span data-scroll-section>
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_1.png"
-            alt=""
-          />
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_2.png"
-            alt=""
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              top: 0,
-              left: 0,
-            }}
-          />
-        </span>
-        <span data-scroll-section>
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_1.png"
-            alt=""
-          />
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_2.png"
-            alt=""
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              top: 0,
-              left: 0,
-            }}
-          />
-        </span>
-        <span data-scroll-section>
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_1.png"
-            alt=""
-          />
-          <img
-            data-scroll
-            src="https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_2.png"
-            alt=""
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              top: 0,
-              left: 0,
-            }}
-          />
-        </span>
 
         {/* end tree */}
       </TaleSection>

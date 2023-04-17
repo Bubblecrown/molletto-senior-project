@@ -1,20 +1,28 @@
 import styled from "styled-components";
 
 export const BgVideo = styled.video`
-  position: absolute;
-  width: 100%;
+  position: relative;
+  width: auto;
   height: 100%;
   top: 0;
   left: 0;
 `;
 
-export const FrontImage = styled.img<{t?: string,l?: string,r?: string}>`
-  position: absolute;
-  width: 100%;
+export const BgImage = styled.img`
+  position: relative;
+  width: auto;
   height: 100%;
-  top: ${({ t }) => (t ? t : '0')};
-  left: ${({ l }) => (l ? l : '0')};
-  right: ${({ r }) => (r ? r : '0')};
+  top: 0;
+  left: 0;
+`;
+
+export const FrontImage = styled.img<{ t?: string; l?: string; r?: string }>`
+  position: absolute;
+  width: auto;
+  height: 100%;
+  top: ${({ t }) => (t ? t : "0")};
+  left: ${({ l }) => (l ? l : "0")};
+  right: ${({ r }) => (r ? r : "0")};
   z-index: 3;
 `;
 export const MidImage = styled.img<{
@@ -22,7 +30,7 @@ export const MidImage = styled.img<{
   l?: number;
 }>`
   position: absolute;
-  width: 100%;
+  width: auto;
   height: 100%;
   top: ${({ t }) => (t ? t : 0)};
   left: ${({ l }) => (l ? l : 0)};
@@ -33,9 +41,19 @@ export const BackImage = styled.img<{
   l?: number;
 }>`
   position: absolute;
-  width: 100%;
+  width: auto;
   height: 100%;
   top: ${({ t }) => (t ? t : 0)};
   left: ${({ l }) => (l ? l : 0)};
   z-index: 1;
+`;
+
+export const TextContainer = styled.div`
+  position: absolute;
+  max-width: 100px;
+  height: auto;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  overflow-wrap: break-word;
 `;
