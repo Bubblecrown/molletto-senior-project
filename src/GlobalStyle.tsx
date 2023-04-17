@@ -43,13 +43,7 @@ const GlobalStyles = createGlobalStyle`
     }
     
 `;
-export const CanvasContainer = styled.div`
-  height: 100%;
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-`;
+
 
 export const VideoBackground = styled.video<{
   c?: string;
@@ -109,18 +103,6 @@ export const Layer2 = styled.div<{
   height: 100%;
 `;
 
-export const TaleSection = styled.div<{
-  c?: string;
-  o?: number;
-  xOverflow?: string;
-}>`
-  background-color: ${({ c }) => (c ? c : "#d9d9d9")};
-  height: 100%;
-  width: 100%;
-  overflow-y: hidden;
-  overflow-x: hidden;
-  opacity: ${({ o }) => (o ? o : 1)};
-`;
 
 export const Section = styled.div<{
   c?: string;
@@ -358,5 +340,21 @@ export const GuildaFont = styled.p<{ c?: string; m?: string; d?: string }>`
 // end Gilda
 
 // end Design System
+
+
+// fairy tale
+export const TaleSection = styled.div<{
+  c?: string;
+  o?: number;
+  xOverflow?: string;
+}>`
+  background-color: ${({ c }) => (c ? c : "#d9d9d9")};
+  height: 100%;
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  opacity: ${({ o }) => (o ? o : 1)};
+`;
+// end fairy tale
 
 export default GlobalStyles;

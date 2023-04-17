@@ -96,6 +96,7 @@ const AboutMain = () => {
             ></AboutLine>
           </Animator>
         </AboutHangingLine>
+        
       </Container>
     </Section>
   );

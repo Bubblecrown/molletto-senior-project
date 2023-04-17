@@ -1,5 +1,5 @@
 import { AnimatePresence } from "framer-motion";
-import { Route, Routes, useLocation } from "react-router";
+import { Route, Routes, redirect, useLocation } from "react-router";
 
 import PulsingCircle from "./components/PulsingCircle/PulsingCircle";
 import Member from "./pages/AboutUs/Member";
@@ -20,11 +20,13 @@ import ScrollAnimation from "./pages/AboutUs/ScrollAnimation";
 import TestLongSceneScroll from "./TestLongSceneScroll";
 import TestHomeModel from "./TestHomeModel";
 import HomeMain from "./pages/homeModel/HomeMain";
-import React, { Suspense, useEffect, useState } from "react";
+import React, { Suspense, useEffect, useMemo, useState } from "react";
 import Loading from "./pages/Loading";
 import DessertPopup from "./components/DessertPopup/DessertPopup";
 import YakuMain from "./pages/yakuModel/YakuMain";
-// const HomeLazy = React.lazy(() => import("./pages/homeModel/HomeMain"));
+import YakuStory from "./pages/yakuStory/YakuStory";
+const HomeLazy = React.lazy(() => import("./pages/homeModel/HomeMain"));
+const AboutLazy = React.lazy(() => import("./pages/AboutUs/ScrollAnimation"));
 const TransitionRoute = () => {
   const location = useLocation();
   const [showHome, setShowHome] = useState(false);
@@ -35,6 +37,7 @@ const TransitionRoute = () => {
     }, 11000);
     return () => clearTimeout(timer);
   }, []);
+
   return (
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
@@ -42,12 +45,21 @@ const TransitionRoute = () => {
           path="/"
           element={
             <Suspense fallback={<Loading />}>
-              <HomeMain />
+              <HomeLazy />
             </Suspense>
           }
         /> */}
-        <Route path="/" element={<HomeMain />} />
-        <Route path="/about" element={<ScrollAnimation />} />
+        <Route path="/" element={<YakuStory />} />
+
+        <Route
+          path="/about"
+          element={
+            <Suspense fallback={null}>
+              <AboutLazy />
+            </Suspense>
+          }
+        />
+
         <Route path="/about/:id" element={<Member />} />
       </Routes>
     </AnimatePresence>

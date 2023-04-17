@@ -10,7 +10,6 @@ export const StickyMove = () =>
         position: (value) => `fixed`,
         width: `100vw`,
         height: `auto`,
-        
       },
     },
     out: {

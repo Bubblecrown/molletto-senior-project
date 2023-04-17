@@ -8,7 +8,7 @@ import PulsingCircle from "../../components/PulsingCircle/PulsingCircle";
 import { store } from "../../app/store";
 import YakuHome from "./YakuHome";
 import LogoOpened from "../../components/Logo/LogoOpened";
-import { CanvasContainer } from "../../GlobalStyle";
+
 import NanaHome from "./NanaHome";
 import PennyHome from "./PennyHome";
 // import { FPSControls } from "react-three-fpscontrols/dist/cjs";
@@ -23,6 +23,7 @@ import {
   Loader,
   OrbitControls,
 } from "@react-three/drei";
+import { CanvasContainer } from "./HomeStyle";
 
 const HomeMain = () => {
   return (

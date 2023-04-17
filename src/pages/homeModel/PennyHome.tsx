@@ -31,7 +31,7 @@ const PennyHome = () => {
         <group name="pennie_home_door" onClick={playClickSound}>
           <group position={[14.19, 10.15, -11.94]}>
             <Html>
-              <PulsingModel  />
+              <PulsingModel />
               <audio ref={audioRef}>
                 <source src={soundEffect} type="audio/mpeg" />
               </audio>
