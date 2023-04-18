@@ -1,6 +1,5 @@
 import { Canvas } from "@react-three/fiber";
 
-import { CanvasContainer } from "../../GlobalStyle";
 // import { FPSControls } from "react-three-fpscontrols/dist/cjs";
 import { FPSControls } from "react-three-fpscontrols";
 // import { FPSControls } from "../../../node_modules/react-three-fpscontrols/dist/cjs/index.js";
@@ -17,7 +16,7 @@ import {
 import YakuStory from "../yakuStory/YakuStory";
 import Yaku from "./Yaku";
 import MessageBox from "../../components/messageBox/MessageBox";
-
+import { CanvasContainer } from "../homeModel/HomeStyle";
 
 const YakuMain = () => {
   return (
@@ -38,8 +37,6 @@ const YakuMain = () => {
             <MessageBox />
           </Html>
         </group>
-
-        
       </Canvas>
       <Loader />
       {/* <Footer audio={homeSound} /> */}

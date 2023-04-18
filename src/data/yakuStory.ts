@@ -9,6 +9,13 @@ import c1_2 from "../assets/images/tale/yakuStory/C1_L.png";
 
 import bg2 from "../assets/images/tale/yakuStory/BG2.mp4";
 import b2 from "../assets/images/tale/yakuStory/2.1_B.png";
+import sf2 from "../assets/images/tale/yakuStory/2.1_superF.png";
+import m2 from "../assets/images/tale/yakuStory/2.1_M.png";
+import c2_r from "../assets/images/tale/yakuStory/C1_R.png";
+import c2_l from "../assets/images/tale/yakuStory/C2_L.png";
+
+import f2 from "../assets/images/tale/yakuStory/2.1_F.png";
+import m2_2 from "../assets/images/tale/yakuStory/2.2_M.png";
 
 import bg3_1 from "../assets/images/tale/yakuStory/BG3.1.mp4";
 import c3_1 from "../assets/images/tale/yakuStory/C3_L.png";
@@ -66,7 +73,7 @@ export const YakuSceneData: Record<string, TaleDataType> = {
     f: f1,
     bgAlt: "yaku story bg scene_1",
     alt: "yaku story image scene_1",
-    text: "ในเมืองที่แสนวิเศษ แน่นอนว่าทุกอย่างภายในก็ล้วนพิเศษเช่นกันผู้คนที่อาศัยอยู่ในเมืองแห่งนี้มีความสามารถในการดูดซับน้ำได้ดังฟองน้ำหากแต่เมืองแห่งนี้ยังมีความพิเศษอีกอย่างที่ทุกคนในโลกนี้ปราถนานั่นก็คือการได้รับความเป็นอมตะจากต้นไม้ศักดิ์สิทธิ์",
+    text: "ในเมืองที่แสนวิเศษ แน่นอนว่าทุกอย่างภายในก็ล้วนพิเศษเช่นกัน ผู้คนที่อาศัยอยู่ในเมืองแห่งนี้มีความสามารถในการดูดซับน้ำได้ดังฟองน้ำ หากแต่เมืองแห่งนี้ยังมีความพิเศษอีกอย่างที่ทุกคนในโลกนี้ปราถนานั่นก็คือการได้รับความเป็นอมตะจากต้นไม้ศักดิ์สิทธิ์",
   },
   scene_1_2: {
     bg: bg1_2,
@@ -75,12 +82,31 @@ export const YakuSceneData: Record<string, TaleDataType> = {
     cl: c1_2,
     bgAlt: "yaku story bg scene_1",
     alt: "yaku story image scene_1",
+    text: "ในเมืองที่แสนวิเศษที่ทุกอย่างล้วนพิเศษ ผู้คนที่อาศัยอยู่ในเมืองแห่งนี้มีความสามารถในการดูดซับน้ำได้ดังฟองน้ำ หากแต่เมืองแห่งนี้ยังมีความพิเศษอีกอย่างที่ทุกคนในโลกนี้ปราถนา นั่นก็คือการได้รับความเป็นอมตะจากต้นไม้ศักดิ์สิทธิ์",
+    text2:
+      "แต่แน่นอนว่าการจะได้มานั้นย่อมต้องผ่านกระบวนบางอย่างที่จะวัดความคู่ควรกับความเป็นอมตะที่แสนวิเศษนี้ แล้วต้นไม้ศักดิ์สิทธิ์จะมอบเมล็ดพันธ์ุที่ออกผลมอบความสุขและความอมตะให้",
   },
   scene_2: {
     bg: bg2,
     b: b2,
+    cr: c2_r,
+    cl: c2_l,
+    f: f2,
+    sf: sf2,
+    m: m2,
     bgAlt: "yaku story bg scene_2",
     alt: "yaku story image scene_2",
+    text: "เมื่อยาคุอายุถึงกำหนดเขาตัดสินใจที่จะไปตอบคำถามเพื่อหวังจะได้ความเป็นอมตะนั้น เขาจึงเดินทางไปยังร้านขายหนังสือเพื่อซื้อสมุดโน๊ตมา 1 เล่ม เอาไว้เขียนคำตอบให้ต้นไม้ศักดิ์สิทธิ์",
+  },
+  scene_2_2: {
+    bg: bg2,
+    cr: c2_r,
+    cl: c2_l,
+    f: f2,
+    m: m2_2,
+    bgAlt: "yaku story bg scene_2",
+    alt: "yaku story image scene_2",
+    text: "เมื่อไปถึงต้นไม้ศักดิ์สิทธิ์เขาก็ไปต่อคิวเพื่อตอบคำถาม แต่น่าเศร้าที่เขากลับต้องผิดหวัง เพราะคำถามที่เขาได้รับมานั้นยากมากเมื่อเทียบกับคนอื่นๆ",
   },
   scene_3: {
     bg: bg3_1,

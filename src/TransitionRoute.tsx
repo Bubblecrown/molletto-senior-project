@@ -25,6 +25,7 @@ import Loading from "./pages/Loading";
 import DessertPopup from "./components/DessertPopup/DessertPopup";
 import YakuMain from "./pages/yakuModel/YakuMain";
 import YakuStory from "./pages/yakuStory/YakuStory";
+import YakuStoryMain from "./pages/yakuStory/YakuStoryMain";
 const HomeLazy = React.lazy(() => import("./pages/homeModel/HomeMain"));
 const AboutLazy = React.lazy(() => import("./pages/AboutUs/ScrollAnimation"));
 const TransitionRoute = () => {
@@ -49,7 +50,7 @@ const TransitionRoute = () => {
             </Suspense>
           }
         /> */}
-        <Route path="/" element={<YakuStory />} />
+        <Route path="/" element={<YakuStoryMain />} />
 
         <Route
           path="/about"

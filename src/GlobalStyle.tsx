@@ -258,12 +258,16 @@ export const PNoto = styled.p<{
   u?: string;
 }>`
   font-family: ${santhai};
-  font-size: clamp(0.4rem, 1vw, 1rem);
+  font-size: clamp(1rem, 7vw, 1.25rem);
   font-weight: 400;
-  color: ${({ c }) => (c ? c : "#fff")};
+  color: ${({ c }) => (c ? c : "#5a4c4c")};
   margin: ${({ m }) => (m ? m : "0")};
   display: ${({ d }) => (d ? d : "block")};
   text-transform: ${({ u }) => (u ? u : "uppercase")};
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  text-align: center;
+  width: 80%;
 `;
 
 // end Noto san thai

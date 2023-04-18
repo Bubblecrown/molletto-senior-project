@@ -5,7 +5,9 @@ export type TaleDataType = {
   b?: string;
   m?: string;
   f?: string;
+  sf?:string;
   bgAlt: string;
   alt?: string;
-  text?:string
+  text?:string;
+  text2?:string;
 };
