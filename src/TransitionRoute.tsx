@@ -26,6 +26,8 @@ import DessertPopup from "./components/DessertPopup/DessertPopup";
 import YakuMain from "./pages/yakuModel/YakuMain";
 import YakuStory from "./pages/yakuStory/YakuStory";
 import YakuStoryMain from "./pages/yakuStory/YakuStoryMain";
+
+import YakuStoryTale from "./pages/yakuStory/YakuStoryTale";
 const HomeLazy = React.lazy(() => import("./pages/homeModel/HomeMain"));
 const AboutLazy = React.lazy(() => import("./pages/AboutUs/ScrollAnimation"));
 const TransitionRoute = () => {

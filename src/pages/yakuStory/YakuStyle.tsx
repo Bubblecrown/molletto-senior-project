@@ -2,9 +2,13 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 import cloud5 from "../../assets/images/tale/yakuStory/cloud5.png";
 
-export const TaleContainer = styled.span`
+export const TaleContainer = styled.span<{
+  z?: number;
+}>`
   position: relative;
-  transform-style: preserve-3d;
+  scroll-snap-align: start;
+  z-index: ${({ z }) => (z ? z : 0)};
+  margin-right: -0.1px;
 `;
 
 export const BgVideo = styled.video`
@@ -14,9 +18,7 @@ export const BgVideo = styled.video`
   top: 0;
   left: 0;
 `;
-export const ParallaxContainer = styled(motion.div)`
-  
-`;
+export const ParallaxContainer = styled(motion.div)``;
 
 export const BgImage = styled.img`
   position: relative;
@@ -42,7 +44,7 @@ export const TextContainer = styled(motion.div)<{
   right: ${({ r }) => (r ? r : "0")};
   z-index: 5;
   width: 550px;
-  height: 300px;
+  height: 260px;
   display: flex;
   justify-content: center;
   align-items: center;

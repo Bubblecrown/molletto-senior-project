@@ -258,7 +258,7 @@ export const PNoto = styled.p<{
   u?: string;
 }>`
   font-family: ${santhai};
-  font-size: clamp(1rem, 7vw, 1.25rem);
+  font-size: clamp(1rem, 7vw, 1.30rem);
   font-weight: 400;
   color: ${({ c }) => (c ? c : "#5a4c4c")};
   margin: ${({ m }) => (m ? m : "0")};
