@@ -24,8 +24,16 @@ import "../locomotive-scroll.css";
 import { useHorizontalScroll } from "../../hooks/useHorizontalScroll";
 import { useDrag } from "react-use-gesture";
 import { useSpring } from "react-spring";
-import { motion, transform, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  transform,
+  useDragControls,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import useParallax from "../../hooks/useParallax";
+import Footer from "../../components/Footer/Footer";
+import audioFile from "../../assets/sounds/yakuSound.mp3";
 
 gsap.registerPlugin(ScrollTrigger);
 const YakuStoryMain = () => {
@@ -65,19 +73,30 @@ const YakuStoryMain = () => {
     container: carouselRef,
   });
   const { scrollXProgress } = useScroll();
+  const scrollParallax = useHorizontalScroll();
+  const controls = useDragControls();
   return (
-    <div style={{ width: "100vw", height: "100vh" }}>
+    <div
+      style={{ width: "100vw", height: "100vh" }}
+
+    >
       <HorizontalScroll
         reverseScroll
+        config={{
+          stiffness: 20,
+          damping: 20,
+        }}
         style={{
-          overflowX: "hidden",
           height: "100%",
           width: "100%",
+          overflowX: "hidden",
         }}
       >
         {/* scene 1 */}
         <TaleContainer>
           <TextContainer
+            // drag="y"
+            // dragControls={controls}
             t="5%"
             l="35%"
             initial={{ opacity: 0 }}
@@ -210,7 +229,7 @@ const YakuStoryMain = () => {
           <MidImage
             src={YakuSceneData.scene_2.m}
             alt={YakuSceneData.scene_2.alt}
-            initial={{ translateY: "100vh" }}
+            initial={{ translateY: 600 }}
             whileInView={{
               translateY: 0,
               transition: {
@@ -280,7 +299,7 @@ const YakuStoryMain = () => {
           <FrontImage
             src={YakuSceneData.scene_2_2.f}
             alt={YakuSceneData.scene_2_2.alt}
-            initial={{ opacity: 0, translateY: "-100vh" }}
+            initial={{ opacity: 0, translateY: -200 }}
             whileInView={{
               opacity: 1,
               translateY: 0,
@@ -288,8 +307,7 @@ const YakuStoryMain = () => {
                 type: "spring",
                 stiffness: 10,
                 damping: 20,
-                duration: 15,
-                delay: 2,
+                duration: 10,
               },
             }}
           />
@@ -316,7 +334,7 @@ const YakuStoryMain = () => {
         </TaleContainer>
         {/* end scene 2.2 */}
         {/* scene 3.1 */}
-        <TaleContainer>
+        <TaleContainer z={10}>
           <FrontImage
             src={YakuSceneData.scene_3.cl}
             alt={YakuSceneData.scene_3.alt}
@@ -332,7 +350,7 @@ const YakuStoryMain = () => {
           <BackImage
             src={YakuSceneData.scene_3.b}
             alt={YakuSceneData.scene_3.alt}
-            initial={{ translateY: "-100vh" }}
+            initial={{ translateY: -700 }}
             whileInView={{
               translateY: 0,
               transition: {
@@ -374,14 +392,14 @@ const YakuStoryMain = () => {
           <FrontImage
             src={YakuSceneData.scene_4.f}
             alt={YakuSceneData.scene_4.alt}
-            initial={{ translateY: "100vh", translateX: -150 }}
+            initial={{ translateY: 500, translateX: -150 }}
             whileInView={{
               translateY: 0,
               translateX: 0,
               transition: {
                 type: "spring",
                 stiffness: 10,
-                damping: 15,
+                damping: 10,
                 duration: 20,
                 delay: 2,
               },
@@ -390,13 +408,13 @@ const YakuStoryMain = () => {
           <BackImage
             src={YakuSceneData.scene_4.b}
             alt={YakuSceneData.scene_4.alt}
-            initial={{ translateY: "100vh" }}
+            initial={{ translateX: -150 }}
             whileInView={{
-              translateY: 0,
+              translateX: -0,
               transition: {
                 type: "spring",
                 stiffness: 10,
-                damping: 5,
+                damping: 20,
                 duration: 20,
                 delay: 2,
               },
@@ -488,6 +506,7 @@ const YakuStoryMain = () => {
           <FrontImage
             src={YakuSceneData.scene_3_2.cr}
             alt={YakuSceneData.scene_3_2.alt}
+            l="-2px"
           />
           <FrontImage
             src={YakuSceneData.scene_3_2.cl}
@@ -512,7 +531,7 @@ const YakuStoryMain = () => {
           <MidImage
             src={YakuSceneData.scene_3_2.m}
             alt={YakuSceneData.scene_3_2.alt}
-            initial={{ translateY: "100vh", translateX: -300 }}
+            initial={{ translateY: 700, translateX: -300 }}
             whileInView={{
               translateY: 0,
               translateX: 0,
@@ -619,9 +638,9 @@ const YakuStoryMain = () => {
           <FrontImage
             src={YakuSceneData.scene_6.f}
             alt={YakuSceneData.scene_6.alt}
-            initial={{ translateY: "-100vh", translateX: 100 }}
+            initial={{ translateY: -700, translateX: 100 }}
             whileInView={{
-              translateY: "0",
+              translateY: 0,
               translateX: -50,
               transition: {
                 type: "spring",
@@ -643,14 +662,14 @@ const YakuStoryMain = () => {
           <MidImage
             src={YakuSceneData.scene_6.m}
             alt={YakuSceneData.scene_6.alt}
-            initial={{ translateY: "-100vh", translateX: -100 }}
+            initial={{ translateY: -500, translateX: -100 }}
             whileInView={{
-              translateY: "0",
+              translateY: 0,
               translateX: 0,
               transition: {
                 type: "spring",
                 stiffness: 10,
-                damping: 20,
+                damping: 30,
                 duration: 20,
                 delay: 2,
               },
@@ -691,6 +710,7 @@ const YakuStoryMain = () => {
           <SFrontImage
             src={YakuSceneData.scene_7.cr}
             alt={YakuSceneData.scene_7.alt}
+            l="-1px"
           />
           <MidImage
             src={YakuSceneData.scene_7.f}
@@ -810,6 +830,7 @@ const YakuStoryMain = () => {
           </BgVideo>
         </TaleContainer>
         {/* end scene 9 */}
+
         {/* scene 10 */}
         <TaleContainer z={7}>
           <TextContainer
@@ -836,7 +857,8 @@ const YakuStoryMain = () => {
             initial={{ rotate: -90, translateY: 0, translateX: 0 }}
             whileInView={{
               rotate: 0,
-              translateY: 300,translateX: 100,
+              translateY: 300,
+              translateX: 100,
               transition: {
                 type: "spring",
                 stiffness: 30,
@@ -859,15 +881,390 @@ const YakuStoryMain = () => {
           </BgVideo>
         </TaleContainer>
         {/* end scene 10 */}
+
+        {/* scene 11 */}
+        <TaleContainer z={6}>
+          <TextContainer
+            t="10%"
+            l="60%"
+            initial={{ opacity: 0 }}
+            whileInView={{
+              opacity: 1,
+              transition: {
+                type: "spring",
+                stiffness: 10,
+                damping: 5,
+                duration: 15,
+              },
+            }}
+          >
+            <PNoto>{YakuSceneData.scene_11.text}</PNoto>
+          </TextContainer>
+          <FrontImage
+            src={YakuSceneData.scene_11.f}
+            alt={YakuSceneData.scene_11.alt}
+            initial={{ translateX: -500 }}
+            whileInView={{
+              translateX: 0,
+              transition: {
+                type: "spring",
+                stiffness: 20,
+                damping: 10,
+                duration: 5,
+                delay: 1,
+              },
+            }}
+          />
+
+          <MidImage
+            src={YakuSceneData.scene_11.m}
+            alt={YakuSceneData.scene_11.alt}
+            initial={{ translateX: 1000 }}
+            whileInView={{
+              translateX: 0,
+              transition: {
+                type: "spring",
+                stiffness: 20,
+                damping: 30,
+                duration: 5,
+                delay: 2,
+              },
+            }}
+          />
+          <BackImage
+            src={YakuSceneData.scene_11.b}
+            alt={YakuSceneData.scene_11.alt}
+            initial={{ translateX: 100 }}
+            whileInView={{
+              translateX: 0,
+              transition: {
+                type: "spring",
+                stiffness: 20,
+                damping: 10,
+                duration: 5,
+                delay: 1,
+              },
+            }}
+          />
+          <FrontImage
+            src={YakuSceneData.scene_11.cl}
+            alt={YakuSceneData.scene_11.alt}
+          />
+          <FrontImage
+            src={YakuSceneData.scene_11.cr}
+            alt={YakuSceneData.scene_11.alt}
+            l="-1px"
+          />
+          <BgVideo muted loop autoPlay>
+            <source src={YakuSceneData.scene_11.bg} type="video/mp4" />
+          </BgVideo>
+        </TaleContainer>
+        {/* end scene 11 */}
         {/* scene 12 */}
-        <TaleContainer>
+        <TaleContainer z={10}>
+          <TextContainer
+            t="55%"
+            l="40%"
+            initial={{ opacity: 0 }}
+            whileInView={{
+              opacity: 1,
+              transition: {
+                type: "spring",
+                stiffness: 10,
+                damping: 5,
+                duration: 15,
+              },
+            }}
+          >
+            <PNoto>{YakuSceneData.scene_12.text}</PNoto>
+          </TextContainer>
+
+          <FrontImage
+            src={YakuSceneData.scene_12.f}
+            alt={YakuSceneData.scene_12.alt}
+            initial={{ translateX: -200, translateY: 500 }}
+            whileInView={{
+              translateX: 0,
+              translateY: 0,
+              transition: {
+                type: "spring",
+                stiffness: 20,
+                damping: 10,
+                duration: 5,
+                delay: 1,
+              },
+            }}
+          />
+
+          <MidImage
+            src={YakuSceneData.scene_12.m}
+            alt={YakuSceneData.scene_12.alt}
+            initial={{ translateX: -50 }}
+            whileInView={{
+              translateX: 0,
+              transition: {
+                type: "spring",
+                stiffness: 20,
+                damping: 20,
+                duration: 5,
+                delay: 2,
+              },
+            }}
+          />
+          <BackImage
+            src={YakuSceneData.scene_12.b}
+            alt={YakuSceneData.scene_12.alt}
+            initial={{ translateY: 500 }}
+            whileInView={{
+              translateY: 0,
+              transition: {
+                type: "spring",
+                stiffness: 20,
+                damping: 5,
+                duration: 5,
+                delay: 1,
+              },
+            }}
+          />
+          <FrontImage
+            src={YakuSceneData.scene_12.cl}
+            alt={YakuSceneData.scene_12.alt}
+          />
+          <FrontImage
+            src={YakuSceneData.scene_12.cr}
+            alt={YakuSceneData.scene_12.alt}
+          />
           <BgVideo muted loop autoPlay>
             <source src={YakuSceneData.scene_12.bg} type="video/mp4" />
           </BgVideo>
         </TaleContainer>
         {/* end scene 12 */}
-        {/* end tree */}
+
+        {/* scene 13 */}
+        <TaleContainer z={10}>
+          <TextContainer
+            t="55%"
+            l="5%"
+            initial={{ opacity: 0 }}
+            whileInView={{
+              opacity: 1,
+              transition: {
+                type: "spring",
+                stiffness: 10,
+                damping: 5,
+                duration: 15,
+              },
+            }}
+          >
+            <PNoto>{YakuSceneData.scene_13.text}</PNoto>
+          </TextContainer>
+
+          <FrontImage
+            src={YakuSceneData.scene_13.f}
+            alt={YakuSceneData.scene_13.alt}
+            initial={{ translateX: 1000 }}
+            whileInView={{
+              translateX: 0,
+              transition: {
+                type: "spring",
+                stiffness: 20,
+                damping: 10,
+                duration: 5,
+                delay: 1,
+              },
+            }}
+          />
+
+          <BackImage
+            src={YakuSceneData.scene_13.b}
+            alt={YakuSceneData.scene_13.alt}
+            initial={{ translateX: -100 }}
+            whileInView={{
+              translateX: 0,
+              transition: {
+                type: "spring",
+                stiffness: 20,
+                damping: 20,
+                duration: 5,
+                delay: 1,
+              },
+            }}
+          />
+          <FrontImage
+            src={YakuSceneData.scene_13.cl}
+            alt={YakuSceneData.scene_13.alt}
+          />
+          <FrontImage
+            src={YakuSceneData.scene_13.cr}
+            alt={YakuSceneData.scene_13.alt}
+          />
+          <BgVideo muted loop autoPlay>
+            <source src={YakuSceneData.scene_13.bg} type="video/mp4" />
+          </BgVideo>
+        </TaleContainer>
+        {/* end scene 13 */}
+
+        {/* scene 14 */}
+        <TaleContainer z={10}>
+          <TextContainer
+            t="15%"
+            l="60%"
+            initial={{ opacity: 0 }}
+            whileInView={{
+              opacity: 1,
+              transition: {
+                type: "spring",
+                stiffness: 10,
+                damping: 5,
+                duration: 15,
+              },
+            }}
+          >
+            <PNoto>{YakuSceneData.scene_14.text}</PNoto>
+          </TextContainer>
+
+          <FrontImage
+            src={YakuSceneData.scene_14.f}
+            alt={YakuSceneData.scene_14.alt}
+            initial={{ translateY: 100 }}
+            whileInView={{
+              translateY: 0,
+              transition: {
+                type: "spring",
+                stiffness: 20,
+                damping: 10,
+                duration: 5,
+                delay: 1,
+              },
+            }}
+          />
+
+          <MidImage
+            src={YakuSceneData.scene_14.m}
+            alt={YakuSceneData.scene_14.alt}
+            initial={{ translateX: -50, translateY: 100 }}
+            whileInView={{
+              translateX: 0,
+              translateY: 0,
+              transition: {
+                type: "spring",
+                stiffness: 20,
+                damping: 40,
+                duration: 5,
+                delay: 1,
+              },
+            }}
+          />
+
+          <FrontImage
+            src={YakuSceneData.scene_14.cl}
+            alt={YakuSceneData.scene_14.alt}
+          />
+          <FrontImage
+            src={YakuSceneData.scene_14.cr}
+            alt={YakuSceneData.scene_14.alt}
+          />
+          <BgVideo muted loop autoPlay>
+            <source src={YakuSceneData.scene_14.bg} type="video/mp4" />
+          </BgVideo>
+        </TaleContainer>
+        {/* end scene 14 */}
+
+        {/* scene 15 */}
+        <TaleContainer z={11}>
+          <TextContainer
+            t="10%"
+            l="60%"
+            initial={{ opacity: 0 }}
+            whileInView={{
+              opacity: 1,
+              transition: {
+                type: "spring",
+                stiffness: 10,
+                damping: 5,
+                duration: 15,
+              },
+            }}
+          >
+            <PNoto>{YakuSceneData.scene_15.text}</PNoto>
+          </TextContainer>
+
+          <FrontImage
+            src={YakuSceneData.scene_15.f}
+            alt={YakuSceneData.scene_15.alt}
+            initial={{ translateY: 100 }}
+            whileInView={{
+              translateY: 0,
+              transition: {
+                type: "spring",
+                stiffness: 20,
+                damping: 10,
+                duration: 5,
+                delay: 1,
+              },
+            }}
+          />
+
+          <MidImage
+            src={YakuSceneData.scene_15.m}
+            alt={YakuSceneData.scene_15.alt}
+            initial={{ translateX: -50, translateY: 100 }}
+            whileInView={{
+              translateX: 0,
+              translateY: 0,
+              transition: {
+                type: "spring",
+                stiffness: 20,
+                damping: 40,
+                duration: 5,
+                delay: 1,
+              },
+            }}
+          />
+
+          <BackImage
+            src={YakuSceneData.scene_15.b}
+            alt={YakuSceneData.scene_15.alt}
+            initial={{ translateY: 100, translateX: -200 }}
+            whileInView={{
+              translateY: 0,
+              translateX: 0,
+              transition: {
+                type: "spring",
+                stiffness: 20,
+                damping: 50,
+                duration: 5,
+                delay: 1,
+              },
+            }}
+          />
+          <SFrontImage
+            src={YakuSceneData.scene_15.sf}
+            alt={YakuSceneData.scene_15.alt}
+            initial={{ translateX: -200 }}
+            whileInView={{
+              translateX: 0,
+              transition: {
+                type: "spring",
+                stiffness: 20,
+                damping: 10,
+                duration: 5,
+                delay: 1,
+              },
+            }}
+          />
+          <FrontImage
+            src={YakuSceneData.scene_15.cr}
+            alt={YakuSceneData.scene_15.alt}
+            l="-1px"
+          />
+          <BgVideo muted loop autoPlay>
+            <source src={YakuSceneData.scene_15.bg} type="video/mp4" />
+          </BgVideo>
+        </TaleContainer>
+        {/* end scene 14 */}
       </HorizontalScroll>
+      <Footer audio={audioFile} volumes={0.5} />
     </div>
   );
 };

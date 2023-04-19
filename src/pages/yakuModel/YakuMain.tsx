@@ -14,9 +14,9 @@ import {
   TrackballControls,
 } from "@react-three/drei";
 import YakuStory from "../yakuStory/YakuStory";
-import Yaku from "./Yaku";
 import MessageBox from "../../components/messageBox/MessageBox";
 import { CanvasContainer } from "../homeModel/HomeStyle";
+import { YakuWeb } from "./Yakuweb";
 
 const YakuMain = () => {
   return (
@@ -30,13 +30,13 @@ const YakuMain = () => {
         <ambientLight intensity={0.6} />
         {/* <PerspectiveCamera position={[0, 0, 5]} makeDefault /> */}
 
-        <Yaku scale={20} position={[0, 0, 0]} />
-        <OrbitControls />
-        <group scale={20} position={[2, 0, 0]}>
+        <YakuWeb scale={40} position={[0, -2.5, 0]} />
+
+        {/* <group scale={20} position={[0, 0, 0]}>
           <Html>
             <MessageBox />
           </Html>
-        </group>
+        </group> */}
       </Canvas>
       <Loader />
       {/* <Footer audio={homeSound} /> */}

@@ -66,7 +66,7 @@ export const SFrontImage = styled(motion.img)<{
   top: ${({ t }) => (t ? t : "0")};
   left: ${({ l }) => (l ? l : "0")};
   right: ${({ r }) => (r ? r : "0")};
-  z-index: 3;
+  z-index: 4;
   will-change: transform;
   @media screen and (max-width: 1000px) {
     top: ${({ tm }) => (tm ? tm : "0")};

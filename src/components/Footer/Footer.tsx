@@ -7,11 +7,16 @@ import { RootState } from "../../app/store";
 import { setIsMuted } from "../../slices/soundSlice";
 import { useNavigate } from "react-router";
 
-const Footer = ({ audio }: any) => {
+type soundType = {
+  audio: any;
+  volumes: number;
+};
+
+const Footer = ({ audio, volumes = 0.3 }: soundType) => {
   const isMuted = useSelector((state: RootState) => state.audio.isMuted);
   const dispatch = useDispatch();
   const audioRef = useRef<HTMLAudioElement>(null);
-  const volume = 0.3;
+  const volume = volumes;
   const toggleAudio = () => {
     dispatch(setIsMuted());
     if (audioRef?.current?.paused) {
