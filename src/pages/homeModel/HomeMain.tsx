@@ -24,7 +24,7 @@ import {
   OrbitControls,
 } from "@react-three/drei";
 import { CanvasContainer } from "./HomeStyle";
-
+import homeSound from "../../assets/sounds/homeSound.mp3";
 const HomeMain = () => {
   return (
     <CanvasContainer>
@@ -33,14 +33,14 @@ const HomeMain = () => {
         shadows
         style={{
           background:
-            "linear-gradient(90deg, rgba(230,192,255,1) 0%, rgba(255,209,209,1) 50%, rgba(252,176,69,1) 100%)",
+            "linear-gradient(180deg, #c0efff 0%, rgba(255,209,209,1) 50%, rgba(252,176,69,1) 100%)",
         }}
       >
         <Suspense fallback={null}>
           <Teleport />
 
           {/* <Environment
-            files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/4k/satara_night_no_lamps_4k.hdr"
+            files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/4k/belfast_sunset_puresky_4k.hdr"
             background
           /> */}
 
@@ -66,8 +66,8 @@ const HomeMain = () => {
           <LightModel />
         </Suspense>
       </Canvas>
-      <Loader />
-      {/* <Footer audio={homeSound} /> */}
+      {/* <Loader /> */}
+      <Footer audio={homeSound} />
     </CanvasContainer>
   );
 };

@@ -24,7 +24,6 @@ const YakuStory = () => {
       options={{
         smooth: true,
         direction: "horizontal",
-        repeat: true,
         offset: ["30%", 0],
         // reloadOnContextChange: true,
         tablet: {

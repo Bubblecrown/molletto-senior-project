@@ -1,12 +1,7 @@
-import React, {
-  Suspense,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { useEffect, useState } from "react";
+import Footer from "../../components/Footer/Footer";
+import audioFile from "../../assets/sounds/yakuSound.mp3";
 import HorizontalScroll from "react-scroll-horizontal";
-import { PNoto } from "../../GlobalStyle";
 import {
   BackImage,
   BgImage,
@@ -17,82 +12,54 @@ import {
   TaleContainer,
   TextContainer,
 } from "./YakuStyle";
+import { PNoto } from "../../GlobalStyle";
 import { YakuSceneData } from "../../data/yakuStory";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import "../locomotive-scroll.css";
-import { useHorizontalScroll } from "../../hooks/useHorizontalScroll";
-import { useDrag } from "react-use-gesture";
-import { useSpring } from "react-spring";
-import {
-  motion,
-  transform,
-  useDragControls,
-  useScroll,
-  useTransform,
-} from "framer-motion";
-import useParallax from "../../hooks/useParallax";
-import Footer from "../../components/Footer/Footer";
-import audioFile from "../../assets/sounds/yakuSound.mp3";
 import TestCanvas from "../../TestCanvas";
-import { useInView } from "react-intersection-observer";
 
-gsap.registerPlugin(ScrollTrigger);
-const YakuStoryMain = () => {
-  // const main = useRef<any>(null);
-  // const q = gsap.utils.selector(main);
-  // useEffect(() => {
-  //   gsap.to(q(".b"), {
-  //     x: 200,
-  //     scrollTrigger: {
-  //       trigger: q(".b"),
-  //       start: "left 10px",
-  //       end: "right center",
-  //       scrub: true,
-  //       markers: true,
-  //       horizontal: true,
-  //       id: "scrub",
-  //     },
-  //   });
-  // }, []);
-  // const containerRef = useRef<any>(null);
+const YakuTaleMain = () => {
+  const [windowX, setWindowX] = useState<number>(window.innerWidth);
+  const [windowY, setWindowY] = useState<number>(window.innerHeight);
 
-  // const { scrollYProgress } = useScroll({
-  //   target: containerRef,
-  //   offset: ["start end", "end end"],
-  //   axis: "y",
-  // });
-
-  // const imageValue = useTransform(scrollYProgress, [0, 1], ["0", "100%"]);
-
-  // const containerRef = useRef<any>(null);
-  // const home = useParallax({ speed: 10 });
-
-  const { ref: ref1, animation: animation1 } = useParallax({ speed: 0.5 });
-  const { ref: ref2, animation: animation2 } = useParallax({ speed: 0.2 });
-  const carouselRef = useRef<any>(null);
-  const { scrollX } = useScroll({
-    container: carouselRef,
-  });
-
-  const { scrollXProgress } = useScroll({
-    target: carouselRef,
-    offset: ["start end", "end start"],
-  });
-  const opacity = useTransform(scrollXProgress, [0, 0.5], [1, 0]);
-
-  const scrollParallax = useHorizontalScroll();
-  const controls = useDragControls();
-
-  const { ref, inView, entry } = useInView({ threshold: [0, 0.5, 1] });
   useEffect(() => {
-    console.log("gggggggggggg", inView);
-  }, [inView]);
-  const scrollRef = useRef<any>(null);
+    const doParallax = (cursorX: number, cursorY: number) => {
+      const pointX = windowX / 10 - cursorX;
+      const pointY = windowY / 10 - cursorY;
+
+      const layer1 = document.getElementById("layer-1");
+      const layer2 = document.getElementById("layer-2");
+      const layer3 = document.getElementById("layer-3");
+
+      if (layer1 && layer2) {
+        layer1.style.transform = `translate3d(${pointX / 10}px, ${
+          pointY / 10
+        }px, 0px)`;
+        layer2.style.transform = `translate3d(${pointX / 20}px, ${
+          pointY / 20
+        }px, 0px)`;
+      }
+    };
+
+    const handleMouseMove = (event: MouseEvent) => {
+      doParallax(event.pageX, event.pageY);
+    };
+
+    setWindowX(window.innerWidth);
+    setWindowY(window.innerHeight);
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, [windowX, windowY]);
   return (
     <div style={{ width: "100vw", height: "100vh" }}>
       <HorizontalScroll
         reverseScroll
+        config={{
+          stiffness: 20,
+          damping: 20,
+        }}
         style={{
           height: "100%",
           width: "100%",
@@ -119,26 +86,16 @@ const YakuStoryMain = () => {
           >
             <PNoto>{YakuSceneData.scene_1.text}</PNoto>
           </TextContainer>
-          {/* <motion.div
-            style={{
-              position: "fixed",
-              top: 0,
-              left: 0,
-              right: 0,
-              height: "10px",
-              background: "red",
-              transformOrigin: "0%",
-              scaleX: scrollXProgress,
-              zIndex: 200,
-            }}
-          ></motion.div> */}
+
           <FrontImage
             src={YakuSceneData.scene_1.f}
             alt={YakuSceneData.scene_1.alt}
+            
           />
           <BackImage
             src={YakuSceneData.scene_1.b}
             alt={YakuSceneData.scene_1.alt}
+            
           />
 
           <BgImage
@@ -148,7 +105,7 @@ const YakuStoryMain = () => {
         </TaleContainer>
         {/* end scene 1 */}
         {/* scene 1_2 */}
-        <TaleContainer ref={scrollRef}>
+        <TaleContainer>
           <TextContainer
             t="50%"
             l="-10%"
@@ -165,7 +122,6 @@ const YakuStoryMain = () => {
           >
             <PNoto>{YakuSceneData.scene_1_2.text}</PNoto>
           </TextContainer>
-
           <FrontImage
             src={YakuSceneData.scene_1_2.f}
             alt={YakuSceneData.scene_1_2.alt}
@@ -180,7 +136,8 @@ const YakuStoryMain = () => {
                 delay: 2,
               },
             }}
-            viewport={{ root: scrollRef }}
+            id="layer-1"
+            className="layer"
           />
 
           <BackImage
@@ -192,9 +149,11 @@ const YakuStoryMain = () => {
                 stiffness: 10,
                 damping: 5,
                 duration: 30,
-                delay: 2,
+                delay: 1,
               },
             }}
+            id="layer-2"
+            className="layer"
             src={YakuSceneData.scene_1_2.b}
             alt={YakuSceneData.scene_1_2.alt}
           />
@@ -296,7 +255,7 @@ const YakuStoryMain = () => {
           <FrontImage
             src={YakuSceneData.scene_2_2.f}
             alt={YakuSceneData.scene_2_2.alt}
-            initial={{ opacity: 0, translateY: -300 }}
+            initial={{ opacity: 0, translateY: -200 }}
             whileInView={{
               opacity: 1,
               translateY: 0,
@@ -851,11 +810,11 @@ const YakuStoryMain = () => {
             alt={YakuSceneData.scene_10.alt}
             t="100px"
             l="-500px"
-            initial={{ rotate: -90, translateY: 0, translateX: 100 }}
+            initial={{ rotate: -90, translateY: 0, translateX: 0 }}
             whileInView={{
               rotate: 0,
               translateY: 300,
-              translateX: 300,
+              translateX: 100,
               transition: {
                 type: "spring",
                 stiffness: 30,
@@ -1259,11 +1218,11 @@ const YakuStoryMain = () => {
             <source src={YakuSceneData.scene_15.bg} type="video/mp4" />
           </BgVideo>
         </TaleContainer>
-        {/* end scene 15 */}
+        {/* end scene 14 */}
       </HorizontalScroll>
       <Footer audio={audioFile} volumes={0.5} />
     </div>
   );
 };
 
-export default YakuStoryMain;
+export default YakuTaleMain;

@@ -17,7 +17,7 @@ const YakuHome = () => {
       audioRef.current.play();
       audioRef.current.volume = volume;
       setTimeout(() => {
-        navigate("/about");
+        navigate("/yakuTale");
       }, 1000);
     }
   };
@@ -29,27 +29,27 @@ const YakuHome = () => {
         scale={0.39}
       >
         <group name="yaku_home_door" onClick={playClickSound}>
-          <group position={[12, 68.5, -5.2]} onClick={playClickSound}>
-            <Html>
-              <PulsingModel />
-              <audio ref={audioRef}>
-                <source src={soundEffect} type="audio/mpeg" />
-              </audio>
-            </Html>
-          </group>
-
           <mesh
             name="yakupCube6"
             geometry={nodes.yakupCube6.geometry}
             material={materials["Yaku_area.002"]}
             position={[10.02, 72.8, -5.55]}
-          />
+          ></mesh>
           <mesh
             name="yakupolySurface2pCylinder1"
             geometry={nodes.yakupolySurface2pCylinder1.geometry}
             material={materials["Yaku_area.002"]}
             position={[10.95, 74.16, -5.86]}
-          />
+          >
+            <group position={[-0.5, 0, 0]} onClick={playClickSound}>
+              <Html>
+                <PulsingModel />
+                <audio ref={audioRef}>
+                  <source src={soundEffect} type="audio/mpeg" />
+                </audio>
+              </Html>
+            </group>
+          </mesh>
         </group>
       </group>
     </>

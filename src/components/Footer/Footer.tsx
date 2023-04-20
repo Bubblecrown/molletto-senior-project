@@ -9,7 +9,7 @@ import { useNavigate } from "react-router";
 
 type soundType = {
   audio: any;
-  volumes: number;
+  volumes?: number;
 };
 
 const Footer = ({ audio, volumes = 0.3 }: soundType) => {

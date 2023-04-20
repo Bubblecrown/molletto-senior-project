@@ -28,15 +28,17 @@ const PennyHome = () => {
         rotation={[Math.PI / 2, 0, 0]}
         scale={0.39}
       >
-        <group name="pennie_home_door" onClick={playClickSound}>
-          <group position={[14.19, 10.15, -11.94]}>
+        <group name="pennie_home_door"
+        //  onClick={playClickSound}
+         >
+          {/* <group position={[14.19, 10.15, -11.94]}>
             <Html>
               <PulsingModel />
               <audio ref={audioRef}>
                 <source src={soundEffect} type="audio/mpeg" />
               </audio>
             </Html>
-          </group>
+          </group> */}
           <mesh
             name="peniepCube43"
             geometry={nodes.peniepCube43.geometry}

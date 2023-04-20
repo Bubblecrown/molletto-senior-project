@@ -1,10 +1,12 @@
-import { VideoBackground } from "../GlobalStyle";
-import loading from '../assets/videos/Loading.mp4'
+import { VideoBackground, LoadingContainer } from "../GlobalStyle";
+import loading from "../assets/videos/LoadingScene.mp4";
 const Loading = () => {
   return (
-    <VideoBackground muted loop autoPlay>
-      <source src={loading} type="video/mp4" />
-    </VideoBackground>
+    <LoadingContainer>
+      <VideoBackground muted loop autoPlay>
+        <source src={loading} type="video/mp4" />
+      </VideoBackground>
+    </LoadingContainer>
   );
 };
 

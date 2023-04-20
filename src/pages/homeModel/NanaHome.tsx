@@ -18,7 +18,7 @@ const NanaHome = () => {
       audioRef.current.play();
       audioRef.current.volume = volume;
       setTimeout(() => {
-        navigate("/about");
+        navigate("/nanaTale");
       }, 1000);
     }
   };
@@ -30,7 +30,7 @@ const NanaHome = () => {
         scale={0.39}
       >
         <group name="home_nana_door" onClick={playClickSound}>
-          <group position={[-22.9, 47, -4.3]}>
+          {/* <group position={[-22.9, 47, -4.3]}>
             <Html>
               <PulsingModel />
 
@@ -38,7 +38,7 @@ const NanaHome = () => {
                 <source src={soundEffect} type="audio/mpeg" />
               </audio>
             </Html>
-          </group>
+          </group> */}
           <mesh
             name="thongpCube3"
             geometry={nodes.thongpCube3.geometry}

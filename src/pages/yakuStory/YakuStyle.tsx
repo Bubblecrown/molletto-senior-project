@@ -8,7 +8,8 @@ export const TaleContainer = styled.span<{
   position: relative;
   scroll-snap-align: start;
   z-index: ${({ z }) => (z ? z : 0)};
-  margin-right: -0.1px;
+  margin-right: -1px;
+  
 `;
 
 export const BgVideo = styled.video`
@@ -68,6 +69,7 @@ export const SFrontImage = styled(motion.img)<{
   right: ${({ r }) => (r ? r : "0")};
   z-index: 4;
   will-change: transform;
+
   @media screen and (max-width: 1000px) {
     top: ${({ tm }) => (tm ? tm : "0")};
     left: ${({ lm }) => (lm ? lm : "0")};
@@ -91,6 +93,7 @@ export const FrontImage = styled(motion.img)<{
   right: ${({ r }) => (r ? r : "0")};
   z-index: 3;
   will-change: transform;
+
   @media screen and (max-width: 1000px) {
     top: ${({ tm }) => (tm ? tm : "0")};
     left: ${({ lm }) => (lm ? lm : "0")};
@@ -112,6 +115,7 @@ export const MidImage = styled(motion.img)<{
   left: ${({ l }) => (l ? l : "0")};
   right: ${({ r }) => (r ? r : "0")};
   z-index: 2;
+
   will-change: transform;
   @media screen and (max-width: 1000px) {
     top: ${({ tm }) => (tm ? tm : "0")};

@@ -49,11 +49,21 @@ export const VideoBackground = styled.video<{
   o?: number;
   xOverflow?: string;
 }>`
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
   position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
+  top: 0;
+  left: 0;
+`;
+
+export const LoadingContainer = styled.div`
+  position: relative;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const ContainerScroll = styled.div<{
@@ -258,7 +268,7 @@ export const PNoto = styled.p<{
   u?: string;
 }>`
   font-family: ${santhai};
-  font-size: clamp(1rem, 7vw, 1.30rem);
+  font-size: clamp(1rem, 7vw, 1.3rem);
   font-weight: 400;
   color: ${({ c }) => (c ? c : "#5a4c4c")};
   margin: ${({ m }) => (m ? m : "0")};

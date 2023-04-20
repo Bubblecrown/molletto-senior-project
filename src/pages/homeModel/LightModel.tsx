@@ -3,8 +3,9 @@ import React from "react";
 const LightModel = () => {
   return (
     <>
-      <ambientLight intensity={0.1} color={"#222222"} />
-      <fog attach={"fog"} args={["#FD86A4", 1, 120]} />
+      {/* #FD86A4 */}
+      <ambientLight intensity={0.4} color={"#222222"} />
+      <fog attach={"fog"} args={["rgba(241, 211, 202, 0.217)", 0.2, 120]} />
       <hemisphereLight
         intensity={0.2}
         color={"#00AAFE"}
@@ -61,26 +62,26 @@ const LightModel = () => {
       {/* end Yaku Area */}
 
       {/* Nana Area */}
-      {/* <pointLight
+      <pointLight
         intensity={0.2}
         position={[-12.141, -2.101, 31.396]}
         color={"#C4BC20"}
         decay={1}
         castShadow
-      /> */}
+      />
       {/* <pointLight
         intensity={1}
         position={[-13.831, 3.039, 8.329]}
         color={"#C4BC20"}
         castShadow
       /> */}
-      <pointLight
+      {/* <pointLight
         intensity={0.2}
         position={[-12.141, -2.101, 31.396]}
         color={"#C285FE"}
         decay={1.5}
         castShadow
-      />
+      /> */}
       {/* <pointLight
         intensity={0.5}
         position={[-7.795, -1.844, 26.583]}
