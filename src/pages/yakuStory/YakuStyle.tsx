@@ -127,6 +127,7 @@ export const BackImage = styled(motion.img)<{
   t?: string;
   l?: string;
   r?: string;
+  b?: string;
   tm?: string;
   lm?: string;
   rm?: string;
@@ -137,6 +138,7 @@ export const BackImage = styled(motion.img)<{
   top: ${({ t }) => (t ? t : "0")};
   left: ${({ l }) => (l ? l : "0")};
   right: ${({ r }) => (r ? r : "0")};
+  bottom:${({ b }) => (b ? b : "0")};
   z-index: 1;
   will-change: transform;
 
