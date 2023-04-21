@@ -30,6 +30,7 @@ import {
   BodyAboutContainer,
   AboutMobileDescription,
   AboutLine,
+  AboutSection,
 } from "./AboutStyle";
 import audioFile from "../../assets/sounds/aboutus.mp3";
 
@@ -37,7 +38,7 @@ const AboutMain = () => {
   const isTablet = useTablet();
 
   return (
-    <Section c="#1A1230">
+    <AboutSection>
       <Container>
         <AboutMainContainer>
           {isTablet ? (
@@ -85,7 +86,7 @@ const AboutMain = () => {
               {/* end body */}
             </>
           )}
-          
+
           <ScrollPrompt />
         </AboutMainContainer>
         <AboutHangingLine>
@@ -96,9 +97,9 @@ const AboutMain = () => {
             ></AboutLine>
           </Animator>
         </AboutHangingLine>
-        
+        <Footer audio={audioFile} />
       </Container>
-    </Section>
+    </AboutSection>
   );
 };
 

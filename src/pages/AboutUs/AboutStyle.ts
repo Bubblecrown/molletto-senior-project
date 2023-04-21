@@ -1,8 +1,27 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
-import { roboto } from "../../GlobalStyle";
-
+import { Container, Section, roboto } from "../../GlobalStyle";
+import bgAbout from "../../assets/images/aboutus/BG_About-us.png";
+import bgMember from "../../assets/images/aboutus/curtain_flat.png";
 // About Us
+export const CurtainSection = styled(Section)`
+  background-image: url(${bgMember});
+  height: 130vh;
+  /* Full height */
+  width: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+`;
+export const CurtainContainer = styled(Container)`
+  @media only screen and (max-width: 767px) {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-bottom: 300px;
+  }
+`;
+
 export const HeaderBar = styled(motion.div)<{ h?: string }>`
   position: relative;
   display: block;
@@ -23,12 +42,24 @@ export const CardTeam = styled.div`
   flex-direction: column;
   justify-content: center;
 `;
+
 // end about us
 
 // About main
 
-export const AboutMainContainer = styled.div`
+export const AboutSection = styled(Section)`
+  background-image: url(${bgAbout});
+  width: auto;
+  /* Full height */
+  height: 100%;
 
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+`;
+
+export const AboutMainContainer = styled.div`
   width: 100%;
   height: 100%;
 `;
@@ -38,9 +69,6 @@ export const HeaderAboutMain = styled.div`
   justify-content: space-between;
   align-items: center;
   max-height: 17%;
-
-  @media only screen and (max-width: 1100px) {
-  }
 `;
 export const AboutLogo = styled.div`
   display: flex;

@@ -2,6 +2,15 @@ import styled from "styled-components";
 
 export const PulsingContainer = styled.div`
   cursor: pointer;
+  width: 90vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  @media only screen and (max-width: 767px) {
+    height: 130vh;
+  }
 `;
 export const CircleContainer = styled.div<{ d?: any }>`
   position: absolute;

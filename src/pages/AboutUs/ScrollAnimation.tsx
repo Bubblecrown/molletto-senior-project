@@ -18,7 +18,7 @@ const ScrollAnimation = ({ showAboutUs }: any) => {
 
   return (
     <>
-      <ScrollContainer snap="mandatory">
+      <ScrollContainer>
         <ScrollPage>
           <Animator animation={aboutUsMainAnimation}>
             <AboutMain />
@@ -27,10 +27,10 @@ const ScrollAnimation = ({ showAboutUs }: any) => {
         <ScrollPage>
           <Animator animation={aboutUsAnimation}>
             <AboutUs />
+            <Footer audio={audioFile} />
           </Animator>
         </ScrollPage>
       </ScrollContainer>
-      <Footer audio={audioFile} />
     </>
   );
 };

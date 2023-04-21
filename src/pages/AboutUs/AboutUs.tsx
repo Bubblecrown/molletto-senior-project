@@ -1,12 +1,14 @@
 import { useSelector } from "react-redux";
 import CardMember from "../../components/card/CardMember";
 import HeaderMember from "../../components/HeaderLine/HeaderMember";
-import { CardTeam, Header, HeaderBar } from "./AboutStyle";
+import { CardTeam, CurtainContainer, CurtainSection, Header, HeaderBar } from "./AboutStyle";
 import { RootState } from "../../app/store";
 import { CircleContainer } from "../../components/PulsingCircle/PulsingStyle";
 import PulsingCircle from "../../components/PulsingCircle/PulsingCircle";
 import { Container, Section } from "../../GlobalStyle";
 import Footer from "../../components/Footer/Footer";
+import audioFile from "../../assets/sounds/aboutus.mp3";
+
 const AboutUs = () => {
   const translateX = useSelector(
     (state: RootState) => state.activeCard.translateX
@@ -14,12 +16,12 @@ const AboutUs = () => {
 
   return (
     <>
-      <Section>
-        <Container p="0 5%">
+      <CurtainSection c="transparent">
+        <CurtainContainer p="0 5%">
           <HeaderBar>
             <Header
               animate={{
-                translateY: translateX ? 0 : '-100vh',
+                translateY: translateX ? 0 : "-100vh",
                 display: "absolute",
               }}
               transition={{
@@ -38,9 +40,9 @@ const AboutUs = () => {
             <CardMember />
             <PulsingCircle />
           </CardTeam>
-
-        </Container>
-      </Section>
+          
+        </CurtainContainer>
+      </CurtainSection>
     </>
   );
 };

@@ -145,6 +145,7 @@ const Member = () => {
             </CloseContainer>
           </CloseBox>
         </CloseBoxContainer>
+
       </Container>
     </MemberSection>
   );

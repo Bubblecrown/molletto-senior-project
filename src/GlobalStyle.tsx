@@ -129,6 +129,7 @@ export const Container = styled.div<{
   p?: string;
 }>`
   height: 100vh;
+  width: 100vw;
   padding: ${({ p }) => (p ? p : "2% 5%")};
   @media only screen and (min-width: 1920px) {
     padding: ${({ p }) => (p ? p : "2% 15%")};

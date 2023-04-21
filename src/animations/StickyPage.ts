@@ -1,3 +1,4 @@
+import { relative } from "path";
 import { Animation } from "react-scroll-motion";
 
 export const StickyPage = () =>
