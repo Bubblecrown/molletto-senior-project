@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import HorizontalScroll from "./HorizontalScroll";
 import {
   BackImage,
@@ -17,14 +17,18 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion, useScroll, useTransform } from "framer-motion";
 gsap.registerPlugin(ScrollTrigger);
 function Main() {
-  const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 300], [0, 200]);
-  const y2 = useTransform(scrollY, [0, 300], [0, -200]);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
-  
+  const handleScroll = useCallback((e: any) => {
+    setScrollPosition(e.target.scrollLeft);
+  }, []);
+  const frontImageScrollX = scrollPosition * 0.7;
+  const MidImageScrollX = scrollPosition * 0.5;
+
+  const backImageScrollX = scrollPosition * 0.3;
   return (
     <>
-      <HorizontalScroll>
+      <HorizontalScroll onScroll={handleScroll}>
         {/* scene 1 */}
 
         <TaleContainer>
@@ -44,6 +48,7 @@ function Main() {
           >
             <PNoto>{YakuSceneData.scene_1.text}</PNoto>
           </TextContainer>
+
           <FrontImage
             src={YakuSceneData.scene_1.f}
             alt={YakuSceneData.scene_1.alt}
@@ -52,6 +57,7 @@ function Main() {
           <BackImage
             src={YakuSceneData.scene_1.b}
             alt={YakuSceneData.scene_1.alt}
+            style={{ transform: `translateX(${backImageScrollX}px)` }}
           />
 
           <BgImage

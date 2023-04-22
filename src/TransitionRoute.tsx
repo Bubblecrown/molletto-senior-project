@@ -55,7 +55,7 @@ const TransitionRoute = () => {
           path="/"
           element={
             <Suspense fallback={<Loading />}>
-              <HorizontalScroll />
+              <Main />
             </Suspense>
           }
         />

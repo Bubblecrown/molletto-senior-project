@@ -1,14 +1,14 @@
 import React, { useRef, useEffect } from "react";
 import "./HorizontalScroll.css";
 
-const HorizontalScroll = (props: any) => {
-  const scrollRef = useRef<HTMLDivElement | any>(null);
+const HorizontalScroll = ({ onScroll, children }: any) => {
+  const scrollRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const handleMouseWheel = (e: WheelEvent) => {
       if (scrollRef.current) {
         e.preventDefault();
-        const scrollSpeedFactor = 5; // Adjust this value to increase or decrease the scrolling speed
+        const scrollSpeedFactor = 5;
         const scrollAmount = e.deltaY * scrollSpeedFactor;
         const newScrollPosition = scrollRef.current.scrollLeft + scrollAmount;
 
@@ -33,9 +33,9 @@ const HorizontalScroll = (props: any) => {
   }, []);
 
   return (
-    <div ref={scrollRef} className="horizontal-scroll">
+    <div ref={scrollRef} className="horizontal-scroll" onScroll={onScroll}>
       <div className="scroll-div">
-        <div className="scroll-container">{props.children}</div>
+        <div className="scroll-container">{children}</div>
       </div>
     </div>
   );
