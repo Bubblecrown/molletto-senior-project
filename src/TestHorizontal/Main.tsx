@@ -15,17 +15,36 @@ import { PNoto } from "../GlobalStyle";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion, useScroll, useTransform } from "framer-motion";
+import useWindowSize from "../hooks/useWindowSize";
 gsap.registerPlugin(ScrollTrigger);
+
+const calculateParallaxEffect = (
+  scrollPosition: any,
+  sceneStart: any,
+  sceneEnd: any,
+  effectFactor: any
+) => {
+  const scrollRange = sceneEnd - sceneStart;
+  const relativeScroll = Math.max(
+    0,
+    Math.min(scrollPosition - sceneStart, scrollRange)
+  );
+  const effect = relativeScroll * effectFactor;
+  return effect;
+};
+
 function Main() {
+  const windowSize = useWindowSize();
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const handleScroll = useCallback((e: any) => {
     setScrollPosition(e.target.scrollLeft);
   }, []);
-  const frontImageScrollX = scrollPosition * 0.7;
-  const MidImageScrollX = scrollPosition * 0.5;
+  const maxTranslation = 700;
+  const frontImageScrollX = Math.min(scrollPosition * 0.3, maxTranslation);
+  const midImageScrollX = Math.min(scrollPosition * 0.3, maxTranslation);
+  const backImageScrollX = Math.min(scrollPosition * 0.3, maxTranslation);
 
-  const backImageScrollX = scrollPosition * 0.3;
   return (
     <>
       <HorizontalScroll onScroll={handleScroll}>
@@ -88,35 +107,18 @@ function Main() {
           <FrontImage
             src={YakuSceneData.scene_1_2.f}
             alt={YakuSceneData.scene_1_2.alt}
-            t="none"
+            t="-700px"
             l="none"
-            r="400px"
-            initial={{ translateY: -700 }}
-            whileInView={{
-              translateY: 0,
-              transition: {
-                type: "spring",
-                stiffness: 10,
-                damping: 10,
-                duration: 10,
-              },
-            }}
+            r="300px"
+            style={{ transform: `translateY(${frontImageScrollX}px)` }}
           />
 
           <BackImage
+            t="700px"
             l="none"
-            initial={{ translateY: 700 }}
-            whileInView={{
-              translateY: 0,
-              transition: {
-                type: "spring",
-                stiffness: 10,
-                damping: 15,
-                duration: 30,
-              },
-            }}
             src={YakuSceneData.scene_1_2.b}
             alt={YakuSceneData.scene_1_2.alt}
+            style={{ transform: `translateY(-${backImageScrollX}px)` }}
           />
 
           <BgImage
@@ -145,18 +147,10 @@ function Main() {
 
           <MidImage
             l="400px"
+            t="700px"
             src={YakuSceneData.scene_2.m}
             alt={YakuSceneData.scene_2.alt}
-            initial={{ translateY: 600 }}
-            whileInView={{
-              translateY: 0,
-              transition: {
-                type: "spring",
-                stiffness: 10,
-                damping: 10,
-                duration: 5,
-              },
-            }}
+            style={{ transform: `translateY(-${frontImageScrollX}px)` }}
           />
           <SFrontImage
             r="none"
