@@ -269,7 +269,7 @@ export const PNoto = styled.p<{
   u?: string;
 }>`
   font-family: ${santhai};
-  font-size: clamp(1rem, 7vw, 1.3rem);
+  font-size: 1rem;
   font-weight: 400;
   color: ${({ c }) => (c ? c : "#5a4c4c")};
   margin: ${({ m }) => (m ? m : "0")};
@@ -351,7 +351,7 @@ export const BodyEng = styled.p<{
   color: ${({ c }) => (c ? c : "#fff")};
   margin: ${({ m }) => (m ? m : "0")};
   display: ${({ d }) => (d ? d : "block")};
-  text-indent: ${({ indent }) => (indent ? indent : "0")}; ;
+  text-indent: ${({ indent }) => (indent ? indent : "0")};
 `;
 
 // endNotosan

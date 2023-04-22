@@ -31,6 +31,9 @@ import YakuStoryTale from "./pages/yakuStory/YakuStoryTale";
 import YakuTaleMain from "./pages/yakuStory/YakuTaleMain";
 import YakuTale from "./pages/yakuStory/YakuTale";
 import Loading from "./pages/Loading";
+import Main from "./TestHorizontal/Main";
+import FramerTest from "./TestHorizontal/FramerTest";
+import HorizontalScroll from "./TestHorizontal/HorizontalScroll";
 const HomeLazy = React.lazy(() => import("./pages/homeModel/HomeMain"));
 const AboutLazy = React.lazy(() => import("./pages/AboutUs/ScrollAnimation"));
 const YakuLazy = React.lazy(() => import("./pages/yakuStory/YakuStoryMain"));
@@ -52,7 +55,7 @@ const TransitionRoute = () => {
           path="/"
           element={
             <Suspense fallback={<Loading />}>
-              <HomeLazy />
+              <HorizontalScroll />
             </Suspense>
           }
         />

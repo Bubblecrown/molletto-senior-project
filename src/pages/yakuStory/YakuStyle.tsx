@@ -9,7 +9,6 @@ export const TaleContainer = styled.span<{
   scroll-snap-align: start;
   z-index: ${({ z }) => (z ? z : 0)};
   margin-right: -1px;
-  
 `;
 
 export const BgVideo = styled.video`
@@ -93,12 +92,6 @@ export const FrontImage = styled(motion.img)<{
   right: ${({ r }) => (r ? r : "0")};
   z-index: 3;
   will-change: transform;
-
-  @media screen and (max-width: 1000px) {
-    top: ${({ tm }) => (tm ? tm : "0")};
-    left: ${({ lm }) => (lm ? lm : "0")};
-    right: ${({ rm }) => (rm ? rm : "0")};
-  }
 `;
 export const MidImage = styled(motion.img)<{
   t?: string;
@@ -115,13 +108,6 @@ export const MidImage = styled(motion.img)<{
   left: ${({ l }) => (l ? l : "0")};
   right: ${({ r }) => (r ? r : "0")};
   z-index: 2;
-
-  will-change: transform;
-  @media screen and (max-width: 1000px) {
-    top: ${({ tm }) => (tm ? tm : "0")};
-    left: ${({ lm }) => (lm ? lm : "0")};
-    right: ${({ rm }) => (rm ? rm : "0")};
-  }
 `;
 export const BackImage = styled(motion.img)<{
   t?: string;
@@ -138,13 +124,7 @@ export const BackImage = styled(motion.img)<{
   top: ${({ t }) => (t ? t : "0")};
   left: ${({ l }) => (l ? l : "0")};
   right: ${({ r }) => (r ? r : "0")};
-  bottom:${({ b }) => (b ? b : "0")};
+  bottom: ${({ b }) => (b ? b : "0")};
   z-index: 1;
   will-change: transform;
-
-  @media screen and (max-width: 1000px) {
-    top: ${({ tm }) => (tm ? tm : "0")};
-    left: ${({ lm }) => (lm ? lm : "0")};
-    right: ${({ rm }) => (rm ? rm : "0")};
-  }
 `;
