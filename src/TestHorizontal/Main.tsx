@@ -15,41 +15,59 @@ import { PNoto } from "../GlobalStyle";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion, useScroll, useTransform } from "framer-motion";
-import useWindowSize from "../hooks/useWindowSize";
+import { sceneEffectFunctions } from "./sceneEffectFunctions";
 gsap.registerPlugin(ScrollTrigger);
 
-const calculateParallaxEffect = (
-  scrollPosition: any,
-  sceneStart: any,
-  sceneEnd: any,
-  effectFactor: any
-) => {
+interface ParallaxEffectParams {
+  scrollPosition: number;
+  sceneStart: number;
+  sceneEnd: number;
+  effectFactor: number;
+  maxTranslation: number;
+}
+
+const calculateParallaxEffect = ({
+  scrollPosition,
+  sceneStart,
+  sceneEnd,
+  effectFactor,
+  maxTranslation,
+}: ParallaxEffectParams): number => {
   const scrollRange = sceneEnd - sceneStart;
   const relativeScroll = Math.max(
     0,
     Math.min(scrollPosition - sceneStart, scrollRange)
   );
-  const effect = relativeScroll * effectFactor;
+  const effect = Math.min(relativeScroll * effectFactor, maxTranslation);
   return effect;
 };
 
 function Main() {
-  const windowSize = useWindowSize();
-  const [scrollPosition, setScrollPosition] = useState(0);
+  // const [scrollPosition, setScrollPosition] = useState(0);
 
-  const handleScroll = useCallback((e: any) => {
-    setScrollPosition(e.target.scrollLeft);
+  // const handleScroll = useCallback((e: any) => {
+  //   setScrollPosition(e.target.scrollLeft);
+  // }, []);
+  // const maxTranslation = 700;
+  // const frontImageScrollX = Math.min(scrollPosition * 0.3, maxTranslation);
+  // const midImageScrollX = Math.min(scrollPosition * 0.2, maxTranslation);
+  // const backImageScrollX = Math.min(scrollPosition * 0.1, maxTranslation);
+
+  const [scrollPosition, setScrollPosition] = useState<number>(0);
+
+  const handleScroll = useCallback((e: React.UIEvent<HTMLDivElement>) => {
+    setScrollPosition(e.currentTarget.scrollLeft);
   }, []);
-  const maxTranslation = 700;
-  const frontImageScrollX = Math.min(scrollPosition * 0.3, maxTranslation);
-  const midImageScrollX = Math.min(scrollPosition * 0.3, maxTranslation);
-  const backImageScrollX = Math.min(scrollPosition * 0.3, maxTranslation);
+
+  // Calculate the effects for each scene
+  const sceneEffects = sceneEffectFunctions.map((calculateEffect) =>
+    calculateEffect(scrollPosition)
+  );
 
   return (
     <>
       <HorizontalScroll onScroll={handleScroll}>
         {/* scene 1 */}
-
         <TaleContainer>
           <TextContainer
             t="5%"
@@ -76,7 +94,7 @@ function Main() {
           <BackImage
             src={YakuSceneData.scene_1.b}
             alt={YakuSceneData.scene_1.alt}
-            style={{ transform: `translateX(${backImageScrollX}px)` }}
+            style={{ transform: `translateX(${sceneEffects[0].y}px)` }}
           />
 
           <BgImage
@@ -110,7 +128,7 @@ function Main() {
             t="-700px"
             l="none"
             r="300px"
-            style={{ transform: `translateY(${frontImageScrollX}px)` }}
+            style={{ transform: `translateY(${sceneEffects[1].y}px)` }}
           />
 
           <BackImage
@@ -118,7 +136,7 @@ function Main() {
             l="none"
             src={YakuSceneData.scene_1_2.b}
             alt={YakuSceneData.scene_1_2.alt}
-            style={{ transform: `translateY(-${backImageScrollX}px)` }}
+            style={{ transform: `translateY(-${sceneEffects[1].y}px)` }}
           />
 
           <BgImage
@@ -150,23 +168,14 @@ function Main() {
             t="700px"
             src={YakuSceneData.scene_2.m}
             alt={YakuSceneData.scene_2.alt}
-            style={{ transform: `translateY(-${frontImageScrollX}px)` }}
+            style={{ transform: `translateY(-${sceneEffects[2].y}px)` }}
           />
           <SFrontImage
             r="none"
+            l="200px"
             src={YakuSceneData.scene_2.sf}
             alt={YakuSceneData.scene_2.alt}
-            initial={{ translateX: -100, opacity: 0 }}
-            whileInView={{
-              translateX: 0,
-              opacity: 1,
-              transition: {
-                type: "spring",
-                stiffness: 10,
-                damping: 5,
-                duration: 10,
-              },
-            }}
+            style={{ transform: `translateX(-${sceneEffects[2].x}px)` }}
           />
           <BackImage
             src={YakuSceneData.scene_2.b}
@@ -209,19 +218,10 @@ function Main() {
           />
           <FrontImage
             l="none"
+            t="-300px"
             src={YakuSceneData.scene_2_2.f}
             alt={YakuSceneData.scene_2_2.alt}
-            initial={{ translateY: -300, opacity: 0 }}
-            whileInView={{
-              translateY: 0,
-              opacity: 1,
-              transition: {
-                type: "spring",
-                stiffness: 10,
-                damping: 10,
-                duration: 10,
-              },
-            }}
+            style={{ transform: `translateY(${sceneEffects[3]}px)` }}
           />
           <TextContainer
             t="10%"

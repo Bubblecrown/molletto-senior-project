@@ -16,7 +16,7 @@ import {
 import YakuStory from "../yakuStory/YakuStory";
 import MessageBox from "../../components/messageBox/MessageBox";
 import { CanvasContainer } from "../homeModel/HomeStyle";
-import { YakuWeb } from "./Yakuweb";
+import YakuModel from "./Yakuweb";
 
 const YakuMain = () => {
   return (
@@ -29,8 +29,8 @@ const YakuMain = () => {
 
         <ambientLight intensity={0.6} />
         {/* <PerspectiveCamera position={[0, 0, 5]} makeDefault /> */}
-
-        <YakuWeb scale={40} position={[0, -2.5, 0]} />
+        <OrbitControls></OrbitControls>
+        <YakuModel scale={40} position={[0, 0, 0]} />
 
         {/* <group scale={20} position={[0, 0, 0]}>
           <Html>
