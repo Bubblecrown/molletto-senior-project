@@ -21,8 +21,7 @@ export const TaleContainer = styled.span<{
 export const BgVideo = styled.video`
   position: relative;
   width: auto;
-  min-width: 1920px;
-  height: auto;
+  height: 100%;
   top: 0;
   left: 0;
   @media screen and (max-width: 1000px) {
@@ -35,7 +34,6 @@ export const ParallaxContainer = styled(motion.div)``;
 export const BgImage = styled.img`
   position: relative;
   width: auto;
-  min-width: 1920px;
   height: 100%;
   top: 0;
   left: 0;

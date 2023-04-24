@@ -539,7 +539,7 @@ const YakuStoryMain = () => {
                 stiffness: 10,
                 damping: 10,
                 duration: 15,
-                delay:1
+                delay: 1,
               },
             }}
           />
@@ -603,7 +603,7 @@ const YakuStoryMain = () => {
                 stiffness: 10,
                 damping: 10,
                 duration: 10,
-                delay:1
+                delay: 1,
               },
             }}
           />
@@ -629,7 +629,7 @@ const YakuStoryMain = () => {
                 stiffness: 10,
                 damping: 30,
                 duration: 20,
-                delay:1
+                delay: 1,
               },
             }}
           />
@@ -646,7 +646,7 @@ const YakuStoryMain = () => {
                 stiffness: 10,
                 damping: 20,
                 duration: 10,
-                delay:1
+                delay: 1,
               },
             }}
           />
@@ -698,7 +698,7 @@ const YakuStoryMain = () => {
                 stiffness: 10,
                 damping: 10,
                 duration: 15,
-                delay:1
+                delay: 1,
               },
             }}
           />
@@ -794,7 +794,7 @@ const YakuStoryMain = () => {
                 stiffness: 30,
                 damping: 10,
                 duration: 5,
-                delay:2
+                delay: 2,
               },
             }}
           />
@@ -895,7 +895,7 @@ const YakuStoryMain = () => {
                 stiffness: 20,
                 damping: 10,
                 duration: 5,
-                delay:1
+                delay: 1,
               },
             }}
           />
@@ -911,7 +911,7 @@ const YakuStoryMain = () => {
                 stiffness: 20,
                 damping: 30,
                 duration: 5,
-                delay:1
+                delay: 1,
               },
             }}
           />
@@ -928,7 +928,7 @@ const YakuStoryMain = () => {
                 stiffness: 20,
                 damping: 10,
                 duration: 5,
-                delay:1
+                delay: 1,
               },
             }}
           />
@@ -960,7 +960,6 @@ const YakuStoryMain = () => {
                 stiffness: 10,
                 damping: 5,
                 duration: 15,
-              
               },
             }}
           >
@@ -981,7 +980,7 @@ const YakuStoryMain = () => {
                 stiffness: 20,
                 damping: 15,
                 duration: 5,
-                delay:1
+                delay: 1,
               },
             }}
           />
@@ -998,7 +997,7 @@ const YakuStoryMain = () => {
                 stiffness: 20,
                 damping: 20,
                 duration: 5,
-                delay:1
+                delay: 1,
               },
             }}
           />
@@ -1014,7 +1013,7 @@ const YakuStoryMain = () => {
                 stiffness: 20,
                 damping: 10,
                 duration: 5,
-                delay:1
+                delay: 1,
               },
             }}
           />
@@ -1053,6 +1052,7 @@ const YakuStoryMain = () => {
           </TextContainer>
 
           <FrontImage
+            l="none"
             src={YakuSceneData.scene_13.f}
             alt={YakuSceneData.scene_13.alt}
             initial={{ translateX: 1000 }}
@@ -1196,11 +1196,11 @@ const YakuStoryMain = () => {
                 stiffness: 20,
                 damping: 10,
                 duration: 5,
-                delay:1
+                delay: 1,
               },
             }}
           />
-          <GraveContainer onClick={playClickSound}>
+          <GraveContainer onClick={()=>navigate('/yaku_character')}>
             <PulsingModel />
           </GraveContainer>
           <MidImage
@@ -1221,7 +1221,7 @@ const YakuStoryMain = () => {
                 stiffness: 20,
                 damping: 50,
                 duration: 5,
-                delay:1
+                delay: 1,
               },
             }}
           />
