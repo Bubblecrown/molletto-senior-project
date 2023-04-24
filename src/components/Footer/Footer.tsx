@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import React, { createRef, useRef, useState } from "react";
+import React, { createRef, useEffect, useRef, useState } from "react";
 import { IconContainer, SvgNav } from "./FooterStyle";
 import audioFile from "../../assets/modern.mp3";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,13 +19,23 @@ const Footer = ({ audio, volumes = 0.3 }: soundType) => {
   const volume = volumes;
   const toggleAudio = () => {
     dispatch(setIsMuted());
-    if (audioRef?.current?.paused) {
-      audioRef.current.play();
-      audioRef.current.volume = volume;
-    } else {
-      audioRef?.current?.pause();
+    if (audioRef?.current) {
+      if (isMuted) {
+        audioRef.current.play();
+        audioRef.current.volume = volume;
+      } else {
+        audioRef?.current?.pause();
+      }
     }
   };
+
+  useEffect(() => {
+    if (!isMuted && audioRef?.current) {
+      audioRef.current.play();
+      audioRef.current.volume = volume;
+    }
+  }, [isMuted]);
+  
   const navigate = useNavigate();
 
   return (

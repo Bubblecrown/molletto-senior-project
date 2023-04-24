@@ -268,9 +268,11 @@ export const H4Noto = styled.h4<{
   m?: string;
   d?: string;
   u?: string;
+  fs?: number;
 }>`
   font-family: ${santhai};
-  font-size: clamp(0.4rem, 1vw, 1.2rem);
+  font-size: ${({ fs }) =>
+    fs ? `clamp(0.75rem, 1vw, ${fs}rem)` : "clamp(0.75rem, 1vw, 1.2rem)"};
   font-weight: 400;
   color: ${({ c }) => (c ? c : "#fff")};
   margin: ${({ m }) => (m ? m : "0")};

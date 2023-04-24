@@ -17,7 +17,7 @@ const PennyHome = () => {
       audioRef.current.play();
       audioRef.current.volume = volume;
       setTimeout(() => {
-        navigate("/about");
+        navigate("/pennyTale");
       }, 1000);
     }
   };
@@ -28,23 +28,30 @@ const PennyHome = () => {
         rotation={[Math.PI / 2, 0, 0]}
         scale={0.39}
       >
-        <group name="pennie_home_door"
-        //  onClick={playClickSound}
-         >
-          {/* <group position={[14.19, 10.15, -11.94]}>
-            <Html>
-              <PulsingModel />
-              <audio ref={audioRef}>
-                <source src={soundEffect} type="audio/mpeg" />
-              </audio>
-            </Html>
-          </group> */}
+        <group name="pennie_home_door" onClick={playClickSound}>
           <mesh
             name="peniepCube43"
             geometry={nodes.peniepCube43.geometry}
             material={materials["Penny_area.002"]}
             position={[14.19, 10.15, -11.94]}
-          />
+          >
+            <group>
+              <Html>
+                <div
+                  onClick={() =>
+                    setTimeout(() => {
+                      navigate("/pennyTale");
+                    }, 1000)
+                  }
+                >
+                  <PulsingModel />
+                </div>
+                <audio ref={audioRef}>
+                  <source src={soundEffect} type="audio/mpeg" />
+                </audio>
+              </Html>
+            </group>
+          </mesh>
         </group>
       </group>
     </>

@@ -15,6 +15,7 @@ const soundSlice = createSlice({
     setIsMuted: (state) => {
       state.isMuted = !state.isMuted;
     },
+    
   },
 });
 

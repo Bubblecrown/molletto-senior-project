@@ -1,4 +1,3 @@
-
 import LogoTitle from "../assets/images/logo/LogoTitle.png";
 import dev from "../assets/videos/members/dev.mp4";
 import uxui from "../assets/videos/members/uxui.mp4";
@@ -10,6 +9,9 @@ import linkedin from "../assets/images/social/linkedin.png";
 import twitter from "../assets/images/social/twit.png";
 import instagram from "../assets/images/social/instag.png";
 import behance from "../assets/images/social/behance.png";
+import github from "../assets/images/social/github.png";
+import facebook from "../assets/images/social/facebook_logo.png";
+import artstation from "../assets/images/social/artstation.png";
 import { CardAnimation } from "../types/CardAnimation";
 
 const skyblue = "#678BDF";
@@ -88,7 +90,8 @@ export const EachMember: {
     responsibility: [
       "Ux/Ui Designer",
       "Art Director",
-      "3D Modeller",
+      "UE",
+      "Modeller",
       "Animator",
     ],
     desciption:
@@ -96,16 +99,12 @@ export const EachMember: {
     social: [
       {
         platform: "linkedin",
-        link: "https://translate.google.co.th/?hl=th&sl=en&tl=th&text=%0Aaqua&op=translate",
+        link: "https://www.linkedin.com/in/pimchawisa-saparram/",
       },
-      { platform: "instagram", link: "https://www.facebook.com" },
+      { platform: "instagram", link: "https://www.instagram.com/mint_pchw/" },
       {
         platform: "behance",
-        link: "https://discord.com/channels/593073213412474880/803634758490914826",
-      },
-      {
-        platform: "twitter",
-        link: "https://www.youtube.com/watch?v=oVE6cx3UEpM&t=122s",
+        link: "https://www.behance.net/pimchawsaparra",
       },
     ],
   },
@@ -117,21 +116,16 @@ export const EachMember: {
     memberName: "Suchanya Namwong",
     responsibility: ["Front-end Developer"],
     desciption:
-      "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s ",
+      "I'm Front-End Developer currently working on a senior project in web development. I take pride in my ability to create engaging and user-friendly website, utilizing my skills in HTML, CSS, JavaScript, and various front-end frameworks. As I contribute to this significant project, I continuously strive to learn new technologies and best practices to enhance the end product. In my spare time, I love exploring the world of art, diving into captivating books, and constantly working on self-improvement through skill development. Feel free to explore my GitHub repositories to see my progress and other projects I've been working on. I'm always open to feedback and collaboration, so don't hesitate to reach out if you have any questions or suggestions,I'm thankful!, I'm excited to learn and collaborate with others on this journey!",
     social: [
       {
         platform: "linkedin",
-        link: "https://www.youtube.com/watch?v=oVE6cx3UEpM&t=122s",
+        link: "hhttps://www.linkedin.com/in/suchanya-namwong-0b6929250/",
       },
       {
-        platform: "instagram",
+        platform: "github",
         link: "https://translate.google.co.th/?hl=th&sl=en&tl=th&text=%0Aaqua&op=translate",
       },
-      {
-        platform: "behance",
-        link: "https://discord.com/channels/593073213412474880/803634758490914826",
-      },
-      { platform: "twitter", link: "https://www.facebook.com" },
     ],
   },
   {
@@ -140,22 +134,29 @@ export const EachMember: {
     profile: art,
     color: black,
     memberName: "Saowarod Kimbut",
-    responsibility: ["Concept Art"],
+    responsibility: ["Concept Artist", "Modeler", "Character setup"],
     desciption:
-      "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s ",
+      "I have contributed to the design of concept art on this website that is cute and accessible, in order to give a new image to traditional Thai desserts and introduce them to more young people. My goal is to work in the field of concept art design. Currently, I am looking for a job as a concept artist. I have the ability to work well with others and am willing to take on work and receive advice from everyone, as I believe that everyone has different potential. Therefore, I am determined to develop myself and constantly learn new things. If you have any questions or would like to contact me, please feel free to reach out to me through any of the contact channels provided",
     social: [
-      { platform: "linkedin", link: "https://www.facebook.com" },
       {
-        platform: "instagram",
-        link: "https://translate.google.co.th/?hl=th&sl=en&tl=th&text=%0Aaqua&op=translate",
+        platform: "linkedin",
+        link: "https://www.linkedin.com/in/saowarod-kimbut-8099a5250/",
       },
       {
-        platform: "behance",
-        link: "https://discord.com/channels/593073213412474880/803634758490914826",
+        platform: "instagram",
+        link: "https://www.instagram.com/passiflora09art/",
+      },
+      {
+        platform: "facebook",
+        link: "https://www.facebook.com/Passiflora09ART/",
       },
       {
         platform: "twitter",
-        link: "https://www.youtube.com/watch?v=oVE6cx3UEpM&t=122s",
+        link: "https://twitter.com/Passiflora09Art",
+      },
+      {
+        platform: "artstation",
+        link: "https://www.artstation.com/passiflora09art",
       },
     ],
   },
@@ -181,6 +182,18 @@ export const SocialLogo: {
   {
     socialImg: twitter,
     socialAlt: "twitter",
+  },
+  {
+    socialImg: github,
+    socialAlt: "github",
+  },
+  {
+    socialImg: facebook,
+    socialAlt: "facebook",
+  },
+  {
+    socialImg: artstation,
+    socialAlt: "artstation",
   },
 ];
 

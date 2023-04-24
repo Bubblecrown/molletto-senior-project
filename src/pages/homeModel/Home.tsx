@@ -80,6 +80,7 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
     const position = e.object.position.toArray();
     handleHover(hoverState, message, position);
   };
+
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
@@ -120,27 +121,7 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
           <group
             name="pennie_home"
             position={[0, 0, 0]}
-            // onPointerEnter={(e) =>
-            //   handlePointerEvents(e, true, [
-            //     DessertData.pennie_home.origin,
-            //     DessertData.pennie_home.ingredient,
-            //     DessertData.pennie_home.dessertName,
-            //     DessertData.pennie_home.description,
-            //     DessertData.pennie_home.image,
-            //     DessertData.pennie_home.imageAlt,
-            //   ])
-            // }
-            // onPointerDown={(e) =>
-            //   handlePointerEvents(e, true, [
-            //     DessertData.pennie_home.origin,
-            //     DessertData.pennie_home.ingredient,
-            //     DessertData.pennie_home.dessertName,
-            //     DessertData.pennie_home.description,
-            //     DessertData.pennie_home.image,
-            //     DessertData.pennie_home.imageAlt,
-            //   ])
-            // }
-            // onPointerOut={(e) => handlePointerEvents(e, false, [""])}
+            
           >
             <group name="group14" />
             <group name="pCube10" />
@@ -768,18 +749,7 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
           </group>
           <group
             name="yaku_home"
-            // position={[0, 0, 0]}
-            // onPointerEnter={(e) =>
-            //   handlePointerEvents(e, true, [
-            //     DessertData.yaku_home.origin,
-            //     DessertData.yaku_home.ingredient,
-            //     DessertData.yaku_home.dessertName,
-            //     DessertData.yaku_home.description,
-            //     DessertData.yaku_home.image,
-            //     DessertData.yaku_home.imageAlt,
-            //   ])
-            // }
-            // onPointerOut={(e) => handlePointerEvents(e, false, [""])}
+            
           >
             <group
               name="Armature001"
@@ -893,27 +863,7 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
           <group
             name="home_nana"
             position={[0, 0, 0]}
-            // onPointerEnter={(e) =>
-            //   handlePointerEvents(e, true, [
-            //     DessertData.home_nana.origin,
-            //     DessertData.home_nana.ingredient,
-            //     DessertData.home_nana.dessertName,
-            //     DessertData.home_nana.description,
-            //     DessertData.home_nana.image,
-            //     DessertData.home_nana.imageAlt,
-            //   ])
-            // }
-            // onPointerDown={(e) =>
-            //   handlePointerEvents(e, true, [
-            //     DessertData.home_nana.origin,
-            //     DessertData.home_nana.ingredient,
-            //     DessertData.home_nana.dessertName,
-            //     DessertData.home_nana.description,
-            //     DessertData.home_nana.image,
-            //     DessertData.home_nana.imageAlt,
-            //   ])
-            // }
-            // onPointerOut={(e) => handlePointerEvents(e, false, [""])}
+            
           >
             <mesh
               name="pCylinder10001"

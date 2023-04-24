@@ -1,9 +1,11 @@
 import { Html, useAnimations, useGLTF } from "@react-three/drei";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { GLTFResult } from "../../types/HomeMesh";
 import soundEffect from "../../assets/sounds/effects/knock_door.mp3";
 import { useNavigate } from "react-router";
-
+import PulsingModel from "../../components/PulsingCircle/PulsingModel";
+import { motion } from "framer-motion";
+import DessertPopup from "../../components/DessertPopup/DessertPopup";
 
 const NanaHome = () => {
   const navigate = useNavigate();
@@ -21,6 +23,7 @@ const NanaHome = () => {
       }, 1000);
     }
   };
+
   return (
     <>
       <group
@@ -28,11 +31,13 @@ const NanaHome = () => {
         rotation={[Math.PI / 2, 0, 0]}
         scale={0.39}
       >
-        <group name="home_nana_door" onClick={playClickSound}>
+        <group
+          name="home_nana_door"
+          //  onClick={playClickSound}
+        >
           {/* <group position={[-22.9, 47, -4.3]}>
             <Html>
               <PulsingModel />
-
               <audio ref={audioRef}>
                 <source src={soundEffect} type="audio/mpeg" />
               </audio>

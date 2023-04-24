@@ -93,7 +93,7 @@ const Member = () => {
                       (s) => s.platform === logo.socialAlt
                     );
                     return (
-                      <LinkLogo key={logo.socialAlt} href={socialMedia?.link}>
+                      <LinkLogo key={logo.socialAlt} href={socialMedia?.link} target="_blank">
                         <SocialImg src={logo.socialImg} alt={logo.socialAlt} />
                       </LinkLogo>
                     );

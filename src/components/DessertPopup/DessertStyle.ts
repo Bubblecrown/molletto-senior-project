@@ -64,11 +64,14 @@ export const DessertHandwriting = styled.div`
 `;
 
 export const YakuPopupContainer = styled.div`
-  width: 300px;
+  width: clamp(200px, 40vw, 350px);
   height: auto;
 
   /* border: 2px solid black; */
-  padding: 20px;
+  padding: 20px 35px;
   background-color: #fff;
-  border-radius: 30px;
+  border-radius: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 `;

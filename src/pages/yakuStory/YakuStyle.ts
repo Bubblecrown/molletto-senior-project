@@ -67,7 +67,7 @@ export const TextContainer = styled(motion.div)<{
   box-shadow: 0px 0px 20px 20px #fff;
 `;
 
-export const GraveContainer = styled.div<{
+export const GraveContainer = styled(motion.div)<{
   t?: string;
   l?: string;
   r?: string;
@@ -76,8 +76,8 @@ export const GraveContainer = styled.div<{
   rm?: string;
 }>`
   position: absolute;
-  top: 60%;
-  right: 30%;
+  top: ${({ t }) => (t ? t : "60%")};
+  left: ${({ l }) => (l ? l : "30%")};
   z-index: 20;
 `;
 export const SFrontImage = styled(motion.img)<{

@@ -5,14 +5,7 @@ import bgAbout from "../../assets/images/aboutus/BG_About-us.png";
 import bgMember from "../../assets/images/aboutus/curtain_flat.png";
 // About Us
 export const CurtainSection = styled(Section)`
-  background-image: url(${bgMember});
-  height: 130vh;
-  /* Full height */
-  width: 100%;
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: #c9a7eb;
 `;
 export const CurtainContainer = styled(Container)`
   @media only screen and (max-width: 767px) {

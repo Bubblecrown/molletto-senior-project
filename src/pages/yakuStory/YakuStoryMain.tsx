@@ -1,10 +1,4 @@
-import React, {
-  Suspense,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from "react";
+
 import HorizontalScroll from "react-scroll-horizontal";
 import { PNoto } from "../../GlobalStyle";
 import {
@@ -19,44 +13,17 @@ import {
   TextContainer,
 } from "./YakuStyle";
 import { YakuSceneData } from "../../data/yakuStory";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import "../locomotive-scroll.css";
-import { useHorizontalScroll } from "../../hooks/useHorizontalScroll";
-import { useDrag } from "react-use-gesture";
-import { useSpring } from "react-spring";
-import {
-  motion,
-  transform,
-  useDragControls,
-  useScroll,
-  useTransform,
-} from "framer-motion";
-import useParallax from "../../hooks/useParallax";
 import Footer from "../../components/Footer/Footer";
 import audioFile from "../../assets/sounds/yakuSound.mp3";
-import TestCanvas from "../../TestCanvas";
-import { useInView } from "react-intersection-observer";
-import PulsingPresent from "../../components/PulsingCircle/PulsingPresent";
+
 import { useTablet } from "../../hooks/useMediaQuery";
 import PulsingModel from "../../components/PulsingCircle/PulsingModel";
 import { useNavigate } from "react-router";
 
-gsap.registerPlugin(ScrollTrigger);
 const YakuStoryMain = () => {
   const isTablet = useTablet();
   const navigate = useNavigate();
-  const audioRef = useRef<HTMLAudioElement>(null);
-  const volume = 0.3;
-  const playClickSound = () => {
-    if (audioRef?.current?.paused) {
-      audioRef.current.play();
-      audioRef.current.volume = volume;
-      setTimeout(() => {
-        navigate("/yaku_character");
-      }, 1000);
-    }
-  };
+
   return (
     <div style={{ width: "100vw", height: "100vh", overflowX: "hidden" }}>
       <HorizontalScroll

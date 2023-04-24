@@ -8,13 +8,13 @@ interface YakuPopupProps {
   description: string;
 }
 
-const YakuPopup = ({ name, description }: YakuPopupProps) => {
+const TalePopup = ({ name, description }: YakuPopupProps) => {
   return (
     <YakuPopupContainer>
-      <H2Noto c="#535353">{name}</H2Noto>
-      <H4Noto c="#535353">{description}</H4Noto>
+      <H2Noto c="#3a3a3a">{name}</H2Noto>
+      <H4Noto c="#3a3a3a">{description}</H4Noto>
     </YakuPopupContainer>
   );
 };
 
-export default YakuPopup;
+export default TalePopup;

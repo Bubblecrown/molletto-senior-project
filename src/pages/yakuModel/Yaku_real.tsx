@@ -8,7 +8,7 @@ import React, { useRef, useState } from "react";
 import { Html, useGLTF } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 
-import YakuPopup from "../../components/DessertPopup/YakuPopup";
+import YakuPopup from "../../components/DessertPopup/TalePopup";
 import { motion } from "framer-motion-3d";
 import PulsingModel from "../../components/PulsingCircle/PulsingModel";
 import { useHover } from "../../hooks/useHover";
@@ -44,7 +44,12 @@ export function YakuReal(props: JSX.IntrinsicElements["group"]) {
       >
         <group position={[2, 1, -1.5]}>
           <Html>
-            <PulsingPresent name={"มะพร้าว"} description={"เพิ่มมิติของรสชาติ และตกแต่งขนมให้สวยงามน่ารับประทาน"} />
+            <PulsingPresent
+              name={"มะพร้าว"}
+              description={
+                "เพิ่มมิติของรสชาติ และตกแต่งขนมให้สวยงามน่ารับประทาน"
+              }
+            />
           </Html>
         </group>
       </mesh>
@@ -72,7 +77,10 @@ export function YakuReal(props: JSX.IntrinsicElements["group"]) {
         <mesh geometry={nodes.body.geometry} material={materials.Yaku_body}>
           <group position={[-2, -3, 3]}>
             <Html>
-              <PulsingPresent name={"ยาคู"} description={"เกิดมาจากแป้งและมีสีเขียวธรรมชาติจากใบเตย"} />
+              <PulsingPresent
+                name={"ยาคู"}
+                description={"เกิดมาจากแป้งและมีสีเขียวธรรมชาติจากใบเตย"}
+              />
             </Html>
           </group>
         </mesh>

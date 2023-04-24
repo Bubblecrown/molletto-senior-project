@@ -8,6 +8,7 @@ export const PulsingContainer = styled.div`
   justify-content: center;
   align-items: center;
   position: absolute;
+  pointer-events: none;
   @media only screen and (max-width: 767px) {
     height: 130vh;
   }
