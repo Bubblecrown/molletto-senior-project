@@ -1,42 +1,25 @@
+// YakuMain.tsx
 import { Canvas } from "@react-three/fiber";
-
-// import { FPSControls } from "react-three-fpscontrols/dist/cjs";
-import { FPSControls } from "react-three-fpscontrols";
-// import { FPSControls } from "../../../node_modules/react-three-fpscontrols/dist/cjs/index.js";
-import { Suspense } from "react";
-import {
-  Environment,
-  Html,
-  Loader,
-  OrbitControls,
-  PerspectiveCamera,
-  PresentationControls,
-  TrackballControls,
-} from "@react-three/drei";
-import YakuStory from "../yakuStory/YakuStory";
-import MessageBox from "../../components/messageBox/MessageBox";
+import { Environment, Loader, OrbitControls } from "@react-three/drei";
 import { CanvasContainer } from "../homeModel/HomeStyle";
-import YakuModel from "./Yakuweb";
+
+import { YakuReal } from "./Yaku_real";
 
 const YakuMain = () => {
   return (
     <CanvasContainer>
-      <Canvas>
+      <Canvas style={{ background: "#e8e8e8" }}>
         {/* <Environment
           files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/4k/studio_small_08_4k.hdr"
           background
         /> */}
 
         <ambientLight intensity={0.6} />
-        {/* <PerspectiveCamera position={[0, 0, 5]} makeDefault /> */}
-        <OrbitControls></OrbitControls>
-        <YakuModel scale={40} position={[0, 0, 0]} />
-
-        {/* <group scale={20} position={[0, 0, 0]}>
-          <Html>
-            <MessageBox />
-          </Html>
-        </group> */}
+        <OrbitControls
+          minPolarAngle={Math.PI / 3}
+          maxPolarAngle={Math.PI - Math.PI / 3}
+        />
+        <YakuReal scale={30} position={[0, -0.5, 0]} />
       </Canvas>
       <Loader />
       {/* <Footer audio={homeSound} /> */}

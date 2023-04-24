@@ -55,7 +55,7 @@ const TransitionRoute = () => {
           path="/"
           element={
             <Suspense fallback={<Loading />}>
-              <Main />
+              <YakuStoryMain />
             </Suspense>
           }
         />
@@ -75,7 +75,14 @@ const TransitionRoute = () => {
               <YakuLazy />
             </Suspense>
           }
-        />
+        /><Route
+        path="/yaku_character"
+        element={
+          <Suspense fallback={<Loading />}>
+            <YakuMain />
+          </Suspense>
+        }
+      />
         <Route path="/about/:id" element={<Member />} />
         {/* <Route path="/yakuTale" element={<YakuStoryMain />} /> */}
       </Routes>

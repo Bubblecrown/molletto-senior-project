@@ -3,8 +3,7 @@ import React, { useRef } from "react";
 import { GLTFResult } from "../../types/HomeMesh";
 import soundEffect from "../../assets/sounds/effects/knock_door.mp3";
 import { useNavigate } from "react-router";
-import PulsingModel from "../../components/PulsingCircle/PulsingModel";
-import PulsingCanvas from "../../components/PulsingCircle/PulsingCanvas";
+
 
 const NanaHome = () => {
   const navigate = useNavigate();

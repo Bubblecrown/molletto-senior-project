@@ -10,15 +10,16 @@ const PulsingModel = () => {
     if (audioRef?.current?.paused) {
       audioRef.current.play();
       audioRef.current.volume = volume;
+
     }
   };
   return (
-    <>
+    <div onClick={() => playClickSound()} style={{ cursor: "pointer" }}>
       <audio ref={audioRef}>
         <source src={soundEffect} type="audio/mpeg" />
       </audio>
-      <PulsingBox onClick={playClickSound}></PulsingBox>
-    </>
+      <PulsingBox></PulsingBox>
+    </div>
   );
 };
 

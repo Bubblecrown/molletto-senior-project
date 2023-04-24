@@ -15,7 +15,7 @@ import PennyHome from "./PennyHome";
 import { FPSControls } from "react-three-fpscontrols";
 // import { FPSControls } from "../../../node_modules/react-three-fpscontrols/dist/cjs/index.js";
 import MainStage from "./MainStage";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import {
   Environment,
   FirstPersonControls,
@@ -25,15 +25,26 @@ import {
 } from "@react-three/drei";
 import { CanvasContainer } from "./HomeStyle";
 import homeSound from "../../assets/sounds/homeSound.mp3";
+import WarningPopup from "../../components/warningPopup/WarningPopup";
 const HomeMain = () => {
+  const [isPopupDisplayed, setIsPopupDisplayed] = useState(true);
+
+  const handleClosePopup = () => {
+    setIsPopupDisplayed(false);
+  };
   return (
     <CanvasContainer>
+      {isPopupDisplayed && <WarningPopup onClose={handleClosePopup} />}
       {/* style={{ background: '#000' }} */}
       <Canvas
         shadows
         style={{
           background:
             "linear-gradient(180deg, #c0efff 0%, rgba(255,209,209,1) 50%, rgba(252,176,69,1) 100%)",
+          zIndex: -1,
+          position: "absolute",
+          left: "0px",
+          top: "0px",
         }}
       >
         <Suspense fallback={null}>

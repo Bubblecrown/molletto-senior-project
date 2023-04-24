@@ -881,7 +881,6 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
             />
           </group>
           {/* yaku home */}
-          
         </group>
         <group
           castShadow
@@ -1206,7 +1205,9 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
               />
               <group position={[-23.06, -30.18, -12.27]}>
                 <Html>
-                  <PulsingModel  />
+                  <div onClick={playClickSound}>
+                    <PulsingModel />
+                  </div>
                   <audio ref={audioRef}>
                     <source src={soundEffect} type="audio/mpeg" />
                   </audio>
@@ -2919,6 +2920,33 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
               rotation={[0, 0, 2.22]}
             />
           </group>
+
+          <mesh
+            name="yoksod_2"
+            geometry={nodes.yoksod_2.geometry}
+            material={materials["Leaf_set.002"]}
+            position={[36.02, 50.87, -3.7]}
+            rotation={[0, 0, 2.68]}
+            scale={1.26}
+          />
+
+          <mesh
+            name="yoksod_3"
+            geometry={nodes.yoksod_3.geometry}
+            material={materials["Leaf_set.002"]}
+            position={[28.31, 55.66, -2.61]}
+            rotation={[0, 0, 1.41]}
+            scale={1.26}
+          />
+
+          <mesh
+            name="yoksod_4"
+            geometry={nodes.yoksod_4.geometry}
+            material={materials["Leaf_set.002"]}
+            position={[34.23, 60.11, -3.22]}
+            rotation={[0, 0, 1.38]}
+            scale={1.26}
+          />
           <motion.group
             name="yoksod1"
             onPointerEnter={(e) =>
@@ -2951,30 +2979,6 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
               },
             }}
           >
-            <mesh
-              name="yoksod_2"
-              geometry={nodes.yoksod_2.geometry}
-              material={materials["Leaf_set.002"]}
-              position={[36.02, 50.87, -3.7]}
-              rotation={[0, 0, 2.68]}
-              scale={1.26}
-            />
-            <mesh
-              name="yoksod_3"
-              geometry={nodes.yoksod_3.geometry}
-              material={materials["Leaf_set.002"]}
-              position={[28.31, 55.66, -2.61]}
-              rotation={[0, 0, 1.41]}
-              scale={1.26}
-            />
-            <mesh
-              name="yoksod_4"
-              geometry={nodes.yoksod_4.geometry}
-              material={materials["Leaf_set.002"]}
-              position={[34.23, 60.11, -3.22]}
-              rotation={[0, 0, 1.38]}
-              scale={1.26}
-            />
             <mesh
               name="yoksod_8"
               geometry={nodes.yoksod_8.geometry}

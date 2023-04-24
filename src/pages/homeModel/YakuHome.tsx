@@ -6,10 +6,11 @@ import { useNavigate } from "react-router";
 import PulsingModel from "../../components/PulsingCircle/PulsingModel";
 
 const YakuHome = () => {
-  const navigate = useNavigate();
+  
   const { nodes, materials, animations } = useGLTF(
     "/home.gltf"
   ) as unknown as GLTFResult;
+  const navigate = useNavigate();
   const audioRef = useRef<HTMLAudioElement>(null);
   const volume = 0.3;
   const playClickSound = () => {
@@ -43,7 +44,9 @@ const YakuHome = () => {
           >
             <group position={[-0.5, 0, 0]} onClick={playClickSound}>
               <Html>
-                <PulsingModel />
+                <div onClick={playClickSound}>
+                  <PulsingModel />
+                </div>
                 <audio ref={audioRef}>
                   <source src={soundEffect} type="audio/mpeg" />
                 </audio>

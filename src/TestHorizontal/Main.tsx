@@ -16,31 +16,8 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { sceneEffectFunctions } from "./sceneEffectFunctions";
+import useInView from "../hooks/useInView";
 gsap.registerPlugin(ScrollTrigger);
-
-interface ParallaxEffectParams {
-  scrollPosition: number;
-  sceneStart: number;
-  sceneEnd: number;
-  effectFactor: number;
-  maxTranslation: number;
-}
-
-const calculateParallaxEffect = ({
-  scrollPosition,
-  sceneStart,
-  sceneEnd,
-  effectFactor,
-  maxTranslation,
-}: ParallaxEffectParams): number => {
-  const scrollRange = sceneEnd - sceneStart;
-  const relativeScroll = Math.max(
-    0,
-    Math.min(scrollPosition - sceneStart, scrollRange)
-  );
-  const effect = Math.min(relativeScroll * effectFactor, maxTranslation);
-  return effect;
-};
 
 function Main() {
   // const [scrollPosition, setScrollPosition] = useState(0);
@@ -52,23 +29,50 @@ function Main() {
   // const frontImageScrollX = Math.min(scrollPosition * 0.3, maxTranslation);
   // const midImageScrollX = Math.min(scrollPosition * 0.2, maxTranslation);
   // const backImageScrollX = Math.min(scrollPosition * 0.1, maxTranslation);
+  const [scrollProgress, setScrollProgress] = useState<number[]>([]);
+  const sectionRefs = useRef<(HTMLDivElement | any)[]>([]);
 
-  const [scrollPosition, setScrollPosition] = useState<number>(0);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const sectionIndex = sectionRefs.current.indexOf(entry.target);
+          if (sectionIndex !== -1) {
+            setScrollProgress((prevProgress) => {
+              const newProgress = [...prevProgress];
+              newProgress[sectionIndex] = entry.intersectionRatio;
+              return newProgress;
+            });
+          }
+        });
+      },
+      { threshold: new Array(101).fill(0).map((_, i) => i / 100) }
+    );
 
-  const handleScroll = useCallback((e: React.UIEvent<HTMLDivElement>) => {
-    setScrollPosition(e.currentTarget.scrollLeft);
+    sectionRefs.current.forEach((section) => {
+      if (section) {
+        observer.observe(section);
+      }
+    });
+
+    return () => {
+      sectionRefs.current.forEach((section) => {
+        if (section) {
+          observer.unobserve(section);
+        }
+      });
+    };
   }, []);
 
-  // Calculate the effects for each scene
-  const sceneEffects = sceneEffectFunctions.map((calculateEffect) =>
-    calculateEffect(scrollPosition)
-  );
-
+  const sceneEffects = sceneEffectFunctions.map((calculateEffect, index) => {
+    const progress = scrollProgress[index] || 0;
+    return calculateEffect(progress);
+  });
   return (
     <>
-      <HorizontalScroll onScroll={handleScroll}>
+      <HorizontalScroll>
         {/* scene 1 */}
-        <TaleContainer>
+        <TaleContainer ref={(el) => (sectionRefs.current[0] = el)}>
           <TextContainer
             t="5%"
             l="35%"
@@ -94,7 +98,7 @@ function Main() {
           <BackImage
             src={YakuSceneData.scene_1.b}
             alt={YakuSceneData.scene_1.alt}
-            style={{ transform: `translateX(${sceneEffects[0].y}px)` }}
+            style={{ transform: `translateX(-${sceneEffects[0].x}px)` }}
           />
 
           <BgImage
@@ -104,7 +108,7 @@ function Main() {
         </TaleContainer>
         {/* end scene 1 */}
         {/* scene 1_2 */}
-        <TaleContainer>
+        <TaleContainer ref={(el) => (sectionRefs.current[1] = el)}>
           <TextContainer
             t="50%"
             l="-10%"
@@ -128,7 +132,9 @@ function Main() {
             t="-700px"
             l="none"
             r="300px"
-            style={{ transform: `translateY(${sceneEffects[1].y}px)` }}
+            style={{
+              transform: `translate(${sceneEffects[1].x}px, ${sceneEffects[1].y}px)`,
+            }}
           />
 
           <BackImage
@@ -145,15 +151,14 @@ function Main() {
           />
 
           <FrontImage
-            l="12px"
-            lm="20px"
+            l="none"
             src={YakuSceneData.scene_1_2.cl}
             alt={YakuSceneData.scene_1_2.alt}
           />
         </TaleContainer>
         {/* end scene 1_2 */}
-        {/* scene 2 */}
-        <TaleContainer>
+        {/* scene 2.1 */}
+        <TaleContainer ref={(el) => (sectionRefs.current[2] = el)}>
           <FrontImage
             src={YakuSceneData.scene_2.cr}
             alt={YakuSceneData.scene_2.alt}
@@ -172,7 +177,7 @@ function Main() {
           />
           <SFrontImage
             r="none"
-            l="200px"
+            l="400px"
             src={YakuSceneData.scene_2.sf}
             alt={YakuSceneData.scene_2.alt}
             style={{ transform: `translateX(-${sceneEffects[2].x}px)` }}
@@ -221,7 +226,7 @@ function Main() {
             t="-300px"
             src={YakuSceneData.scene_2_2.f}
             alt={YakuSceneData.scene_2_2.alt}
-            style={{ transform: `translateY(${sceneEffects[3]}px)` }}
+            // style={{ transform: `translateY(${sceneEffects[3]}px)` }}
           />
           <TextContainer
             t="10%"

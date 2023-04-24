@@ -246,7 +246,23 @@ export const H1Noto = styled.h1<{
   display: ${({ d }) => (d ? d : "inline")};
   text-transform: ${({ u }) => (u ? u : "uppercase")};
 `;
+export const H2Noto = styled.h2<{
+  c?: string;
+  m?: string;
+  d?: string;
+  u?: string;
+  fs?: number;
+  fw?: number;
+}>`
+  font-family: ${santhai};
+  font-size: ${({ fs }) =>
+    fs ? `clamp(0.75rem, 1vw, ${fs}rem)` : "clamp(0.75rem, 5vw, 1.5rem)"};
+  font-weight: ${({ fw }) => fw ? fw : 700};
+  color: ${({ c }) => (c ? c : "#fff")};
+  margin: ${({ m }) => (m ? m : "0")};
+  display: ${({ d }) => (d ? d : "inline")};
 
+`;
 export const H4Noto = styled.h4<{
   c?: string;
   m?: string;

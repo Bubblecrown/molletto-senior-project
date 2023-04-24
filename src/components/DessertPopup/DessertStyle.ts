@@ -62,3 +62,13 @@ export const DessertHandwriting = styled.div`
     left: 25%;
   }
 `;
+
+export const YakuPopupContainer = styled.div`
+  width: 300px;
+  height: auto;
+
+  /* border: 2px solid black; */
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 30px;
+`;

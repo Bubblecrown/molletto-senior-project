@@ -12,6 +12,7 @@ import {
   BgImage,
   BgVideo,
   FrontImage,
+  GraveContainer,
   MidImage,
   SFrontImage,
   TaleContainer,
@@ -36,71 +37,38 @@ import Footer from "../../components/Footer/Footer";
 import audioFile from "../../assets/sounds/yakuSound.mp3";
 import TestCanvas from "../../TestCanvas";
 import { useInView } from "react-intersection-observer";
+import PulsingPresent from "../../components/PulsingCircle/PulsingPresent";
+import { useTablet } from "../../hooks/useMediaQuery";
+import PulsingModel from "../../components/PulsingCircle/PulsingModel";
+import { useNavigate } from "react-router";
 
 gsap.registerPlugin(ScrollTrigger);
 const YakuStoryMain = () => {
-  // const main = useRef<any>(null);
-  // const q = gsap.utils.selector(main);
-  // useEffect(() => {
-  //   gsap.to(q(".b"), {
-  //     x: 200,
-  //     scrollTrigger: {
-  //       trigger: q(".b"),
-  //       start: "left 10px",
-  //       end: "right center",
-  //       scrub: true,
-  //       markers: true,
-  //       horizontal: true,
-  //       id: "scrub",
-  //     },
-  //   });
-  // }, []);
-  // const containerRef = useRef<any>(null);
-
-  // const { scrollYProgress } = useScroll({
-  //   target: containerRef,
-  //   offset: ["start end", "end end"],
-  //   axis: "y",
-  // });
-
-  // const imageValue = useTransform(scrollYProgress, [0, 1], ["0", "100%"]);
-
-  // const containerRef = useRef<any>(null);
-  // const home = useParallax({ speed: 10 });
-
-  const { ref: ref1, animation: animation1 } = useParallax({ speed: 0.5 });
-  const { ref: ref2, animation: animation2 } = useParallax({ speed: 0.2 });
-  const carouselRef = useRef<any>(null);
-  const { scrollX } = useScroll({
-    container: carouselRef,
-  });
-
-  const { scrollXProgress } = useScroll({
-    target: carouselRef,
-    offset: ["start end", "end start"],
-  });
-  const opacity = useTransform(scrollXProgress, [0, 0.5], [1, 0]);
-
-  const scrollParallax = useHorizontalScroll();
-  const controls = useDragControls();
-
-  const { ref, inView, entry } = useInView({ threshold: [0, 0.5, 1] });
-  useEffect(() => {
-    console.log("gggggggggggg", inView);
-  }, [inView]);
-  const scrollRef = useRef<any>(null);
+  const isTablet = useTablet();
+  const navigate = useNavigate();
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const volume = 0.3;
+  const playClickSound = () => {
+    if (audioRef?.current?.paused) {
+      audioRef.current.play();
+      audioRef.current.volume = volume;
+      setTimeout(() => {
+        navigate("/yaku_character");
+      }, 1000);
+    }
+  };
   return (
-    <div style={{ width: "100vw", height: "100vh" }}>
+    <div style={{ width: "100vw", height: "100vh", overflowX: "hidden" }}>
       <HorizontalScroll
         reverseScroll
         style={{
           height: "100%",
           width: "100%",
-          overflowX: "hidden",
+          overflowX: isTablet ? "scroll" : "hidden",
         }}
       >
         {/* scene 1 */}
-        <TaleContainer>
+        <TaleContainer z={10}>
           <TextContainer
             // drag="y"
             // dragControls={controls}
@@ -136,7 +104,7 @@ const YakuStoryMain = () => {
         </TaleContainer>
         {/* end scene 1 */}
         {/* scene 1_2 */}
-        <TaleContainer>
+        <TaleContainer z={10}>
           <TextContainer
             t="50%"
             l="-10%"
@@ -181,7 +149,7 @@ const YakuStoryMain = () => {
                 type: "spring",
                 stiffness: 10,
                 damping: 15,
-                duration: 30,
+                duration: 10,
               },
             }}
             src={YakuSceneData.scene_1_2.b}
@@ -194,8 +162,7 @@ const YakuStoryMain = () => {
           />
 
           <FrontImage
-            l="12px"
-            lm="20px"
+            l="none"
             src={YakuSceneData.scene_1_2.cl}
             alt={YakuSceneData.scene_1_2.alt}
           />
@@ -208,6 +175,7 @@ const YakuStoryMain = () => {
             alt={YakuSceneData.scene_2.alt}
           />
           <MidImage
+            l="none"
             src={YakuSceneData.scene_2.cl}
             alt={YakuSceneData.scene_2.alt}
           />
@@ -275,6 +243,7 @@ const YakuStoryMain = () => {
             alt={YakuSceneData.scene_2_2.alt}
           />
           <BackImage
+            l="none"
             src={YakuSceneData.scene_2_2.cl}
             alt={YakuSceneData.scene_2_2.alt}
           />
@@ -324,6 +293,7 @@ const YakuStoryMain = () => {
           <FrontImage
             src={YakuSceneData.scene_3.cl}
             alt={YakuSceneData.scene_3.alt}
+            l="none"
           />
           <FrontImage
             r="none"
@@ -446,6 +416,7 @@ const YakuStoryMain = () => {
           <FrontImage
             src={YakuSceneData.scene_4.cl}
             alt={YakuSceneData.scene_4.alt}
+            l="none"
           />
 
           <BgVideo muted loop autoPlay>
@@ -497,6 +468,7 @@ const YakuStoryMain = () => {
           <FrontImage
             src={YakuSceneData.scene_3_2.cl}
             alt={YakuSceneData.scene_3_2.alt}
+            l="none"
           />
           <BackImage
             r="none"
@@ -567,6 +539,7 @@ const YakuStoryMain = () => {
                 stiffness: 10,
                 damping: 10,
                 duration: 15,
+                delay:1
               },
             }}
           />
@@ -577,6 +550,7 @@ const YakuStoryMain = () => {
           <FrontImage
             src={YakuSceneData.scene_5.cl}
             alt={YakuSceneData.scene_5.alt}
+            l="none"
           />
           <BackImage
             src={YakuSceneData.scene_5.b}
@@ -629,6 +603,7 @@ const YakuStoryMain = () => {
                 stiffness: 10,
                 damping: 10,
                 duration: 10,
+                delay:1
               },
             }}
           />
@@ -639,6 +614,7 @@ const YakuStoryMain = () => {
           <FrontImage
             src={YakuSceneData.scene_6.cl}
             alt={YakuSceneData.scene_6.alt}
+            l="none"
           />
           <MidImage
             l="none"
@@ -653,6 +629,7 @@ const YakuStoryMain = () => {
                 stiffness: 10,
                 damping: 30,
                 duration: 20,
+                delay:1
               },
             }}
           />
@@ -669,6 +646,7 @@ const YakuStoryMain = () => {
                 stiffness: 10,
                 damping: 20,
                 duration: 10,
+                delay:1
               },
             }}
           />
@@ -699,6 +677,7 @@ const YakuStoryMain = () => {
           <FrontImage
             src={YakuSceneData.scene_7.cl}
             alt={YakuSceneData.scene_7.alt}
+            l="none"
           />
           <SFrontImage
             src={YakuSceneData.scene_7.cr}
@@ -719,6 +698,7 @@ const YakuStoryMain = () => {
                 stiffness: 10,
                 damping: 10,
                 duration: 15,
+                delay:1
               },
             }}
           />
@@ -776,6 +756,7 @@ const YakuStoryMain = () => {
           <FrontImage
             src={YakuSceneData.scene_8.cl}
             alt={YakuSceneData.scene_8.alt}
+            l="none"
           />
           <BgVideo muted loop autoPlay>
             <source src={YakuSceneData.scene_8.bg} type="video/mp4" />
@@ -813,6 +794,7 @@ const YakuStoryMain = () => {
                 stiffness: 30,
                 damping: 10,
                 duration: 5,
+                delay:2
               },
             }}
           />
@@ -823,6 +805,7 @@ const YakuStoryMain = () => {
           <FrontImage
             src={YakuSceneData.scene_9.cl}
             alt={YakuSceneData.scene_9.alt}
+            l="none"
           />
           <BgVideo muted loop autoPlay>
             <source src={YakuSceneData.scene_9.bg} type="video/mp4" />
@@ -870,6 +853,7 @@ const YakuStoryMain = () => {
           <FrontImage
             src={YakuSceneData.scene_10.cl}
             alt={YakuSceneData.scene_10.alt}
+            l="none"
           />
           <FrontImage
             src={YakuSceneData.scene_10.cr}
@@ -911,6 +895,7 @@ const YakuStoryMain = () => {
                 stiffness: 20,
                 damping: 10,
                 duration: 5,
+                delay:1
               },
             }}
           />
@@ -926,6 +911,7 @@ const YakuStoryMain = () => {
                 stiffness: 20,
                 damping: 30,
                 duration: 5,
+                delay:1
               },
             }}
           />
@@ -942,12 +928,14 @@ const YakuStoryMain = () => {
                 stiffness: 20,
                 damping: 10,
                 duration: 5,
+                delay:1
               },
             }}
           />
           <FrontImage
             src={YakuSceneData.scene_11.cl}
             alt={YakuSceneData.scene_11.alt}
+            l="none"
           />
           <FrontImage
             src={YakuSceneData.scene_11.cr}
@@ -972,6 +960,7 @@ const YakuStoryMain = () => {
                 stiffness: 10,
                 damping: 5,
                 duration: 15,
+              
               },
             }}
           >
@@ -992,6 +981,7 @@ const YakuStoryMain = () => {
                 stiffness: 20,
                 damping: 15,
                 duration: 5,
+                delay:1
               },
             }}
           />
@@ -1008,6 +998,7 @@ const YakuStoryMain = () => {
                 stiffness: 20,
                 damping: 20,
                 duration: 5,
+                delay:1
               },
             }}
           />
@@ -1023,12 +1014,14 @@ const YakuStoryMain = () => {
                 stiffness: 20,
                 damping: 10,
                 duration: 5,
+                delay:1
               },
             }}
           />
           <FrontImage
             src={YakuSceneData.scene_12.cl}
             alt={YakuSceneData.scene_12.alt}
+            l="none"
           />
           <FrontImage
             src={YakuSceneData.scene_12.cr}
@@ -1093,6 +1086,7 @@ const YakuStoryMain = () => {
           <FrontImage
             src={YakuSceneData.scene_13.cl}
             alt={YakuSceneData.scene_13.alt}
+            l="none"
           />
           <FrontImage
             src={YakuSceneData.scene_13.cr}
@@ -1159,6 +1153,7 @@ const YakuStoryMain = () => {
           <FrontImage
             src={YakuSceneData.scene_14.cl}
             alt={YakuSceneData.scene_14.alt}
+            l="none"
           />
           <FrontImage
             src={YakuSceneData.scene_14.cr}
@@ -1201,10 +1196,13 @@ const YakuStoryMain = () => {
                 stiffness: 20,
                 damping: 10,
                 duration: 5,
+                delay:1
               },
             }}
           />
-
+          <GraveContainer onClick={playClickSound}>
+            <PulsingModel />
+          </GraveContainer>
           <MidImage
             src={YakuSceneData.scene_15.m}
             alt={YakuSceneData.scene_15.alt}
@@ -1223,6 +1221,7 @@ const YakuStoryMain = () => {
                 stiffness: 20,
                 damping: 50,
                 duration: 5,
+                delay:1
               },
             }}
           />

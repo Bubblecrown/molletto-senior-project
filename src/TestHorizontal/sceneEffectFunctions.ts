@@ -1,20 +1,14 @@
-// sceneEffectFunctions.ts
 export const calculateParallaxEffect = ({
-  scrollPosition,
-  sceneStart,
-  sceneEnd,
+  progress,
   effectFactor,
   maxTranslationX,
   maxTranslationY,
 }: {
-  scrollPosition: number;
-  sceneStart: number;
-  sceneEnd: number;
+  progress: number;
   effectFactor: number;
   maxTranslationX: number;
   maxTranslationY: number;
 }): { x: number; y: number } => {
-  const progress = (scrollPosition - sceneStart) / (sceneEnd - sceneStart);
   const translationX = Math.min(
     progress * effectFactor * maxTranslationX,
     maxTranslationX
@@ -26,48 +20,36 @@ export const calculateParallaxEffect = ({
   return { x: translationX, y: translationY };
 };
 
-export const sceneEffectFunctions: ((scrollPosition: number) => {
+export const sceneEffectFunctions: ((progress: number) => {
   x: number;
   y: number;
 })[] = [
   // 1.1
-  (scrollPosition) =>
-    calculateParallaxEffect({
-      scrollPosition,
-      sceneStart: 0,
-      sceneEnd: 1000,
+  (progress) => {
+    return calculateParallaxEffect({
+      progress,
       effectFactor: 0.5,
       maxTranslationX: 200,
       maxTranslationY: 700,
-    }),
+    });
+  },
   // 1.2
-  (scrollPosition) =>
-    calculateParallaxEffect({
-      scrollPosition,
-      sceneStart: 700,
-      sceneEnd: 1200,
+  (progress) => {
+    return calculateParallaxEffect({
+      progress,
       effectFactor: 0.5,
-      maxTranslationX: 700,
-      maxTranslationY: 700,
-    }),
+      maxTranslationX: 0,
+      maxTranslationY: 1400,
+    });
+  },
   // 2.1
-  (scrollPosition) =>
-    calculateParallaxEffect({
-      scrollPosition,
-      sceneStart: 1500,
-      sceneEnd: 2000,
+  (progress) => {
+    return calculateParallaxEffect({
+      progress,
       effectFactor: 0.5,
-      maxTranslationX: 300,
-      maxTranslationY: 700,
-    }),
-  // 3
-  (scrollPosition) =>
-    calculateParallaxEffect({
-      scrollPosition,
-      sceneStart: 2000,
-      sceneEnd: 2900,
-      effectFactor: 0.5,
-      maxTranslationX: 100,
-      maxTranslationY: 700,
-    }),
+      maxTranslationX: 1400,
+      maxTranslationY: 1400,
+    });
+  },
+  // Add more effect calculation functions as needed
 ];
