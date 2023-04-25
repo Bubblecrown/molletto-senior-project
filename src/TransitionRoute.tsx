@@ -6,8 +6,12 @@ import Loading from "./pages/Loading";
 
 const HomeLazy = React.lazy(() => import("./pages/homeModel/HomeMain"));
 const AboutLazy = React.lazy(() => import("./pages/AboutUs/ScrollAnimation"));
-const YakuStoryLazy = React.lazy(() => import("./pages/yakuStory/YakuStoryMain"));
-const PennyStoryLazy = React.lazy(() => import("./pages/pennyStory/PennyStoryMain"));
+const YakuStoryLazy = React.lazy(
+  () => import("./pages/yakuStory/YakuStoryMain")
+);
+const PennyStoryLazy = React.lazy(
+  () => import("./pages/pennyStory/PennyStoryMain")
+);
 const YakuModelLazy = React.lazy(() => import("./pages/yakuModel/YakuMain"));
 const PennyModelLazy = React.lazy(() => import("./pages/pennyModel/PennyMain"));
 
@@ -38,7 +42,9 @@ const TransitionRoute = () => {
           path="/about"
           element={
             <Suspense fallback={<Loading />}>
-              <AboutLazy />
+              <div style={{ position: "relative" }}>
+                <AboutLazy />
+              </div>
             </Suspense>
           }
         />

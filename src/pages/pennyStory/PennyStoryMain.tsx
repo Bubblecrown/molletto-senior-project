@@ -1,9 +1,8 @@
-
 import HorizontalScroll from "react-scroll-horizontal";
 import { PNoto } from "../../GlobalStyle";
 import Footer from "../../components/Footer/Footer";
 import audioFile from "../../assets/sounds/PennySound.mp3";
-import { useTablet } from "../../hooks/useMediaQuery";
+import { useIsMedium, useTablet } from "../../hooks/useMediaQuery";
 import PulsingModel from "../../components/PulsingCircle/PulsingModel";
 
 import { useNavigate } from "react-router";
@@ -20,7 +19,7 @@ import {
 import { PennySceneData } from "../../data/pennyStory";
 
 const PennyStoryMain = () => {
-  const isTablet = useTablet();
+  const isTablet = useIsMedium();
   const navigate = useNavigate();
   return (
     <div style={{ width: "100vw", height: "100vh", overflowX: "hidden" }}>
@@ -74,12 +73,13 @@ const PennyStoryMain = () => {
           <BgImage
             src={PennySceneData.scene_1.bg}
             alt={PennySceneData.scene_1.bgAlt}
+            height="auto"
           />
         </TaleContainer>
         {/* end scene 1 */}
 
         {/* scene 2 */}
-        <TaleContainer>
+        <TaleContainer z={10}>
           <TextContainer
             t="10%"
             l="55%"
@@ -101,9 +101,9 @@ const PennyStoryMain = () => {
             l="none"
             src={PennySceneData.scene_2.f}
             alt={PennySceneData.scene_2.alt}
-            initial={{ translateY: "100vh" }}
+            initial={{ translateY: 700 }}
             whileInView={{
-              translateY: "0",
+              translateY: 0,
               transition: {
                 type: "spring",
                 stiffness: 20,
@@ -122,11 +122,79 @@ const PennyStoryMain = () => {
             alt={PennySceneData.scene_2.alt}
           />
           <BgImage
+            height="auto"
             src={PennySceneData.scene_2.bg}
             alt={PennySceneData.scene_2.bgAlt}
           />
         </TaleContainer>
         {/* end scene 2 */}
+
+        {/* scene 3 */}
+        <TaleContainer>
+          <TextContainer
+            t="5%"
+            l="20%"
+            initial={{ opacity: 0 }}
+            whileInView={{
+              opacity: 1,
+              transition: {
+                type: "spring",
+                stiffness: 10,
+                damping: 5,
+                duration: 15,
+              },
+            }}
+          >
+            <PNoto>{PennySceneData.scene_3.text}</PNoto>
+          </TextContainer>
+
+          <FrontImage
+            l="200px"
+            r="none"
+            src={PennySceneData.scene_3.f}
+            alt={PennySceneData.scene_3.alt}
+            initial={{ translateX: -700 }}
+            whileInView={{
+              translateX: 0,
+              transition: {
+                type: "spring",
+                stiffness: 20,
+                damping: 20,
+                duration: 10,
+              },
+            }}
+          />
+          <BackImage
+            l="none"
+            src={PennySceneData.scene_3.b}
+            alt={PennySceneData.scene_3.alt}
+            initial={{ translateY: 700 }}
+            whileInView={{
+              translateY: 0,
+              transition: {
+                type: "spring",
+                stiffness: 20,
+                damping: 10,
+                duration: 5,
+              },
+            }}
+          />
+          <FrontImage
+            src={PennySceneData.scene_3.cr}
+            alt={PennySceneData.scene_3.alt}
+          />
+          <FrontImage
+            l="none"
+            src={PennySceneData.scene_3.cl}
+            alt={PennySceneData.scene_3.alt}
+          />
+          <BgImage
+            height="auto"
+            src={PennySceneData.scene_3.bg}
+            alt={PennySceneData.scene_3.bgAlt}
+          />
+        </TaleContainer>
+        {/* end scene 3 */}
 
         {/* scene 4 */}
         <TaleContainer>
@@ -172,6 +240,7 @@ const PennyStoryMain = () => {
             alt={PennySceneData.scene_4.alt}
           />
           <BgImage
+            height="auto"
             src={PennySceneData.scene_4.bg}
             alt={PennySceneData.scene_4.bgAlt}
           />
@@ -221,6 +290,7 @@ const PennyStoryMain = () => {
             alt={PennySceneData.scene_5.alt}
           />
           <BgImage
+            height="auto"
             src={PennySceneData.scene_5.bg}
             alt={PennySceneData.scene_5.bgAlt}
           />
@@ -249,15 +319,14 @@ const PennyStoryMain = () => {
             l="none"
             src={PennySceneData.scene_6.f}
             alt={PennySceneData.scene_6.alt}
-            initial={{ translateY: "300px" }}
+            initial={{ translateY: 300 }}
             whileInView={{
-              translateY: "0",
+              translateY: 0,
               transition: {
                 type: "spring",
                 stiffness: 20,
                 damping: 10,
                 duration: 5,
-                delay: 1,
               },
             }}
           />
@@ -286,6 +355,7 @@ const PennyStoryMain = () => {
             alt={PennySceneData.scene_6.alt}
           />
           <BgImage
+            height="auto"
             src={PennySceneData.scene_6.bg}
             alt={PennySceneData.scene_6.bgAlt}
           />
@@ -312,35 +382,35 @@ const PennyStoryMain = () => {
 
           <FrontImage
             l="none"
+            width="100%"
             src={PennySceneData.scene_7.f}
             alt={PennySceneData.scene_7.alt}
-            initial={{ translateY: "300px" }}
+            initial={{ translateY: 300 }}
             whileInView={{
-              translateY: "0",
+              translateY: 0,
               transition: {
                 type: "spring",
                 stiffness: 20,
                 damping: 10,
                 duration: 5,
-                delay: 1,
               },
             }}
           />
           <BackImage
             r="none"
             l="250px"
+            width="80%"
             src={PennySceneData.scene_7.b}
             alt={PennySceneData.scene_7.alt}
-            initial={{ rotate: -45, translateY: "120vh" }}
+            initial={{ rotate: -45, translateY: 700 }}
             whileInView={{
               rotate: 0,
-              translateY: "0",
+              translateY: 0,
               transition: {
                 type: "spring",
                 stiffness: 30,
                 damping: 10,
                 duration: 5,
-                delay: 1,
               },
             }}
           />
@@ -354,6 +424,7 @@ const PennyStoryMain = () => {
             alt={PennySceneData.scene_7.alt}
           />
           <BgImage
+            height="auto"
             src={PennySceneData.scene_7.bg}
             alt={PennySceneData.scene_7.bgAlt}
           />
@@ -398,9 +469,9 @@ const PennyStoryMain = () => {
             l="none"
             src={PennySceneData.scene_8.f}
             alt={PennySceneData.scene_8.alt}
-            initial={{ translateY: "100vh" }}
+            initial={{ translateY: 700 }}
             whileInView={{
-              translateY: "0",
+              translateY: 0,
               transition: {
                 type: "spring",
                 stiffness: 20,
@@ -413,15 +484,14 @@ const PennyStoryMain = () => {
             l="none"
             src={PennySceneData.scene_8.b}
             alt={PennySceneData.scene_8.alt}
-            initial={{ translateY: "100vh" }}
+            initial={{ translateY: 700 }}
             whileInView={{
-              translateY: "0",
+              translateY: 0,
               transition: {
                 type: "spring",
                 stiffness: 30,
                 damping: 10,
                 duration: 5,
-                delay: 1,
               },
             }}
           />
@@ -435,6 +505,7 @@ const PennyStoryMain = () => {
             alt={PennySceneData.scene_8.alt}
           />
           <BgImage
+            height="auto"
             src={PennySceneData.scene_8.bg}
             alt={PennySceneData.scene_8.bgAlt}
           />
@@ -463,9 +534,9 @@ const PennyStoryMain = () => {
             l="none"
             src={PennySceneData.scene_9.f}
             alt={PennySceneData.scene_9.alt}
-            initial={{ translateY: "100vh" }}
+            initial={{ translateY: 700 }}
             whileInView={{
-              translateY: "0",
+              translateY: 0,
               transition: {
                 type: "spring",
                 stiffness: 20,
@@ -491,13 +562,13 @@ const PennyStoryMain = () => {
                 stiffness: 20,
                 damping: 10,
                 duration: 5,
-                delay: 1,
               },
             }}
           >
             <PulsingModel />
           </GraveContainer>
           <BgImage
+            height="auto"
             src={PennySceneData.scene_9.bg}
             alt={PennySceneData.scene_9.bgAlt}
           />

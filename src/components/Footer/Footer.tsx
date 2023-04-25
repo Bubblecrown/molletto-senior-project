@@ -110,7 +110,7 @@ const Footer = ({ audio, volumes = 0.3 }: soundType) => {
           id="Layer_2"
           data-name="Layer 2"
           viewBox="0 0 43.5 43.5"
-          onClick={() => navigate("/")}
+          onClick={() => (navigate("/"), window.location.reload())}
         >
           <defs>
             <style>

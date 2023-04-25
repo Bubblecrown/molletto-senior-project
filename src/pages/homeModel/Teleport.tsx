@@ -1,9 +1,6 @@
 import { useFrame } from "@react-three/fiber";
 import {
-  Html,
-  Image,
   PerspectiveCamera,
-  TrackballControls,
 } from "@react-three/drei";
 import { useRef, useState, useMemo } from "react";
 import { Vector2, Vector3 } from "three";
@@ -12,9 +9,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 import Plane from "./Plane";
-import rabbit from "../../assets/rabbit.png";
 import { useIsMedium } from "../../hooks/useMediaQuery";
-import Joystick from "react-nipple";
 
 const Teleport = () => {
   const ref = useRef<any>(null);

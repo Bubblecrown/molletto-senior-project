@@ -14,9 +14,13 @@ import { CanvasContainer } from "./HomeStyle";
 import homeSound from "../../assets/sounds/homeSound.mp3";
 import WarningPopup from "../../components/warningPopup/WarningPopup";
 
+import { useLocation } from "react-router-dom";
+import { Loader } from "@react-three/drei";
+
 const HomeMain = () => {
   const [isPopupDisplayed, setIsPopupDisplayed] = useState(false);
-
+  const location = useLocation();
+  const [reloadPage, setReloadPage] = useState(true);
   const handleClosePopup = () => {
     setIsPopupDisplayed(false);
   };
@@ -29,28 +33,23 @@ const HomeMain = () => {
       localStorage.setItem("hasPopupBeenDisplayed", "true");
     }
   }, []);
+
   return (
-    <CanvasContainer>
-      {isPopupDisplayed && <WarningPopup onClose={handleClosePopup} />}
+    <CanvasContainer key={location.key}>
+      {/* {isPopupDisplayed && <WarningPopup onClose={handleClosePopup} />} */}
       <Canvas
         shadows
         style={{
           background:
             "linear-gradient(180deg, #c0efff 0%, rgba(255,209,209,1) 50%, rgba(252,176,69,1) 100%)",
-          zIndex: -1,
-          position: "absolute",
-          left: "0px",
-          top: "0px",
         }}
       >
-        <Suspense fallback={null}>
-          <Teleport />
-          <Home />
-          <YakuHome />
-          <NanaHome />
-          <PennyHome />
-          <LightModel />
-        </Suspense>
+        <Teleport />
+        <Home />
+        <YakuHome />
+        <NanaHome />
+        <PennyHome />
+        <LightModel />
       </Canvas>
       <Footer audio={homeSound} />
     </CanvasContainer>

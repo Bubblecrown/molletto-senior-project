@@ -25,7 +25,7 @@ export const WarningContent = styled(motion.div)`
 `;
 
 export const WarningButton = styled.button`
-  margin-top: 20px;
+  margin-top: 10px;
   padding: 15px 60px;
   background-color: #c9a7eb;
   border-radius: 30px;

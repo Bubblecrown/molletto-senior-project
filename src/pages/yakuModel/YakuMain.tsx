@@ -6,19 +6,33 @@ import { CanvasContainer } from "../homeModel/HomeStyle";
 import { YakuReal } from "./Yaku_real";
 import Footer from "../../components/Footer/Footer";
 import audioFile from "../../assets/sounds/yakuSound.mp3";
+import yakuBg from "../../assets/images/tale/yakuStory/bg_yaku.png";
+import PulsingPresent from "../../components/PulsingCircle/PulsingPresent";
+import BookMarks from "../../components/bookmarks/BookMarks";
+import { AfterStorytData } from "../../data/afterStory";
 
 const YakuMain = () => {
   return (
     <CanvasContainer>
-      <Canvas style={{ background: "#e8e8e8" }}>
-        <ambientLight intensity={0.6} />
+      <Canvas
+        style={{
+          backgroundImage: `url(${yakuBg})`,
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}
+      >
         <OrbitControls
           minPolarAngle={Math.PI / 3}
           maxPolarAngle={Math.PI - Math.PI / 3}
         />
-        <YakuReal scale={30} position={[0, -0.5, 0]} />
+        <YakuReal scale={40} position={[0, -0.5, 0]} />
       </Canvas>
-      <Loader />
+      <BookMarks
+        name={AfterStorytData.yaku.name}
+        nameDescription={AfterStorytData.yaku.nameDescription}
+        meaning={AfterStorytData.yaku.meaning}
+      />
       <Footer audio={audioFile} volumes={0.5} />
     </CanvasContainer>
   );

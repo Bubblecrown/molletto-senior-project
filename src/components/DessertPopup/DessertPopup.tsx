@@ -23,7 +23,7 @@ const DessertPopup = ({ data }: dessert) => {
         animate={{
           translateX: 5,
           transition: {
-            duration: 0.2
+            duration: 0.2,
           },
         }}
       >

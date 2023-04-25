@@ -7,6 +7,12 @@ import f2 from "../assets/images/tale/pennyStory/2_F.png";
 import c2_r from "../assets/images/tale/pennyStory/C1_R.png";
 import c2_l from "../assets/images/tale/pennyStory/C2_L.png";
 
+import bg3 from "../assets/images/tale/pennyStory/BG3.png";
+import f3 from "../assets/images/tale/pennyStory/3_F.png";
+import b3 from "../assets/images/tale/pennyStory/3_B.png";
+import c3_r from "../assets/images/tale/pennyStory/C2_R.png";
+import c3_l from "../assets/images/tale/pennyStory/C3_L.png";
+
 import bg4 from "../assets/images/tale/pennyStory/BG_4.jpg";
 import f4 from "../assets/images/tale/pennyStory/4_F.png";
 import c4_r from "../assets/images/tale/pennyStory/C3_R.png";
@@ -61,18 +67,16 @@ export const PennySceneData: Record<string, TaleDataType> = {
     text: "ครอบครัวที่แสนอบอุ่นของเพนนีเธอมีลูกแฝดสองคนที่มีสีสันสดใสอันเนื่องมาจากการที่พวกเขานั้นแบ่งปันความสุขและใช้เวลาร่วมกัน ทำให้ลูกๆของเธอมีความสุขและถูกแต่งเต้มไปด้วยสีสันใหม่ๆอยู่เสมอ",
   },
 
-  // },
-  // scene_3: {
-  //   bg: bg3_1,
-  //   cl: c3_1,
-  //   cr: c8_r,
-  //   f: f3,
-  //   m: m3,
-  //   b: b3,
-  //   alt: "penny story image scene_3",
-  //   bgAlt: "penny story bg scene_3",
-  //   text: "วันต่อมาเขาจึงตัดสินใจไปยังต้นไม้ศักดิ์สิทธิ์อีกครั้งแต่ผลก็เป็นเช่นเดิม ตลอดหลายวันผ่านไปเขาพยายามอยู่แบบนั้นซ้ำๆแต่ไม่เคยสำเร็จสักครั้ง ",
-  // },
+  scene_3: {
+    bg: bg3,
+    cl: c3_l,
+    cr: c3_r,
+    f: f3,
+    b: b3,
+    alt: "penny story image scene_3",
+    bgAlt: "penny story bg scene_3",
+    text: "ช่วงสายวันหนึ่งเพนนีออกไปซื้อของ เธอได้เจอกับหญิงสาวคนนึง เธอเดินเข้ามาชวนเพนนีพูดคุยและชักชวนให้เพนนีเข้าร่วมกลุ่มของเธออย่างสนิทสนม ในตอนแรกเพนนีค่อนข้างสับสนและประหม่า แต่เมื่อได้พูดคุยสักพักเพนนีก็ตัดสินใจเข้าร่วมกลุ่มกับหญิงสาวในวันนั้น ",
+  },
 
   scene_4: {
     bg: bg4,
@@ -129,5 +133,4 @@ export const PennySceneData: Record<string, TaleDataType> = {
     bgAlt: "penny story bg scene_9",
     text: "เพนนีรีบเข้าไปกอดลูกของเธอ สีสันจากร่างกายของเพนนีค่อยๆ ถูกแบ่งปันไปให้แก่ลูกๆ ในที่สุดร่างกายที่เคยซีดเซียวก็หวนคืนสีสันที่สดใส",
   },
-
 };

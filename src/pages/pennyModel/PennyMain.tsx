@@ -3,10 +3,12 @@ import { Canvas } from "@react-three/fiber";
 import { Environment, Loader, OrbitControls } from "@react-three/drei";
 import { CanvasContainer } from "../homeModel/HomeStyle";
 import PennyModel from "./Pennyweb";
-import pennyBg2 from "../../assets/images/tale/pennyStory/penny_model_bg2.png";
-import pennyBg from "../../assets/images/tale/pennyStory/penny_model_bg.png";
+import pennyBg from "../../assets/images/tale/pennyStory/BG8.jpg";
+
 import Footer from "../../components/Footer/Footer";
 import audioFile from "../../assets/sounds/PennySound.mp3";
+import { AfterStorytData } from "../../data/afterStory";
+import BookMarks from "../../components/bookmarks/BookMarks";
 
 const PennyMain = () => {
   return (
@@ -16,16 +18,20 @@ const PennyMain = () => {
           backgroundImage: `url(${pennyBg})`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
-          backgroundSize:'cover'
+          backgroundSize: "cover",
         }}
       >
-        <ambientLight intensity={0.6} />
         <OrbitControls
           minPolarAngle={Math.PI / 6}
           maxPolarAngle={Math.PI - Math.PI / 2}
         />
-        <PennyModel scale={30} position={[0, -0.5, 0]} />
+        <PennyModel scale={35} position={[0, -0.2, 0]} />
       </Canvas>
+      <BookMarks
+        name={AfterStorytData.penny.name}
+        nameDescription={AfterStorytData.penny.nameDescription}
+        meaning={AfterStorytData.penny.meaning}
+      />
       <Footer audio={audioFile} volumes={0.5} />
     </CanvasContainer>
   );

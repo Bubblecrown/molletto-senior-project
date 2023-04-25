@@ -35,6 +35,18 @@ export function YakuReal(props: JSX.IntrinsicElements["group"]) {
 
   return (
     <group {...props} dispose={null}>
+      <pointLight
+        position={[-0.562, 0.04, 0.011]}
+        intensity={1}
+        decay={0.1}
+        color={"#FEFEFE"}
+      />
+      <directionalLight
+        position={[5.0, 10.0, 7.5]}
+        intensity={0.6}
+        color={"#FE8442"}
+      />
+      <ambientLight intensity={20} color={"#222222"} />
       <mesh
         geometry={nodes.coconut_head.geometry}
         material={materials.Yaku_body}

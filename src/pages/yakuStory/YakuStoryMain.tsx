@@ -1,4 +1,3 @@
-
 import HorizontalScroll from "react-scroll-horizontal";
 import { PNoto } from "../../GlobalStyle";
 import {
@@ -16,12 +15,12 @@ import { YakuSceneData } from "../../data/yakuStory";
 import Footer from "../../components/Footer/Footer";
 import audioFile from "../../assets/sounds/yakuSound.mp3";
 
-import { useTablet } from "../../hooks/useMediaQuery";
+import { useIsMedium, useTablet } from "../../hooks/useMediaQuery";
 import PulsingModel from "../../components/PulsingCircle/PulsingModel";
 import { useNavigate } from "react-router";
 
 const YakuStoryMain = () => {
-  const isTablet = useTablet();
+  const isTablet = useIsMedium();
   const navigate = useNavigate();
 
   return (
@@ -587,7 +586,7 @@ const YakuStoryMain = () => {
             l="none"
             src={YakuSceneData.scene_6.m}
             alt={YakuSceneData.scene_6.alt}
-            initial={{ translateY: -500, translateX: -100 }}
+            initial={{ translateY: -700, translateX: -100 }}
             whileInView={{
               translateY: 0,
               translateX: 0,
@@ -870,7 +869,7 @@ const YakuStoryMain = () => {
           <MidImage
             src={YakuSceneData.scene_11.m}
             alt={YakuSceneData.scene_11.alt}
-            initial={{ translateX: 1000 }}
+            initial={{ translateX: 700 }}
             whileInView={{
               translateX: 0,
               transition: {
@@ -1022,7 +1021,7 @@ const YakuStoryMain = () => {
             l="none"
             src={YakuSceneData.scene_13.f}
             alt={YakuSceneData.scene_13.alt}
-            initial={{ translateX: 1000 }}
+            initial={{ translateX: 700 }}
             whileInView={{
               translateX: 0,
               transition: {
@@ -1167,7 +1166,7 @@ const YakuStoryMain = () => {
               },
             }}
           />
-          <GraveContainer onClick={()=>navigate('/yaku_character')}>
+          <GraveContainer onClick={() => navigate("/yaku_character")}>
             <PulsingModel />
           </GraveContainer>
           <MidImage

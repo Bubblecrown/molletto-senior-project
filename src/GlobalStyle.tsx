@@ -9,12 +9,6 @@ export const guildaFont = "'Gilda Display', serif";
 export const maliFont = "'Mali', cursive";
 // end Font
 
-export const LayerImage = styled.div`
-  width: auto;
-  height: 100%;
-  background-position: center;
-  background-size: cover;
-`;
 const GlobalStyles = createGlobalStyle`
     * {
         border: 0;
@@ -44,6 +38,7 @@ const GlobalStyles = createGlobalStyle`
     
 `;
 
+// loading
 export const VideoBackground = styled.video<{
   c?: string;
   o?: number;
@@ -65,52 +60,7 @@ export const LoadingContainer = styled.div`
   align-items: center;
   justify-content: center;
 `;
-
-export const ContainerScroll = styled.div<{
-  c?: string;
-  o?: number;
-  xOverflow?: string;
-}>`
-  width: 300%;
-  height: 100vh;
-  display: flex;
-  flex-wrap: nowrap;
-
-  section {
-    width: 100%;
-  }
-`;
-
-export const ContainerTest = styled.div`
-  width: 100%;
-  height: 100vh;
-  position: relative;
-  top: 0;
-  right: 0;
-  left: -10%;
-  bottom: 0;
-  width: 150%;
-`;
-
-export const Layer1 = styled.div`
-  background: url("https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_1.png")
-    no-repeat;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-`;
-
-export const Layer2 = styled.div<{
-  c?: string;
-  o?: number;
-  xOverflow?: string;
-}>`
-  background: url("https://raw.githubusercontent.com/shansana/Simple-mouse-move-parallax/master/img/layer_2.png")
-    no-repeat;
-  width: 100%;
-  position: absolute;
-  height: 100%;
-`;
+// end loading
 
 export const Section = styled.div<{
   c?: string;
@@ -139,28 +89,9 @@ export const Container = styled.div<{
   }
 `;
 
-export const SlideIn = styled(motion.div)`
-  background: green;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100%;
-  transform-origin: top;
-`;
-export const SlideOut = styled(motion.div)`
-  background: green;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 0;
-  width: 100%;
-  transform-origin: bottom;
-`;
-
 // Design System
-// Mali
 
+// Mali
 export const H4Mali = styled.h4<{
   c?: string;
   m?: string;
@@ -168,7 +99,7 @@ export const H4Mali = styled.h4<{
   u?: string;
 }>`
   font-family: ${maliFont};
-  font-size: clamp(0.1rem, 0.5vw, 1rem);
+  font-size: clamp(0.5rem, 1vw, 0.7rem);
   font-weight: 400;
   color: ${({ c }) => (c ? c : "#fff")};
   margin: ${({ m }) => (m ? m : "0")};
@@ -202,6 +133,9 @@ export const H1Roboto = styled(motion.h1)<{
   /* transform: translate(0, ${({ t }) => (t ? t : "-50%")}); */
   @media screen and (max-width: 1430px) {
     top: ${({ r }) => (r ? "100%" : "0")};
+  }
+  @media only screen and (min-width: 1400px) {
+    font-size: 0.8rem;
   }
 `;
 
@@ -239,7 +173,7 @@ export const H1Noto = styled.h1<{
 }>`
   font-family: ${santhai};
   font-size: ${({ fs }) =>
-    fs ? `clamp(0.2rem, 1vw, ${fs}rem)` : "clamp(0.75rem, 5vw, 2.75rem)"};
+    fs ? `clamp(0.5rem, 1vw, ${fs}rem)` : "clamp(0.5rem, 5vw, 2.75rem)"};
   font-weight: 700;
   color: ${({ c }) => (c ? c : "#fff")};
   margin: ${({ m }) => (m ? m : "0")};
@@ -253,31 +187,52 @@ export const H2Noto = styled.h2<{
   u?: string;
   fs?: number;
   fw?: number;
+  align?: string;
 }>`
   font-family: ${santhai};
   font-size: ${({ fs }) =>
     fs ? `clamp(0.75rem, 1vw, ${fs}rem)` : "clamp(0.75rem, 5vw, 1.5rem)"};
-  font-weight: ${({ fw }) => fw ? fw : 700};
+  font-weight: ${({ fw }) => (fw ? fw : 700)};
   color: ${({ c }) => (c ? c : "#fff")};
   margin: ${({ m }) => (m ? m : "0")};
   display: ${({ d }) => (d ? d : "inline")};
-
 `;
-export const H4Noto = styled.h4<{
+
+export const H3Noto = styled.h3<{
   c?: string;
   m?: string;
   d?: string;
   u?: string;
   fs?: number;
+  fw?: number;
 }>`
   font-family: ${santhai};
   font-size: ${({ fs }) =>
-    fs ? `clamp(0.75rem, 1vw, ${fs}rem)` : "clamp(0.75rem, 1vw, 1.2rem)"};
-  font-weight: 400;
+    fs ? `clamp(0.75rem, 1vw, ${fs}rem)` : "clamp(0.75rem, 5vw, 1.75rem)"};
+  font-weight: ${({ fw }) => (fw ? fw : 700)};
+  color: ${({ c }) => (c ? c : "#fff")};
+  margin: ${({ m }) => (m ? m : "0")};
+  display: ${({ d }) => (d ? d : "inline")};
+`;
+
+export const H4Noto = styled.h4<{
+  c?: string;
+  m?: string;
+  d?: string;
+  u?: string;
+  fs?: string;
+  fw?: number;
+}>`
+  font-family: ${santhai};
+  font-size: ${({ fs }) => (fs ? fs : "clamp(0.5rem, 1vw, 1rem)")};
+  font-weight: ${({ fw }) => (fw ? fw : 400)};
   color: ${({ c }) => (c ? c : "#fff")};
   margin: ${({ m }) => (m ? m : "0")};
   display: ${({ d }) => (d ? d : "block")};
   text-transform: ${({ u }) => (u ? u : "uppercase")};
+  @media only screen and (min-width: 1400px) {
+    font-size: 0.8rem;
+  }
 `;
 
 export const PNoto = styled.p<{
@@ -285,6 +240,8 @@ export const PNoto = styled.p<{
   m?: string;
   d?: string;
   u?: string;
+  align?: string;
+  width?: string;
 }>`
   font-family: ${santhai};
   font-size: 1rem;
@@ -295,8 +252,8 @@ export const PNoto = styled.p<{
   text-transform: ${({ u }) => (u ? u : "uppercase")};
   word-wrap: break-word;
   white-space: pre-wrap;
-  text-align: center;
-  width: 80%;
+  text-align: ${({ align }) => (align ? align : "center")};
+  width: ${({ width }) => (width ? width : "80%")};
 `;
 
 // end Noto san thai
@@ -320,7 +277,7 @@ export const H3Eng = styled.h3<{
   fw?: number;
 }>`
   font-family: ${notosans};
-  font-size: clamp(0.75rem, 2vw, 1.1rem);
+  font-size: clamp(0.7rem, 2vw, 1.1rem);
   font-weight: ${({ fw }) => (fw ? fw : 400)};
   letter-spacing: -0.022em;
   line-height: clamp(1.2rem, 3vw, 2rem);
@@ -333,7 +290,7 @@ export const H3Eng = styled.h3<{
 
 export const H4Eng = styled.h4<{ c?: string; m?: string; d?: string }>`
   font-family: ${notosans};
-  font-size: clamp(0.25rem, 1vw, 1rem);
+  font-size: clamp(0.75rem, 1vw, 1rem);
   font-weight: 100;
   color: ${({ c }) => (c ? c : "#fff")};
   margin: ${({ m }) => (m ? m : "0")};

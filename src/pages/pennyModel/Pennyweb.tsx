@@ -27,6 +27,18 @@ export default function PennyModel(props: JSX.IntrinsicElements["group"]) {
   const { nodes, materials } = useGLTF("/pennyweb.glb") as GLTFResult;
   return (
     <group {...props} dispose={null}>
+      <pointLight
+        position={[-0.562, 0.04, 0.011]}
+        intensity={3}
+        decay={0.1}
+        color={"#8AC6FE"}
+      />
+      <directionalLight
+        position={[5.0, 10.0, 7.5]}
+        intensity={0.6}
+        color={"#fe0000"}
+      />
+      <ambientLight intensity={20} color={"#222222"} />
       <group rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
         <group position={[0.09, -0.48, -1.64]}>
           <mesh geometry={nodes.Mesh004.geometry} material={materials.body} />

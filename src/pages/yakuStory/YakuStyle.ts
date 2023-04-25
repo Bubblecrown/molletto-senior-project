@@ -12,7 +12,7 @@ export const TaleContainer = styled.span<{
   @media screen and (min-width: 1000px) {
     margin-right: -1px;
   }
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1300px) {
     min-width: 1920px;
     height: 100%;
   }
@@ -24,22 +24,28 @@ export const BgVideo = styled.video`
   height: 100%;
   top: 0;
   left: 0;
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1400px) {
+    min-width: 1920px;
+    height: 100%;
+  }
+  @media screen and (max-width: 880px) {
     min-width: 1920px;
     height: 100%;
   }
 `;
 export const ParallaxContainer = styled(motion.div)``;
 
-export const BgImage = styled.img`
+export const BgImage = styled.img<{
+  height?: string;
+}>`
   position: relative;
   width: auto;
   height: 100%;
   top: 0;
   left: 0;
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1300px) {
     min-width: 1920px;
-    height: 100%;
+    height: ${({ height }) => (height ? height : "100%")};
   }
 `;
 
@@ -48,10 +54,6 @@ export const TextContainer = styled(motion.div)<{
   l?: string;
   r?: string;
 }>`
-  /* background-image: url(${cloud5}); */
-  /* background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover; */
   background-color: #fff;
   position: absolute;
   top: ${({ t }) => (t ? t : "0")};
@@ -77,7 +79,7 @@ export const GraveContainer = styled(motion.div)<{
 }>`
   position: absolute;
   top: ${({ t }) => (t ? t : "60%")};
-  left: ${({ l }) => (l ? l : "30%")};
+  left: ${({ l }) => (l ? l : "67%")};
   z-index: 20;
 `;
 export const SFrontImage = styled(motion.img)<{
@@ -96,12 +98,6 @@ export const SFrontImage = styled(motion.img)<{
   right: ${({ r }) => (r ? r : "0")};
   z-index: 4;
   will-change: transform;
-
-  @media screen and (max-width: 1000px) {
-    top: ${({ tm }) => (tm ? tm : "0")};
-    left: ${({ lm }) => (lm ? lm : "0")};
-    right: ${({ rm }) => (rm ? rm : "0")};
-  }
 `;
 
 export const FrontImage = styled(motion.img)<{
@@ -111,9 +107,10 @@ export const FrontImage = styled(motion.img)<{
   tm?: string;
   lm?: string;
   rm?: string;
+  width?: string;
 }>`
   position: absolute;
-  width: auto;
+  width: ${({ width }) => (width ? width : "auto")};
   height: 100%;
   top: ${({ t }) => (t ? t : "0")};
   left: ${({ l }) => (l ? l : "0")};
@@ -142,12 +139,10 @@ export const BackImage = styled(motion.img)<{
   l?: string;
   r?: string;
   b?: string;
-  tm?: string;
-  lm?: string;
-  rm?: string;
+  width?: string;
 }>`
   position: absolute;
-  width: auto;
+  width: ${({ width }) => (width ? width : "auto")};
   height: 100%;
   top: ${({ t }) => (t ? t : "0")};
   left: ${({ l }) => (l ? l : "0")};

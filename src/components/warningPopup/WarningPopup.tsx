@@ -23,6 +23,12 @@ const WarningPopup = ({ onClose }: WarningPopupProps) => {
             damping: 5,
           },
         }}
+        exit={{translateY: 40,
+          transition: {
+            type: "spring",
+            stiffness: 80,
+            damping: 5,
+          },}}
       >
         <H2Noto c="#848484">
           This website will display the best performance on PC devices

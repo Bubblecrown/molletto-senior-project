@@ -13,6 +13,7 @@ import github from "../assets/images/social/github.png";
 import facebook from "../assets/images/social/facebook_logo.png";
 import artstation from "../assets/images/social/artstation.png";
 import { CardAnimation } from "../types/CardAnimation";
+import Line from "../assets/images/aboutus/ivy.png";
 
 const skyblue = "#678BDF";
 const pink = "#c47cd4";
@@ -62,8 +63,8 @@ export const AboutMainData: {
   AboutMainDescription:
     "A senior project for apply computer science - multimedia students of King Mongkut’s University of Technology Thonburi",
   MobileDescription: mobile_des,
-  Line: "https://gateway.pinata.cloud/ipfs/QmbjbdqSLsgzCS4pDa7QVsYnpFf28t4c527WbNcRcGkSEf",
-  LineAlt: "Line taped to see members",
+  Line: Line,
+  LineAlt: "Line scroll to see members",
 };
 
 // Member
@@ -91,11 +92,11 @@ export const EachMember: {
       "Ux/Ui Designer",
       "Art Director",
       "UE",
-      "Modeller",
+      "Modeler",
       "Animator",
     ],
     desciption:
-      "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s ",
+      "Creative and detailed-oriented Ux/Ui designer, understanding of both what clients need and what clients do, and Having abilities in using Unreal Engine for creating any scene including lighting for animation, 3D Modelling, and animating an animation. On the other hand, having skills to motivate and manage the team to achieve our goal with quality as well. Moreover, Always self-learning to improve my skills to be ready for work and to be more talented.",
     social: [
       {
         platform: "linkedin",
