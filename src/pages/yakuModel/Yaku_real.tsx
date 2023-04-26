@@ -30,7 +30,7 @@ type GLTFResult = GLTF & {
   };
 };
 
-export function YakuReal(props: JSX.IntrinsicElements["group"]) {
+const YakuReal = (props: JSX.IntrinsicElements["group"]) => {
   const { nodes, materials } = useGLTF("/yaku_real.glb") as GLTFResult;
 
   return (
@@ -122,6 +122,8 @@ export function YakuReal(props: JSX.IntrinsicElements["group"]) {
       </group>
     </group>
   );
-}
+};
 
 useGLTF.preload("/yaku_real.glb");
+// React.memo(
+export default React.memo(YakuReal);

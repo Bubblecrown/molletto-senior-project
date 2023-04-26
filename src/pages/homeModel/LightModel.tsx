@@ -5,7 +5,7 @@ const LightModel = () => {
     <>
       {/* #FD86A4 */}
       <ambientLight intensity={0.4} color={"#222222"} />
-      <fog attach={"fog"} args={["rgba(241, 211, 202, 0.217)", 0.2, 120]} />
+      <fog attach={"fog"} args={["rgba(241, 211, 202, 0.2)", 0.2, 120]} />
       <hemisphereLight
         intensity={0.2}
         color={"#00AAFE"}

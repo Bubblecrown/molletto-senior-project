@@ -3,7 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { Environment, Loader, OrbitControls } from "@react-three/drei";
 import { CanvasContainer } from "../homeModel/HomeStyle";
 
-import { YakuReal } from "./Yaku_real";
+import YakuReal from "./Yaku_real";
 import Footer from "../../components/Footer/Footer";
 import audioFile from "../../assets/sounds/yakuSound.mp3";
 import yakuBg from "../../assets/images/tale/yakuStory/bg_yaku.png";

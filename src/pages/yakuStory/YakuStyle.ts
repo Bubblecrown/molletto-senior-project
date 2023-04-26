@@ -26,7 +26,7 @@ export const BgVideo = styled.video`
   left: 0;
   @media screen and (max-width: 1400px) {
     min-width: 1920px;
-    height: 100%;
+    height: auto;
   }
   @media screen and (max-width: 880px) {
     min-width: 1920px;
@@ -46,6 +46,10 @@ export const BgImage = styled.img<{
   @media screen and (max-width: 1300px) {
     min-width: 1920px;
     height: ${({ height }) => (height ? height : "100%")};
+  }
+  @media screen and (max-width: 880px) {
+    min-width: 1920px;
+    height: 100%;
   }
 `;
 

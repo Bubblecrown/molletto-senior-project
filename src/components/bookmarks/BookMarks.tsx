@@ -15,8 +15,8 @@ const BookMarks = ({ name, nameDescription, meaning }: AfterStoryType) => {
   return (
     <div style={{ cursor: "pointer" }} onClick={() => setIsClicked(!isClicked)}>
       <BookMarksContainer
-        initial={{ translateY: "80vh" }}
-        animate={{ translateY: isClicked ? "10vh" : "80vh" }}
+        initial={{ translateY: "95vh" }}
+        animate={{ translateY: isClicked ? "5vh" : "95vh" }}
       >
         <BookMarkBody>
           <Bookline></Bookline>

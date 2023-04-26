@@ -17,6 +17,7 @@ import {
   TextContainer,
 } from "../yakuStory/YakuStyle";
 import { PennySceneData } from "../../data/pennyStory";
+import React from "react";
 
 const PennyStoryMain = () => {
   const isTablet = useIsMedium();
@@ -73,7 +74,6 @@ const PennyStoryMain = () => {
           <BgImage
             src={PennySceneData.scene_1.bg}
             alt={PennySceneData.scene_1.bgAlt}
-            height="auto"
           />
         </TaleContainer>
         {/* end scene 1 */}
@@ -122,7 +122,6 @@ const PennyStoryMain = () => {
             alt={PennySceneData.scene_2.alt}
           />
           <BgImage
-            height="auto"
             src={PennySceneData.scene_2.bg}
             alt={PennySceneData.scene_2.bgAlt}
           />
@@ -189,7 +188,6 @@ const PennyStoryMain = () => {
             alt={PennySceneData.scene_3.alt}
           />
           <BgImage
-            height="auto"
             src={PennySceneData.scene_3.bg}
             alt={PennySceneData.scene_3.bgAlt}
           />
@@ -240,7 +238,7 @@ const PennyStoryMain = () => {
             alt={PennySceneData.scene_4.alt}
           />
           <BgImage
-            height="auto"
+ 
             src={PennySceneData.scene_4.bg}
             alt={PennySceneData.scene_4.bgAlt}
           />
@@ -290,7 +288,7 @@ const PennyStoryMain = () => {
             alt={PennySceneData.scene_5.alt}
           />
           <BgImage
-            height="auto"
+         
             src={PennySceneData.scene_5.bg}
             alt={PennySceneData.scene_5.bgAlt}
           />
@@ -355,7 +353,7 @@ const PennyStoryMain = () => {
             alt={PennySceneData.scene_6.alt}
           />
           <BgImage
-            height="auto"
+             
             src={PennySceneData.scene_6.bg}
             alt={PennySceneData.scene_6.bgAlt}
           />
@@ -424,7 +422,6 @@ const PennyStoryMain = () => {
             alt={PennySceneData.scene_7.alt}
           />
           <BgImage
-            height="auto"
             src={PennySceneData.scene_7.bg}
             alt={PennySceneData.scene_7.bgAlt}
           />
@@ -505,7 +502,6 @@ const PennyStoryMain = () => {
             alt={PennySceneData.scene_8.alt}
           />
           <BgImage
-            height="auto"
             src={PennySceneData.scene_8.bg}
             alt={PennySceneData.scene_8.bgAlt}
           />
@@ -568,7 +564,7 @@ const PennyStoryMain = () => {
             <PulsingModel />
           </GraveContainer>
           <BgImage
-            height="auto"
+             
             src={PennySceneData.scene_9.bg}
             alt={PennySceneData.scene_9.bgAlt}
           />
@@ -580,4 +576,4 @@ const PennyStoryMain = () => {
   );
 };
 
-export default PennyStoryMain;
+export default React.memo(PennyStoryMain);

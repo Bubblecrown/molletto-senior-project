@@ -64,4 +64,4 @@ const YakuHome = () => {
   );
 };
 
-export default YakuHome;
+export default React.memo(YakuHome);

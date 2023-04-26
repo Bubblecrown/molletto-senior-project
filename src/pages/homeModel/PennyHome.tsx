@@ -58,4 +58,5 @@ const PennyHome = () => {
   );
 };
 
-export default PennyHome;
+export default React.memo(PennyHome);
+

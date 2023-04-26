@@ -55,4 +55,4 @@ const NanaHome = () => {
   );
 };
 
-export default NanaHome;
+export default React.memo(NanaHome);

@@ -116,6 +116,7 @@ export const H1Roboto = styled(motion.h1)<{
   l?: string;
   r?: string;
   t?: string;
+  fs?: string;
 }>`
   font-family: ${roboto};
   font-weight: 800;
@@ -135,7 +136,7 @@ export const H1Roboto = styled(motion.h1)<{
     top: ${({ r }) => (r ? "100%" : "0")};
   }
   @media only screen and (min-width: 1400px) {
-    font-size: 0.8rem;
+    font-size: ${({ fs }) => (fs ? fs : "8rem")};
   }
 `;
 
@@ -244,7 +245,7 @@ export const PNoto = styled.p<{
   width?: string;
 }>`
   font-family: ${santhai};
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 400;
   color: ${({ c }) => (c ? c : "#5a4c4c")};
   margin: ${({ m }) => (m ? m : "0")};

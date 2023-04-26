@@ -18,6 +18,7 @@ import audioFile from "../../assets/sounds/yakuSound.mp3";
 import { useIsMedium, useTablet } from "../../hooks/useMediaQuery";
 import PulsingModel from "../../components/PulsingCircle/PulsingModel";
 import { useNavigate } from "react-router";
+import React from "react";
 
 const YakuStoryMain = () => {
   const isTablet = useIsMedium();
@@ -129,6 +130,7 @@ const YakuStoryMain = () => {
 
           <FrontImage
             l="none"
+            r="-1px"
             src={YakuSceneData.scene_1_2.cl}
             alt={YakuSceneData.scene_1_2.alt}
           />
@@ -1222,4 +1224,4 @@ const YakuStoryMain = () => {
   );
 };
 
-export default YakuStoryMain;
+export default React.memo(YakuStoryMain);

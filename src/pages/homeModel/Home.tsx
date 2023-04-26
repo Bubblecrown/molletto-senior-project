@@ -14,14 +14,14 @@ import { motion } from "framer-motion-3d";
 import DessertPopup from "../../components/DessertPopup/DessertPopup";
 import { DessertData } from "../../data/homeData";
 import PulsingModel from "../../components/PulsingCircle/PulsingModel";
-import YakuHome from "./YakuHome";
 
-export default function Home(props: JSX.IntrinsicElements["group"]) {
+
+const Home = (props: JSX.IntrinsicElements["group"]) => {
   const group = useRef<any>();
 
   const { nodes, materials, animations } = useGLTF(
     "/home.gltf"
-  ) as unknown as GLTFResult;
+  ) as GLTFResult;
   const { actions } = useAnimations<GLTFActions | any>(animations, group);
 
   useEffect(() => {
@@ -3076,3 +3076,4 @@ export default function Home(props: JSX.IntrinsicElements["group"]) {
 }
 
 useGLTF.preload("/home.gltf");
+export default React.memo(Home)

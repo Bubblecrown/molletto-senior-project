@@ -6,8 +6,8 @@ export const BookMarksContainer = styled(motion.div)`
   display: block;
   width: clamp(300px, 40vw, 500px);
   height: auto;
-  min-height: 500px;
-  background-color: #e8e8e8;
+  min-height: 95vh;
+  background-color: #fff;
   position: absolute;
   bottom: 0;
   left: 5%;
