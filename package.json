@@ -19,6 +19,7 @@
     "gsap": "^3.11.4",
     "locomotive-scroll": "^4.1.4",
     "nipplejs": "^0.10.1",
+    "npm-check": "^6.0.1",
     "parallax-controller": "^1.6.0",
     "react": "^18.2.0",
     "react-card-flip": "^1.2.0",

@@ -115,17 +115,17 @@ export const EachMember: {
     profile: dev,
     color: pink,
     memberName: "Suchanya Namwong",
-    responsibility: ["Front-end Developer"],
+    responsibility: ["Front-end Developer", 'Writer'],
     desciption:
       "I'm Front-End Developer currently working on a senior project in web development. I take pride in my ability to create engaging and user-friendly website, utilizing my skills in HTML, CSS, JavaScript, and various front-end frameworks. As I contribute to this significant project, I continuously strive to learn new technologies and best practices to enhance the end product. In my spare time, I love exploring the world of art, diving into captivating books, and constantly working on self-improvement through skill development. Feel free to explore my GitHub repositories to see my progress and other projects I've been working on. I'm always open to feedback and collaboration, so don't hesitate to reach out if you have any questions or suggestions,I'm thankful!, I'm excited to learn and collaborate with others on this journey!",
     social: [
       {
         platform: "linkedin",
-        link: "hhttps://www.linkedin.com/in/suchanya-namwong-0b6929250/",
+        link: "https://www.linkedin.com/in/suchanya-namwong",
       },
       {
         platform: "github",
-        link: "https://translate.google.co.th/?hl=th&sl=en&tl=th&text=%0Aaqua&op=translate",
+        link: "https://github.com/Bubblecrown",
       },
     ],
   },

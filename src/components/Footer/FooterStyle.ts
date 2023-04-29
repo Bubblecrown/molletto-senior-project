@@ -10,7 +10,7 @@ export const IconContainer = styled.footer`
   right: 5%;
 `;
 
-export const SvgNav = styled(motion.div)`
+export const SvgNav = styled.div`
   svg {
     max-width: 2.187em;
   }

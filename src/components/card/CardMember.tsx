@@ -6,16 +6,12 @@ import {
   CardAnimationTablet,
   EachMember,
 } from "../../data/aboutData";
-import { H1Roboto, H3Eng, H4Eng } from "../../GlobalStyle";
+import { H1Roboto, H3Eng } from "../../GlobalStyle";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  Card,
-  CardBack,
   CardContainer,
-  CardFront,
   CardItem,
   CardVideo,
-  FlipCardContainer,
   LinkCard,
   RoleCard,
   TitleContainer,
@@ -23,12 +19,8 @@ import {
 import { setActiveCard } from "../../slices/CardSlice";
 import { RootState } from "../../app/store";
 import { useIsMedium, useIsSmall, useTablet } from "../../hooks/useMediaQuery";
-import ScrollPrompt from "../Prompt/ScrollPrompt";
-import { Await, Link } from "react-router-dom";
 import { useState } from "react";
-import Member from "../../pages/AboutUs/Member";
 import { useAnimationControls } from "framer-motion";
-import ReactCardFlip from "react-card-flip";
 
 const CardMember = () => {
   const dispatch = useDispatch();
@@ -48,13 +40,6 @@ const CardMember = () => {
   }
 
   const animated = useAnimationControls();
-
-  async function sequence(id: any) {
-    await animated.start({ rotate: -90 });
-    await animated.start({ scale: 1.5 });
-    await animated.start({ rotate: 0 });
-    animated.start({ scale: 1 });
-  }
 
   const isSmall = useIsSmall();
   const isTablet = useTablet();
@@ -99,7 +84,6 @@ const CardMember = () => {
             l="0"
             variants={MemberVariants}
             animate="animateMem"
-            // exit="exit"
           >
             {MemberText.member1}
           </H1Roboto>
@@ -109,11 +93,12 @@ const CardMember = () => {
             d="flex"
             variants={MemberVariants}
             animate="animateBers"
-            // exit="exit"
           >
             {MemberText.member2}
           </H1Roboto>
         </TitleContainer>
+
+        {/* Card for each member */}
         <CardItem>
           {CardAnimation.map((animation, index) => (
             <LinkCard
@@ -174,6 +159,7 @@ const CardMember = () => {
                 handleCardClick(animation.id);
               }}
             >
+              {/* Card profile image */}
               <CardVideo
                 src={
                   EachMember.find((member) => member.id === animation.id)
@@ -183,6 +169,9 @@ const CardMember = () => {
                 loop
                 autoPlay
               />
+              {/* end Card profile image */}
+
+              {/* Role of each member */}
               <RoleCard>
                 <H3Eng fw={600}>
                   {
@@ -191,9 +180,11 @@ const CardMember = () => {
                   }
                 </H3Eng>
               </RoleCard>
+              {/* end Role of each member */}
             </LinkCard>
           ))}
         </CardItem>
+        {/* end Card for each member */}
       </CardContainer>
     </>
   );

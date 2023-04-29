@@ -4,22 +4,20 @@ import { GLTFResult } from "../../types/HomeMesh";
 import soundEffect from "../../assets/sounds/effects/knock_door.mp3";
 import { useNavigate } from "react-router";
 import PulsingModel from "../../components/PulsingCircle/PulsingModel";
+import { useSoundEffect } from "../../hooks/useSoundEffect";
 
 const YakuHome = () => {
   const { nodes, materials, animations } = useGLTF(
     "/home.gltf"
   ) as unknown as GLTFResult;
   const navigate = useNavigate();
-  const audioRef = useRef<HTMLAudioElement>(null);
-  const volume = 0.3;
-  const playClickSound = () => {
-    if (audioRef?.current?.paused) {
-      audioRef.current.play();
-      audioRef.current.volume = volume;
-      setTimeout(() => {
-        navigate("/yakuTale");
-      }, 1000);
-    }
+  const { audioRef, playSoundEffect } = useSoundEffect(soundEffect);
+
+  const handleClick = () => {
+    playSoundEffect();
+    setTimeout(() => {
+      navigate("/yakuTale");
+    }, 1000);
   };
   return (
     <>
@@ -28,7 +26,7 @@ const YakuHome = () => {
         rotation={[Math.PI / 2, 0, 0]}
         scale={0.39}
       >
-        <group name="yaku_home_door" onClick={playClickSound}>
+        <group name="yaku_home_door" onClick={handleClick}>
           <mesh
             name="yakupCube6"
             geometry={nodes.yakupCube6.geometry}

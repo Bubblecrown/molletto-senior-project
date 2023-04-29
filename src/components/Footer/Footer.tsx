@@ -40,12 +40,12 @@ const Footer = ({ audio, volumes = 0.3 }: soundType) => {
 
   return (
     <IconContainer>
-      <SvgNav initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
-        {/* audio */}
-        <audio ref={audioRef} muted={isMuted} loop>
+      {/* audio */}
+      <audio ref={audioRef} muted={isMuted} loop>
           <source src={audio} type="audio/mpeg" />
         </audio>
         {/* end audio */}
+      <SvgNav>
 
         {/* svg audio */}
         <svg

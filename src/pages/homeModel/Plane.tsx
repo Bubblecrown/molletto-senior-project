@@ -8,7 +8,7 @@ interface PlaneProps {
   onTouchMove?: (event: any) => void;
 }
 // { onPointerMove, onDoubleClick }: PlaneProps
-const Plane = ({ onPointerMove, onDoubleClick, onTouchMove }: PlaneProps) => {
+const Plane = ({ onPointerMove, onDoubleClick }: PlaneProps) => {
   const { nodes, materials, animations } = useGLTF("/home.gltf") as unknown as GLTFResult;
   const dispatch = useDispatch();
   const setView = (position_plane: Number) =>

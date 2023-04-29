@@ -1,18 +1,10 @@
-import React from "react";
-import { Animator, batch, Sticky } from "react-scroll-motion";
+import { Animator } from "react-scroll-motion";
 import { MoveInPage } from "../../animations/MoveIn";
 import Footer from "../../components/Footer/Footer";
 import { Logo } from "../../components/HeaderLine/HeaderStyle";
 import ScrollPrompt from "../../components/Prompt/ScrollPrompt";
 import { AboutMainData, HeadMember } from "../../data/aboutData";
-import {
-  Container,
-  H2Eng,
-  H3Eng,
-  H4Eng,
-  H5Eng,
-  Section,
-} from "../../GlobalStyle";
+import { Container, H2Eng, H3Eng, H4Eng, H5Eng } from "../../GlobalStyle";
 import { useTablet } from "../../hooks/useMediaQuery";
 import AboutMainMobile from "./AboutMainMobile";
 import {
@@ -41,6 +33,7 @@ const AboutMain = () => {
     <AboutSection>
       <Container>
         <AboutMainContainer>
+          {/* mobile version */}
           {isTablet ? (
             <AboutMainMobile />
           ) : (
@@ -50,6 +43,7 @@ const AboutMain = () => {
                 <AboutDescription>
                   <H5Eng mw="360px">{AboutMainData.aboutDescription}</H5Eng>
                 </AboutDescription>
+
                 <AboutLogo>
                   <Logo
                     src={HeadMember.imgPath}
@@ -57,29 +51,40 @@ const AboutMain = () => {
                     c="#1A1230"
                   ></Logo>
                 </AboutLogo>
+
+                {/* Nav role */}
                 <AboutTitle>
                   {AboutMainData.aboutTitle.map((title) => (
                     <H4Eng key={title}>{title}</H4Eng>
                   ))}
                 </AboutTitle>
+                {/* end nav role */}
               </HeaderAboutMain>
               {/* end Header */}
 
               {/* Body */}
               <BodyAboutMain>
                 <BodyAboutContainer>
+                  {/* about */}
                   <AboutSubTitle>
                     <H2Eng>{AboutMainData.aboutSubTitle}</H2Eng>
                   </AboutSubTitle>
+                  {/* end about */}
+
+                  {/* Logo text */}
                   <AboutMainTitle>
                     <SubLogo
                       src={AboutMainData.LogoImage}
                       alt={AboutMainData.LogoImageAlt}
                     ></SubLogo>
                   </AboutMainTitle>
+                  {/* end Logo text */}
+
+                  {/* Description */}
                   <AboutMainDescription>
                     <H3Eng>{AboutMainData.AboutMainDescription}</H3Eng>
                   </AboutMainDescription>
+                  {/* end Description */}
                 </BodyAboutContainer>
               </BodyAboutMain>
 

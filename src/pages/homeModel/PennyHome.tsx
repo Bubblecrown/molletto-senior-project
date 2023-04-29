@@ -1,26 +1,26 @@
-import { Html, useAnimations, useGLTF } from "@react-three/drei";
+import { Html, useGLTF } from "@react-three/drei";
 import React, { useRef } from "react";
 import { GLTFResult } from "../../types/HomeMesh";
 import soundEffect from "../../assets/sounds/effects/knock_door.mp3";
 import { useNavigate } from "react-router";
 import PulsingModel from "../../components/PulsingCircle/PulsingModel";
+import { useSoundEffect } from "../../hooks/useSoundEffect";
 
 const PennyHome = () => {
   const navigate = useNavigate();
   const { nodes, materials, animations } = useGLTF(
     "/home.gltf"
   ) as unknown as GLTFResult;
-  const audioRef = useRef<HTMLAudioElement>(null);
-  const volume = 0.3;
-  const playClickSound = () => {
-    if (audioRef?.current?.paused) {
-      audioRef.current.play();
-      audioRef.current.volume = volume;
-      setTimeout(() => {
-        navigate("/pennyTale");
-      }, 1000);
-    }
+
+  const { audioRef, playSoundEffect } = useSoundEffect(soundEffect);
+
+  const handleClick = () => {
+    playSoundEffect();
+    setTimeout(() => {
+      navigate("/pennyTale");
+    }, 1000);
   };
+
   return (
     <>
       <group
@@ -28,7 +28,7 @@ const PennyHome = () => {
         rotation={[Math.PI / 2, 0, 0]}
         scale={0.39}
       >
-        <group name="pennie_home_door" onClick={playClickSound}>
+        <group name="pennie_home_door" onClick={handleClick}>
           <mesh
             name="peniepCube43"
             geometry={nodes.peniepCube43.geometry}
@@ -59,4 +59,3 @@ const PennyHome = () => {
 };
 
 export default React.memo(PennyHome);
-

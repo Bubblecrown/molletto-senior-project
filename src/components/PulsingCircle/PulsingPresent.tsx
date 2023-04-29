@@ -12,7 +12,7 @@ const PulsingPresent = ({ name, description }: PulsingModelProps) => {
   const [isClicked, setIsClicked] = useState(false);
   return (
     <div style={{ cursor: "pointer" }} onClick={() => setIsClicked(!isClicked)}>
-      <PulsingBox></PulsingBox>
+      <PulsingBox />
       {isClicked && (
         <motion.div
           initial={{ translateY: -20 }}

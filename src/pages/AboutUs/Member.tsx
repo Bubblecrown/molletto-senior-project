@@ -1,8 +1,5 @@
-import { motion } from "framer-motion";
-import React from "react";
 import { useParams } from "react-router";
-
-import { Card, CardVideo } from "../../components/card/CardStyle";
+import { CardVideo } from "../../components/card/CardStyle";
 import HeaderMember from "../../components/HeaderLine/HeaderMember";
 import { EachMember, SocialLogo } from "../../data/aboutData";
 import { BodyEng, Container, H1Noto, H3Eng, H3Roboto } from "../../GlobalStyle";
@@ -42,12 +39,16 @@ const Member = () => {
       exit={{ opacity: 0, transition: { delay: 1 } }}
     >
       <Container p="0 5%">
+        {/* Nav bar */}
         <HeaderBar h="20%">
           <HeaderMember />
         </HeaderBar>
+        {/* end Nav bar */}
+
         <CardMemberContainer>
           <CardMemberBlock>
             <CardMemberBody>
+              {/* Card of seleced member */}
               <CardSection>
                 <CardMember
                   c={member?.color}
@@ -74,7 +75,10 @@ const Member = () => {
                   <CardVideo src={member?.profile} muted loop autoPlay />
                 </CardMember>
               </CardSection>
+              {/* end Card of seleced member */}
+
               <CardDetail>
+                {/* Role */}
                 <MemberDetailHeader>
                   <H3Roboto d="block">Responsibility</H3Roboto>
                   <H1Noto d="block">{member?.memberName}</H1Noto>
@@ -86,23 +90,36 @@ const Member = () => {
                     ))}
                   </Responsibilities>
                 </MemberDetailHeader>
+                {/* end role */}
+
+                {/* Member's description */}
                 <BodyEng indent="2rem">{member?.desciption}</BodyEng>
+                {/* end Member's description */}
+
+                {/* Social Link */}
                 <SocialLogoContainer>
                   {socialLogos.map((logo) => {
                     const socialMedia = member?.social?.find(
                       (s) => s.platform === logo.socialAlt
                     );
                     return (
-                      <LinkLogo key={logo.socialAlt} href={socialMedia?.link} target="_blank">
+                      <LinkLogo
+                        key={logo.socialAlt}
+                        href={socialMedia?.link}
+                        target="_blank"
+                      >
                         <SocialImg src={logo.socialImg} alt={logo.socialAlt} />
                       </LinkLogo>
                     );
                   })}
                 </SocialLogoContainer>
+                {/* end Social Link */}
               </CardDetail>
             </CardMemberBody>
           </CardMemberBlock>
         </CardMemberContainer>
+
+        {/* Close Button */}
         <CloseBoxContainer>
           <CloseBox
             c={member?.color}
@@ -145,7 +162,7 @@ const Member = () => {
             </CloseContainer>
           </CloseBox>
         </CloseBoxContainer>
-
+        {/* end Close Button */}
       </Container>
     </MemberSection>
   );

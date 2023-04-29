@@ -1,5 +1,4 @@
-import { motion, VariantLabels, Variants } from "framer-motion";
-import React from "react";
+
 import { Prompt } from "../../data/aboutData";
 import { GuildaFont } from "../../GlobalStyle";
 import { useTablet } from "../../hooks/useMediaQuery";

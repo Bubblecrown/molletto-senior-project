@@ -10,9 +10,7 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <GlobalStyles />
-
-
-          <TransitionRoute />
+        <TransitionRoute />
       </BrowserRouter>
     </Provider>
   );

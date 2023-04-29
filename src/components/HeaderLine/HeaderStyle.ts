@@ -15,7 +15,6 @@ export const Logo = styled.img<{
   padding: 0 20px;
   max-width: 120px;
   height: auto;
-  /* background-color: ${({ c }) => (c ? c : "#d9d9d9")}; */
   z-index: ${({ z }) => (z ? z : '0')};
   @media only screen and (max-width: 1100px) {
     padding: 0;

@@ -1,6 +1,5 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { PulsingBox } from "./PulsingStyle";
-import { Route, useNavigate } from "react-router";
 import soundEffect from "../../assets/sounds/effects/knock_door.mp3";
 
 const PulsingModel = () => {
@@ -18,7 +17,7 @@ const PulsingModel = () => {
       <audio ref={audioRef}>
         <source src={soundEffect} type="audio/mpeg" />
       </audio>
-      <PulsingBox></PulsingBox>
+      <PulsingBox />
     </div>
   );
 };

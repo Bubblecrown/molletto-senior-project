@@ -3,11 +3,7 @@ import CardMember from "../../components/card/CardMember";
 import HeaderMember from "../../components/HeaderLine/HeaderMember";
 import { CardTeam, CurtainContainer, CurtainSection, Header, HeaderBar } from "./AboutStyle";
 import { RootState } from "../../app/store";
-import { CircleContainer } from "../../components/PulsingCircle/PulsingStyle";
 import PulsingCircle from "../../components/PulsingCircle/PulsingCircle";
-import { Container, Section } from "../../GlobalStyle";
-import Footer from "../../components/Footer/Footer";
-import audioFile from "../../assets/sounds/aboutus.mp3";
 
 const AboutUs = () => {
   const translateX = useSelector(

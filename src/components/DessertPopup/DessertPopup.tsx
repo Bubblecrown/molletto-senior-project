@@ -18,6 +18,7 @@ const DessertPopup = ({ data }: dessert) => {
 
   return (
     <DessertContainer>
+      {/* dessert image */}
       <DessertContainerImage
         initial={{ translateX: 150 }}
         animate={{
@@ -29,26 +30,37 @@ const DessertPopup = ({ data }: dessert) => {
       >
         <DessertImage src={image} alt={imageAlt} />
       </DessertContainerImage>
+      {/* end dessert image */}
+
+      {/* Text body */}
       <DessertText>
         <DessertTitle>
+          {/* Title */}
           <DessertHeader>
             <H4Noto c="#000">แหล่งกำเนิด ........................</H4Noto>
             <DessertHandwriting>
               <H4Mali c="#B73838">{origin}</H4Mali>
             </DessertHandwriting>
           </DessertHeader>
+          {/* end title */}
+
+          {/* Title */}
           <DessertHeader>
             <H4Noto c="#000">วัตถุดิบหลัก .........................</H4Noto>
             <DessertHandwriting>
               <H4Mali c="#B73838">{ingredient}</H4Mali>
             </DessertHandwriting>
           </DessertHeader>
+          {/* end title */}
+
+          {/* dessert info */}
           <DessertDescription>
             <H1Noto c="#000" fs={1.75}>
               {name}
             </H1Noto>
             <H4Noto c="#000">{des}</H4Noto>
           </DessertDescription>
+          {/* end dessert info */}
         </DessertTitle>
       </DessertText>
     </DessertContainer>
