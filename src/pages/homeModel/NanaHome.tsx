@@ -1,8 +1,6 @@
 import { useGLTF } from "@react-three/drei";
-import React, { useRef } from "react";
+import React from "react";
 import { GLTFResult } from "../../types/HomeMesh";
-import { useNavigate } from "react-router";
-
 const NanaHome = () => {
 
   const { nodes, materials, animations } = useGLTF(

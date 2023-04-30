@@ -1,4 +1,4 @@
-import { Html, useGLTF } from "@react-three/drei";
+import { useGLTF } from "@react-three/drei";
 import { GLTFResult } from "../../types/HomeMesh";
 import { useDispatch } from "react-redux";
 import { setCircleClicked, setPosition } from "../../slices/HomeModel";

@@ -1,7 +1,7 @@
 import { AnimatePresence } from "framer-motion";
-import { Route, Routes, redirect, useLocation } from "react-router";
+import { Route, Routes, useLocation } from "react-router";
 import Member from "./pages/AboutUs/Member";
-import React, { Suspense, useEffect, useMemo, useState } from "react";
+import React, { Suspense} from "react";
 import Loading from "./pages/Loading";
 
 const HomeLazy = React.lazy(() => import("./pages/homeModel/HomeMain"));
@@ -17,14 +17,6 @@ const PennyModelLazy = React.lazy(() => import("./pages/pennyModel/PennyMain"));
 
 const TransitionRoute = () => {
   const location = useLocation();
-  const [showHome, setShowHome] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowHome(true);
-    }, 11000);
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <AnimatePresence>
@@ -81,7 +73,7 @@ const TransitionRoute = () => {
           }
         />
         <Route path="/about/:id" element={<Member />} />
-        {/* <Route path="/yakuTale" element={<YakuStoryMain />} /> */}
+
       </Routes>
     </AnimatePresence>
   );

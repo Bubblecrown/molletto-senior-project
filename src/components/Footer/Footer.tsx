@@ -5,7 +5,7 @@ import audioFile from "../../assets/modern.mp3";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 import { setIsMuted } from "../../slices/soundSlice";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 
 type soundType = {
   audio: any;
@@ -35,18 +35,18 @@ const Footer = ({ audio, volumes = 0.3 }: soundType) => {
       audioRef.current.volume = volume;
     }
   }, [isMuted]);
-  
+
   const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <IconContainer>
       {/* audio */}
       <audio ref={audioRef} muted={isMuted} loop>
-          <source src={audio} type="audio/mpeg" />
-        </audio>
-        {/* end audio */}
+        <source src={audio} type="audio/mpeg" />
+      </audio>
+      {/* end audio */}
       <SvgNav>
-
         {/* svg audio */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -110,7 +110,12 @@ const Footer = ({ audio, volumes = 0.3 }: soundType) => {
           id="Layer_2"
           data-name="Layer 2"
           viewBox="0 0 43.5 43.5"
-          onClick={() => (navigate("/"), window.location.reload())}
+          onClick={() => {
+            navigate("/");
+            if (location.pathname === "/about") {
+              window.location.reload();
+            }
+          }}
         >
           <defs>
             <style>

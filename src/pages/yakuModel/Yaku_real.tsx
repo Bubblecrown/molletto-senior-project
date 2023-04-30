@@ -4,14 +4,9 @@ Command: npx gltfjsx@6.1.4 public\yaku_real.glb --t
 */
 
 import * as THREE from "three";
-import React, { useRef, useState } from "react";
+import React from "react";
 import { Html, useGLTF } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
-
-import YakuPopup from "../../components/DessertPopup/TalePopup";
-import { motion } from "framer-motion-3d";
-import PulsingModel from "../../components/PulsingCircle/PulsingModel";
-import { useHover } from "../../hooks/useHover";
 import PulsingPresent from "../../components/PulsingCircle/PulsingPresent";
 
 type GLTFResult = GLTF & {

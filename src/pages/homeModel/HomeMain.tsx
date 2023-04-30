@@ -9,10 +9,9 @@ import YakuHome from "./YakuHome";
 
 import NanaHome from "./NanaHome";
 import PennyHome from "./PennyHome";
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { CanvasContainer } from "./HomeStyle";
 import homeSound from "../../assets/sounds/homeSound.mp3";
-import WarningPopup from "../../components/warningPopup/WarningPopup";
 
 import { useLocation } from "react-router-dom";
 import { Loader } from "@react-three/drei";

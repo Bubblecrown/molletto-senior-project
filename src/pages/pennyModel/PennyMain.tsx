@@ -1,6 +1,6 @@
 // YakuMain.tsx
 import { Canvas } from "@react-three/fiber";
-import { Environment, Loader, OrbitControls } from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei";
 import { CanvasContainer } from "../homeModel/HomeStyle";
 import PennyModel from "./Pennyweb";
 import pennyBg from "../../assets/images/tale/pennyStory/BG8.jpg";

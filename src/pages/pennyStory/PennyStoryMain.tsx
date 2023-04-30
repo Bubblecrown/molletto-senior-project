@@ -2,7 +2,7 @@ import HorizontalScroll from "react-scroll-horizontal";
 import { PNoto } from "../../GlobalStyle";
 import Footer from "../../components/Footer/Footer";
 import audioFile from "../../assets/sounds/PennySound.mp3";
-import { useIsMedium, useTablet } from "../../hooks/useMediaQuery";
+import { useIsMedium } from "../../hooks/useMediaQuery";
 import PulsingModel from "../../components/PulsingCircle/PulsingModel";
 
 import { useNavigate } from "react-router";

@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
-import ReactCardFlip, { ReactFlipCardProps } from "react-card-flip";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { notosans } from "../../GlobalStyle";
 
 export const CardContainer = styled(motion.div)`
   display: flex;
@@ -99,8 +97,4 @@ export const CardBack = styled(motion.img)<{ c?: string }>`
   max-height: 100%;
   max-width: 100%;
 `;
-export const FlipCardContainer = styled(ReactCardFlip)<{ c?: string }>`
-  position: relative;
-  max-width: 100%;
-  max-height: 100%;
-`;
+
